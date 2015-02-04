@@ -1,0 +1,149 @@
+<% extend '_layouts/_default' %>
+
+<% block 'title': %>
+  至宝のカケラタイマー
+<% end %>
+
+<% block 'style': %>
+  <link rel="stylesheet" type="text/css" href="<%= @asset('css/treasure-fragment-timer.css') %>">
+<% end %>
+
+<% block 'script': %>
+  <script src="<%= @asset('js/treasure-fragment-timer.js') %>"></script>
+<% end %>
+
+<form class="form" action="#">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <label class="control-label">現在の至宝のカケラ</label>
+        <input class="form-control input-lg" type="text" name="current" ime-mode="inactive" title="マウスホイールで+/-" />
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <label class="control-label">目標</label>
+        <!-- target -->
+        <select name="objective" class="form-control input-lg"></select>
+        <!-- /target -->
+
+        <!-- exchange -->
+        <!--
+        <div class="input-group input-group-lg">
+          <span class="input-group-btn">
+            <button class="btn btn-default" name="reset" type="button">
+              <i class="fa fa-arrow-down"></i>0
+            </button>
+          </span>
+          <input type="text" name="objective" value="300" class="form-control" ime-mode="inactive" />
+          <span class="input-group-btn" id="increse_objective_list">
+          </span>
+        </div>
+        -->
+        <!-- /exchange -->
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label">イベント期間</label>
+    <div id="period_dates" class="progress">
+    </div>
+    <div id="period_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div id="objective_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div id="estimate">
+      <span class="pointer">
+        <span class="pointer-label">
+          このペースなら<br />
+          <strong id="estimate_num">0</strong> 個集まるわ
+        </span>
+      </span>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-xs-5 col-sm-3">
+    <section id="rewards">
+      <table class="table table-condenced">
+        <thead>
+          <tr>
+            <th class="text-right">収集数</th>
+            <th>追加報酬</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <!--
+  <div class="col-xs-5 col-sm-3">
+      <section id="prize_list">
+      </section>
+  </div>
+  -->
+  <div class="col-xs-7 col-sm-9">
+    <section class="row">
+      <div class="col-sm-12">
+        <div class="norma">
+          <span class="norma-label">1日当たりのノルマ</span>
+          <span class="badge">残り<span id="remains_days"></span>日</span>
+          <span class="norma-amount"><span id="norma_per_day"></span><span class="norma-unit">個</span></span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="norma norma-per-hour">
+          <span class="norma-label">1時間当たりのノルマ</span>
+          <span class="badge">残り<span id="remains_hours"></span>時間</span>
+          <span class="norma-amount"><span id="norma_per_hour"></span><span class="norma-unit">個</span></span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="norma norma-per-minute">
+          <span class="norma-label">30分当たりのノルマ</span>
+          <span class="badge">残り<span id="remains_minutes"></span>分</span>
+          <span class="norma-amount"><span id="norma_per_minute"></span><span class="norma-unit">個</span></span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section id="map">
+  <table class="table table-condenced table-striped">
+    <thead>
+      <tr>
+        <th>MAP</th>
+        <th>カリスタ</th>
+        <th class="drops" colspan="3">ドロップ</th>
+        <th>
+          <select name="expectation" class="form-control input-sm">
+            <option value="drop">謎の期待値 1周</option>
+            <option value="charisma">カリスマ1当たり</option>
+            <option value="stamina">スタミナ1当たり</option>
+          </select>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</section>
+
+<div class="textar-aa">
+　　　　　　　　　　　　 　 (~)<br />
+　　　　　　　　　 　 　 γ&acute;⌒｀ヽ<br />
+　　　＿＿＿＿ 　 　 {i:i:i:i:i:i:i:i:}<br />
+　　　|[100ﾊﾟﾘﾝ]|＼　（　&acute;・ω・）<br />
+　　　|￣￣￣￣| 　|　（:::::::::：:::）<br />
+　　　|＿＿＿＿l.／￣￣￣￣￣■／|　　 lヽ,,lヽ<br />
+　　　|￣￣￣￣￣￣￣￣￣￣￣|.　 | 　(ω･　　)　例のタートルネック<br />
+　　　|　　.　　　　　　　　 　 　 　 　 |.　  |　　し　　 i　　　　 ください！<br />
+　　　|＿＿＿＿＿＿＿＿＿＿＿|.／　　　しーJ
+</div>

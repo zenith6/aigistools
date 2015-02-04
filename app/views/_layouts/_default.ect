@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><% content 'title' %> | <% @config.app.name %></title>
+
+    <% include '_parts/_styles.ect' %>
+    <% content 'style' %>
+  </head>
+
+  <body>
+    <div id="header" class="header">
+      <% include '_parts/_header.ect' %>
+    </div>
+
+    <div id="content" class="container">
+      <% content %>
+    </div>
+
+    <footer id="footer" class="footer">
+      <% include '_parts/_footer.ect' %>
+    </footer>
+
+    <% include '_parts/_scripts.ect' %>
+    <% content 'script' %>
+    <% include '_parts/_tracker.ect' %>
+  </body>
+</html>

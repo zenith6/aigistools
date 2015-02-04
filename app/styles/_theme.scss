@@ -1,0 +1,114 @@
+$navbar-border-radius: 0;
+
+.footer {
+  background-color: #181818;
+  color: white;
+  font-size: 14px;
+  padding: 1em;
+  line-height: 2;
+
+  aside {
+    margin-bottom: 60px;
+  }
+
+  h1 {
+    color: #888;
+  }
+
+  ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 2.2;
+  }
+
+  a {
+    color: #ccc;
+    border-bottom: 1px solid transparent;
+    transition: border-color 500ms;
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      border-color: #fff;
+      transition: border-color 100ms;
+    }
+  }
+
+  .author address {
+    font-size: 24px;
+
+    & > .name {
+      font-size: 20px;
+      margin-right: 20px;
+      line-height: 32px;
+    }
+
+    a {
+      font-size: 32px;
+      margin-left: 8px;
+      border: none;
+      transition: transform 200ms;
+
+      &:hover {
+        transform: rotateX(360deg);
+        transition: transform 500ms;
+      }
+    }
+  }
+}
+
+
+// メンテナンス画面
+.maintenance {
+  text-align: center;
+}
+
+
+// Fork on me GitHub
+@media (min-width: $screen-sm-min) {
+  .github-ribbon {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+
+    a {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      border: 0;
+    }
+  }
+}
+
+
+.github-ribbon {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+
+  a {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border: 0;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .github-ribbon {
+    display: none;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "aigistools",
+  "version": "1.0.0",
+  "description": "Tools for Aegis Thousand Year War",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Seiji Nitta <zenith6@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.3",
+    "bootswatch": "^3.3.2",
+    "font-awesome": "^4.3.0",
+    "jquery": "^2.1.3"
+  },
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "del": "^1.1.1",
+    "ect": "^0.5.9",
+    "event-stream": "^3.2.2",
+    "expose-loader": "^0.6.0",
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-env": "^0.2.0",
+    "gulp-gh-pages": "^0.4.0",
+    "gulp-if": "^1.2.5",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^1.3.2",
+    "gulp-util": "^3.0.3",
+    "gulp-webserver": "^0.9.0",
+    "merge": "^1.2.0",
+    "node-sass": "^2.0.0-beta",
+    "run-sequence": "^1.0.2",
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.7.0",
+    "yargs": "^1.3.3"
+  }
+}

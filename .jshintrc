@@ -1,0 +1,14 @@
+{
+  "node" : true,
+  "es5" : true,
+  "browser" : true,
+  "indent": 2,
+  "quotmark": "single",
+  "sub": true,
+  "undef": true,
+  "unused": true,
+  "predef": {
+    "describe": true,
+    "it": true
+  }
+}

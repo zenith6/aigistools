@@ -1,0 +1,19 @@
+{
+  "name": "aigistools",
+  "version": "1.0.0",
+  "authors": [
+    "Seiji Nitta <zenith6@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-touchspin": "~3.0.1",
+    "jquery-cookie": "~1.4.1"
+  }
+}
