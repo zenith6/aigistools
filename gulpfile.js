@@ -84,7 +84,7 @@ gulp.task('resource', function () {
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset)));
 
   var fonts = gulp.src([
-    path.join(root, 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'),
+    path.join(root, 'node_modules/bootstrap-sass/assets/fonts/**/*'),
     path.join(root, 'node_modules/font-awesome/fonts/*'),
   ]).pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'fonts')));
 

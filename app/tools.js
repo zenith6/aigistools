@@ -6,6 +6,10 @@ module.exports = [
     path: 'carrie',
   },
   {
+    name: 'ダメージビジュアライザー',
+    path: 'visualizer',
+  },
+  {
     name: '至宝のカケラタイマー',
     path: 'treasure-fragment-timer',
   },

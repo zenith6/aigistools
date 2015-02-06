@@ -1,5 +1,8 @@
-// @import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "bootswatch/cosmo/variables";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
+// @import "bootswatch/cosmo/variables";
 @import "theme";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
-@import "bootswatch/cosmo/bootswatch";
+// @import "bootswatch/cosmo/bootswatch";
+
+// select2
+@import "select2-bootstrap-css/compass/stylesheets/select2-bootstrap";

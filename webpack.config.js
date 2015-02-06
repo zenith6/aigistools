@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     common: [
       'jquery',
-      'bootstrap-touchspin',
+      'jquery-ui',
       'jquery-minicolors',
       'bootstrap',
       'bootstrap-touchspin',
@@ -17,6 +17,7 @@ module.exports = {
     ],
     'treasure-fragment-timer': path.join(config.script.path, 'treasure-fragment-timer/index.js'),
     'carrie': path.join(config.script.path, 'carrie/index.js'),
+    'visualizer': path.join(config.script.path, 'visualizer/index.js'),
   },
   output: {
     path: path.join(config.server.root, config.server.asset, 'js'),
