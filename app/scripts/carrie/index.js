@@ -227,14 +227,14 @@ function update() {
     template       : template,
     message        : $('textarea[name=message]').val(),
     scale          : parseFloat($('[name=scale]:input').val()),
-    backgroundColor: $('input[name=backgroundColor]').minicolors('rgbaString'),
-    foregroundColor: $('input[name=foregroundColor]').minicolors('rgbaString'),
+    backgroundColor: $('input[name=backgroundColor]').val(),
+    foregroundColor: $('input[name=foregroundColor]').val(),
     fontSize       : $('select[name=fontSize]').val(),
     fontFamily     : $('select[name=fontFamily]').val(),
     outline        : !!parseInt($('input[name=outline]:checked').val()),
-    outlineColor   : $('input[name=outlineColor]').minicolors('rgbaString'),
+    outlineColor   : $('input[name=outlineColor]').val(),
     shadow         : !!parseInt($('input[name=shadow]:checked').val()),
-    shadowColor    : $('input[name=shadowColor]').minicolors('rgbaString'),
+    shadowColor    : $('input[name=shadowColor]').val(),
     effects        : effects
   };
 
@@ -291,7 +291,7 @@ function update() {
     '&c=' + encodeURIComponent(options.scale) +
     '&s=' + encodeURIComponent(options.fontSize) +
     '&e=' + encodeURIComponent(effects.map(function (effect) { return effect.id; }).join(',')) +
-    '&l=' + encodeURIComponent(options.outline ? 1 : 0) +
+    '&o=' + encodeURIComponent(options.outline ? 1 : 0) +
     '&u=' + encodeURIComponent(options.outlineColor) +
     '&h=' + encodeURIComponent(options.shadow ? 1 : 0) +
     '&d=' + encodeURIComponent(options.shadowColor) +
@@ -526,9 +526,9 @@ function initialize() {
   $('input[name=shadow]').prop('checked', !!parseInt(defaults.h));
   $('input[name=shadowColor]').minicolors('value', defaults.d);
 
-  defaults.e.split('').forEach(function (id) {
+  defaults.e.split(',').forEach(function (id) {
     if (id in effects) {
-      $('[name=effect]').find('[value=' + id + ']').prop('checked', true);
+      $('[name=effect][value=' + id + ']').prop('checked', true);
     }
   });
 
