@@ -7,12 +7,12 @@ webpackJsonp([1],[
 	__webpack_require__(1);
 	__webpack_require__(3);
 
-	var loadImage  = __webpack_require__(6);
-	var components = __webpack_require__(7);
-	var commands   = __webpack_require__(8);
-	var effects    = __webpack_require__(9);
+	var loadImage  = __webpack_require__(7);
+	var components = __webpack_require__(8);
+	var commands   = __webpack_require__(9);
+	var effects    = __webpack_require__(10);
 
-	var templates = __webpack_require__(11)
+	var templates = __webpack_require__(12)
 	  .reduce(function (templates, template) {
 	    templates[template.id] = template;
 	    return templates;
@@ -566,7 +566,8 @@ webpackJsonp([1],[
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -587,7 +588,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1240,7 +1241,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1254,12 +1255,12 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var components = __webpack_require__(7);
+	var components = __webpack_require__(8);
 
 	module.exports = {
 	  flame: {
@@ -1394,8 +1395,8 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 10 */,
-/* 11 */
+/* 11 */,
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = [
