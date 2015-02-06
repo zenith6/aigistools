@@ -9,11 +9,14 @@ module.exports = {
   entry: {
     common: [
       'jquery',
-      'jquery.cookie',
+      'bootstrap-touchspin',
+      'jquery-minicolors',
       'bootstrap',
       'bootstrap-touchspin',
+      'ionrangeslider',
     ],
     'treasure-fragment-timer': path.join(config.script.path, 'treasure-fragment-timer/index.js'),
+    'carrie': path.join(config.script.path, 'carrie/index.js'),
   },
   output: {
     path: path.join(config.server.root, config.server.asset, 'js'),
@@ -29,6 +32,8 @@ module.exports = {
     alias: {
       'bootstrap-touchspin': 'bootstrap-touchspin/src/jquery.bootstrap-touchspin.js',
       'jquery.cookie': 'jquery-cookie/jquery.cookie.js',
+      'jquery-minicolors': 'jquery-minicolors/jquery.minicolors.js',
+      'ionrangeslider': 'ionrangeslider/js/ion.rangeslider.js',
     },
   },
   plugins: [

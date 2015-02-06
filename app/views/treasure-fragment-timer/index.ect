@@ -5,11 +5,16 @@
 <% end %>
 
 <% block 'style': %>
+  <link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
   <link rel="stylesheet" type="text/css" href="<%= @asset('css/treasure-fragment-timer.css') %>">
 <% end %>
 
 <% block 'script': %>
   <script src="<%= @asset('js/treasure-fragment-timer.js') %>"></script>
+<% end %>
+
+<% block 'copyright': %>
+  <li><a href="http://green.zero.jp/greentea/">クロリスGIFは <strong>建設中の茶柱</strong> さんからお借りしました。</a></li>
 <% end %>
 
 <form class="form" action="#">

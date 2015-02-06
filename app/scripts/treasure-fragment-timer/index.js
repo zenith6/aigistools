@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('jquery');
+require('jquery.cookie');
 
 // [begin...end)
 var periods = [

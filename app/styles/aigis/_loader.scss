@@ -1,0 +1,54 @@
+$loaderSpinnerWidth: 79px !default;
+$loaderSpinnerHeight: 79px !default;
+
+.loader {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100000;
+  overflow: hidden;
+  transition: opacity 200ms;
+
+  .loader-title {
+    display: block;
+    width: auto;
+    position: relative;
+    top: 50%;
+    margin: 0 auto 0;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 10px royalblue;
+  }
+
+  .loader-spinner {
+    display: block;
+    width: 100%;
+    height: $loaderSpinnerHeight;
+    position: relative;
+    top: 45%;
+    margin-top: -$loaderSpinnerHeight;
+    background-image: url('http://i.imgur.com/zm8y0wW.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: relative;
+      top: $loaderSpinnerHeight;
+      background-color: #d14;
+      animation: loader-spinner 1800ms ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes loader-spinner {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}

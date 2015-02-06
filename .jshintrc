@@ -2,6 +2,7 @@
   "node" : true,
   "es5" : true,
   "browser" : true,
+  "jquery": true,
   "indent": 2,
   "quotmark": "single",
   "sub": true,

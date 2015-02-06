@@ -68,6 +68,9 @@ gulp.task('style:update-vendor', function () {
   return gulp.src([
       path.join(root, 'node_modules/select2/select2.css'),
       path.join(root, 'node_modules/select2/select2-bootstrap.css'),
+      path.join(root, 'bower_components/jquery-minicolors/jquery.minicolors.css'),
+      path.join(root, 'bower_components/ionrangeslider/css/*.css'),
+      '!' + path.join(root, 'bower_components/ionrangeslider/css/normalize.css'),
     ]).pipe($.rename({
       prefix: '_',
       extname: '.scss'
@@ -81,7 +84,7 @@ gulp.task('resource', function () {
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset)));
 
   var fonts = gulp.src([
-    path.join(root, 'node_modules/bootstrap-sass/assets/fonts/**/*'),
+    path.join(root, 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'),
     path.join(root, 'node_modules/font-awesome/fonts/*'),
   ]).pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'fonts')));
 

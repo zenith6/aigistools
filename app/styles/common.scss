@@ -4,9 +4,9 @@
 // aigis
 @import "aigis";
 
-// theme
-// @import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "bootswatch/Cyborg/variables";
-@import "theme";
-@import "bootstrap-sass/assets/stylesheets/bootstrap";
-@import "bootswatch/Cyborg/bootswatch";
+// jquery.minicolors
+@import "vendor/jquery.minicolors";
+
+// ion.rangeslider
+@import "vendor/ion.rangeslider";
+@import "vendor/ion.rangeSlider.skinHTML5";
