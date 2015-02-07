@@ -23,6 +23,7 @@ webpackJsonp([0],{
 	var cookieName = 'treasure-fragment-timer';
 
 	var objectives = {
+	  '25': 'エーテルが仲間になる',
 	  '50': 'リアナが仲間になる',
 	  '100': '初期レベル10',
 	  '200': '初期レベル20',
@@ -50,7 +51,7 @@ webpackJsonp([0],{
 	    name: '大魔行列',
 	    charisma: 50,
 	    stamina: 7,
-	    expectation: 0,
+	    expectation: 11,
 	    drops: [
 	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
 	      {name: 'カケラ1', icon: 'treasure-fragment-1'},
