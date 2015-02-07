@@ -83,12 +83,18 @@ gulp.task('resource', function () {
   ])
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset)));
 
+  var select2 = gulp.src([
+    './node_modules/select2/*.{png,gif}',
+  ])
+  .pipe(gulp.dest('public/assets/css'));
+
   var fonts = gulp.src([
     path.join(root, 'node_modules/bootstrap-sass/assets/fonts/**/*'),
     path.join(root, 'node_modules/font-awesome/fonts/*'),
-  ]).pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'fonts')));
+  ])
+  .pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'fonts')));
 
-  return mergeStream(resources, fonts);
+  return mergeStream(resources, select2, fonts);
 });
 
 gulp.task('view', function () {
