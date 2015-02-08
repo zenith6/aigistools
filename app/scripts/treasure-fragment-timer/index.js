@@ -58,7 +58,7 @@ var maps = [
     name: '凶魔の巣窟',
     charisma: 40,
     stamina: 4,
-    expectation: 0,
+    expectation: 5,
     drops: [
       {name: 'カケラ3', icon: 'treasure-fragment-3'},
       {name: 'カケラ1', icon: 'treasure-fragment-1', set: 2},
@@ -70,7 +70,7 @@ var maps = [
     name: '魔物の奇襲',
     charisma: 35,
     stamina: 2,
-    expectation: 0,
+    expectation: 2,
     drops: [
       {name: 'カケラ1', icon: 'treasure-fragment-1', set: 2},
       {name: 'ダニエラ', icon: 'daniela'},
