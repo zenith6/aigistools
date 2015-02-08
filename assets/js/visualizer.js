@@ -1732,7 +1732,7 @@ webpackJsonp([3],{
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(jQuery, $) {$ = jQuery = __webpack_require__(4);
-	module.exports = __webpack_require__(28);
+	module.exports = __webpack_require__(29);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(4)))
 
 /***/ },
@@ -1745,7 +1745,7 @@ webpackJsonp([3],{
 
 	// 'use strict';
 
-	var formatTime = __webpack_require__(29);
+	var formatTime = __webpack_require__(28);
 
 	this.Aigis = {
 	  settings: {
@@ -4647,6 +4647,20 @@ webpackJsonp([3],{
 /***/ },
 
 /***/ 28:
+/***/ function(module, exports, __webpack_require__) {
+
+	function formatTime(time, scale) {
+	  scale = scale === undefined ? 2 : scale;
+	  time = (time === Infinity || time === -Infinity) ? '∞' : (time / 1000).toFixed(scale);
+	  return time + '秒';
+	}
+
+	module.exports = formatTime;
+
+
+/***/ },
+
+/***/ 29:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(jQuery) {/*
@@ -8192,20 +8206,6 @@ webpackJsonp([3],{
 	}(jQuery));
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-
-/***/ 29:
-/***/ function(module, exports, __webpack_require__) {
-
-	function formatTime(time, scale) {
-	  scale = scale === undefined ? 2 : scale;
-	  time = (time === Infinity || time === -Infinity) ? '∞' : (time / 1000).toFixed(scale);
-	  return time + '秒';
-	}
-
-	module.exports = formatTime;
-
 
 /***/ }
 
