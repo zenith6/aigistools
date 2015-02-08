@@ -2,6 +2,7 @@
 
 var gulp        = require('gulp');
 var $           = require('gulp-load-plugins')({camelize: true});
+var requireDir  = require('require-dir');
 var ect         = require('gulp-ect-simple');
 var deploy      = require('gulp-gh-pages');
 var path        = require('path');
@@ -10,6 +11,8 @@ var merge       = require('merge');
 var runSequence = require('run-sequence');
 var fs          = require('fs');
 var mergeStream = require('event-stream').merge;
+
+requireDir('./tasks', {recurse: true});
 
 function loadConfig() {
   var config = require('./app/config');

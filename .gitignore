@@ -9,3 +9,4 @@
 /public
 /.env*
 /.ghpages
+/app/resources/thumbnails

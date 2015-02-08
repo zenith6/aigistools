@@ -1,8 +1,8 @@
 <% extend '_layouts/_default' %>
 
-<% block 'title': %>
-  ダメージビジュアライザー
-<% end %>
+<% @name = undefined %>
+<% @description = '千年戦争アイギスのユニットの性能を視覚化するツールです。' %>
+<% @path = 'visualizer/' %>
 
 <% block 'style': %>
   <link rel="stylesheet" href="<%= @asset('css/light.css') %>" />

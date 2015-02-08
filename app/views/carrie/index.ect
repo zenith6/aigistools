@@ -1,8 +1,8 @@
 <% extend '_layouts/_default' %>
 
-<% block 'title': %>
-  キャリーさんもそう思うジェネレーター
-<% end %>
+<% @name = 'キャリーさんもそう思うジェネレーター' %>
+<% @description = '千年戦争アイギスのキャラクターでメッセージボードを作成します。' %>
+<% @path = 'carrie/' %>
 
 <% block 'style': %>
   <link rel="stylesheet" href="<%= @asset('css/light.css') %>" />
