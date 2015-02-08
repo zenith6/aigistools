@@ -7,7 +7,7 @@
 <meta name="description" content="<%= @description %>">
 <meta name="author" content="<%= @config.app.author %>">
 
-<meta property="og:title" content="<%= @title %>" />
+<meta property="og:title" content="<% if @name: %><%= @name %><% else: %><%= @config.app.name %><% end %>" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="<%= @description %>" />
 <meta property="og:image" content="<%= @asset(@config.server.thumbnail + @path + 'index.png', {absolute: true}) %>" />
