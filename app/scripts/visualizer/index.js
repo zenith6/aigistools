@@ -275,9 +275,7 @@ function initialize() {
   }).trigger('change');
 
   $('#unitList tbody')
-    .sortable({
-    })
-    .disableSelection();
+    .sortable({});
 }
 
 function formatTime(time, scale) {
