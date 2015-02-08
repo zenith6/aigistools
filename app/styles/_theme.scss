@@ -67,6 +67,7 @@ $navbar-border-radius: 0;
 
 // メンテナンス画面
 .maintenance {
+  margin: 60px 0;
   text-align: center;
 }
 
@@ -90,7 +91,6 @@ $navbar-border-radius: 0;
   }
 }
 
-
 .github-ribbon {
   width: 120px;
   height: 120px;
@@ -110,5 +110,74 @@ $navbar-border-radius: 0;
 @media (max-width: $screen-sm-min) {
   .github-ribbon {
     display: none;
+  }
+}
+
+
+// ツール一覧
+.tool-list {
+  & > ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    & > li {
+      display: block;
+      width: 100%;
+      height: 100px;
+      margin: 0 0 20px 0;
+      position: relative;
+
+      & > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 0px 4px #888;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.8);
+        font-size: 32px;
+        line-height: 100px;
+        color: #ccc;
+        text-shadow: 0 0 2px #fff;
+        text-align: center;
+        text-decoration: none;
+        transition: all 500ms;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #fff;
+          text-shadow: 0 0 4px #000;
+        }
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+
+      &.tool-item-carrie:before {
+        background-image: url('../thumbnails/carrie/index.png');
+      }
+
+      &.tool-item-visualizer:before {
+        background-image: url('../thumbnails/visualizer/index.png');
+      }
+
+      &.tool-item-treasure-fragment-timer:before {
+        background-image: url('../thumbnails/treasure-fragment-timer/index.png');
+      }
+
+      &.tool-item-rita:before {
+        background-image: url('../rita.png');
+        background-position: left center;
+      }
+    }
   }
 }

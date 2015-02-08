@@ -8,7 +8,14 @@
   <link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
 <% end %>
 
-<h1>トップページ</h1>
+<nav class="tool-list">
+  <ul>
+    <li class="tool-item-carrie"><a href="<%= @url('carrie/') %>">キャリーさんもそう思う</a></li>
+    <li class="tool-item-visualizer"><a href="<%= @url('visualizer/') %>">ダメージビジュアライザー</a></li>
+    <li class="tool-item-treasure-fragment-timer"><a href="<%= @url('treasure-fragment-timer/') %>">至宝のカケラタイマー</a></li>
+    <li class="tool-item-rita"><a href="<%= @url('https://chrome.google.com/webstore/detail/ememknmjckfbganihedbodegbdddlhhl') %>">漆黒の射手リタさんがチラチラ見てくる</a></li>
+  </ul>
+</nav>
 
 <div class="maintenance">
   <img src="<%= @asset('maintenance.png') %>">
