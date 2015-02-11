@@ -2,25 +2,30 @@
 
 var webpack = require('webpack');
 var path = require('path');
+var fs = require('fs');
 var config = require('./app/config');
 var root = __dirname;
 
+var entry = {
+  common: [
+    'jquery',
+    'jquery-ui',
+    'jquery-minicolors',
+    'jquery.cookie',
+    'bootstrap',
+    'bootstrap-touchspin',
+    'ionrangeslider',
+    'select2',
+  ],
+};
+
+entry = fs.readdirSync(config.script.path).reduce(function (entry, pathname) {
+  entry[pathname] = path.join(config.script.path, pathname, 'index.js');
+  return entry;
+}, entry);
+
 module.exports = {
-  entry: {
-    common: [
-      'jquery',
-      'jquery-ui',
-      'jquery-minicolors',
-      'jquery.cookie',
-      'bootstrap',
-      'bootstrap-touchspin',
-      'ionrangeslider',
-      'select2',
-    ],
-    'treasure-fragment-timer': path.join(config.script.path, 'treasure-fragment-timer/index.js'),
-    'carrie': path.join(config.script.path, 'carrie/index.js'),
-    'visualizer': path.join(config.script.path, 'visualizer/index.js'),
-  },
+  entry: entry,
   output: {
     path: path.join(config.server.root, config.server.asset, 'js'),
     filename: '[name].js',
