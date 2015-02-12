@@ -43,6 +43,54 @@ var prizes = [
 
 var maps = [
   {
+    name: '強魔',
+    charisma: 90,
+    stamina: 12,
+    expectation: 22,
+    drops: [
+      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 3},
+      {name: 'カケラ3', icon: 'treasure-fragment-3', set: 2},
+      {name: 'カケラ1', icon: 'treasure-fragment-1'},
+      {name: '虹精霊', icon: 'rainbow-sprit'}
+    ]
+  },
+  {
+    name: '魔獣',
+    charisma: 70,
+    stamina: 8,
+    expectation: 13,
+    drops: [
+      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
+      {name: 'カケラ3', icon: 'treasure-fragment-3'},
+      {name: 'カリオペ', icon: 'calliope'},
+      {name: 'ルビー', icon: 'ruby', set: 2}
+    ]
+  },
+  {
+    name: '冒険者',
+    charisma: 40,
+    stamina: 5,
+    expectation: 7,
+    drops: [
+      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
+      {name: 'カケラ1', icon: 'treasure-fragment-1'},
+      {name: 'サノスケ', icon: 'sanosuke'},
+      {name: '魔水晶1', icon: 'magical-crystal-1'}
+    ]
+  },
+  {
+    name: '触手',
+    charisma: 35,
+    stamina: 3,
+    expectation: 4,
+    drops: [
+      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
+      {name: 'カケラ1', icon: 'treasure-fragment-1'},
+      {name: 'バラッド', icon: 'barrad'},
+      {name: '金精霊', icon: 'gold-sprit'}
+    ]
+  },
+  {
     name: '大魔行列',
     charisma: 50,
     stamina: 7,
@@ -81,7 +129,7 @@ var maps = [
     name: '至宝のカケラ',
     charisma: 20,
     stamina: 1,
-    expectation: 0,
+    expectation: 1,
     drops: [
       {name: 'カケラ1', icon: 'treasure-fragment-1'}
     ]
