@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8">
 
-<title>千年戦争アイギスツール</title>
+<title>兵舎番 | 千年戦争アイギスツール</title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="千年戦争アイギス用のツールを公開しています。">
+<meta name="description" content="漆黒の射手リタを操り兵舎の平和を保つブラウザーゲームです。">
 <meta name="author" content="Seiji Nitta">
 
-<meta property="og:title" content="千年戦争アイギスツール" />
+<meta property="og:title" content="兵舎番" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="千年戦争アイギス用のツールを公開しています。" />
-<meta property="og:image" content="https://zenith6.github.io/aigistools/assets/thumbnails/index.png" />
-<meta property="og:url" content="https://zenith6.github.io/aigistools/" />
+<meta property="og:description" content="漆黒の射手リタを操り兵舎の平和を保つブラウザーゲームです。" />
+<meta property="og:image" content="https://zenith6.github.io/aigistools/assets/thumbnails/ritahouse/index.png" />
+<meta property="og:url" content="https://zenith6.github.io/aigistools/ritahouse/" />
 <meta property="og:site_name" content="千年戦争アイギスツール" />
     <!--[if lt IE 9]>
   <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -23,6 +23,7 @@
 
 <link rel="stylesheet" type="text/css" href="/aigistools/assets/css/common.css">
       <link rel="stylesheet" href="/aigistools/assets/css/dark.css" />
+  <link rel="stylesheet" type="text/css" href="/aigistools/assets/css/ritahouse.css">
   </head>
 
   <body>
@@ -68,17 +69,8 @@
 
 
 
-<nav class="tool-list">
-  <ul>
-    <li class="tool-item-carrie"><a href="/aigistools/carrie/">キャリーさんもそう思う</a></li>
-    <li class="tool-item-visualizer"><a href="/aigistools/visualizer/">ダメージビジュアライザー</a></li>
-    <li class="tool-item-treasure-fragment-timer"><a href="/aigistools/treasure-fragment-timer/">至宝のカケラタイマー</a></li>
-    <li class="tool-item-rita"><a href="https://chrome.google.com/webstore/detail/ememknmjckfbganihedbodegbdddlhhl">漆黒の射手リタさんがチラチラ見てくる</a></li>
-  </ul>
-</nav>
 
-<div class="maintenance">
-  <img src="/aigistools/assets/maintenance.png">
+<div id="game">
 </div>
     </div>
 
@@ -88,7 +80,7 @@
     <aside class="copyright">
       <h1>Copyright</h1>
       <ul>
-          <li><a href="#">メメンテナンスちゃんおよびリタちゃんの画像はぴんくちゃんねるのアイギススレに投稿された物を使用しています。</a></li>
+          <li><a href="">キャラクター画像は <strong>建設中の茶柱</strong> さんからお借りしています。</a></li>
       </ul>
     </aside>
 
@@ -142,7 +134,8 @@
 
     <script src="/aigistools/assets/js/common.js"></script>
 <script src="//font.textar.tv/webfont.js"></script>
-          <script>
+      <script src="/aigistools/assets/js/ritahouse.js"></script>
+      <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

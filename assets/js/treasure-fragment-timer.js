@@ -1,11 +1,10 @@
-webpackJsonp([0],{
-
-/***/ 0:
+webpackJsonp([1],[
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	__webpack_require__(11);
+	__webpack_require__(2);
 
 	// [begin...end)
 	var periods = [
@@ -48,6 +47,54 @@ webpackJsonp([0],{
 
 	var maps = [
 	  {
+	    name: '強魔',
+	    charisma: 90,
+	    stamina: 12,
+	    expectation: 22,
+	    drops: [
+	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 3},
+	      {name: 'カケラ3', icon: 'treasure-fragment-3', set: 2},
+	      {name: 'カケラ1', icon: 'treasure-fragment-1'},
+	      {name: '虹精霊', icon: 'rainbow-sprit'}
+	    ]
+	  },
+	  {
+	    name: '魔獣',
+	    charisma: 70,
+	    stamina: 8,
+	    expectation: 13,
+	    drops: [
+	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
+	      {name: 'カケラ3', icon: 'treasure-fragment-3'},
+	      {name: 'カリオペ', icon: 'calliope'},
+	      {name: 'ルビー', icon: 'ruby', set: 2}
+	    ]
+	  },
+	  {
+	    name: '冒険者',
+	    charisma: 40,
+	    stamina: 5,
+	    expectation: 7,
+	    drops: [
+	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
+	      {name: 'カケラ1', icon: 'treasure-fragment-1'},
+	      {name: 'サノスケ', icon: 'sanosuke'},
+	      {name: '魔水晶1', icon: 'magical-crystal-1'}
+	    ]
+	  },
+	  {
+	    name: '触手',
+	    charisma: 35,
+	    stamina: 3,
+	    expectation: 4,
+	    drops: [
+	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
+	      {name: 'カケラ1', icon: 'treasure-fragment-1'},
+	      {name: 'バラッド', icon: 'barrad'},
+	      {name: '金精霊', icon: 'gold-sprit'}
+	    ]
+	  },
+	  {
 	    name: '大魔行列',
 	    charisma: 50,
 	    stamina: 7,
@@ -86,7 +133,7 @@ webpackJsonp([0],{
 	    name: '至宝のカケラ',
 	    charisma: 20,
 	    stamina: 1,
-	    expectation: 0,
+	    expectation: 1,
 	    drops: [
 	      {name: 'カケラ1', icon: 'treasure-fragment-1'}
 	    ]
@@ -482,132 +529,7 @@ webpackJsonp([0],{
 	  setInterval(update, 1000);
 	});
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ },
-
-/***/ 11:
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery Cookie Plugin v1.4.1
-	 * https://github.com/carhartl/jquery-cookie
-	 *
-	 * Copyright 2013 Klaus Hartl
-	 * Released under the MIT license
-	 */
-	(function (factory) {
-		if (true) {
-			// AMD
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else if (typeof exports === 'object') {
-			// CommonJS
-			factory(require('jquery'));
-		} else {
-			// Browser globals
-			factory(jQuery);
-		}
-	}(function ($) {
-
-		var pluses = /\+/g;
-
-		function encode(s) {
-			return config.raw ? s : encodeURIComponent(s);
-		}
-
-		function decode(s) {
-			return config.raw ? s : decodeURIComponent(s);
-		}
-
-		function stringifyCookieValue(value) {
-			return encode(config.json ? JSON.stringify(value) : String(value));
-		}
-
-		function parseCookieValue(s) {
-			if (s.indexOf('"') === 0) {
-				// This is a quoted cookie as according to RFC2068, unescape...
-				s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
-			}
-
-			try {
-				// Replace server-side written pluses with spaces.
-				// If we can't decode the cookie, ignore it, it's unusable.
-				// If we can't parse the cookie, ignore it, it's unusable.
-				s = decodeURIComponent(s.replace(pluses, ' '));
-				return config.json ? JSON.parse(s) : s;
-			} catch(e) {}
-		}
-
-		function read(s, converter) {
-			var value = config.raw ? s : parseCookieValue(s);
-			return $.isFunction(converter) ? converter(value) : value;
-		}
-
-		var config = $.cookie = function (key, value, options) {
-
-			// Write
-
-			if (value !== undefined && !$.isFunction(value)) {
-				options = $.extend({}, config.defaults, options);
-
-				if (typeof options.expires === 'number') {
-					var days = options.expires, t = options.expires = new Date();
-					t.setTime(+t + days * 864e+5);
-				}
-
-				return (document.cookie = [
-					encode(key), '=', stringifyCookieValue(value),
-					options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-					options.path    ? '; path=' + options.path : '',
-					options.domain  ? '; domain=' + options.domain : '',
-					options.secure  ? '; secure' : ''
-				].join(''));
-			}
-
-			// Read
-
-			var result = key ? undefined : {};
-
-			// To prevent the for loop in the first place assign an empty array
-			// in case there are no cookies at all. Also prevents odd result when
-			// calling $.cookie().
-			var cookies = document.cookie ? document.cookie.split('; ') : [];
-
-			for (var i = 0, l = cookies.length; i < l; i++) {
-				var parts = cookies[i].split('=');
-				var name = decode(parts.shift());
-				var cookie = parts.join('=');
-
-				if (key && key === name) {
-					// If second argument (value) is a function it's a converter...
-					result = read(cookie, value);
-					break;
-				}
-
-				// Prevent storing a cookie that we couldn't decode.
-				if (!key && (cookie = read(cookie)) !== undefined) {
-					result[name] = cookie;
-				}
-			}
-
-			return result;
-		};
-
-		config.defaults = {};
-
-		$.removeCookie = function (key, options) {
-			if ($.cookie(key) === undefined) {
-				return false;
-			}
-
-			// Must not alter options, thus extending a fresh object...
-			$.cookie(key, '', $.extend({}, options, { expires: -1 }));
-			return !$.cookie(key);
-		};
-
-	}));
-
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }
-
-});
+]);

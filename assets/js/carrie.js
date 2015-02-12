@@ -1,18 +1,18 @@
-webpackJsonp([1],[
+webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	__webpack_require__(1);
-	__webpack_require__(3);
+	__webpack_require__(5);
 
-	var loadImage  = __webpack_require__(7);
-	var components = __webpack_require__(8);
-	var commands   = __webpack_require__(9);
-	var effects    = __webpack_require__(10);
+	var loadImage  = __webpack_require__(9);
+	var components = __webpack_require__(10);
+	var commands   = __webpack_require__(11);
+	var effects    = __webpack_require__(12);
 
-	var templates = __webpack_require__(12)
+	var templates = __webpack_require__(14)
 	  .reduce(function (templates, template) {
 	    templates[template.id] = template;
 	    return templates;
@@ -558,7 +558,7 @@ webpackJsonp([1],[
 	  update();
 	});
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
 /* 1 */,
@@ -567,7 +567,9 @@ webpackJsonp([1],[
 /* 4 */,
 /* 5 */,
 /* 6 */,
-/* 7 */
+/* 7 */,
+/* 8 */,
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -588,7 +590,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 8 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1241,7 +1243,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 9 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1255,12 +1257,12 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var components = __webpack_require__(8);
+	var components = __webpack_require__(10);
 
 	module.exports = {
 	  flame: {
@@ -1395,8 +1397,8 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 11 */,
-/* 12 */
+/* 13 */,
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = [
