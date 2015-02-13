@@ -175,13 +175,17 @@ $navbar-border-radius: 0;
         background-image: url('../thumbnails/visualizer/index.png');
       }
 
+      &.tool-item-rita:before {
+        background-image: url('../rita.png');
+        background-position: left center;
+      }
+
       &.tool-item-treasure-fragment-timer:before {
         background-image: url('../thumbnails/treasure-fragment-timer/index.png');
       }
 
-      &.tool-item-rita:before {
-        background-image: url('../rita.png');
-        background-position: left center;
+      &.tool-item-dragon-crystal-timer:before {
+        background-image: url('../thumbnails/dragon-crystal-timer/index.png');
       }
     }
   }
