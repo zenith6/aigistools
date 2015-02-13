@@ -37,8 +37,6 @@ var objectives = {
 };
 
 var prizes = [
-  {value: 150, unit: 'vampire-karma', name: 'ヴァンパイア', limit: Infinity},
-  {value: 300, unit: 'imotal-karma', name: 'イモータル', limit: Infinity}
 ];
 
 var maps = [
@@ -296,6 +294,7 @@ function initialize() {
     prizes.forEach(function (prize) {
       $('<button class="btn btn-default" name="add"  type="button" />')
         .val(prize.value)
+        .attr('title', prize.name)
         .append($('<i class="fa fa-arrow-up" />'))
         .append($('<span />').addClass('icon icon-' + prize.unit))
         .appendTo($list);
@@ -323,7 +322,7 @@ function initialize() {
   prizes.forEach(function (prize) {
     $('<div class="prize-list" />')
       .append($('<h4 class="prize-list-header" />').text(prize.name + '換算')
-          .append($('<span class="prize-value" />').text('@' + prize.value)))
+      .append($('<span class="prize-value" />').text('@' + prize.value)))
       .append($('<div class="prize-list-body" />').attr('data-prize', prize.unit))
       .appendTo($prizeList);
   });
@@ -346,7 +345,7 @@ function initialize() {
       .append(function () {
         var $drops = map.drops.map(function (drop) {
           var $icon = drop.icon ?
-            $('<i />').addClass('icon icon-' + drop.icon) :
+            $('<i />').attr('title', drop.name).addClass('icon icon-' + drop.icon) :
             $('<span />').text(drop.name);
 
           var $set = drop.set ?
@@ -380,6 +379,8 @@ function initialize() {
         .appendTo($rewardList);
     });
   }
+
+  $('*[title]').tooltip();
 
   var state = loadState();
 
