@@ -1,0 +1,153 @@
+<% extend '_layouts/_default' %>
+
+<% @name = '竜水晶タイマー' %>
+<% @description = '千年戦争アイギス緊急イベント「竜人の侵攻（復刻）」用のタイマーです。' %>
+<% @path = 'dragon-crystal-timer/' %>
+
+<% block 'style': %>
+  <link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
+  <link rel="stylesheet" type="text/css" href="<%= @asset('css/dragon-crystal-timer.css') %>">
+<% end %>
+
+<% block 'script': %>
+  <script src="<%= @asset('js/dragon-crystal-timer.js') %>"></script>
+<% end %>
+
+<% block 'copyright': %>
+  <li><a href="http://green.zero.jp/greentea/">クロリスGIFは <strong>建設中の茶柱</strong> さんからお借りしています。</a></li>
+  <li><a href="http://font.textar.tv/">web fonts provided by http://font.textar.tv/</a></li>
+<% end %>
+
+<form class="form" action="#">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12 col-sm-5 col-md-4">
+        <label class="control-label">現在の竜水晶</label>
+        <input class="form-control input-lg" type="text" name="current" ime-mode="inactive" title="マウスホイールで+/-" />
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <label class="control-label">目標</label>
+        <!-- target -->
+        <!--
+        <select name="objective" class="form-control input-lg"></select>
+        -->
+        <!-- /target -->
+
+        <!-- exchange -->
+        <div class="input-group input-group-lg">
+          <span class="input-group-btn">
+            <button class="btn btn-default" name="reset" type="button" title="リセット">
+              <i class="fa fa-arrow-down"></i>0
+            </button>
+          </span>
+          <input type="text" name="objective" value="300" class="form-control" ime-mode="inactive" />
+          <span class="input-group-btn" id="increse_objective_list">
+          </span>
+        </div>
+        <!-- /exchange -->
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label">イベント期間</label>
+    <div id="period_dates" class="progress">
+    </div>
+    <div id="period_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div id="objective_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div id="estimate">
+      <span class="pointer">
+        <span class="pointer-label">
+          このペースなら<br />
+          <strong id="estimate_num">0</strong> 個集まるわ
+        </span>
+      </span>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <!--
+  <div class="col-xs-5 col-sm-3">
+    <section id="rewards">
+      <table class="table table-condenced">
+        <thead>
+          <tr>
+            <th class="text-right">収集数</th>
+            <th>追加報酬</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  -->
+  <div class="col-xs-4 col-sm-3">
+      <section id="prize_list">
+      </section>
+  </div>
+  <div class="col-xs-8 col-sm-9">
+    <section class="row">
+      <div class="col-sm-12">
+        <div class="norma">
+          <span class="norma-label">1日当たりのノルマ</span>
+          <span class="badge">残り<span id="remains_days"></span>日</span>
+          <span class="norma-amount"><span id="norma_per_day"></span><span class="norma-unit">個</span></span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="norma norma-per-hour">
+          <span class="norma-label">1時間当たりのノルマ</span>
+          <span class="badge">残り<span id="remains_hours"></span>時間</span>
+          <span class="norma-amount"><span id="norma_per_hour"></span><span class="norma-unit">個</span></span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="norma norma-per-minute">
+          <span class="norma-label">30分当たりのノルマ</span>
+          <span class="badge">残り<span id="remains_minutes"></span>分</span>
+          <span class="norma-amount"><span id="norma_per_minute"></span><span class="norma-unit">個</span></span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section id="map">
+  <table class="table table-condenced table-striped">
+    <thead>
+      <tr>
+        <th>MAP</th>
+        <th>カリスタ</th>
+        <th class="drops" colspan="3">ドロップ</th>
+        <th>
+          <select name="expectation" class="form-control input-sm">
+            <option value="drop">謎の期待値 1周</option>
+            <option value="charisma">カリスマ1当たり</option>
+            <option value="stamina">スタミナ1当たり</option>
+          </select>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</section>
+
+<div class="textar-aa">
+    ＝＝＝＝新規にお勧めの強キャラ一覧＝＝＝＝<br />
+
+アリア<br />
+コスト７で援軍要請Ⅱを使え、ステータスも他のソルジャーの完全上位互換<br />
+CCするとコスト10で攻撃力437・ブロック3という序盤に出すには充分すぎるほどの高ステータスに加え <br />
+援軍要請Ⅲまで習得するというぶっ壊れユニット<br />
+※もう手に入ります
+</div>

@@ -17,6 +17,11 @@ module.exports = [
     path: 'treasure-fragment-timer',
   },
   {
+    name: '竜水晶タイマー',
+    id: 'dragon-crystal-timer',
+    path: 'dragon-crystal-timer/',
+  },
+  {
     name: '漆黒の射手リタさんがチラチラ見てくる',
     id: 'aigisrita',
     path: 'https://chrome.google.com/webstore/detail/ememknmjckfbganihedbodegbdddlhhl',
