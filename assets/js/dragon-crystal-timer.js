@@ -1,4 +1,4 @@
-webpackJsonp([1],[
+webpackJsonp([0],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -8,177 +8,137 @@ webpackJsonp([1],[
 
 	// [begin...end)
 	var periods = [
-	  ['2015/02/05 15:00:00', '2015/02/12 10:00:00'],
-	  ['2015/02/12 15:00:00', '2015/02/19 10:00:00']
+	  ['2015/02/14 00:00:00', '2015/02/16 00:00:00'],
+	  ['2015/02/21 00:00:00', '2015/02/23 00:00:00'],
+	  ['2015/02/28 00:00:00', '2015/03/02 00:00:00'],
+	  ['2015/03/07 00:00:00', '2015/03/09 10:00:00']
 	].map(function (period) {
 	  return period.map(Date.parse);
 	});
 
-	var objectiveMode = 'achievement'; // 'achievement' or 'exchange'
+	var objectiveMode = 'exchange'; // 'achievement' or 'exchange'
 	var maxObjective = Infinity;
-	var initialObjective = 1500;
+	var initialObjective = 300;
 	var initialCurrent = 20;
 	var rewardEnabled = true;
-	var cookieName = 'treasure-fragment-timer';
+	var cookieName = 'dragon-crystal-timer';
 
 	var objectives = {
-	  '25': 'エーテルが仲間になる',
-	  '50': 'リアナが仲間になる',
-	  '100': '初期レベル10',
-	  '200': '初期レベル20',
-	  '300': 'スキルレベル2',
-	  '400': '出撃コスト-1',
-	  '500': '初期レベル20',
-	  '600': 'スキルレベル3',
-	  '700': '出撃コスト-2',
-	  '800': '初期レベル40',
-	  '900': 'スキルレベル4',
-	  '1000': '出撃コスト-3',
-	  '1100': '初期レベル50',
-	  '1200': 'スキルレベル5',
-	  '1400': '出撃コスト-4',
-	  '1500': '出撃コスト-5'
 	};
 
 	var prizes = [
+	  {value: 70, unit: 'aria', name: 'アリア', limit: Infinity},
+	  {value: 300, unit: 'drania', name: 'ドラニア', limit: Infinity}
 	];
 
 	var maps = [
 	  {
-	    name: '強魔',
-	    charisma: 90,
-	    stamina: 12,
-	    expectation: 22,
-	    drops: [
-	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 3},
-	      {name: 'カケラ3', icon: 'treasure-fragment-3', set: 2},
-	      {name: 'カケラ1', icon: 'treasure-fragment-1'},
-	      {name: '虹精霊', icon: 'rainbow-sprit'}
-	    ]
-	  },
-	  {
-	    name: '魔獣',
-	    charisma: 70,
-	    stamina: 8,
-	    expectation: 13,
-	    drops: [
-	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
-	      {name: 'カケラ3', icon: 'treasure-fragment-3'},
-	      {name: 'カリオペ', icon: 'calliope'},
-	      {name: 'ルビー', icon: 'ruby', set: 2}
-	    ]
-	  },
-	  {
-	    name: '冒険者',
+	    name: '竜人の王',
 	    charisma: 40,
-	    stamina: 5,
-	    expectation: 7,
+	    stamina: 3,
+	    expectation: 3.96,
 	    drops: [
-	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
-	      {name: 'カケラ1', icon: 'treasure-fragment-1'},
-	      {name: 'サノスケ', icon: 'sanosuke'},
-	      {name: '魔水晶1', icon: 'magical-crystal-1'}
+	      {name: 'ダイヤ', icon: 'diamond'},
+	      {name: 'ウィルフレッド', icon: 'will'},
+	      {name: '白銀精霊', icon: 'platinum-sprit'},
+	      {name: 'エレイン', icon: 'elain'},
+	      {name: '竜水晶2', icon: 'dragon-crystal-2', set: 3}
 	    ]
 	  },
 	  {
-	    name: '触手',
+	    name: '大侵攻3',
+	    charisma: 40,
+	    stamina: 3,
+	    expectation: 3.84,
+	    drops: [
+	      {name: 'ダイヤ', icon: 'diamond', set:2},
+	      {name: 'ラセル', icon: 'lassell'},
+	      {name: '金精霊', icon: 'gold-sprit'},
+	      {name: 'グレイブ', icon: 'grave'},
+	      {name: '竜水晶2', icon: 'dragon-crystal-2', set: 2}
+	    ]
+	  },
+	  {
+	    name: '大侵攻2',
 	    charisma: 35,
 	    stamina: 3,
-	    expectation: 4,
+	    expectation: 3.66,
 	    drops: [
-	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
-	      {name: 'カケラ1', icon: 'treasure-fragment-1'},
-	      {name: 'バラッド', icon: 'barrad'},
-	      {name: '金精霊', icon: 'gold-sprit'}
+	      {name: 'ダイヤ', icon: 'diamond'},
+	      {name: 'レオ', icon: 'leo'},
+	      {name: '金精霊', icon: 'gold-sprit'},
+	      {name: 'セシリー', icon: 'cecily'},
+	      {name: '竜水晶2', icon: 'dragon-crystal-2', set: 3}
 	    ]
 	  },
 	  {
-	    name: '大魔行列',
-	    charisma: 50,
-	    stamina: 7,
-	    expectation: 11,
-	    drops: [
-	      {name: 'カケラ5', icon: 'treasure-fragment-5', set: 2},
-	      {name: 'カケラ1', icon: 'treasure-fragment-1'},
-	      {name: 'クリストファー', icon: 'christ'},
-	      {name: '黒精霊', icon: 'black-sprit'}
-	    ]
-	  },
-	  {
-	    name: '凶魔の巣窟',
-	    charisma: 40,
-	    stamina: 4,
-	    expectation: 5,
-	    drops: [
-	      {name: 'カケラ3', icon: 'treasure-fragment-3'},
-	      {name: 'カケラ1', icon: 'treasure-fragment-1', set: 2},
-	      {name: 'アサル', icon: 'atholl'},
-	      {name: '魔水晶3', icon: 'magical-crystal-3'}
-	    ]
-	  },
-	  {
-	    name: '魔物の奇襲',
+	    name: '大侵攻1',
 	    charisma: 35,
-	    stamina: 2,
-	    expectation: 2,
+	    stamina: 3,
+	    expectation: 3,
 	    drops: [
-	      {name: 'カケラ1', icon: 'treasure-fragment-1', set: 2},
-	      {name: 'ダニエラ', icon: 'daniela'},
-	      {name: '水晶', icon: 'crystal'}
+	      {name: 'ルビー', icon: 'ruby'},
+	      {name: 'ロイ', icon: 'roy'},
+	      {name: '銀精霊', icon: 'silver-sprit'},
+	      {name: 'ソーマ', icon: 'soma'},
+	      {name: '竜水晶1', icon: 'dragon-crystal-1', set: 3}
 	    ]
 	  },
 	  {
-	    name: '至宝のカケラ',
-	    charisma: 20,
-	    stamina: 1,
-	    expectation: 1,
+	    name: 'ドラゴニュート',
+	    charisma: 35,
+	    stamina: 3,
+	    expectation: 2.43,
 	    drops: [
-	      {name: 'カケラ1', icon: 'treasure-fragment-1'}
+	      {name: 'ルビー', icon: 'ruby'},
+	      {name: 'ミーシャ', icon: 'misha'},
+	      {name: '銀精霊', icon: 'silver-sprit'},
+	      {name: 'ベルナール', icon: 'bell'},
+	      {name: '竜水晶1', icon: 'dragon-crystal-1', set: 3}
+	    ]
+	  },
+	  {
+	    name: '竜を呼ぶ者',
+	    charisma: 30,
+	    stamina: 3,
+	    expectation: 2.43,
+	    drops: [
+	      {name: '水晶', icon: 'crystal'},
+	      {name: 'ヘクター', icon: 'hector'},
+	      {name: '銅精霊', icon: 'bronze-sprit'},
+	      {name: 'フィリス', icon: 'philis'},
+	      {name: '竜水晶1', icon: 'dragon-crystal-1', set: 3}
+	    ]
+	  },
+	  {
+	    name: '地底からの侵略',
+	    charisma: 25,
+	    stamina: 2,
+	    expectation: 1.42,
+	    drops: [
+	      {name: '水晶', icon: 'crystal'},
+	      {name: 'バーガン', icon: 'bagan'},
+	      {name: '銅精霊', icon: 'bronze-sprit'},
+	      {name: 'モーティマ', icon: 'motima'},
+	      {name: '竜水晶1', icon: 'dragon-crystal-1', set: 2}
+	    ]
+	  },
+	  {
+	    name: '大地の大穴',
+	    charisma: 20,
+	    stamina: 2,
+	    expectation: 0.71,
+	    drops: [
+	      {name: '花束', icon: 'arus'},
+	      {name: 'アルス', icon: 'arus'},
+	      {name: '鉄精霊', icon: 'iron-sprit'},
+	      {name: 'ハリッサ', icon: 'harissa'},
+	      {name: '竜水晶1', icon: 'dragon-crystal-1'}
 	    ]
 	  }
 	];
 
 	var rewards = [
-	  {amount: 45, unit: 'gold-bucket'},
-	  {amount: 90, unit: 'gold-sprit'},
-	  {amount: 135, unit: 'platinum-bucket'},
-	  {amount: 180, unit: 'gold-sprit'},
-	  {amount: 225, unit: 'crystal-fragment'},
-	  {amount: 270, unit: 'platinum-sprit'},
-	  {amount: 315, unit: 'gold-bucket'},
-	  {amount: 360, unit: 'platinum-sprit'},
-	  {amount: 405, unit: 'platinum-bucket'},
-	  {amount: 450, unit: 'black-sprit'},
-	  {amount: 495, unit: 'crystal-fragment'},
-	  {amount: 540, unit: 'black-sprit'},
-	  {amount: 585, unit: 'gold-bucket'},
-	  {amount: 630, unit: 'rainbow-sprit'},
-	  {amount: 675, unit: 'platinum-bucket'},
-	  {amount: 720, unit: 'platinum-sprit'},
-	  {amount: 765, unit: 'crystal-fragment'},
-	  {amount: 810, unit: 'platinum-sprit'},
-	  {amount: 855, unit: 'gold-bucket'},
-	  {amount: 900, unit: 'black-sprit'},
-	  {amount: 945, unit: 'platinum-bucket'},
-	  {amount: 990, unit: 'platinum-sprit'},
-	  {amount: 1035, unit: 'crystal-fragment'},
-	  {amount: 1080, unit: 'platinum-sprit'},
-	  {amount: 1125, unit: 'gold-bucket'},
-	  {amount: 1170, unit: 'black-sprit'},
-	  {amount: 1215, unit: 'platinum-bucket'},
-	  {amount: 1260, unit: 'black-sprit'},
-	  {amount: 1305, unit: 'crystal-fragment'},
-	  {amount: 1350, unit: 'rainbow-sprit'},
-	  {amount: 1395, unit: 'gold-bucket'},
-	  {amount: 1440, unit: 'platinum-sprit'},
-	  {amount: 1485, unit: 'platinum-bucket'},
-	  {amount: 1530, unit: 'platinum-sprit'},
-	  {amount: 1575, unit: 'crystal-fragment'},
-	  {amount: 1620, unit: 'black-sprit'},
-	  {amount: 1665, unit: 'gold-bucket'},
-	  {amount: 1710, unit: 'black-sprit'},
-	  {amount: 1755, unit: 'platinum-bucket'},
-	  {amount: 1800, unit: 'rainbow-sprit'}
 	];
 
 
@@ -296,11 +256,11 @@ webpackJsonp([1],[
 
 	    var $list = $('#increse_objective_list');
 	    prizes.forEach(function (prize) {
-	      $('<button class="btn btn-default" name="add"  type="button" />')
+	      $('<button class="btn btn-default" name="add" type="button" />')
 	        .val(prize.value)
 	        .attr('title', prize.name)
 	        .append($('<i class="fa fa-arrow-up" />'))
-	        .append($('<span />').addClass('icon icon-' + prize.unit))
+	        .append($('<i />').addClass('icon icon-' + prize.unit))
 	        .appendTo($list);
 	    });
 	  }
@@ -490,12 +450,12 @@ webpackJsonp([1],[
 
 	function updateExpectationChart() {
 	  var mode = $('[name=expectation]:input').val();
-	  var min = 0, max = Infinity;
+	  var min = Infinity, max = 0;
 	  var dividor = mode == 'drop' ? null : mode;
 	  var data = maps.map(function (map) {
 	    var value = map.expectation / ((dividor && map[dividor]) || 1);
-	    min = Math.max(min, value);
-	    max = Math.min(max, value);
+	    min = 0; // Math.min(min, value);
+	    max = Math.max(max, value);
 	    return value;
 	  });
 
@@ -503,7 +463,8 @@ webpackJsonp([1],[
 	  maps.forEach(function (map, i) {
 	    var $chart = $('[data-chart=' + i + ']');
 	    var value = data[i];
-	    var rate = (max - value) / (max - min);
+	    var rate = value / (max - min);
+
 	    var hue = 120 * rate + 240;
 	    $chart.find('span.barchart-label').text(format(value, scale) + '個');
 	    $chart.find('span.barchart')

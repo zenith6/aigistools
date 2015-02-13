@@ -1921,6 +1921,15 @@
 .icon-sanosuke {
   background-position: -250px -25px; }
 
+.icon-diamond {
+  background-position: -300px -100px; }
+
+.icon-dragon-crystal-1 {
+  background-position: -50px -100px; }
+
+.icon-dragon-crystal-2 {
+  background-position: -75px -100px; }
+
 .loader {
   display: block;
   width: 100%;

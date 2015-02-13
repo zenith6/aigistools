@@ -128,11 +128,13 @@
       background-image: url('../thumbnails/carrie/index.png'); }
     .tool-list > ul > li.tool-item-visualizer:before {
       background-image: url('../thumbnails/visualizer/index.png'); }
-    .tool-list > ul > li.tool-item-treasure-fragment-timer:before {
-      background-image: url('../thumbnails/treasure-fragment-timer/index.png'); }
     .tool-list > ul > li.tool-item-rita:before {
       background-image: url('../rita.png');
       background-position: left center; }
+    .tool-list > ul > li.tool-item-treasure-fragment-timer:before {
+      background-image: url('../thumbnails/treasure-fragment-timer/index.png'); }
+    .tool-list > ul > li.tool-item-dragon-crystal-timer:before {
+      background-image: url('../thumbnails/dragon-crystal-timer/index.png'); }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
