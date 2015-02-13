@@ -23,7 +23,7 @@ var objectives = {
 };
 
 var prizes = [
-  {value: 50, unit: 'aria', name: 'アリア', limit: Infinity},
+  {value: 70, unit: 'aria', name: 'アリア', limit: Infinity},
   {value: 300, unit: 'drania', name: 'ドラニア', limit: Infinity}
 ];
 
