@@ -108,7 +108,7 @@ input[name=objective], input[name=current] {
   border: 1px solid #111;
   border-radius: 0.5em;
   background-color: rgba(138, 31, 155, 0.37);
-  font-size: 18px;
+  font-size: 16px;
   color: #eee;
   -webkit-transition: margin-left 600ms ease;
           transition: margin-left 600ms ease; }
