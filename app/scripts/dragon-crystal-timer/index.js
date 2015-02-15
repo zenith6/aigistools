@@ -7,7 +7,7 @@ var periods = [
   ['2015/02/14 00:00:00', '2015/02/16 00:00:00'],
   ['2015/02/21 00:00:00', '2015/02/23 00:00:00'],
   ['2015/02/28 00:00:00', '2015/03/02 00:00:00'],
-  ['2015/03/07 00:00:00', '2015/03/09 10:00:00']
+  ['2015/03/07 00:00:00', '2015/03/09 00:00:00']
 ].map(function (period) {
   return period.map(Date.parse);
 });
@@ -214,6 +214,35 @@ function update() {
   $('.pointer').css('left', left + 'px');
   var margin = width - left < 230 ? -250 : 0;
   $('.pointer-label').css('margin-left', margin + 'px');
+
+  var completionDate = '';
+  if (current < objective && estimate >= objective) {
+    var start, end;
+    periods.forEach(function (period) {
+      start = start || period[0];
+      end = end || period[1];
+    });
+
+    var completionSpan = objective / estimate * totalPeriod;
+    var date = periods.reduce(function (date, period) {
+      if (date) {
+        return date;
+      }
+
+      var span = period[1] - period[0];
+      if (span < completionSpan) {
+        completionSpan -= span;
+        return null;
+      }
+
+      return new Date(period[0] + completionSpan);
+    }, null);
+    var m = date.getMonth(), d = date.getDate(), h = date.getHours(), i = date.getMinutes();
+    var formatted = (m + 1) + '/' + d + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i);
+    completionDate = formatted + '頃に目標達成できそうよ。';
+  }
+
+  $('#prediction_completion_date').text(completionDate);
 }
 
 function format(value, scale) {

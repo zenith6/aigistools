@@ -248,12 +248,42 @@ function update() {
 
   var estimate = current * totalPeriod / elapsed;
   $('#prediction_collection').text(format(Math.floor(estimate)));
+
   var per = Math.min(estimate / objective, 1);
   var width = $('#objective_progress').width();
   var left = width * per - 47;
   $('.pointer').css('left', left + 'px');
   var margin = width - left < 230 ? -250 : 0;
   $('.pointer-label').css('margin-left', margin + 'px');
+
+  var completionDate = '';
+  if (current < objective && estimate >= objective) {
+    var start, end;
+    periods.forEach(function (period) {
+      start = start || period[0];
+      end = end || period[1];
+    });
+
+    var completionSpan = objective / estimate * totalPeriod;
+    var date = periods.reduce(function (date, period) {
+      if (date) {
+        return date;
+      }
+
+      var span = period[1] - period[0];
+      if (span < completionSpan) {
+        completionSpan -= span;
+        return null;
+      }
+
+      return new Date(period[0] + completionSpan);
+    }, null);
+    var m = date.getMonth(), d = date.getDate(), h = date.getHours(), i = date.getMinutes();
+    var formatted = (m + 1) + '/' + d + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i);
+    completionDate = formatted + '頃に目標達成できそうよ。';
+  }
+
+  $('#prediction_completion_date').text(completionDate);
 }
 
 function format(value, scale) {
