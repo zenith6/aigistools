@@ -27,24 +27,23 @@
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
         <label class="control-label">目標</label>
-        <!-- target -->
-        <select name="objective" class="form-control input-lg"></select>
-        <!-- /target -->
 
-        <!-- exchange -->
-        <!--
-        <div class="input-group input-group-lg">
-          <span class="input-group-btn">
-            <button class="btn btn-default" name="reset" type="button" title="リセット">
-              <i class="fa fa-arrow-down"></i>0
-            </button>
-          </span>
-          <input type="text" name="objective" value="300" class="form-control" ime-mode="inactive" />
-          <span class="input-group-btn" id="increse_objective_list">
-          </span>
+        <div data-objective-mode="achievement">
+          <select name="objective" class="form-control input-lg"></select>
         </div>
-        -->
-        <!-- /exchange -->
+
+        <div data-objective-mode="exchange">
+          <div class="input-group input-group-lg">
+            <span class="input-group-btn">
+              <button class="btn btn-default" name="reset" type="button" title="リセット">
+                <i class="fa fa-arrow-down"></i>0
+              </button>
+            </span>
+            <input type="text" name="objective" value="300" class="form-control" ime-mode="inactive" />
+            <span class="input-group-btn" id="increse_objective_list">
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -62,11 +61,11 @@
         <span></span>
       </div>
     </div>
-    <div id="estimate">
+    <div class="prediction">
       <span class="pointer">
         <span class="pointer-label">
           このペースなら<br />
-          <strong id="estimate_num">0</strong> 個集まるわ
+          <strong id="prediction_collection">0</strong> 個集まるわ
         </span>
       </span>
     </div>
@@ -74,75 +73,167 @@
 </form>
 
 <div class="row">
-  <div class="col-xs-5 col-sm-3">
-    <section id="rewards">
-      <table class="table table-condenced">
-        <thead>
-          <tr>
-            <th class="text-right">収集数</th>
-            <th>追加報酬</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </section>
-  </div>
-  <!--
-  <div class="col-xs-5 col-sm-3">
-      <section id="prize_list">
-      </section>
-  </div>
-  -->
-  <div class="col-xs-7 col-sm-9">
-    <section class="row">
-      <div class="col-sm-12">
-        <div class="norma">
-          <span class="norma-label">1日当たりのノルマ</span>
-          <span class="badge">残り<span id="remains_days"></span>日</span>
-          <span class="norma-amount"><span id="norma_per_day"></span><span class="norma-unit">個</span></span>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="norma norma-per-hour">
-          <span class="norma-label">1時間当たりのノルマ</span>
-          <span class="badge">残り<span id="remains_hours"></span>時間</span>
-          <span class="norma-amount"><span id="norma_per_hour"></span><span class="norma-unit">個</span></span>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="norma norma-per-minute">
-          <span class="norma-label">30分当たりのノルマ</span>
-          <span class="badge">残り<span id="remains_minutes"></span>分</span>
-          <span class="norma-amount"><span id="norma_per_minute"></span><span class="norma-unit">個</span></span>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
+  <section id="rewards" class="col-xs-5 col-sm-3" data-objective-mode="achievement">
+    <h1>追加報酬</h1>
+    <table class="table table-condenced">
+      <thead>
+        <tr>
+          <th class="text-right">収集数</th>
+          <th>報酬</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
 
-<section id="map">
-  <table class="table table-condenced table-striped">
-    <thead>
-      <tr>
-        <th>MAP</th>
-        <th>カリスタ</th>
-        <th class="drops" colspan="3">ドロップ</th>
-        <th>
-          <select name="expectation" class="form-control input-sm">
-            <option value="drop">謎の期待値 1周</option>
-            <option value="charisma">カリスマ1当たり</option>
-            <option value="stamina">スタミナ1当たり</option>
+  <section id="exchange" class="col-xs-5 col-sm-3" data-objective-mode="exchange">
+    <h1>交換</h1>
+    <div id="prize_list"></div>
+  </section>
+
+  <section id="estimate" class="col-xs-7 col-sm-5">
+    <h1>見積り</h1>
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4">周回MAP</label>
+        <div class="col-sm-8">
+          <select name="estimate_map" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4">ランク</label>
+        <div class="col-sm-8">
+          <select name="estimate_rank" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4">結晶回復</label>
+        <div class="col-sm-8">
+          <select name="estimate_use_crystal" class="form-control">
+            <option value="both">カリスマ＆スタミナ</option>
+            <option value="charisma">カリスマのみ</option>
+            <option value="stamina">スタミナのみ</option>
+            <option value="none">使用しない</option>
           </select>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-</section>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-4">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="estimate_natural_recovery" value="1" /> 自然回復を計算に含める
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="textar-aa">
+    <table class="table table-striped">
+      <tbody>
+        <tr class="estiamte-required-crystal">
+          <th class="col-xs-4">消費結晶</th>
+          <td class="col-xs-8">
+            <span id="estimate_required_crystal"></span><span class="estimate-unit">個</span>
+            <span class="diff">
+            (スタミナ&times;<span id="estimate_required_crystal_for_charisma"></span>,
+            カリスマ&times;<span id="estimate_required_crystal_for_stamina"></span>)
+            </span>
+          </td>
+        </tr>
+        <tr class="estiamte-required-marathon">
+          <th class="col-xs-4">可能周回数</th>
+          <td class="col-xs-8">
+            <span id="estimate_available_marathon"></span><span class="estimate-unit">周</span>
+            <span class="diff">(必要周回<span id="estimate_available_marathon_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-collection">
+          <th class="col-xs-4">到達収集数</th>
+          <td class="col-xs-8">
+            <span id="estimate_result_collection"></span><span class="estimate-unit">個</span>
+            <span class="diff">(目標数<span id="estimate_result_collection_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-using-charisma">
+          <th class="col-xs-4">使用カリスマ</th>
+          <td class="col-xs-8">
+            <span id="estimate_using_charisma"></span>
+            <span class="diff">(必要カリスマ<span id="estimate_using_charisma_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-stamina">
+          <th class="col-xs-4">使用スタミナ</th>
+          <td class="col-xs-8">
+            <span id="estimate_using_stamina"></span>
+            <span class="diff">(必要スタミナ<span id="estimate_using_stamina_diff"></span>)</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="norma" class="col-xs-12 col-sm-4">
+    <h1>ノルマ</h1>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_day">
+          <span class="norma-label">1日当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_days"></span>日</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_hour">
+          <span class="norma-label">1時間当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_hours"></span>時間</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_minute">
+          <span class="norma-label">30分当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_minutes"></span>分</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="col-xs-12">
+    <table class="table table-condenced table-striped">
+      <thead>
+        <tr>
+          <th>MAP</th>
+          <th>カリスタ</th>
+          <th class="drops" colspan="3">ドロップ</th>
+          <th>
+            <select name="expectation" class="form-control input-sm">
+              <option value="drop">謎の期待値 1周</option>
+              <option value="charisma">カリスマ1当たり</option>
+              <option value="stamina">スタミナ1当たり</option>
+            </select>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="textar-aa col-xs-12">
 　　　　　　　　　　　　 　 (~)<br />
 　　　　　　　　　 　 　 γ&acute;⌒｀ヽ<br />
 　　　＿＿＿＿ 　 　 {i:i:i:i:i:i:i:i:}<br />
@@ -152,4 +243,5 @@
 　　　|￣￣￣￣￣￣￣￣￣￣￣|.　 | 　(ω･　　)　例のタートルネック<br />
 　　　|　　.　　　　　　　　 　 　 　 　 |.　  |　　し　　 i　　　　 ください！<br />
 　　　|＿＿＿＿＿＿＿＿＿＿＿|.／　　　しーJ
+  </section>
 </div>

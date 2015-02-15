@@ -18,6 +18,10 @@ var initialObjective = 300;
 var initialCurrent = 20;
 var rewardEnabled = true;
 var cookieName = 'dragon-crystal-timer';
+var initialEstimateMap = 0;
+var initialEstimateRank = 100;
+var initialEstimateUseCrystal = 'both';
+var initialEstimateNaturalRecovery = true;
 
 var objectives = {
 };
@@ -38,7 +42,7 @@ var maps = [
       {name: 'ウィルフレッド', icon: 'will'},
       {name: '白銀精霊', icon: 'platinum-sprit'},
       {name: 'エレイン', icon: 'elain'},
-      {name: '竜水晶2', icon: 'dragon-crystal-2', set: 3}
+      {name: '刻水晶2', icon: 'time-crystal-2', set: 3}
     ]
   },
   {
@@ -51,7 +55,7 @@ var maps = [
       {name: 'ラセル', icon: 'lassell'},
       {name: '金精霊', icon: 'gold-sprit'},
       {name: 'グレイブ', icon: 'grave'},
-      {name: '竜水晶2', icon: 'dragon-crystal-2', set: 2}
+      {name: '刻水晶2', icon: 'time-crystal-2', set: 2}
     ]
   },
   {
@@ -64,7 +68,7 @@ var maps = [
       {name: 'レオ', icon: 'leo'},
       {name: '金精霊', icon: 'gold-sprit'},
       {name: 'セシリー', icon: 'cecily'},
-      {name: '竜水晶2', icon: 'dragon-crystal-2', set: 3}
+      {name: '刻水晶2', icon: 'time-crystal-2', set: 3}
     ]
   },
   {
@@ -77,7 +81,7 @@ var maps = [
       {name: 'ロイ', icon: 'roy'},
       {name: '銀精霊', icon: 'silver-sprit'},
       {name: 'ソーマ', icon: 'soma'},
-      {name: '竜水晶1', icon: 'dragon-crystal-1', set: 3}
+      {name: '刻水晶1', icon: 'time-crystal-1', set: 3}
     ]
   },
   {
@@ -90,7 +94,7 @@ var maps = [
       {name: 'ミーシャ', icon: 'misha'},
       {name: '銀精霊', icon: 'silver-sprit'},
       {name: 'ベルナール', icon: 'bell'},
-      {name: '竜水晶1', icon: 'dragon-crystal-1', set: 3}
+      {name: '刻水晶1', icon: 'time-crystal-1', set: 3}
     ]
   },
   {
@@ -103,7 +107,7 @@ var maps = [
       {name: 'ヘクター', icon: 'hector'},
       {name: '銅精霊', icon: 'bronze-sprit'},
       {name: 'フィリス', icon: 'philis'},
-      {name: '竜水晶1', icon: 'dragon-crystal-1', set: 3}
+      {name: '刻水晶1', icon: 'time-crystal-1', set: 3}
     ]
   },
   {
@@ -116,7 +120,7 @@ var maps = [
       {name: 'バーガン', icon: 'bagan'},
       {name: '銅精霊', icon: 'bronze-sprit'},
       {name: 'モーティマ', icon: 'motima'},
-      {name: '竜水晶1', icon: 'dragon-crystal-1', set: 2}
+      {name: '刻水晶1', icon: 'time-crystal-1', set: 2}
     ]
   },
   {
@@ -129,7 +133,7 @@ var maps = [
       {name: 'アルス', icon: 'arus'},
       {name: '鉄精霊', icon: 'iron-sprit'},
       {name: 'ハリッサ', icon: 'harissa'},
-      {name: '竜水晶1', icon: 'dragon-crystal-1'}
+      {name: '刻水晶1', icon: 'time-crystal-1'}
     ]
   }
 ];
@@ -157,9 +161,18 @@ function update() {
   var norma_per_hour = Math.min(norma / hours, norma);
   var minutes = remains / (1000 * 60 * 30);
   var norma_per_minute = Math.min(norma / minutes, norma);
-  $('#norma_per_day').text(format(norma_per_day, 4));
-  $('#norma_per_hour').text(format(norma_per_hour, 4));
-  $('#norma_per_minute').text(format(norma_per_minute, 4));
+  var amount = format(norma_per_day, 3).split('.');
+  $('#norma_per_day')
+    .find('.norma-amount-actual').text(amount[0]).parent()
+    .find('.norma-amount-fraction').text('.' + amount[1]).parent();
+  amount = format(norma_per_hour, 3).split('.');
+  $('#norma_per_hour')
+    .find('.norma-amount-actual').text(amount[0]).parent()
+    .find('.norma-amount-fraction').text('.' + amount[1]).parent();
+  amount = format(norma_per_minute, 3).split('.');
+  $('#norma_per_minute')
+    .find('.norma-amount-actual').text(amount[0]).parent()
+    .find('.norma-amount-fraction').text('.' + amount[1]).parent();
   $('#remains_days').text(format(days, 0));
   $('#remains_hours').text(format(hours, 0));
   $('#remains_minutes').text(format(hours * 60, 0));
@@ -194,7 +207,7 @@ function update() {
     .text(time_progress + '%経過');
 
   var estimate = current * totalPeriod / elapsed;
-  $('#estimate_num').text(format(Math.floor(estimate)));
+  $('#prediction_collection').text(format(Math.floor(estimate)));
   var per = Math.min(estimate / objective, 1);
   var width = $('#objective_progress').width();
   var left = width * per - 47;
@@ -229,6 +242,9 @@ function initialize() {
       .appendTo(view);
   });
 
+  $('[data-objective-mode="' + objectiveMode + '"]').show();
+  $('[data-objective-mode][data-objective-mode!="' + objectiveMode + '"]').remove();
+
   $('[name=current]:input').click(function () {
     this.select();
   }).TouchSpin({
@@ -246,17 +262,17 @@ function initialize() {
         .appendTo($objective);
     });
   } else {
-    $('[name=objective]:input').click(function () {
+    $('select[name=objective]').click(function () {
       this.select();
     });
 
     var $list = $('#increse_objective_list');
     prizes.forEach(function (prize) {
-      $('<button class="btn btn-default" name="add" type="button" />')
+      $('<button class="btn btn-default" name="add"  type="button" />')
         .val(prize.value)
         .attr('title', prize.name)
         .append($('<i class="fa fa-arrow-up" />'))
-        .append($('<i />').addClass('icon icon-' + prize.unit))
+        .append($('<span />').addClass('icon icon-' + prize.unit))
         .appendTo($list);
     });
   }
@@ -281,7 +297,7 @@ function initialize() {
   var $prizeList = $('#prize_list');
   prizes.forEach(function (prize) {
     $('<div class="prize-list" />')
-      .append($('<h4 class="prize-list-header" />').text(prize.name + '換算')
+      .append($('<h4 class="prize-list-header" />').text(prize.name)
       .append($('<span class="prize-value" />').text('@' + prize.value)))
       .append($('<div class="prize-list-body" />').attr('data-prize', prize.unit))
       .appendTo($prizeList);
@@ -340,6 +356,44 @@ function initialize() {
     });
   }
 
+  var $estimateMap = $('[name=estimate_map]:input').change(function () {
+    updateEstimate();
+    state.estimateMap = parseInt($(this).val());
+    saveState(state);
+  });
+
+  maps.forEach(function (map, index) {
+    $('<option />')
+      .val(index)
+      .text(map.name + ' (' + map.charisma + '/' + map.stamina + ')')
+      .appendTo($estimateMap);
+  });
+
+  var $estimateRank = $('[name=estimate_rank]:input').change(function () {
+    updateEstimate();
+    state.estimateRank = parseInt($(this).val());
+    saveState(state);
+  });
+
+  for (var rank = 1; rank <= 200; rank++) {
+    var charisma = calculateCharismaCapacity(rank);
+    var stamina = calculateStaminaCapacity(rank);
+    var label = '' + rank + ' (' + charisma + '/' + stamina + ')';
+    $('<option />').val(rank).text(label).appendTo($estimateRank);
+  }
+
+  var $estimateUseCrystal = $('[name=estimate_use_crystal]').change(function () {
+    updateEstimate();
+    state.estimateUseCrystal = $(this).val();
+    saveState(state);
+  });
+
+  var $estimateNaturalRecovery = $('[name=estimate_natural_recovery]:input').change(function () {
+    updateEstimate();
+    state.estimateNaturalRecovery = this.checked;
+    saveState(state);
+  });
+
   $('*[title]').tooltip();
 
   var state = loadState();
@@ -359,7 +413,13 @@ function initialize() {
     updateRewardList();
     updatePrizeList();
     updateMarathon();
-  }).trigger('change');
+    updateEstimate();
+  });
+
+  $estimateMap.val(state.estimateMap);
+  $estimateRank.val(state.estimateRank);
+  $estimateUseCrystal.val(state.estimateUseCrystal);
+  $estimateNaturalRecovery.prop('checked', state.estimateNaturalRecovery);
 
   if (objectiveMode == 'exchange') {
     updatePrizeList();
@@ -371,6 +431,7 @@ function initialize() {
 
   updateExpectationChart();
   updateMarathon();
+  updateEstimate();
 }
 
 function loadState() {
@@ -378,7 +439,11 @@ function loadState() {
 
   var defaults = {
     current: initialCurrent,
-    objective: initialObjective
+    objective: initialObjective,
+    estimateMap: initialEstimateMap,
+    estimateRank: initialEstimateRank,
+    estimateUseCrystal: initialEstimateUseCrystal,
+    estimateNaturalRecovery: initialEstimateNaturalRecovery
   };
 
   try {
@@ -460,7 +525,6 @@ function updateExpectationChart() {
     var $chart = $('[data-chart=' + i + ']');
     var value = data[i];
     var rate = value / (max - min);
-
     var hue = 120 * rate + 240;
     $chart.find('span.barchart-label').text(format(value, scale) + '個');
     $chart.find('span.barchart')
@@ -480,6 +544,84 @@ function updateMarathon() {
     var marathon = norma ? Math.ceil(norma / map.expectation) : 0;
     $chart.find('span.marathon').text('残り' + format(marathon) + '周');
   });
+}
+
+function updateEstimate() {
+  var current = parseInt($('[name=current]:input').val());
+  var objective = parseInt($('[name=objective]:input').val());
+  var map = maps[parseInt($('[name=estimate_map]:input').val())];
+  var left = Math.max(objective - current, 0);
+  var requiredMarathon = Math.ceil(left / map.expectation);
+  $('#estimate_required_marathon').text(requiredMarathon);
+
+  var now = (new Date()).getTime();
+  var remains = periods.reduce(function (expired, period) {
+    return expired + Math.max(period[1], now) - Math.max(period[0], now);
+  }, 0);
+  var useNaturalRecovery = 0 + $('[name=estimate_natural_recovery]:input').prop('checked');
+  var naturalRecoveryCharisma = Math.floor(remains / (1000 * 60 * 3)) * useNaturalRecovery;
+  var naturalRecoveryStamina = Math.floor(remains / (1000 * 60 * 60)) * useNaturalRecovery;
+
+  var rank = parseInt($('[name=estimate_rank]').val());
+  var capacityCharisma = calculateCharismaCapacity(rank);
+  var capacityStamina = calculateStaminaCapacity(rank);
+  var requiredCharisma = Math.ceil(map.charisma * requiredMarathon);
+  var requiredStamina = Math.ceil(map.stamina * requiredMarathon);
+  var useCrystal = $('[name=estimate_use_crystal]:input').val();
+  var useForCharisma = 0 + (useCrystal === 'both' || useCrystal === 'charisma');
+  var useForStamina = 0 + (useCrystal === 'both' || useCrystal === 'stamina');
+  var charismaCrystal = Math.ceil(Math.max(requiredCharisma - naturalRecoveryCharisma, 0) / capacityCharisma) * useForCharisma;
+  var staminaCrystal = Math.ceil(Math.max(requiredStamina - naturalRecoveryStamina, 0) / capacityStamina) * useForStamina;
+  var requiredCrystal = charismaCrystal + staminaCrystal;
+  $('#estimate_required_crystal').text(requiredCrystal);
+
+  var klass = charismaCrystal === 0 ? 'diff-eq' : charismaCrystal > 0 ? 'diff-plus' : 'diff-minus';
+  $('#estimate_required_crystal_for_charisma').attr('class', klass).text(charismaCrystal);
+
+  klass = staminaCrystal === 0 ? 'diff-eq' : staminaCrystal > 0 ? 'diff-plus' : 'diff-minus';
+  $('#estimate_required_crystal_for_stamina').attr('class', klass).text(staminaCrystal);
+
+  var availableCharisma = naturalRecoveryCharisma + (capacityCharisma * charismaCrystal);
+  var availableStamina = naturalRecoveryStamina + (capacityStamina * staminaCrystal);
+  var availableMarathon = Math.floor(Math.min(availableCharisma / map.charisma, availableStamina / map.stamina, requiredMarathon));
+  $('#estimate_available_marathon').text(availableMarathon);
+
+  var delta = availableMarathon - requiredMarathon;
+  klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
+  var text = (delta >= 0 ? '+' : '') + delta;
+  $('#estimate_available_marathon_diff').attr('class', klass).text(text);
+
+  var usingCharisma = map.charisma * availableMarathon;
+  $('#estimate_using_charisma').text(usingCharisma);
+
+  delta = usingCharisma - requiredCharisma;
+  klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
+  text = (delta >= 0 ? '+' : '') + delta;
+  $('#estimate_using_charisma_diff').attr('class', klass).text(text);
+
+  var usingStamina = Math.ceil(map.stamina * availableMarathon);
+  $('#estimate_using_stamina').text(usingStamina);
+
+  delta = usingStamina - requiredStamina;
+  klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
+  text = (delta >= 0 ? '+' : '') + delta;
+  $('#estimate_using_stamina_diff').attr('class', klass).text(text);
+
+  var result = current + Math.ceil(map.expectation * availableMarathon);
+  $('#estimate_result_collection').text(result);
+
+  delta = result - objective;
+  klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
+  text = (delta >= 0 ? '+' : '') + delta;
+  $('#estimate_result_collection_diff').attr('class', klass).text(text);
+}
+
+function calculateCharismaCapacity(rank) {
+  return 27 + (rank <= 100 ? rank * 3 : 300 + rank - 100);
+}
+
+function calculateStaminaCapacity(rank) {
+  return 12 + (rank <= 100 ? 0 : (Math.floor((rank - 100) / 20) + 1));
 }
 
 $(function () {
