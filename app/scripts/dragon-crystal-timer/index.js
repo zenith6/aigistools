@@ -311,11 +311,17 @@ function initialize() {
     var increment = parseInt($(this).val());
     var amount = parseInt($('[name=objective]:input').val());
     $('[name=objective]:input').val(amount + increment);
+    updateExpectationChart();
+    updateMarathon();
+    updateEstimate();
   });
 
   $('button[name=reset]').click(function (e) {
     e.preventDefault();
     $('[name=objective]:input').val(0);
+    updateExpectationChart();
+    updateMarathon();
+    updateEstimate();
   });
 
   $('[name=expectation]:input').change(function () {
