@@ -1,8 +1,8 @@
+section h1 {
+  font-size: 32px; }
+
 .control-label {
   color: #eee; }
-
-.norma-per-time {
-  margin: 0em; }
 
 .marathon {
   position: relative;
@@ -12,13 +12,12 @@
 .progress {
   margin-top: 6px;
   text-shadow: 1px 1px 1px black;
-  background-color: rgba(40, 40, 40, 0.5); }
+  background-color: rgba(40, 40, 40, 0.5);
+  border-radius: 0; }
 
-.badge {
-  text-shadow: 1px 1px 1px black; }
-
-.progress-bar {
-  /* background-color: #466081; */ }
+.progress-bar-active {
+  background-color: #413F3E;
+  color: #fff; }
 
 .progress-bar-payed {
   background-color: dimgray; }
@@ -26,54 +25,61 @@
 .progress-bar-balance {
   background-color: mediumseagreen; }
 
-.textar-aa {
-  margin: 1em; }
-
-input[name=objective], input[name=current] {
-  text-align: right; }
-
 .progress-bar-expired {
   background-color: #111;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   color: #444; }
 
-.progress-bar-active {
-  color: #31708f;
-  background-color: #d9edf7; }
-
 .progress-bar-remain {
   color: #666;
   background-color: #111; }
 
+.badge {
+  text-shadow: 1px 1px 1px black; }
+
+.textar-aa {
+  margin: 1em;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+input[name=objective], input[name=current] {
+  text-align: right; }
+  input[name=objective]::-ms-clear, input[name=current]::-ms-clear {
+    display: none; }
+
 .norma {
   margin: 1em 0;
   padding: 0.3em;
-  border-bottom: 2px solid #eee;
+  border-left: 2px solid #888;
+  border-right: 2px solid #888;
   color: #eee;
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); }
-
-.norma-label {
-  display: block;
-  float: left;
-  font-size: 12px;
-  font-weight: bold; }
-
-.norma-amount {
-  display: block;
-  font-size: 80px;
-  text-align: right;
-  clear: both; }
-
-.norma .badge {
-  display: block;
-  float: right;
-  background-color: #eee;
-  color: black;
-  text-shadow: none; }
-
-.norma-unit {
-  font-size: 32px; }
+  .norma .norma-label {
+    display: block;
+    float: left;
+    font-size: 12px;
+    font-weight: bold; }
+  .norma .norma-remains {
+    display: block;
+    float: right;
+    background-color: #eee;
+    color: black;
+    text-shadow: none; }
+  .norma .norma-amount {
+    display: block;
+    font-size: 60px;
+    text-align: right;
+    clear: both; }
+    .norma .norma-amount > .norma-amount-actual {
+      display: inline-block; }
+    .norma .norma-amount > .norma-amount-fraction {
+      display: inline-block;
+      font-size: 24px; }
+    .norma .norma-amount > .norma-unit {
+      display: inline-block;
+      font-size: 24px; }
+  .norma .norma-per-time {
+    margin: 0em; }
 
 #period_progress {
   margin-top: -20px; }
@@ -83,18 +89,11 @@ input[name=objective], input[name=current] {
   margin-top: -20px; }
 
 .form-control {
-  background-color: #222;
-  color: white;
-  border-color: #111; }
+  border-color: #111;
+  background-color: rgba(50, 50, 50, 0.8);
+  color: #fff; }
 
-.progress {
-  border-radius: 0; }
-
-.progress-bar-active {
-  background-color: #413F3E;
-  color: white; }
-
-#estimate {
+.prediction {
   position: relative;
   display: block;
   height: 80px; }
@@ -130,16 +129,13 @@ input[name=objective], input[name=current] {
   font-size: 0.8em; }
 
 .diff-eq {
-  color: #ddd; }
+  color: #aaa; }
 
 .diff-plus {
   color: #62c462; }
 
 .diff-minus {
   color: #ee5f5b; }
-
-.norma-per-time {
-  margin: 0em; }
 
 [data-chart] {
   background-color: #111 !important;
@@ -163,12 +159,6 @@ input[name=objective], input[name=current] {
   float: right;
   text-shadow: 1px 1px 1px black; }
 
-.textar-aa {
-  background-color: rgba(0, 0, 0, 0.4); }
-
-input[name=current]::-ms-clear {
-  display: none; }
-
 .prize-value {
   color: #beaa8b;
   font-size: 0.8em; }
@@ -191,21 +181,12 @@ input[name=current]::-ms-clear {
     display: inline-block;
     position: relative; }
 
-.form-control {
-  background-color: rgba(20, 20, 20, 0.8); }
+@media (max-width: 420px) {
+  .norma-amount-fraction {
+    display: none !important; } }
 
-@media (min-width: 768px) and (max-width: 992px) {
-  .norma-per-hour .norma-amount, .norma-per-minute .norma-amount {
-    font-size: 54px; } }
+#estimate table th {
+  text-align: right; }
 
-@media (max-width: 580px) {
-  .norma-amount {
-    font-size: 50px; }
-  .norma-unit {
-    font-size: 20px; } }
-
-@media (max-width: 764px) {
-  .norma-amount {
-    font-size: 50px; }
-  .norma-unit {
-    font-size: 20px; } }
+[data-objective-mode] {
+  display: none; }
