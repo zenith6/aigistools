@@ -8,5 +8,18 @@
     ga('create', '<%- @config.view.vendor.google.trackingId %>', 'auto');
     ga('send', 'pageview');
 
+    (function (w, options) {
+      var handler = function (e) {
+        ga('send', 'exception', {
+          'exDescription': e.message + ' ' + e.filename + ':' + e.lineno,
+          'exFatal': true
+        });
+      };
+      if (w.addEventListener) {
+        w.addEventListener('error', handler, false);
+      } else {
+        w.attachEvent('onerror', handler);
+      }
+    })(window);
   </script>
 <% end %>
