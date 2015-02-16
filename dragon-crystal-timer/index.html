@@ -362,9 +362,6 @@ CCするとコスト10で攻撃力437・ブロック3という序盤に出すに
 </div>
     </footer>
 
-    <script src="/aigistools/assets/js/common.js"></script>
-<script src="//font.textar.tv/webfont.js"></script>
-      <script src="/aigistools/assets/js/dragon-crystal-timer.js"></script>
       <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -374,6 +371,22 @@ CCするとコスト10で攻撃力437・ブロック3という序盤に出すに
     ga('create', 'UA-49240270-1', 'auto');
     ga('send', 'pageview');
 
+    (function (w, options) {
+      var handler = function (e) {
+        ga('send', 'exception', {
+          'exDescription': e.message + ' ' + e.filename + ':' + e.lineno,
+          'exFatal': true
+        });
+      };
+      if (w.addEventListener) {
+        w.addEventListener('error', handler, false);
+      } else {
+        w.attachEvent('onerror', handler);
+      }
+    })(window);
   </script>
+    <script src="/aigistools/assets/js/common.js"></script>
+<script src="//font.textar.tv/webfont.js"></script>
+      <script src="/aigistools/assets/js/dragon-crystal-timer.js"></script>
   </body>
 </html>
