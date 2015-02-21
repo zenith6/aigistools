@@ -1,4 +1,4 @@
-webpackJsonp([1],[
+webpackJsonp([0],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -160,11 +160,11 @@ webpackJsonp([1],[
 
 	  var norma = Math.max(objective - current, 0);
 	  var days = remains / (1000 * 60 * 60 * 24);
-	  var norma_per_day = Math.min(norma / days, norma);
+	  var norma_per_day = norma / Math.max(days, 1);
 	  var hours = remains / (1000 * 60 * 60);
-	  var norma_per_hour = Math.min(norma / hours, norma);
+	  var norma_per_hour = norma / Math.max(hours, 1);
 	  var minutes = remains / (1000 * 60 * 30);
-	  var norma_per_minute = Math.min(norma / minutes, norma);
+	  var norma_per_minute = norma / Math.max(minutes, 1);
 	  var amount = format(norma_per_day, 3).split('.');
 	  $('#norma_per_day')
 	    .find('.norma-amount-actual').text(amount[0]).parent()
