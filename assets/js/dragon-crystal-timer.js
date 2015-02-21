@@ -314,18 +314,12 @@ webpackJsonp([0],[
 	    e.preventDefault();
 	    var increment = parseInt($(this).val());
 	    var amount = parseInt($('[name=objective]:input').val());
-	    $('[name=objective]:input').val(amount + increment);
-	    updateExpectationChart();
-	    updateMarathon();
-	    updateEstimate();
+	    $('[name=objective]:input').val(amount + increment).trigger('change');
 	  });
 
 	  $('button[name=reset]').click(function (e) {
 	    e.preventDefault();
-	    $('[name=objective]:input').val(0);
-	    updateExpectationChart();
-	    updateMarathon();
-	    updateEstimate();
+	    $('[name=objective]:input').val(0).trigger('change');
 	  });
 
 	  $('[name=expectation]:input').change(function () {
@@ -446,7 +440,7 @@ webpackJsonp([0],[
 	  }
 
 	  $('[name=current]:input, [name=objective]:input').change(function () {
-	    state[this.name] = this.value;
+	    state[this.name] = $(this).val();
 	    saveState(state);
 
 	    updateRewardList();

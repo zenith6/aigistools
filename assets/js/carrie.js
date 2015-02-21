@@ -5,7 +5,7 @@ webpackJsonp([2],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	__webpack_require__(1);
-	__webpack_require__(5);
+	__webpack_require__(4);
 
 	var loadImage  = __webpack_require__(9);
 	var components = __webpack_require__(10);
