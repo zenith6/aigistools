@@ -661,7 +661,7 @@ webpackJsonp([0],[
 	  initialize();
 	  setInterval(update, 1000);
 	});
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }

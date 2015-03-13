@@ -1,11 +1,11 @@
-webpackJsonp([2],[
+webpackJsonp([3],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	__webpack_require__(1);
-	__webpack_require__(4);
+	__webpack_require__(5);
 
 	var loadImage  = __webpack_require__(9);
 	var components = __webpack_require__(10);
@@ -557,7 +557,7 @@ webpackJsonp([2],[
 	  initialize();
 	  update();
 	});
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },

@@ -22,48 +22,48 @@
 /******/ 			return __webpack_require__(0);
 /******/ 		}
 /******/ 	};
-/******/
+
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// object to store loaded and loading chunks
 /******/ 	// "0" means "already loaded"
 /******/ 	// Array means "loading", array contains callbacks
 /******/ 	var installedChunks = {
-/******/ 		3:0
+/******/ 		4:0
 /******/ 	};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+
 /******/ 	// This file contains only the entry chunk.
 /******/ 	// The chunk loading function for additional chunks
 /******/ 	__webpack_require__.e = function requireEnsure(chunkId, callback) {
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] === 0)
 /******/ 			return callback.call(null, __webpack_require__);
-/******/
+
 /******/ 		// an array means "currently loading".
 /******/ 		if(installedChunks[chunkId] !== undefined) {
 /******/ 			installedChunks[chunkId].push(callback);
@@ -75,20 +75,20 @@
 /******/ 			script.type = 'text/javascript';
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"dragon-crystal-timer","1":"treasure-fragment-timer","2":"carrie","4":"visualizer"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"dragon-crystal-timer","1":"time-crystal-timer","2":"treasure-fragment-timer","3":"carrie","5":"visualizer"}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
-/******/
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/aigistools/";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -102,9 +102,9 @@
 	__webpack_require__(1);
 	__webpack_require__(2);
 	__webpack_require__(8);
-	__webpack_require__(3);
 	__webpack_require__(4);
-	module.exports = __webpack_require__(5);
+	__webpack_require__(5);
+	module.exports = __webpack_require__(3);
 
 
 /***/ },
@@ -1088,6 +1088,14 @@
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* WEBPACK VAR INJECTION */(function(jQuery, $) {$ = jQuery = __webpack_require__(6);
+	module.exports = __webpack_require__(13);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(6)))
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(jQuery) {(function($) {
 	  'use strict';
 
@@ -1762,16 +1770,17 @@
 	  };
 
 	})(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(jQuery) {// Ion.RangeSlider
-	// version 2.0.3 Build: 293
-	// © Denis Ineshin, 2014    https://github.com/IonDen
+	// version 2.0.6 Build: 300
+	// © Denis Ineshin, 2015
+	// https://github.com/IonDen
 	//
 	// Project page:    http://ionden.com/a/plugins/ion.rangeSlider/en.html
 	// GitHub page:     https://github.com/IonDen/ion.rangeSlider
@@ -1846,6 +1855,34 @@
 	            return bound;
 	        };
 	    }
+	    if (!Array.prototype.indexOf) {
+	        Array.prototype.indexOf = function(searchElement, fromIndex) {
+	            var k;
+	            if (this == null) {
+	                throw new TypeError('"this" is null or not defined');
+	            }
+	            var O = Object(this);
+	            var len = O.length >>> 0;
+	            if (len === 0) {
+	                return -1;
+	            }
+	            var n = +fromIndex || 0;
+	            if (Math.abs(n) === Infinity) {
+	                n = 0;
+	            }
+	            if (n >= len) {
+	                return -1;
+	            }
+	            k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+	            while (k < len) {
+	                if (k in O && O[k] === searchElement) {
+	                    return k;
+	                }
+	                k++;
+	            }
+	            return -1;
+	        };
+	    }
 
 
 
@@ -1881,7 +1918,7 @@
 	    // Core
 
 	    var IonRangeSlider = function (input, options, plugin_count) {
-	        this.VERSION = "2.0.3";
+	        this.VERSION = "2.0.6";
 	        this.input = input;
 	        this.plugin_count = plugin_count;
 	        this.current_plugin = 0;
@@ -1974,6 +2011,27 @@
 	        };
 	        data.values = data.values && data.values.split(",");
 	        options = $.extend(data, options);
+
+	        // get from and to out of input
+	        var val = $inp.prop("value");
+	        if (val) {
+	            val = val.split(";");
+
+	            if (val[0] && val[0] == +val[0]) {
+	                val[0] = +val[0];
+	            }
+	            if (val[1] && val[1] == +val[1]) {
+	                val[1] = +val[1];
+	            }
+
+	            if (options.values && options.values.length) {
+	                data.from = val[0] && options.values.indexOf(val[0]);
+	                data.to = val[1] && options.values.indexOf(val[1]);
+	            } else {
+	                data.from = val[0] && +val[0];
+	                data.to = val[1] && +val[1];
+	            }
+	        }
 
 	        // get config from options
 	        this.options = $.extend({
@@ -2594,7 +2652,7 @@
 	                return;
 	            }
 
-	            if (this.coords.x_pointer < 0) {
+	            if (this.coords.x_pointer < 0 || isNaN(this.coords.x_pointer)  ) {
 	                this.coords.x_pointer = 0;
 	            } else if (this.coords.x_pointer > this.coords.w_rs) {
 	                this.coords.x_pointer = this.coords.w_rs;
@@ -2898,13 +2956,19 @@
 	        drawShadow: function () {
 	            var o = this.options,
 	                c = this.$cache,
+
+	                is_from_min = typeof o.from_min === "number" && !isNaN(o.from_min),
+	                is_from_max = typeof o.from_max === "number" && !isNaN(o.from_max),
+	                is_to_min = typeof o.to_min === "number" && !isNaN(o.to_min),
+	                is_to_max = typeof o.to_max === "number" && !isNaN(o.to_max),
+
 	                from_min,
 	                from_max,
 	                to_min,
 	                to_max;
 
 	            if (o.type === "single") {
-	                if (o.from_shadow && (o.from_min || o.from_max)) {
+	                if (o.from_shadow && (is_from_min || is_from_max)) {
 	                    from_min = this.calcPercent(o.from_min || o.min);
 	                    from_max = this.calcPercent(o.from_max || o.max) - from_min;
 	                    from_min = this.toFixed(from_min - (this.coords.p_handle / 100 * from_min));
@@ -2918,7 +2982,7 @@
 	                    c.shad_single[0].style.display = "none";
 	                }
 	            } else {
-	                if (o.from_shadow && (o.from_min || o.from_max)) {
+	                if (o.from_shadow && (is_from_min || is_from_max)) {
 	                    from_min = this.calcPercent(o.from_min || o.min);
 	                    from_max = this.calcPercent(o.from_max || o.max) - from_min;
 	                    from_min = this.toFixed(from_min - (this.coords.p_handle / 100 * from_min));
@@ -2932,7 +2996,7 @@
 	                    c.shad_from[0].style.display = "none";
 	                }
 
-	                if (o.to_shadow && (o.to_min || o.to_max)) {
+	                if (o.to_shadow && (is_to_min || is_to_max)) {
 	                    to_min = this.calcPercent(o.to_min || o.min);
 	                    to_max = this.calcPercent(o.to_max || o.max) - to_min;
 	                    to_min = this.toFixed(to_min - (this.coords.p_handle / 100 * to_min));
@@ -3515,6 +3579,10 @@
 	        // Public methods
 
 	        update: function (options) {
+	            if (!this.input) {
+	                return;
+	            }
+
 	            this.is_update = true;
 
 	            this.options.from = this.result.from;
@@ -3530,11 +3598,19 @@
 	        },
 
 	        reset: function () {
+	            if (!this.input) {
+	                return;
+	            }
+
 	            this.updateResult();
 	            this.update();
 	        },
 
 	        destroy: function () {
+	            if (!this.input) {
+	                return;
+	            }
+
 	            this.toggleInput();
 	            this.$cache.input.prop("readonly", false);
 	            $.data(this.input, "ionRangeSlider", null);
@@ -3589,16 +3665,8 @@
 	    }());
 
 	} (jQuery, document, window, navigator));
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(jQuery, $) {$ = jQuery = __webpack_require__(6);
-	module.exports = __webpack_require__(13);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(6)))
 
 /***/ },
 /* 6 */
@@ -31389,7 +31457,7 @@
 	    };
 
 	}(jQuery));
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -31458,7 +31526,7 @@
 	  })
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -31559,7 +31627,7 @@
 	  $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -31682,7 +31750,7 @@
 	    })
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -31926,7 +31994,7 @@
 	  })
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -32144,7 +32212,7 @@
 	  })
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -32312,7 +32380,7 @@
 	    .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -32643,7 +32711,7 @@
 	  })
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -33122,7 +33190,7 @@
 	  }
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -33242,7 +33310,7 @@
 	  }
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -33424,7 +33492,7 @@
 	  })
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -33584,7 +33652,7 @@
 	    .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler)
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
@@ -33753,8 +33821,8 @@
 	  })
 
 	}(jQuery);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }
-/******/ ])
+/******/ ]);
