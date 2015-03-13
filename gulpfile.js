@@ -41,6 +41,8 @@ gulp.task('script', function (callback) {
 
   webpackCompiler.run(function(error, status) {
     if (error) {
+      $.notify.onError('Error: <%= error.message %>');
+
       throw new $.util.PluginError('webpack', error);
     }
 
@@ -55,6 +57,8 @@ gulp.task('style', function () {
     .pipe($.plumber({
       errorHandler: function (error) {
         $.util.log(error.message);
+        $.notify.onError('Error: <%= error.message %>');
+
         this.emit('end');
     }}))
     .pipe($.sass({
@@ -63,7 +67,7 @@ gulp.task('style', function () {
         path.join(root, 'bower_components'),
       ]
     }))
-    .pipe($.autoprefixer())
+    .pipe($.pleeease())
     .pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'css')));
 });
 

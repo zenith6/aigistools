@@ -1,5 +1,3 @@
-$navbar-border-radius: 0;
-
 .footer {
   background-color: #181818;
   color: white;
@@ -167,25 +165,40 @@ $navbar-border-radius: 0;
         background-repeat: no-repeat;
       }
 
-      &.tool-item-carrie:before {
-        background-image: url('../thumbnails/carrie/index.png');
-      }
+      &.tool {
+        &.obsoleted {
+          filter: grayscale(1);
 
-      &.tool-item-visualizer:before {
-        background-image: url('../thumbnails/visualizer/index.png');
-      }
+          & > a {
+            color: #888;
+            text-shadow: none;
+          }
+        }
 
-      &.tool-item-rita:before {
-        background-image: url('../rita.png');
-        background-position: left center;
-      }
+        &.tool-carrie:before {
+          background-image: url('../thumbnails/carrie/index.png');
+        }
 
-      &.tool-item-treasure-fragment-timer:before {
-        background-image: url('../thumbnails/treasure-fragment-timer/index.png');
-      }
+        &.tool-visualizer:before {
+          background-image: url('../thumbnails/visualizer/index.png');
+        }
 
-      &.tool-item-dragon-crystal-timer:before {
-        background-image: url('../thumbnails/dragon-crystal-timer/index.png');
+        &.tool-rita:before {
+          background-image: url('../rita.png');
+          background-position: left center;
+        }
+
+        &.tool-treasure-fragment-timer:before {
+          background-image: url('../thumbnails/treasure-fragment-timer/index.png');
+        }
+
+        &.tool-dragon-crystal-timer:before {
+          background-image: url('../thumbnails/dragon-crystal-timer/index.png');
+        }
+
+        &.tool-time-fragment-timer:before {
+          background-image: url('../thumbnails/time-crystal-timer/index.png');
+        }
       }
     }
   }

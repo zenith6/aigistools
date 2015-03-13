@@ -12,6 +12,11 @@ module.exports = [
     path: 'visualizer',
   },
   {
+    name: '刻水晶タイマー',
+    id: 'time-crystal-timer',
+    path: 'time-crystal-timer/',
+  },
+  {
     name: '至宝のカケラタイマー',
     id: 'treasure-fragment-timer',
     path: 'treasure-fragment-timer',

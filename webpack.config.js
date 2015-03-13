@@ -20,7 +20,10 @@ var entry = {
 };
 
 entry = fs.readdirSync(config.script.path).reduce(function (entry, pathname) {
-  entry[pathname] = path.join(config.script.path, pathname, 'index.js');
+  var index = path.join(config.script.path, pathname, 'index.js');
+  if (fs.existsSync(index)) {
+    entry[pathname] = index;
+  }
   return entry;
 }, entry);
 
