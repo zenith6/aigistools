@@ -1,0 +1,270 @@
+$onmitsu-tile-container-width: 500px !default;
+$onmitsu-tile-container-height: 500px !default;
+$onmitsu-tile-margin: 6px !default;
+$onmitsu-stage-width: $onmitsu-tile-container-width !default;
+$onmitsu-stage-height: $onmitsu-tile-container-height !default;
+$onmitsu-border-radius: 6px;
+
+.onmitsu {
+  .onmitsu-scene {
+    display: none;
+    margin-bottom: 200px;
+
+    &:after {
+      display: table;
+      content: " ";
+      clear: both;
+    }
+  }
+
+  .onmitsu-scene-menu {
+    text-align: center;
+
+    .onmitsu-menu-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background-image: url('../aigisdot.png');
+      background-position: center center;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    h1 {
+      margin: 150px 0 10px;
+      text-shadow: 2px 2px 2px #000;
+    }
+
+    .subtitle {
+      margin-bottom: 50px;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .help {
+      margin-top: 40px;
+      color: #ccc;
+    }
+
+    .copyright {
+      & > a {
+        color: #ccc;
+      }
+    }
+  }
+
+  .onmitsu-board {
+    display: block;
+    width: $onmitsu-tile-container-width;
+    margin: auto;
+
+    &:after {
+      display: block;
+      content: " ";
+      clear: both;
+    }
+
+    & > .onmitsu-board-item {
+      width: 50%;
+      height: 80px;
+      float: left;
+
+      .onmitsu-objective {
+        position: relative;
+        display: block;
+        height: 100%;
+        margin-right: 10px;
+        padding: 8px;
+        background-color: #222222;
+        border-radius: $onmitsu-border-radius;
+        text-shadow: 1px 1px 1px #000;
+
+        .onmitsu-objective-label {
+          position: absolute;
+          left: 0.3em;
+          top: 0.1em;
+          color: #fff;
+        }
+
+        .onmitsu-objective-image {
+          display: block;
+          margin: auto;
+          width: 64px;
+        }
+      }
+
+      .onmitsu-score {
+        position: relative;
+        display: block;
+        height: 100%;
+        margin-left: 10px;
+        padding: 0.6em 1em 0.1em 2em;
+        border-radius: $onmitsu-border-radius;
+        background-color: #976;
+        color: #fff;
+        text-align: center;
+        text-shadow: 1px 1px 1px #000;
+
+        .onmitsu-score-label {
+          position: absolute;
+          left: 0.3em;
+          top: 0.1em;
+        }
+
+        .onmitsu-score-value {
+          font-size: 40px;
+          line-height: 80px;
+        }
+
+        .onmitsu-score-unit {
+          font-size: 18px;
+          line-height: 80px;
+        }
+      }
+    }
+  }
+
+  .onmitsu-timer {
+    display: block;
+    width: $onmitsu-stage-width;
+    margin: 1em auto;
+    padding: 4px;
+    border-radius: $onmitsu-border-radius;
+    background-color: #222222;
+
+    & > .onmitsu-timer-bar {
+      display: block;
+      width: 100%;
+      height: 1em;
+      border-radius: $onmitsu-border-radius;
+      background-color: #eee;
+      transition: all 200ms linear;
+    }
+  }
+
+  .onmitsu-stage {
+    margin: auto;
+    width: $onmitsu-stage-width;
+    height: $onmitsu-stage-height;
+    border-radius: $onmitsu-border-radius;
+    background-color: #222222;
+    user-select: none;
+
+    &:after {
+      display: table;
+      content: " ";
+      clear: both;
+    }
+
+    .onmitsu-tile-container {
+      position: relative;
+      display: block;
+      width: $onmitsu-tile-container-width;
+      height: $onmitsu-tile-container-height;
+      margin-bottom: 20px;
+      border-radius: $onmitsu-border-radius;
+
+      .onmitsu-getted-score {
+        font-size: 32px;
+        color: #f9534f;
+        text-shadow: 1px 1px 2px #000;
+        z-index: 10000;
+        animation: score-getted 1000ms ease-out;
+        animation-fill-mode: both;
+      }
+
+      .onmitsu-tile {
+        position: absolute;
+        display: block;
+        border-radius: $onmitsu-border-radius;
+        animation: tile-fadein 500ms;
+        padding: 0 $onmitsu-tile-margin $onmitsu-tile-margin 0;
+        animation-fill-mode: both;
+
+        &:hover {
+          box-shadow: 0px 0px 4px #fff;
+        }
+
+        & > img {
+          width: 100%;
+          height: 100%;
+        }
+
+        &.fadeout {
+          animation: tile-fadeout 500ms;
+        }
+
+        &.disabled {
+          animation: tile-disabled 500ms;
+        }
+
+        &.onmitsu-tile-sample {
+          left: $onmitsu-tile-margin;
+          top: $onmitsu-tile-margin;
+          width: $onmitsu-tile-container-width - $onmitsu-tile-margin * 2;
+          height: $onmitsu-tile-container-height - $onmitsu-tile-margin * 2;
+        }
+      }
+    }
+  }
+
+  .rita {
+    margin: 200px auto 80px;
+    text-align: center;
+  }
+}
+
+@keyframes tile-fadein {
+  0% {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes tile-fadeout {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+}
+
+@keyframes scene-change {
+  0% {
+    transform: rotate;
+  }
+}
+
+@keyframes tile-disabled {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes score-getted {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+}

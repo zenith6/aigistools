@@ -1,0 +1,73 @@
+<% extend '_layouts/_default' %>
+
+<% @name = '隠密' %>
+<% @description = '千年戦争アイギス隠密力測定ツール「隠密測定」。' %>
+<% @path = 'onmitsu/' %>
+
+<% block 'style': %>
+  <link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
+  <link rel="stylesheet" type="text/css" href="<%= @asset('css/onmitsu.css') %>">
+<% end %>
+
+<% block 'script': %>
+  <script src="<%= @asset('js/onmitsu.js') %>"></script>
+<% end %>
+
+<% block 'copyright': %>
+  <li>ドット絵アイコン作者様 <a href="http://ch.nicovideo.jp/bellachankawaii">ベライチ</a></li>
+  <li>Inspired by <a href="http://game.ioxapp.com/color/">看你有多色</a></li>
+<% end %>
+
+<div id="onmitsu" class="onmitsu">
+  <section class="onmitsu-scene onmitsu-scene-menu" data-onmitsu-scene="menu">
+    <h1>隠密測定</h1>
+    <p class="subtitle">The Onmitsu!</p>
+    <button name="play" class="btn btn-primary btn-lg" data-target-scene="main">PLAY</button>
+
+    <p class="help">
+      <ruby><rb>隠密</rb><rp>（</rp><rt>リタちゃん</rt><rp>）</rp></ruby>しているキャラを何人探せるか腕試し！<br />
+      <a href="https://www.google.co.jp/chrome/">Chrome</a> 専用です。その他のブラウザも鋭意対応中！
+    </p>
+
+    <address class="copyright">
+      <a href="http://ch.nicovideo.jp/bellachankawaii">&copy;ベライチ</a>
+      <a href="https://github.com/zenith6/">&copy;zenith</a>
+    </address>
+
+    <div class="onmitsu-menu-bg"></div>
+  </section>
+
+  <section class="onmitsu-scene onmitsu-scene-main" data-onmitsu-scene="main">
+    <div class="onmitsu-board">
+        <div class="onmitsu-board-item onmitsu-board-item-objective">
+          <div class="onmitsu-objective">
+          <span class="onmitsu-objective-label">SEEK!</span>
+          <span class="onmitsu-objective-image" data-onmitsu-object="objective"></span>
+        </div>
+      </div>
+      <div class="onmitsu-board-item onmitsu-board-item-score">
+        <div class="onmitsu-score">
+          <span class="onmitsu-score-label">SCORE</span>
+          <span class="onmitsu-score-value" data-onmitsu-object="score">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="onmitsu-timer">
+      <div class="onmitsu-timer-bar" data-onmitsu-object="timer-bar"></div>
+    </div>
+
+    <div class="onmitsu-stage">
+      <div class="onmitsu-tile-container" data-onmitsu-object="tile-container">
+        <div class="onmitsu-tile onmitsu-tile-sample" data-onmitsu-object="tile">
+          <div class="onmitsu-title"></div>
+        </div>
+      </div>
+      <button name="play" class="btn btn-default" data-target-scene="game">RESTART</button>
+    </div>
+  </section>
+
+  <aside class="rita">
+    <img src="<%= @asset('onmitsu.png') %>" />
+  </aside>
+</div>

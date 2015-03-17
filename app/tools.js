@@ -12,6 +12,11 @@ module.exports = [
     path: 'visualizer',
   },
   {
+    name: '隠密',
+    id: 'onmitsu',
+    path: 'onmitsu/',
+  },
+  {
     name: '刻水晶タイマー',
     id: 'time-crystal-timer',
     path: 'time-crystal-timer/',
