@@ -5,7 +5,7 @@ webpackJsonp([4],{
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	var icons = __webpack_require__(14);
+	var icons = __webpack_require__(15);
 	var iconSprite = __webpack_require__(16);
 
 	var maxTimeLimit = 60 * 1000;
@@ -289,7 +289,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 14:
+/***/ 15:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = [
