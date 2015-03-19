@@ -195,10 +195,12 @@ $onmitsu-border-radius: 6px;
 
         &.fadeout {
           animation: tile-fadeout 500ms;
+          animation-fill-mode: both;
         }
 
         &.disabled {
           animation: tile-disabled 500ms;
+          animation-fill-mode: both;
         }
 
         &.onmitsu-tile-sample {
@@ -242,18 +244,17 @@ $onmitsu-border-radius: 6px;
 }
 
 @keyframes scene-change {
-  0% {
-    transform: rotate;
-  }
 }
 
 @keyframes tile-disabled {
   0% {
     opacity: 1;
+    filter: grayscale(0);
   }
 
   100% {
-    opacity: 0.5;
+    opacity: 0.4;
+    filter: grayscale(0.6);
   }
 }
 
