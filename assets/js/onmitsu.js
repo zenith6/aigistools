@@ -8,7 +8,7 @@ webpackJsonp([4],{
 	var icons = __webpack_require__(15);
 	var iconSprite = __webpack_require__(16);
 
-	var maxTimeLimit = 60 * 1000;
+	var maxTimeLimit = 1 * 1000;
 	var tileContainerWidth;
 	var tileContainerHeight;
 	var tileMargin;
@@ -73,7 +73,16 @@ webpackJsonp([4],{
 
 	function gameover() {
 	  state = 'result';
-	  $game.find('[data-onmitsu-object="tile"]').addClass('disabled');
+
+	  $game.find('[data-onmitsu-object="tile"]')
+	    .addClass('disabled')
+	    .each(function () {
+	      var $tile = $(this);
+	      console.log($tile.data('tileId'));
+	      if ($tile.data('tileId') === correctTileId) {
+	        $tile.addClass('correct');
+	      }
+	    });
 	}
 
 	function verify(answer) {
