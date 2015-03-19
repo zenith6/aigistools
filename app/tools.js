@@ -12,7 +12,7 @@ module.exports = [
     path: 'visualizer',
   },
   {
-    name: '隠密',
+    name: '隠密測定',
     id: 'onmitsu',
     path: 'onmitsu/',
   },

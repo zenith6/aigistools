@@ -74,7 +74,6 @@ function gameover() {
     .addClass('disabled')
     .each(function () {
       var $tile = $(this);
-      console.log($tile.data('tileId'));
       if ($tile.data('tileId') === correctTileId) {
         $tile.addClass('correct');
       }
