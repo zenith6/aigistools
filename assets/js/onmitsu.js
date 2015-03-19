@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([3],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
@@ -79,7 +79,6 @@ webpackJsonp([4],{
 	    .addClass('disabled')
 	    .each(function () {
 	      var $tile = $(this);
-	      console.log($tile.data('tileId'));
 	      if ($tile.data('tileId') === correctTileId) {
 	        $tile.addClass('correct');
 	      }
