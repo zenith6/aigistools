@@ -8,7 +8,7 @@ webpackJsonp([4],{
 	var icons = __webpack_require__(15);
 	var iconSprite = __webpack_require__(16);
 
-	var maxTimeLimit = 1 * 1000;
+	var maxTimeLimit = 60 * 1000;
 	var tileContainerWidth;
 	var tileContainerHeight;
 	var tileMargin;
