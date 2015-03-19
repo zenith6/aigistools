@@ -1,4 +1,4 @@
-webpackJsonp([5],{
+webpackJsonp([6],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
@@ -12,7 +12,7 @@ webpackJsonp([5],{
 	__webpack_require__(4);
 	__webpack_require__(3);
 
-	__webpack_require__(15);
+	__webpack_require__(16);
 
 	function bootstrap() {
 	  $('#loading').show();
@@ -1722,11 +1722,11 @@ webpackJsonp([5],{
 	google.load('visualization', '1', {packages:['corechart', 'table']});
 	google.setOnLoadCallback(bootstrap);
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(16)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(17)))
 
 /***/ },
 
-/***/ 15:
+/***/ 16:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*** IMPORTS FROM imports-loader ***/
@@ -1734,7 +1734,7 @@ webpackJsonp([5],{
 
 	// 'use strict';
 
-	var formatTime = __webpack_require__(29);
+	var formatTime = __webpack_require__(31);
 
 	this.Aigis = {
 	  settings: {
@@ -4542,7 +4542,7 @@ webpackJsonp([5],{
 
 /***/ },
 
-/***/ 16:
+/***/ 17:
 /***/ function(module, exports, __webpack_require__) {
 
 	// shim for using process in browser
@@ -4607,7 +4607,7 @@ webpackJsonp([5],{
 
 /***/ },
 
-/***/ 29:
+/***/ 31:
 /***/ function(module, exports, __webpack_require__) {
 
 	function formatTime(time, scale) {
