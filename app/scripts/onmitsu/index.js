@@ -23,6 +23,7 @@ var $timerBar;
 var timer;
 var iconWidth = 128, iconHeight = 128;
 var state;
+var difficulty;
 
 function play() {
   if (timer) {
@@ -167,6 +168,7 @@ function updateStage(level) {
         left: left + 'px',
         top: top + 'px'
       })
+      .attr('data-difficulty', difficulty)
       .data('tileId',tileId)
       .append($(tile).clone())
       .appendTo($tileContainer);
@@ -260,6 +262,8 @@ function initialize($host) {
   $game
     .on('click', 'button[name=play]', function (e) {
       e.preventDefault();
+
+      difficulty = $(this).val();
 
       changeScene('main', function () {
         play();

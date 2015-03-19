@@ -38,6 +38,10 @@ $onmitsu-border-radius: 6px;
       text-shadow: 2px 2px 2px #000;
     }
 
+    .btn {
+      width: 8em;
+    }
+
     .subtitle {
       margin-bottom: 50px;
       font-size: 16px;
@@ -181,8 +185,12 @@ $onmitsu-border-radius: 6px;
         display: block;
         border-radius: $onmitsu-border-radius;
         animation: tile-fadein 500ms;
-        padding: 0 $onmitsu-tile-margin $onmitsu-tile-margin 0;
+        padding: 2px;
         animation-fill-mode: both;
+
+        &[data-difficulty='god'] {
+          filter: grayscale(1);
+        }
 
         &:hover {
           box-shadow: 0px 0px 4px #fff;
