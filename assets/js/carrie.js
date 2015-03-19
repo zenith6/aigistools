@@ -12,7 +12,7 @@ webpackJsonp([3],[
 	var commands   = __webpack_require__(11);
 	var effects    = __webpack_require__(12);
 
-	var templates = __webpack_require__(14)
+	var templates = __webpack_require__(15)
 	  .reduce(function (templates, template) {
 	    templates[template.id] = template;
 	    return templates;
@@ -1398,7 +1398,8 @@ webpackJsonp([3],[
 
 /***/ },
 /* 13 */,
-/* 14 */
+/* 14 */,
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = [

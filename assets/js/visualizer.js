@@ -12,7 +12,7 @@ webpackJsonp([6],{
 	__webpack_require__(4);
 	__webpack_require__(3);
 
-	__webpack_require__(16);
+	__webpack_require__(17);
 
 	function bootstrap() {
 	  $('#loading').show();
@@ -1722,11 +1722,11 @@ webpackJsonp([6],{
 	google.load('visualization', '1', {packages:['corechart', 'table']});
 	google.setOnLoadCallback(bootstrap);
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(17)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(18)))
 
 /***/ },
 
-/***/ 16:
+/***/ 17:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*** IMPORTS FROM imports-loader ***/
@@ -4542,7 +4542,7 @@ webpackJsonp([6],{
 
 /***/ },
 
-/***/ 17:
+/***/ 18:
 /***/ function(module, exports, __webpack_require__) {
 
 	// shim for using process in browser
