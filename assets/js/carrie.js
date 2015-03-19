@@ -8,8 +8,8 @@ webpackJsonp([3],[
 	__webpack_require__(5);
 
 	var loadImage  = __webpack_require__(9);
-	var components = __webpack_require__(10);
-	var commands   = __webpack_require__(11);
+	var components = __webpack_require__(11);
+	var commands   = __webpack_require__(10);
 	var effects    = __webpack_require__(12);
 
 	var templates = __webpack_require__(14)
@@ -591,6 +591,20 @@ webpackJsonp([3],[
 
 /***/ },
 /* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = {
+	  r: function () {
+	    var items = Array.prototype.slice.call(arguments, 0);
+	    return items[Math.floor(Math.random() * items.length)];
+	  }
+	};
+
+
+/***/ },
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1243,26 +1257,12 @@ webpackJsonp([3],[
 
 
 /***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	  r: function () {
-	    var items = Array.prototype.slice.call(arguments, 0);
-	    return items[Math.floor(Math.random() * items.length)];
-	  }
-	};
-
-
-/***/ },
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var components = __webpack_require__(10);
+	var components = __webpack_require__(11);
 
 	module.exports = {
 	  flame: {
