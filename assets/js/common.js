@@ -75,7 +75,7 @@
 /******/ 			script.type = 'text/javascript';
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"dragon-crystal-timer","1":"time-crystal-timer","2":"treasure-fragment-timer","3":"onmitsu","4":"carrie","6":"visualizer"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"dragon-crystal-timer","1":"time-crystal-timer","2":"treasure-fragment-timer","3":"carrie","4":"onmitsu","6":"visualizer"}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
