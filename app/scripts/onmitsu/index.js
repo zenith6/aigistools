@@ -68,7 +68,16 @@ function update() {
 
 function gameover() {
   state = 'result';
-  $game.find('[data-onmitsu-object="tile"]').addClass('disabled');
+
+  $game.find('[data-onmitsu-object="tile"]')
+    .addClass('disabled')
+    .each(function () {
+      var $tile = $(this);
+      console.log($tile.data('tileId'));
+      if ($tile.data('tileId') === correctTileId) {
+        $tile.addClass('correct');
+      }
+    });
 }
 
 function verify(answer) {

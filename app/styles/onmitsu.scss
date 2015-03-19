@@ -198,7 +198,11 @@ $onmitsu-border-radius: 6px;
           animation-fill-mode: both;
         }
 
-        &.disabled {
+        &.correct {
+          box-shadow: 0px 0px 4px gold;
+        }
+
+        &.disabled:not(.correct) {
           animation: tile-disabled 500ms;
           animation-fill-mode: both;
         }
