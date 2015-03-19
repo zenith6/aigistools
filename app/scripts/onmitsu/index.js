@@ -183,29 +183,39 @@ function createTileTemplate() {
   return $tpl;
 }
 
-function createTileImages(icons) {
+function createTileImages(icons, done) {
   var sprite = document.createElement('img');
-  sprite.style.display = 'none';
   sprite.src = iconSprite;
-  document.documentElement.appendChild(sprite);
 
-  return icons.map(function (icon) {
-    var work = document.createElement('canvas');
-    work.width = iconWidth;
-    work.height = iconHeight;
+  setTimeout(function () {
+    var images = icons.map(function (icon) {
+      var work = document.createElement('canvas');
+      work.width = iconWidth;
+      work.height = iconHeight;
 
-    var workCtx = work.getContext('2d');
-    workCtx.imageSmoothingEnabled = false;
-    workCtx.drawImage(sprite,
-      icon.left, icon.top, icon.width, icon.height,
-      0, 0, iconWidth, iconHeight
-    );
+      var workCtx = work.getContext('2d');
 
-    var img = document.createElement('img');
-    img.src = work.toDataURL();
+      /*
+       * Keep dot edge.
+       */
+      workCtx.imageSmoothingEnabled = false;
+      workCtx.webkitImageSmoothingEnabled = false;
+      workCtx.mozImageSmoothingEnabled = false;
+      workCtx.msImageSmoothingEnabled  = false;
 
-    return img;
-  });
+      workCtx.drawImage(sprite,
+        icon.left, icon.top, icon.width, icon.height,
+        0, 0, iconWidth, iconHeight
+      );
+
+      var img = document.createElement('img');
+      img.src = work.toDataURL();
+
+      return img;
+    });
+
+    done(images);
+  }, 0);
 }
 
 function changeScene(scene, done) {
@@ -243,7 +253,9 @@ function showScoreLabel($trigger, time) {
 
 function initialize($host) {
   $tileTemplate = createTileTemplate();
-  tileImages = createTileImages(icons);
+  createTileImages(icons, function (images) {
+    tileImages = images;
+  });
 
   $game = $host;
 
@@ -283,6 +295,9 @@ function initialize($host) {
         var time = nextLevel();
         showScoreLabel($tile, time);
       }
+    })
+    .on('dragstart', function (e) {
+      e.preventDefault();
     });
 
   changeScene('menu');

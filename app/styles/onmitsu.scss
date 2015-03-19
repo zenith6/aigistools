@@ -49,12 +49,15 @@ $onmitsu-border-radius: 6px;
     }
 
     .help {
-      margin-top: 40px;
+      margin: 40px;
       color: #ccc;
+      line-height: 1.8;
     }
 
     .copyright {
-      & > a {
+      margin-top: 40px;
+
+      a {
         color: #ccc;
       }
     }
