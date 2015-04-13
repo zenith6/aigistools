@@ -12,6 +12,11 @@ module.exports = [
     path: 'visualizer',
   },
   {
+    name: 'ビジュアライザー',
+    id: 'units',
+    path: 'units/',
+  },
+  {
     name: '隠密測定',
     id: 'onmitsu',
     path: 'onmitsu/',

@@ -1,0 +1,4869 @@
+[
+  {
+    "name": "攻撃力強化I",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 20,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 21,
+        "y": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 23,
+        "y": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 24,
+        "y": 1.4
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 25,
+        "y": 1.5
+      }
+    ],
+    "id": 1
+  },
+  {
+    "name": "攻撃力強化II",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 25,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 26,
+        "y": 1.3
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 28,
+        "y": 1.4
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 29,
+        "y": 1.5
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 30,
+        "y": 1.6
+      }
+    ],
+    "id": 2
+  },
+  {
+    "name": "攻撃力強化III",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 30,
+        "y": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 31,
+        "y": 1.43
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 33,
+        "y": 1.55
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 34,
+        "y": 1.68
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 35,
+        "y": 1.8
+      }
+    ],
+    "id": 3
+  },
+  {
+    "name": "攻撃力強化IV",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 40,
+        "y": 1.4
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 41,
+        "y": 1.53
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 43,
+        "y": 1.65
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 44,
+        "y": 1.78
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 45,
+        "y": 1.9
+      }
+    ],
+    "id": 4
+  },
+  {
+    "name": "鬼神力",
+    "description": "X秒攻撃力がY倍効果が切れたときに麻痺する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 4,
+        "y": 2
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 4,
+        "y": 2.11
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 5,
+        "y": 2.22
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 5,
+        "y": 2.33
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 6,
+        "y": 2.44
+      },
+      {
+        "level": 6,
+        "cooldown": 34,
+        "x": 6,
+        "y": 2.56
+      },
+      {
+        "level": 7,
+        "cooldown": 33,
+        "x": 7,
+        "y": 2.67
+      },
+      {
+        "level": 8,
+        "cooldown": 32,
+        "x": 7,
+        "y": 2.78
+      },
+      {
+        "level": 9,
+        "cooldown": 31,
+        "x": 8,
+        "y": 2.89
+      },
+      {
+        "level": 10,
+        "cooldown": 30,
+        "x": 8,
+        "y": 3
+      }
+    ],
+    "id": 5
+  },
+  {
+    "name": "ダイナマイトパワー",
+    "description": "X秒攻撃発生までの時間が長くなるが攻撃力がY倍",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 15,
+        "y": 3
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 18,
+        "y": 3.5
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 20,
+        "y": 4
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 23,
+        "y": 4.5
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 25,
+        "y": 5
+      }
+    ],
+    "id": 6
+  },
+  {
+    "name": "捨て身I",
+    "description": "10秒攻撃力がX倍に上昇＋自身の防御力0",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 1.5
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 1.63
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 1.75
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 1.88
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 2
+      }
+    ],
+    "id": 7
+  },
+  {
+    "name": "捨て身II",
+    "description": "10秒攻撃力がX倍に上昇＋自身の防御力0",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 1.7
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 1.83
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 1.95
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 2.08
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 2.2
+      }
+    ],
+    "id": 8
+  },
+  {
+    "name": "捨て身III",
+    "description": "10秒攻撃力がX倍に上昇＋自身の防御力0",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 1.9
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 2.03
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 2.15
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 2.28
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 2.4
+      }
+    ],
+    "id": 9
+  },
+  {
+    "name": "暗殺I",
+    "description": "15秒攻撃力がX倍に上昇＋まれに即死させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 1.4
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 1.5
+      }
+    ],
+    "id": 10
+  },
+  {
+    "name": "暗殺II",
+    "description": "20秒攻撃力がX倍に上昇＋まれに即死させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 49,
+        "x": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 48,
+        "x": 1.33
+      },
+      {
+        "level": 3,
+        "cooldown": 47,
+        "x": 1.45
+      },
+      {
+        "level": 4,
+        "cooldown": 46,
+        "x": 1.58
+      },
+      {
+        "level": 5,
+        "cooldown": 45,
+        "x": 1.7
+      }
+    ],
+    "id": 11
+  },
+  {
+    "name": "暗殺III",
+    "description": "25秒攻撃力がX倍に上昇＋まれに即死させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 1.43
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 1.55
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 1.68
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 1.8
+      }
+    ],
+    "id": 12
+  },
+  {
+    "name": "忍術I",
+    "description": "X秒攻撃に即死効果および30%の回避能力を得る",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 15
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 16
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 18
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 19
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 20
+      }
+    ],
+    "id": 13
+  },
+  {
+    "name": "忍術III",
+    "description": "X秒攻撃に即死効果および50%の回避能力を得る",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 15
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 16
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 18
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 19
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 20
+      }
+    ],
+    "id": 14
+  },
+  {
+    "name": "ラッシュ!",
+    "description": "X秒攻撃後の待ち時間を短縮",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 10
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 13
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 15
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 18
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 20
+      }
+    ],
+    "id": 15
+  },
+  {
+    "name": "バラージショット",
+    "description": "X秒射程が減少し攻撃力Y倍、攻撃後の待ち時間を短縮(射程50%)",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 15,
+        "y": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 16,
+        "y": 1.4
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 18,
+        "y": 1.5
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 19,
+        "y": 1.6
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 20,
+        "y": 1.7
+      }
+    ],
+    "id": 16
+  },
+  {
+    "name": "滅多斬り",
+    "description": "X秒攻撃後の待ち時間を短縮攻撃力がY倍",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 74,
+        "x": 10,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 73,
+        "x": 11,
+        "y": 1.13
+      },
+      {
+        "level": 3,
+        "cooldown": 72,
+        "x": 12,
+        "y": 1.17
+      },
+      {
+        "level": 4,
+        "cooldown": 71,
+        "x": 13,
+        "y": 1.2
+      },
+      {
+        "level": 5,
+        "cooldown": 70,
+        "x": 14,
+        "y": 1.23
+      },
+      {
+        "level": 6,
+        "cooldown": 69,
+        "x": 16,
+        "y": 1.27
+      },
+      {
+        "level": 7,
+        "cooldown": 68,
+        "x": 17,
+        "y": 1.3
+      },
+      {
+        "level": 8,
+        "cooldown": 67,
+        "x": 18,
+        "y": 1.33
+      },
+      {
+        "level": 9,
+        "cooldown": 66,
+        "x": 19,
+        "y": 1.37
+      },
+      {
+        "level": 10,
+        "cooldown": 65,
+        "x": 20,
+        "y": 1.4
+      }
+    ],
+    "id": 17
+  },
+  {
+    "name": "ラッシュクロウ",
+    "description": "X秒攻撃後の待ち時間を短縮",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": null,
+        "x": 10
+      },
+      {
+        "level": 2,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 3,
+        "cooldown": null,
+        "x": 12
+      },
+      {
+        "level": 4,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 5,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 6,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 7,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 8,
+        "cooldown": 32,
+        "x": 18
+      },
+      {
+        "level": 9,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 10,
+        "cooldown": 30,
+        "x": 20
+      }
+    ],
+    "id": 18
+  },
+  {
+    "name": "クイックショットI",
+    "description": "X秒攻撃力Y倍攻撃後の待ち時間が短縮",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 49,
+        "x": 25,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 48,
+        "x": 26,
+        "y": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 47,
+        "x": 28,
+        "y": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 46,
+        "x": 29,
+        "y": 1.4
+      },
+      {
+        "level": 5,
+        "cooldown": 45,
+        "x": 30,
+        "y": 1.5
+      }
+    ],
+    "id": 19
+  },
+  {
+    "name": "クイックショットII",
+    "description": "X秒攻撃力Y倍攻撃後の待ち時間が短縮",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 25,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 26,
+        "y": 1.33
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 28,
+        "y": 1.45
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 29,
+        "y": 1.58
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 30,
+        "y": 1.7
+      }
+    ],
+    "id": 20
+  },
+  {
+    "name": "魔弾I",
+    "description": "X秒攻撃力がY倍攻撃後の待ち時間短縮まれに即死させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 69,
+        "x": 25,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 68,
+        "x": 26,
+        "y": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 67,
+        "x": 28,
+        "y": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 66,
+        "x": 29,
+        "y": 1.4
+      },
+      {
+        "level": 5,
+        "cooldown": 65,
+        "x": 30,
+        "y": 1.5
+      }
+    ],
+    "id": 21
+  },
+  {
+    "name": "魔弾II",
+    "description": "X秒攻撃力がY倍攻撃後の待ち時間短縮まれに即死させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 25,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 26,
+        "y": 1.33
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 28,
+        "y": 1.45
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 29,
+        "y": 1.58
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 30,
+        "y": 1.7
+      }
+    ],
+    "id": 22
+  },
+  {
+    "name": "拡散弾",
+    "description": "X秒攻撃範囲がY倍に広がる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 49,
+        "x": 25,
+        "y": 2
+      },
+      {
+        "level": 2,
+        "cooldown": 48,
+        "x": 26,
+        "y": 2.13
+      },
+      {
+        "level": 3,
+        "cooldown": 47,
+        "x": 28,
+        "y": 2.25
+      },
+      {
+        "level": 4,
+        "cooldown": 46,
+        "x": 29,
+        "y": 2.38
+      },
+      {
+        "level": 5,
+        "cooldown": 45,
+        "x": 30,
+        "y": 2.5
+      }
+    ],
+    "id": 23
+  },
+  {
+    "name": "射程強化I",
+    "description": "X秒射程距離がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 15,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 16,
+        "y": 1.3
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 18,
+        "y": 1.4
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 19,
+        "y": 1.5
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 20,
+        "y": 1.6
+      }
+    ],
+    "id": 24
+  },
+  {
+    "name": "射程強化II",
+    "description": "X秒射程距離がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 20,
+        "y": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 21,
+        "y": 1.4
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 23,
+        "y": 1.5
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 24,
+        "y": 1.6
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 25,
+        "y": 1.7
+      }
+    ],
+    "id": 25
+  },
+  {
+    "name": "範囲攻撃I",
+    "description": "20秒効果範囲が1.5倍に広がる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59
+      },
+      {
+        "level": 2,
+        "cooldown": 58
+      },
+      {
+        "level": 3,
+        "cooldown": 57
+      },
+      {
+        "level": 4,
+        "cooldown": 56
+      },
+      {
+        "level": 5,
+        "cooldown": 55
+      }
+    ],
+    "id": 26
+  },
+  {
+    "name": "範囲攻撃II",
+    "description": "25秒効果範囲が2.0倍に広がる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 54
+      },
+      {
+        "level": 2,
+        "cooldown": 53
+      },
+      {
+        "level": 3,
+        "cooldown": 52
+      },
+      {
+        "level": 4,
+        "cooldown": 51
+      },
+      {
+        "level": 5,
+        "cooldown": 50
+      }
+    ],
+    "id": 27
+  },
+  {
+    "name": "範囲攻撃III",
+    "description": "30秒効果範囲が2.5倍に広がる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 49
+      },
+      {
+        "level": 2,
+        "cooldown": 48
+      },
+      {
+        "level": 3,
+        "cooldown": 47
+      },
+      {
+        "level": 4,
+        "cooldown": 46
+      },
+      {
+        "level": 5,
+        "cooldown": 45
+      }
+    ],
+    "id": 28
+  },
+  {
+    "name": "鉄壁",
+    "description": "10秒防御力と魔法耐性がX倍になる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 1.8
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 2.1
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 2.4
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 2.7
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 3
+      }
+    ],
+    "id": 29
+  },
+  {
+    "name": "防御力強化I",
+    "description": "X秒防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 25,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 26,
+        "y": 1.3
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 28,
+        "y": 1.4
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 29,
+        "y": 1.5
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 30,
+        "y": 1.6
+      }
+    ],
+    "id": 30
+  },
+  {
+    "name": "防御力強化II",
+    "description": "X秒防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 30,
+        "y": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 31,
+        "y": 1.4
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 33,
+        "y": 1.5
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 34,
+        "y": 1.6
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 35,
+        "y": 1.7
+      }
+    ],
+    "id": 31
+  },
+  {
+    "name": "防御力強化III",
+    "description": "X秒防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 35,
+        "y": 1.4
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 36,
+        "y": 1.5
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 38,
+        "y": 1.6
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 39,
+        "y": 1.7
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 40,
+        "y": 1.8
+      }
+    ],
+    "id": 32
+  },
+  {
+    "name": "防御力強化IV",
+    "description": "X秒防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 40,
+        "y": 1.6
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 41,
+        "y": 1.7
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 43,
+        "y": 1.8
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 44,
+        "y": 1.9
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 45,
+        "y": 2
+      }
+    ],
+    "id": 33
+  },
+  {
+    "name": "心眼",
+    "description": "X秒敵からの攻撃を50%の確率で回避(物理攻撃のみ)",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 20
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 30
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 40
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 50
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 60
+      }
+    ],
+    "id": 34
+  },
+  {
+    "name": "見切り",
+    "description": "X秒遠距離からの攻撃をY％で回避",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 20,
+        "y": 60
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 23,
+        "y": 65
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 25,
+        "y": 70
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 28,
+        "y": 75
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 30,
+        "y": 80
+      }
+    ],
+    "id": 35
+  },
+  {
+    "name": "回復力強化I",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 49,
+        "x": 20,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 48,
+        "x": 21,
+        "y": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 47,
+        "x": 23,
+        "y": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 46,
+        "x": 24,
+        "y": 1.4
+      },
+      {
+        "level": 5,
+        "cooldown": 45,
+        "x": 25,
+        "y": 1.5
+      }
+    ],
+    "id": 36
+  },
+  {
+    "name": "回復力強化II",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 25,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 26,
+        "y": 1.33
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 28,
+        "y": 1.45
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 29,
+        "y": 1.58
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 30,
+        "y": 1.7
+      }
+    ],
+    "id": 37
+  },
+  {
+    "name": "回復力強化III",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 30,
+        "y": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 31,
+        "y": 1.43
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 33,
+        "y": 1.55
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 34,
+        "y": 1.68
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 35,
+        "y": 1.8
+      }
+    ],
+    "id": 38
+  },
+  {
+    "name": "クイックヒール",
+    "description": "X秒攻撃後の待ち時間が短縮",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 20
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 21
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 23
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 24
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 25
+      }
+    ],
+    "id": 39
+  },
+  {
+    "name": "回復I",
+    "description": "HPが最大値のX％回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 21
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 22
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 23
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 24
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 25
+      }
+    ],
+    "id": 40
+  },
+  {
+    "name": "回復II",
+    "description": "HPが最大値のX％回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 31
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 32
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 33
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 34
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 35
+      }
+    ],
+    "id": 41
+  },
+  {
+    "name": "回復III",
+    "description": "HPが最大値のX％回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 41
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 42
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 43
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 44
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 45
+      }
+    ],
+    "id": 42
+  },
+  {
+    "name": "回復IV",
+    "description": "HPが最大値のX％回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 51
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 52
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 53
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 54
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 55
+      }
+    ],
+    "id": 43
+  },
+  {
+    "name": "エリアヒール",
+    "description": "X秒攻撃Y倍射程Z倍範囲内の味方全員を回復する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 15,
+        "y": 1.2,
+        "z": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 18,
+        "y": 1.3,
+        "z": 1.1
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 20,
+        "y": 1.4,
+        "z": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 23,
+        "y": 1.5,
+        "z": 1.2
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 25,
+        "y": 1.6,
+        "z": 1.3
+      }
+    ],
+    "id": 44
+  },
+  {
+    "name": "援軍要請I",
+    "description": "出撃コストが5回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29
+      },
+      {
+        "level": 2,
+        "cooldown": 28
+      },
+      {
+        "level": 3,
+        "cooldown": 27
+      },
+      {
+        "level": 4,
+        "cooldown": 26
+      },
+      {
+        "level": 5,
+        "cooldown": 25
+      }
+    ],
+    "id": 45
+  },
+  {
+    "name": "援軍要請II",
+    "description": "出撃コストが10回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34
+      },
+      {
+        "level": 2,
+        "cooldown": 33
+      },
+      {
+        "level": 3,
+        "cooldown": 32
+      },
+      {
+        "level": 4,
+        "cooldown": 31
+      },
+      {
+        "level": 5,
+        "cooldown": 30
+      }
+    ],
+    "id": 46
+  },
+  {
+    "name": "援軍要請III",
+    "description": "出撃コストが15回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39
+      },
+      {
+        "level": 2,
+        "cooldown": 38
+      },
+      {
+        "level": 3,
+        "cooldown": 37
+      },
+      {
+        "level": 4,
+        "cooldown": 36
+      },
+      {
+        "level": 5,
+        "cooldown": 35
+      }
+    ],
+    "id": 47
+  },
+  {
+    "name": "ソウルステップ",
+    "description": "X秒射程がY倍攻撃力と防御力の加算値が大幅増加(100%)※",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 10,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 12,
+        "y": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 14,
+        "y": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 16,
+        "y": 1.4
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 18,
+        "y": 1.5
+      }
+    ],
+    "id": 48
+  },
+  {
+    "name": "パッションステップ",
+    "description": "X秒射程がY倍攻撃力と防御力の加算値が大幅増加(100%)",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 69,
+        "x": 10,
+        "y": 1
+      },
+      {
+        "level": 2,
+        "cooldown": 68,
+        "x": 12,
+        "y": 1.04
+      },
+      {
+        "level": 3,
+        "cooldown": 67,
+        "x": 13,
+        "y": 1.09
+      },
+      {
+        "level": 4,
+        "cooldown": 66,
+        "x": 15,
+        "y": 1.13
+      },
+      {
+        "level": 5,
+        "cooldown": 65,
+        "x": 17,
+        "y": 1.18
+      },
+      {
+        "level": 6,
+        "cooldown": 64,
+        "x": 18,
+        "y": 1.22
+      },
+      {
+        "level": 7,
+        "cooldown": 63,
+        "x": 20,
+        "y": 1.27
+      },
+      {
+        "level": 8,
+        "cooldown": 62,
+        "x": 22,
+        "y": 1.31
+      },
+      {
+        "level": 9,
+        "cooldown": 61,
+        "x": 23,
+        "y": 1.36
+      },
+      {
+        "level": 10,
+        "cooldown": 60,
+        "x": 25,
+        "y": 1.4
+      }
+    ],
+    "id": 49
+  },
+  {
+    "name": "幻惑の秘術",
+    "description": "X秒攻撃範囲内の味方が物理攻撃を一定確率で回避",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 90,
+        "x": 10
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 11
+      },
+      {
+        "level": 3,
+        "cooldown": 85,
+        "x": 13
+      },
+      {
+        "level": 4,
+        "cooldown": 82,
+        "x": 14
+      },
+      {
+        "level": 5,
+        "cooldown": 80,
+        "x": 15
+      }
+    ],
+    "id": 50
+  },
+  {
+    "name": "全力サポート",
+    "description": "X秒射程がY倍攻撃力と防御力の加算値が大幅に増加",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 119,
+        "x": 10,
+        "y": 1
+      },
+      {
+        "level": 2,
+        "cooldown": 118,
+        "x": 15,
+        "y": 1
+      },
+      {
+        "level": 3,
+        "cooldown": 117,
+        "x": 20,
+        "y": 1.1
+      },
+      {
+        "level": 4,
+        "cooldown": 116,
+        "x": 25,
+        "y": 1.1
+      },
+      {
+        "level": 5,
+        "cooldown": 115,
+        "x": 30,
+        "y": 1.2
+      }
+    ],
+    "id": 51
+  },
+  {
+    "name": "プロテクションI",
+    "description": "60秒攻撃範囲内の味方の防御がX倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 89,
+        "x": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": null,
+        "x": 1.4
+      },
+      {
+        "level": 3,
+        "cooldown": null,
+        "x": 1.5
+      },
+      {
+        "level": 4,
+        "cooldown": null,
+        "x": 1.6
+      },
+      {
+        "level": 5,
+        "cooldown": null,
+        "x": 1.7
+      }
+    ],
+    "id": 52
+  },
+  {
+    "name": "プロテクションII",
+    "description": "60秒攻撃範囲内の味方の防御がX倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 89,
+        "x": 1.5
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 1.63
+      },
+      {
+        "level": 3,
+        "cooldown": 87,
+        "x": 1.75
+      },
+      {
+        "level": 4,
+        "cooldown": 86,
+        "x": 1.88
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 2
+      }
+    ],
+    "id": 53
+  },
+  {
+    "name": "スロウマジック",
+    "description": "射程がX倍になり範囲内の敵の移動速度を下げる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 64,
+        "x": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 63,
+        "x": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 62,
+        "x": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 61,
+        "x": 1.4
+      },
+      {
+        "level": 5,
+        "cooldown": 60,
+        "x": 1.5
+      }
+    ],
+    "id": 54
+  },
+  {
+    "name": "破邪封印の結界",
+    "description": "射程距離がX倍に拡大し、範囲内の敵の動きを止める",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 74,
+        "x": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 73,
+        "x": 1.4
+      },
+      {
+        "level": 3,
+        "cooldown": 72,
+        "x": 1.5
+      },
+      {
+        "level": 4,
+        "cooldown": 71,
+        "x": 1.6
+      },
+      {
+        "level": 5,
+        "cooldown": 70,
+        "x": 1.7
+      }
+    ],
+    "id": 55
+  },
+  {
+    "name": "士気高揚",
+    "description": "出撃している全員の攻撃力と防御力がX%上昇出撃中は常に発動",
+    "levels": [
+      {
+        "level": null,
+        "cooldown": 2
+      },
+      {
+        "level": null,
+        "cooldown": 12
+      }
+    ],
+    "id": 56
+  },
+  {
+    "name": "猛将の鼓舞",
+    "description": "X秒出撃している全員の攻撃力がY%上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": null,
+        "x": 30,
+        "y": 5
+      },
+      {
+        "level": 2,
+        "cooldown": null,
+        "x": 38,
+        "y": 6
+      },
+      {
+        "level": 3,
+        "cooldown": 117,
+        "x": 45,
+        "y": 8
+      },
+      {
+        "level": 4,
+        "cooldown": 116,
+        "x": 53,
+        "y": 9
+      },
+      {
+        "level": 5,
+        "cooldown": 115,
+        "x": 60,
+        "y": 10
+      }
+    ],
+    "id": 57
+  },
+  {
+    "name": "烈火の陣",
+    "description": "X秒出撃している全員の攻撃力がY%上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 90,
+        "x": 10,
+        "y": 10
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 13,
+        "y": 13
+      },
+      {
+        "level": 3,
+        "cooldown": 87,
+        "x": 15,
+        "y": 15
+      },
+      {
+        "level": 4,
+        "cooldown": 86,
+        "x": 18,
+        "y": 18
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 20,
+        "y": 20
+      }
+    ],
+    "id": 58
+  },
+  {
+    "name": "鉄壁の陣",
+    "description": "X秒出撃している全員の防御力がY%上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 89,
+        "x": 10,
+        "y": 10
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 13,
+        "y": 13
+      },
+      {
+        "level": 3,
+        "cooldown": 87,
+        "x": 15,
+        "y": 15
+      },
+      {
+        "level": 4,
+        "cooldown": 86,
+        "x": 18,
+        "y": 18
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 20,
+        "y": 20
+      }
+    ],
+    "id": 59
+  },
+  {
+    "name": "聖霊の護り",
+    "description": "X秒間出撃している全員の物理ダメージをY%減少させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 79,
+        "x": 15,
+        "y": 15
+      },
+      {
+        "level": 2,
+        "cooldown": 78,
+        "x": 16,
+        "y": 16
+      },
+      {
+        "level": 3,
+        "cooldown": 77,
+        "x": 18,
+        "y": 18
+      },
+      {
+        "level": 4,
+        "cooldown": 76,
+        "x": 19,
+        "y": 19
+      },
+      {
+        "level": 5,
+        "cooldown": 75,
+        "x": 20,
+        "y": 20
+      }
+    ],
+    "id": 60
+  },
+  {
+    "name": "マジックバリア",
+    "description": "X秒出撃している全員の魔法ダメージをY%減少させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 15,
+        "y": 5
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 16,
+        "y": 6
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 17,
+        "y": 7
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 18,
+        "y": 8
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 19,
+        "y": 9
+      },
+      {
+        "level": 6,
+        "cooldown": 54,
+        "x": 20,
+        "y": 10
+      },
+      {
+        "level": 7,
+        "cooldown": 53,
+        "x": 21,
+        "y": 11
+      },
+      {
+        "level": 8,
+        "cooldown": 52,
+        "x": 22,
+        "y": 12
+      },
+      {
+        "level": 9,
+        "cooldown": 51,
+        "x": 23,
+        "y": 13
+      },
+      {
+        "level": 10,
+        "cooldown": 50,
+        "x": 24,
+        "y": 14
+      },
+      {
+        "level": 11,
+        "cooldown": 49,
+        "x": 25,
+        "y": 15
+      },
+      {
+        "level": 12,
+        "cooldown": 48,
+        "x": 26,
+        "y": 16
+      },
+      {
+        "level": 13,
+        "cooldown": 47,
+        "x": 27,
+        "y": 17
+      },
+      {
+        "level": 14,
+        "cooldown": 46,
+        "x": 28,
+        "y": 18
+      },
+      {
+        "level": 15,
+        "cooldown": 45,
+        "x": 29,
+        "y": 19
+      },
+      {
+        "level": 16,
+        "cooldown": 44,
+        "x": 30,
+        "y": 20
+      }
+    ],
+    "id": 61
+  },
+  {
+    "name": "死霊強化",
+    "description": "X秒ネクロマンサー系のトークンの攻撃力と防御力をY倍",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 49,
+        "x": 15,
+        "y": 1.5
+      },
+      {
+        "level": 2,
+        "cooldown": 48,
+        "x": 16,
+        "y": 1.67
+      },
+      {
+        "level": 3,
+        "cooldown": 47,
+        "x": 17,
+        "y": 1.83
+      },
+      {
+        "level": 4,
+        "cooldown": 46,
+        "x": 18,
+        "y": 2
+      },
+      {
+        "level": 5,
+        "cooldown": 45,
+        "x": 19,
+        "y": 2.17
+      },
+      {
+        "level": 6,
+        "cooldown": 44,
+        "x": 21,
+        "y": 2.33
+      },
+      {
+        "level": 7,
+        "cooldown": 43,
+        "x": 22,
+        "y": 2.5
+      },
+      {
+        "level": 8,
+        "cooldown": 42,
+        "x": 23,
+        "y": 2.67
+      },
+      {
+        "level": 9,
+        "cooldown": 41,
+        "x": 24,
+        "y": 2.83
+      },
+      {
+        "level": 10,
+        "cooldown": 40,
+        "x": 25,
+        "y": 3
+      }
+    ],
+    "id": 62
+  },
+  {
+    "name": "暗黒オーラ",
+    "description": "X秒敵の攻撃力をY%減少させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 79,
+        "x": 15,
+        "y": 3
+      },
+      {
+        "level": 2,
+        "cooldown": 78,
+        "x": 17,
+        "y": 4
+      },
+      {
+        "level": 3,
+        "cooldown": 77,
+        "x": 18,
+        "y": 5
+      },
+      {
+        "level": 4,
+        "cooldown": 76,
+        "x": 20,
+        "y": 5
+      },
+      {
+        "level": 5,
+        "cooldown": 75,
+        "x": 22,
+        "y": 6
+      },
+      {
+        "level": 6,
+        "cooldown": 74,
+        "x": 23,
+        "y": 7
+      },
+      {
+        "level": 7,
+        "cooldown": 73,
+        "x": 25,
+        "y": 8
+      },
+      {
+        "level": 8,
+        "cooldown": 72,
+        "x": 27,
+        "y": 8
+      },
+      {
+        "level": 9,
+        "cooldown": 71,
+        "x": 28,
+        "y": 9
+      },
+      {
+        "level": 10,
+        "cooldown": 70,
+        "x": 30,
+        "y": 10
+      }
+    ],
+    "id": 63
+  },
+  {
+    "name": "真・暗黒オーラ",
+    "description": "X秒敵の攻撃力をY%減少させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 89,
+        "x": 10,
+        "y": 25
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 11,
+        "y": 26
+      },
+      {
+        "level": 3,
+        "cooldown": 87,
+        "x": 13,
+        "y": 28
+      },
+      {
+        "level": 4,
+        "cooldown": 86,
+        "x": 14,
+        "y": 29
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 15,
+        "y": 30
+      }
+    ],
+    "id": 64
+  },
+  {
+    "name": "ダブルショット",
+    "description": "15秒2連続で矢を発射",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34
+      },
+      {
+        "level": 2,
+        "cooldown": 33
+      },
+      {
+        "level": 3,
+        "cooldown": 32
+      },
+      {
+        "level": 4,
+        "cooldown": 31
+      },
+      {
+        "level": 5,
+        "cooldown": 30
+      }
+    ],
+    "id": 65
+  },
+  {
+    "name": "トリプルショット",
+    "description": "15秒3連続で矢を発射",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39
+      },
+      {
+        "level": 2,
+        "cooldown": 38
+      },
+      {
+        "level": 3,
+        "cooldown": 37
+      },
+      {
+        "level": 4,
+        "cooldown": 36
+      },
+      {
+        "level": 5,
+        "cooldown": 35
+      }
+    ],
+    "id": 66
+  },
+  {
+    "name": "クアドラショット",
+    "description": "15秒4連続で矢を発射",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39
+      },
+      {
+        "level": 2,
+        "cooldown": 38
+      },
+      {
+        "level": 3,
+        "cooldown": 37
+      },
+      {
+        "level": 4,
+        "cooldown": 36
+      },
+      {
+        "level": 5,
+        "cooldown": 35
+      }
+    ],
+    "id": 67
+  },
+  {
+    "name": "天落岩の計",
+    "description": "X秒攻撃力Y倍射程1.3倍になり5体まで同時に攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 89,
+        "x": 10,
+        "y": 1.8
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 11,
+        "y": 2.1
+      },
+      {
+        "level": 3,
+        "cooldown": 87,
+        "x": 13,
+        "y": 2.4
+      },
+      {
+        "level": 4,
+        "cooldown": 86,
+        "x": 14,
+        "y": 2.7
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 15,
+        "y": 3
+      }
+    ],
+    "id": 68
+  },
+  {
+    "name": "神銃ブリューナク",
+    "description": "X秒攻撃力がY倍5体まで同時に攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 64,
+        "x": 15,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 63,
+        "x": 16,
+        "y": 1.15
+      },
+      {
+        "level": 3,
+        "cooldown": 62,
+        "x": 18,
+        "y": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 61,
+        "x": 19,
+        "y": 1.25
+      },
+      {
+        "level": 5,
+        "cooldown": 60,
+        "x": 20,
+        "y": 1.3
+      }
+    ],
+    "id": 69
+  },
+  {
+    "name": "イービルエナジー",
+    "description": "X秒攻撃力がY倍3体まで同時に攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 49,
+        "x": 15,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 48,
+        "x": 16,
+        "y": 1.15
+      },
+      {
+        "level": 3,
+        "cooldown": 47,
+        "x": 18,
+        "y": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 46,
+        "x": 19,
+        "y": 1.25
+      },
+      {
+        "level": 5,
+        "cooldown": 45,
+        "x": 20,
+        "y": 1.3
+      }
+    ],
+    "id": 70
+  },
+  {
+    "name": "サンダーレイン",
+    "description": "攻撃力がX倍射程がY倍になり範囲内の敵全てに攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": null,
+        "x": 1,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      },
+      {
+        "level": 3,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      },
+      {
+        "level": 4,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      },
+      {
+        "level": 5,
+        "cooldown": null,
+        "x": 1.1,
+        "y": 1.3
+      },
+      {
+        "level": 6,
+        "cooldown": null,
+        "x": 1.2,
+        "y": 1.4
+      },
+      {
+        "level": 7,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      },
+      {
+        "level": 8,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      },
+      {
+        "level": 9,
+        "cooldown": null,
+        "x": 1.3,
+        "y": 1.5
+      },
+      {
+        "level": 10,
+        "cooldown": 30,
+        "x": 1.3,
+        "y": 1.6
+      }
+    ],
+    "id": 71
+  },
+  {
+    "name": "破魔の炎",
+    "description": "15秒攻撃力がX倍に上昇し魔法で攻撃する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 1.43
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 1.55
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 1.68
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 1.8
+      }
+    ],
+    "id": 72
+  },
+  {
+    "name": "癒しの祈り",
+    "description": "15秒攻撃力がX倍に上昇し味方のHPを回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 24,
+        "x": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 23,
+        "x": 1.43
+      },
+      {
+        "level": 3,
+        "cooldown": 22,
+        "x": 1.55
+      },
+      {
+        "level": 4,
+        "cooldown": 21,
+        "x": 1.68
+      },
+      {
+        "level": 5,
+        "cooldown": 20,
+        "x": 1.8
+      }
+    ],
+    "id": 73
+  },
+  {
+    "name": "癒しの祈り・速",
+    "description": "X秒攻撃後の待ち時間が短縮味方のHPを回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 21,
+        "x": 8
+      },
+      {
+        "level": 2,
+        "cooldown": 20,
+        "x": 9
+      },
+      {
+        "level": 3,
+        "cooldown": 19,
+        "x": 10
+      },
+      {
+        "level": 4,
+        "cooldown": 18,
+        "x": 11
+      },
+      {
+        "level": 5,
+        "cooldown": 17,
+        "x": 12
+      }
+    ],
+    "id": 74
+  },
+  {
+    "name": "ヒールマジック",
+    "description": "10秒攻撃力がX倍に上昇し味方のHPを回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 1.15
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 1.25
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 1.3
+      }
+    ],
+    "id": 75
+  },
+  {
+    "name": "ヒールシャワー",
+    "description": "攻撃力がX倍になり範囲内の味方を同時に回復する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 1.15
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 1.25
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 1.3
+      }
+    ],
+    "id": 76
+  },
+  {
+    "name": "ヒールエンハンス",
+    "description": "X秒間攻撃力がY倍射程がZ倍回復に専念する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 10,
+        "y": 1.1,
+        "z": 1
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 11,
+        "y": 1.18,
+        "z": 1.1
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 13,
+        "y": 1.25,
+        "z": 1.1
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 14,
+        "y": 1.33,
+        "z": 1.2
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 15,
+        "y": 1.4,
+        "z": 1.2
+      }
+    ],
+    "id": 77
+  },
+  {
+    "name": "バトルヒールI",
+    "description": "X秒攻撃力がY倍回復に専念する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 10,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 11,
+        "y": 1.3
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 13,
+        "y": 1.4
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 14,
+        "y": 1.5
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 15,
+        "y": 1.6
+      }
+    ],
+    "id": 78
+  },
+  {
+    "name": "セイクリッドメイス",
+    "description": "X秒射程がY倍回復に専念する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 10,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 11,
+        "y": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 13,
+        "y": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 14,
+        "y": 1.3
+      },
+      {
+        "level": 5,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      }
+    ],
+    "id": 79
+  },
+  {
+    "name": "神降ろし",
+    "description": "スキル使用後から次のスキル使用まで回復行動のみを行なう",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 19
+      },
+      {
+        "level": 2,
+        "cooldown": 18
+      },
+      {
+        "level": 3,
+        "cooldown": 17
+      },
+      {
+        "level": 4,
+        "cooldown": 16
+      },
+      {
+        "level": 5,
+        "cooldown": 15
+      }
+    ],
+    "id": 80
+  },
+  {
+    "name": "神降ろし解除",
+    "description": "スキル使用後から次のスキル使用まで攻撃行動のみを行なう",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": null
+      },
+      {
+        "level": 2,
+        "cooldown": null
+      },
+      {
+        "level": 3,
+        "cooldown": null
+      },
+      {
+        "level": 4,
+        "cooldown": null
+      },
+      {
+        "level": 5,
+        "cooldown": null
+      }
+    ],
+    "id": 81
+  },
+  {
+    "name": "リトルウイング",
+    "description": "X秒空を飛び周囲を広範囲に攻撃する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 14,
+        "x": 5
+      },
+      {
+        "level": 2,
+        "cooldown": 13,
+        "x": 6
+      },
+      {
+        "level": 3,
+        "cooldown": 12,
+        "x": 8
+      },
+      {
+        "level": 4,
+        "cooldown": 11,
+        "x": 9
+      },
+      {
+        "level": 5,
+        "cooldown": 10,
+        "x": 10
+      }
+    ],
+    "id": 82
+  },
+  {
+    "name": "ペガサスウイング",
+    "description": "X秒空を飛び周囲を広範囲に攻撃する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 30
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 34
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 38
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 41
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 45
+      }
+    ],
+    "id": 83
+  },
+  {
+    "name": "イフリート",
+    "description": "X秒イフリートを呼び出し攻撃できる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 24,
+        "x": 10
+      },
+      {
+        "level": 2,
+        "cooldown": 23,
+        "x": 15
+      },
+      {
+        "level": 3,
+        "cooldown": 22,
+        "x": 20
+      },
+      {
+        "level": 4,
+        "cooldown": 21,
+        "x": 25
+      },
+      {
+        "level": 5,
+        "cooldown": 20,
+        "x": 30
+      }
+    ],
+    "id": 84
+  },
+  {
+    "name": "フェニックス",
+    "description": "X秒フェニックスを呼び出し攻撃できる最大HPのY％回復(回復効果は発動時に自分のみ)",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 20,
+        "y": 20
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 25,
+        "y": 25
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 30,
+        "y": 30
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 35,
+        "y": 35
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 40,
+        "y": 40
+      }
+    ],
+    "id": 85
+  },
+  {
+    "name": "神魔封印解除",
+    "description": "※未CC：X秒ブロック数が2になり、一度に1体まで攻撃できる※CC後：X秒ブロック数が3になり、一度に2体まで攻撃できる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 24,
+        "x": 15
+      },
+      {
+        "level": 2,
+        "cooldown": 23,
+        "x": 17
+      },
+      {
+        "level": 3,
+        "cooldown": 22,
+        "x": 18
+      },
+      {
+        "level": 4,
+        "cooldown": 21,
+        "x": 20
+      },
+      {
+        "level": 5,
+        "cooldown": 20,
+        "x": 22
+      },
+      {
+        "level": 6,
+        "cooldown": 19,
+        "x": 23
+      },
+      {
+        "level": 7,
+        "cooldown": 18,
+        "x": 25
+      },
+      {
+        "level": 8,
+        "cooldown": 17,
+        "x": 27
+      },
+      {
+        "level": 9,
+        "cooldown": 16,
+        "x": 28
+      },
+      {
+        "level": 10,
+        "cooldown": 15,
+        "x": 30
+      }
+    ],
+    "id": 86
+  },
+  {
+    "name": "モードチェンジ",
+    "description": "X秒ブロック数0で遠距離攻撃、攻撃後の待ち時間を短縮",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 15
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 16
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 17
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 18
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 19
+      },
+      {
+        "level": 6,
+        "cooldown": 39,
+        "x": 21
+      },
+      {
+        "level": 7,
+        "cooldown": 38,
+        "x": 22
+      },
+      {
+        "level": 8,
+        "cooldown": 37,
+        "x": 23
+      },
+      {
+        "level": 9,
+        "cooldown": 36,
+        "x": 24
+      },
+      {
+        "level": 10,
+        "cooldown": 35,
+        "x": 25
+      }
+    ],
+    "id": 87
+  },
+  {
+    "name": "射撃体勢",
+    "description": "X秒ブロック数0で遠距離攻撃を行う",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 40
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 41
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 43
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 44
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 45
+      }
+    ],
+    "id": 88
+  },
+  {
+    "name": "ファイアボール",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 20,
+        "y": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 21,
+        "y": 1.43
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 23,
+        "y": 1.55
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 24,
+        "y": 1.68
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 25,
+        "y": 1.8
+      }
+    ],
+    "id": 89
+  },
+  {
+    "name": "オーバードライブ",
+    "description": "X秒攻撃と防御がY倍効果が切れた時HPが半分になる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 30,
+        "y": 1.6
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 31,
+        "y": 1.7
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 33,
+        "y": 1.8
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 34,
+        "y": 1.9
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 35,
+        "y": 2
+      }
+    ],
+    "id": 90
+  },
+  {
+    "name": "ファイアブレス",
+    "description": "X秒攻撃力がY倍防御力無視の遠距離攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 10,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 11,
+        "y": 1.26
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 12,
+        "y": 1.31
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 13,
+        "y": 1.37
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 14,
+        "y": 1.42
+      },
+      {
+        "level": 6,
+        "cooldown": 39,
+        "x": 16,
+        "y": 1.48
+      },
+      {
+        "level": 7,
+        "cooldown": 38,
+        "x": 17,
+        "y": 1.53
+      },
+      {
+        "level": 8,
+        "cooldown": 37,
+        "x": 18,
+        "y": 1.59
+      },
+      {
+        "level": 9,
+        "cooldown": 36,
+        "x": 19,
+        "y": 1.64
+      },
+      {
+        "level": 10,
+        "cooldown": 35,
+        "x": 20,
+        "y": 1.7
+      }
+    ],
+    "id": 91
+  },
+  {
+    "name": "ヒートブレス",
+    "description": "X秒攻撃力がY倍防御力無視の遠距離攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 64,
+        "x": 30,
+        "y": 1.1
+      },
+      {
+        "level": null,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      },
+      {
+        "level": null,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      },
+      {
+        "level": null,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      },
+      {
+        "level": null,
+        "cooldown": null,
+        "x": null,
+        "y": null
+      }
+    ],
+    "id": 92
+  },
+  {
+    "name": "バーストバレットI",
+    "description": "X秒範囲攻撃を行う",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 49,
+        "x": 20
+      },
+      {
+        "level": 2,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 3,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 4,
+        "cooldown": null,
+        "x": null
+      },
+      {
+        "level": 5,
+        "cooldown": null,
+        "x": null
+      }
+    ],
+    "id": 93
+  },
+  {
+    "name": "魔法剣",
+    "description": "X秒攻撃力がY倍に上昇し防御力無視攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 5,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 7,
+        "y": 1.13
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 8,
+        "y": 1.17
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 10,
+        "y": 1.2
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 12,
+        "y": 1.23
+      },
+      {
+        "level": 6,
+        "cooldown": 34,
+        "x": 13,
+        "y": 1.27
+      },
+      {
+        "level": 7,
+        "cooldown": 33,
+        "x": 15,
+        "y": 1.3
+      },
+      {
+        "level": 8,
+        "cooldown": 32,
+        "x": 17,
+        "y": 1.33
+      },
+      {
+        "level": 9,
+        "cooldown": 31,
+        "x": 18,
+        "y": 1.37
+      },
+      {
+        "level": 10,
+        "cooldown": 30,
+        "x": 20,
+        "y": 1.4
+      }
+    ],
+    "id": 94
+  },
+  {
+    "name": "ソードエンハンス",
+    "description": "X秒攻撃力がY倍に上昇し防御力無視攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 64,
+        "x": 20,
+        "y": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 63,
+        "x": 23,
+        "y": 1.38
+      },
+      {
+        "level": 3,
+        "cooldown": 62,
+        "x": 25,
+        "y": 1.45
+      },
+      {
+        "level": 4,
+        "cooldown": 61,
+        "x": 28,
+        "y": 1.53
+      },
+      {
+        "level": 5,
+        "cooldown": 60,
+        "x": 30,
+        "y": 1.6
+      }
+    ],
+    "id": 95
+  },
+  {
+    "name": "エクセレントソード",
+    "description": "X秒攻撃力と射程がY倍になり防御力無視攻撃",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 114,
+        "x": 70,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 113,
+        "x": 75,
+        "y": 1.23
+      },
+      {
+        "level": 3,
+        "cooldown": 112,
+        "x": 80,
+        "y": 1.25
+      },
+      {
+        "level": 4,
+        "cooldown": 111,
+        "x": 85,
+        "y": 1.28
+      },
+      {
+        "level": 5,
+        "cooldown": 110,
+        "x": 90,
+        "y": 1.3
+      }
+    ],
+    "id": 96
+  },
+  {
+    "name": "魔砲弾",
+    "description": "X秒自身の攻撃が魔法攻撃になる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 20
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 21
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 23
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 24
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 25
+      }
+    ],
+    "id": 97
+  },
+  {
+    "name": "宝剣ガラティン",
+    "description": "X秒防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 30,
+        "y": 1.5
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 33,
+        "y": 1.63
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 35,
+        "y": 1.75
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 38,
+        "y": 1.88
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 40,
+        "y": 2
+      }
+    ],
+    "id": 98
+  },
+  {
+    "name": "聖剣アスカロン",
+    "description": "X秒魔法以外のダメージを50%減少させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 89,
+        "x": 30
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 33
+      },
+      {
+        "level": 3,
+        "cooldown": 87,
+        "x": 35
+      },
+      {
+        "level": 4,
+        "cooldown": 86,
+        "x": 38
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 40
+      }
+    ],
+    "id": 99
+  },
+  {
+    "name": "聖剣オートクレール",
+    "description": "15秒敵からの物理攻撃をX%の確率で回避",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 80
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 85
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 90
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 95
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 100
+      }
+    ],
+    "id": 100
+  },
+  {
+    "name": "魔剣アロンダイト",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 30,
+        "y": 1.5
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 33,
+        "y": 1.58
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 35,
+        "y": 1.65
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 38,
+        "y": 1.73
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 40,
+        "y": 1.8
+      }
+    ],
+    "id": 101
+  },
+  {
+    "name": "魔剣フラガラッハ",
+    "description": "X秒攻撃力がY倍に上昇＋まれに即死させる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 30,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 33,
+        "y": 1.2
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 35,
+        "y": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 38,
+        "y": 1.4
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 40,
+        "y": 1.5
+      }
+    ],
+    "id": 102
+  },
+  {
+    "name": "魔剣ティルフィング",
+    "description": "X秒攻撃力と防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 9,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 10,
+        "y": 1.15
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 11,
+        "y": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 12,
+        "y": 1.25
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 13,
+        "y": 1.3
+      }
+    ],
+    "id": 103
+  },
+  {
+    "name": "神剣エクスカリバー",
+    "description": "X秒防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 59,
+        "x": 30,
+        "y": 2
+      },
+      {
+        "level": 2,
+        "cooldown": 58,
+        "x": 33,
+        "y": 2.1
+      },
+      {
+        "level": 3,
+        "cooldown": 57,
+        "x": 35,
+        "y": 2.2
+      },
+      {
+        "level": 4,
+        "cooldown": 56,
+        "x": 38,
+        "y": 2.3
+      },
+      {
+        "level": 5,
+        "cooldown": 55,
+        "x": 40,
+        "y": 2.4
+      }
+    ],
+    "id": 104
+  },
+  {
+    "name": "神剣ティルフィング",
+    "description": "X秒攻撃力と防御力がY倍に上昇HPが０にならない",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 79,
+        "x": 9,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 78,
+        "x": 10,
+        "y": 1.15
+      },
+      {
+        "level": 3,
+        "cooldown": 77,
+        "x": 11,
+        "y": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 76,
+        "x": 12,
+        "y": 1.25
+      },
+      {
+        "level": 5,
+        "cooldown": 75,
+        "x": 13,
+        "y": 1.3
+      }
+    ],
+    "id": 105
+  },
+  {
+    "name": "ドラゴンスレイヤー",
+    "description": "X秒攻撃力がY倍自分の魔法耐性+10防御と魔法耐性無視",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 69,
+        "x": 20,
+        "y": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 68,
+        "x": 23,
+        "y": 1.14
+      },
+      {
+        "level": 3,
+        "cooldown": 67,
+        "x": 27,
+        "y": 1.19
+      },
+      {
+        "level": 4,
+        "cooldown": 66,
+        "x": 30,
+        "y": 1.23
+      },
+      {
+        "level": 5,
+        "cooldown": 65,
+        "x": 33,
+        "y": 1.28
+      },
+      {
+        "level": 6,
+        "cooldown": 64,
+        "x": 37,
+        "y": 1.32
+      },
+      {
+        "level": 7,
+        "cooldown": 63,
+        "x": 40,
+        "y": 1.37
+      },
+      {
+        "level": 8,
+        "cooldown": 62,
+        "x": 43,
+        "y": 1.41
+      },
+      {
+        "level": 9,
+        "cooldown": 61,
+        "x": 47,
+        "y": 1.46
+      },
+      {
+        "level": 10,
+        "cooldown": 60,
+        "x": 50,
+        "y": 1.5
+      }
+    ],
+    "id": 106
+  },
+  {
+    "name": "天剣ミカヅキムネチカ",
+    "description": "X秒攻撃力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 79,
+        "x": 5,
+        "y": 2
+      },
+      {
+        "level": 2,
+        "cooldown": 78,
+        "x": 6,
+        "y": 2.11
+      },
+      {
+        "level": 3,
+        "cooldown": 77,
+        "x": 7,
+        "y": 2.22
+      },
+      {
+        "level": 4,
+        "cooldown": 76,
+        "x": 8,
+        "y": 2.33
+      },
+      {
+        "level": 5,
+        "cooldown": 75,
+        "x": 9,
+        "y": 2.44
+      },
+      {
+        "level": 6,
+        "cooldown": 74,
+        "x": 11,
+        "y": 2.56
+      },
+      {
+        "level": 7,
+        "cooldown": 73,
+        "x": 12,
+        "y": 2.67
+      },
+      {
+        "level": 8,
+        "cooldown": 72,
+        "x": 13,
+        "y": 2.78
+      },
+      {
+        "level": 9,
+        "cooldown": 71,
+        "x": 14,
+        "y": 2.89
+      },
+      {
+        "level": 10,
+        "cooldown": 70,
+        "x": 15,
+        "y": 3
+      }
+    ],
+    "id": 107
+  },
+  {
+    "name": "村正",
+    "description": "10秒攻撃毎に最大HPのX%HPが回復する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 30,
+        "x": 3
+      },
+      {
+        "level": 2,
+        "cooldown": 29,
+        "x": 6
+      },
+      {
+        "level": 3,
+        "cooldown": 28,
+        "x": 9
+      },
+      {
+        "level": 4,
+        "cooldown": 27,
+        "x": 12
+      },
+      {
+        "level": 5,
+        "cooldown": 26,
+        "x": 15
+      }
+    ],
+    "id": 108
+  },
+  {
+    "name": "不死鳥の護り",
+    "description": "スキル発動中にHPが0になっても一度だけ半分回復する",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 89,
+        "x": 35
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 40
+      },
+      {
+        "level": 3,
+        "cooldown": 87,
+        "x": 45
+      },
+      {
+        "level": 4,
+        "cooldown": 86,
+        "x": 50
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 55
+      }
+    ],
+    "id": 109
+  },
+  {
+    "name": "隠密",
+    "description": "X秒遠隔攻撃の対象にならない",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 15
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 19
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 23
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 27
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 31
+      },
+      {
+        "level": 6,
+        "cooldown": 34,
+        "x": 34
+      },
+      {
+        "level": 7,
+        "cooldown": 33,
+        "x": 38
+      },
+      {
+        "level": 8,
+        "cooldown": 32,
+        "x": 42
+      },
+      {
+        "level": 9,
+        "cooldown": 31,
+        "x": 46
+      },
+      {
+        "level": 10,
+        "cooldown": 30,
+        "x": 50
+      }
+    ],
+    "id": 110
+  },
+  {
+    "name": "聖なる覚醒",
+    "description": "X秒攻撃力と防御力が2.0倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 10
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 18
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 25
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 33
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 40
+      }
+    ],
+    "id": 111
+  },
+  {
+    "name": "気功術",
+    "description": "X秒攻撃力と防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 10,
+        "y": 1.3
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 11,
+        "y": 1.32
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 12,
+        "y": 1.34
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 13,
+        "y": 1.37
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 14,
+        "y": 1.39
+      },
+      {
+        "level": 6,
+        "cooldown": 39,
+        "x": 16,
+        "y": 1.41
+      },
+      {
+        "level": 7,
+        "cooldown": 38,
+        "x": 17,
+        "y": 1.43
+      },
+      {
+        "level": 8,
+        "cooldown": 37,
+        "x": 18,
+        "y": 1.46
+      },
+      {
+        "level": 9,
+        "cooldown": 36,
+        "x": 19,
+        "y": 1.48
+      },
+      {
+        "level": 10,
+        "cooldown": 35,
+        "x": 20,
+        "y": 1.5
+      }
+    ],
+    "id": 112
+  },
+  {
+    "name": "冥斧ファスケス",
+    "description": "X秒攻撃と防御がY倍効果が切れた時にHPが(現在の)半分になる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": null,
+        "x": 20,
+        "y": 1.5
+      },
+      {
+        "level": 2,
+        "cooldown": null,
+        "x": 21,
+        "y": 1.56
+      },
+      {
+        "level": 3,
+        "cooldown": null,
+        "x": 22,
+        "y": 1.61
+      },
+      {
+        "level": 4,
+        "cooldown": null,
+        "x": 23,
+        "y": 1.67
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 24,
+        "y": 1.72
+      },
+      {
+        "level": 6,
+        "cooldown": null,
+        "x": 26,
+        "y": 1.78
+      },
+      {
+        "level": 7,
+        "cooldown": null,
+        "x": 27,
+        "y": 1.83
+      },
+      {
+        "level": 8,
+        "cooldown": 82,
+        "x": 28,
+        "y": 1.89
+      },
+      {
+        "level": 9,
+        "cooldown": null,
+        "x": 29,
+        "y": 1.94
+      },
+      {
+        "level": 10,
+        "cooldown": 80,
+        "x": 30,
+        "y": 2
+      }
+    ],
+    "id": 113
+  },
+  {
+    "name": "一意専心",
+    "description": "X秒ブロック数+1攻撃数+1攻撃、防御がY倍",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 99,
+        "x": 60,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 98,
+        "x": 65,
+        "y": 1.25
+      },
+      {
+        "level": 3,
+        "cooldown": 97,
+        "x": 70,
+        "y": 1.3
+      },
+      {
+        "level": 4,
+        "cooldown": 96,
+        "x": 75,
+        "y": 1.35
+      },
+      {
+        "level": 5,
+        "cooldown": 95,
+        "x": 80,
+        "y": 1.4
+      }
+    ],
+    "id": 114
+  },
+  {
+    "name": "扇蝶の舞",
+    "description": "X秒ブロック数+1攻撃数+1攻撃力2.0倍",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 34,
+        "x": 10
+      },
+      {
+        "level": 2,
+        "cooldown": 33,
+        "x": 13
+      },
+      {
+        "level": 3,
+        "cooldown": 32,
+        "x": 17
+      },
+      {
+        "level": 4,
+        "cooldown": 31,
+        "x": 20
+      },
+      {
+        "level": 5,
+        "cooldown": 30,
+        "x": 23
+      },
+      {
+        "level": 6,
+        "cooldown": 29,
+        "x": 27
+      },
+      {
+        "level": 7,
+        "cooldown": 28,
+        "x": 30
+      },
+      {
+        "level": 8,
+        "cooldown": 27,
+        "x": 33
+      },
+      {
+        "level": 9,
+        "cooldown": 26,
+        "x": 36
+      },
+      {
+        "level": 10,
+        "cooldown": 25,
+        "x": 40
+      }
+    ],
+    "id": 115
+  },
+  {
+    "name": "氷結呪縛",
+    "description": "X秒攻撃力がY倍に上昇鈍足の効果上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 44,
+        "x": 10,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 43,
+        "x": 11,
+        "y": 1.24
+      },
+      {
+        "level": 3,
+        "cooldown": 42,
+        "x": 12,
+        "y": 1.29
+      },
+      {
+        "level": 4,
+        "cooldown": 41,
+        "x": 13,
+        "y": 1.33
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 14,
+        "y": 1.38
+      },
+      {
+        "level": 6,
+        "cooldown": 39,
+        "x": 16,
+        "y": 1.42
+      },
+      {
+        "level": 7,
+        "cooldown": 38,
+        "x": 17,
+        "y": 1.47
+      },
+      {
+        "level": 8,
+        "cooldown": 37,
+        "x": 18,
+        "y": 1.51
+      },
+      {
+        "level": 9,
+        "cooldown": 36,
+        "x": 19,
+        "y": 1.56
+      },
+      {
+        "level": 10,
+        "cooldown": 35,
+        "x": 20,
+        "y": 1.6
+      }
+    ],
+    "id": 116
+  },
+  {
+    "name": "スピリットイーグル",
+    "description": "X秒攻撃力Y倍敵の移動速度を下げる",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 39,
+        "x": 25,
+        "y": 1.4
+      },
+      {
+        "level": 2,
+        "cooldown": 38,
+        "x": 26,
+        "y": 1.5
+      },
+      {
+        "level": 3,
+        "cooldown": 37,
+        "x": 28,
+        "y": 1.6
+      },
+      {
+        "level": 4,
+        "cooldown": 36,
+        "x": 29,
+        "y": 1.8
+      },
+      {
+        "level": 5,
+        "cooldown": 35,
+        "x": 30,
+        "y": 1.9
+      }
+    ],
+    "id": 117
+  },
+  {
+    "name": "エクセレントアロー",
+    "description": "X秒攻撃力がY倍射程がZ倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 89,
+        "x": 70,
+        "y": 1.2,
+        "z": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 88,
+        "x": 75,
+        "y": 1.25,
+        "z": 1.13
+      },
+      {
+        "level": 3,
+        "cooldown": 87,
+        "x": 80,
+        "y": 1.3,
+        "z": 1.15
+      },
+      {
+        "level": 4,
+        "cooldown": 86,
+        "x": 85,
+        "y": 1.35,
+        "z": 1.18
+      },
+      {
+        "level": 5,
+        "cooldown": 85,
+        "x": 90,
+        "y": 1.4,
+        "z": 1.2
+      }
+    ],
+    "id": 118
+  },
+  {
+    "name": "星の杖",
+    "description": "X秒攻撃力がY倍射程がZ倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 99,
+        "x": 70,
+        "y": 1.2,
+        "z": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 98,
+        "x": 75,
+        "y": 1.25,
+        "z": 1.13
+      },
+      {
+        "level": 3,
+        "cooldown": 97,
+        "x": 80,
+        "y": 1.3,
+        "z": 1.15
+      },
+      {
+        "level": 4,
+        "cooldown": 96,
+        "x": 85,
+        "y": 1.35,
+        "z": 1.18
+      },
+      {
+        "level": 5,
+        "cooldown": 95,
+        "x": 90,
+        "y": 1.4,
+        "z": 1.2
+      }
+    ],
+    "id": 119
+  },
+  {
+    "name": "マジックエンハンス",
+    "description": "X秒攻撃力がY倍射程がZ倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 64,
+        "x": 40,
+        "y": 1.1,
+        "z": 1.05
+      },
+      {
+        "level": 2,
+        "cooldown": 63,
+        "x": 45,
+        "y": 1.15,
+        "z": 1.08
+      },
+      {
+        "level": 3,
+        "cooldown": 62,
+        "x": 50,
+        "y": 1.2,
+        "z": 1.1
+      },
+      {
+        "level": 4,
+        "cooldown": 61,
+        "x": 55,
+        "y": 1.25,
+        "z": 1.13
+      },
+      {
+        "level": 5,
+        "cooldown": 60,
+        "x": 60,
+        "y": 1.3,
+        "z": 1.15
+      }
+    ],
+    "id": 120
+  },
+  {
+    "name": "剛弦の弓",
+    "description": "X秒攻撃力がY倍、射程がZ倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 29,
+        "x": 20,
+        "y": 1.2,
+        "z": 1.1
+      },
+      {
+        "level": 2,
+        "cooldown": 28,
+        "x": 21,
+        "y": 1.3,
+        "z": 1.1
+      },
+      {
+        "level": 3,
+        "cooldown": 27,
+        "x": 23,
+        "y": 1.4,
+        "z": 1.2
+      },
+      {
+        "level": 4,
+        "cooldown": 26,
+        "x": 24,
+        "y": 1.5,
+        "z": 1.2
+      },
+      {
+        "level": 5,
+        "cooldown": 25,
+        "x": 25,
+        "y": 1.6,
+        "z": 1.3
+      }
+    ],
+    "id": 121
+  },
+  {
+    "name": "呪われた血脈",
+    "description": "X秒攻撃力とHPと防御力がY倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 79,
+        "x": 15,
+        "y": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": 78,
+        "x": 17,
+        "y": 1.23
+      },
+      {
+        "level": 3,
+        "cooldown": 77,
+        "x": 18,
+        "y": 1.27
+      },
+      {
+        "level": 4,
+        "cooldown": 76,
+        "x": 20,
+        "y": 1.3
+      },
+      {
+        "level": 5,
+        "cooldown": 75,
+        "x": 22,
+        "y": 1.33
+      },
+      {
+        "level": 6,
+        "cooldown": 74,
+        "x": 23,
+        "y": 1.37
+      },
+      {
+        "level": 7,
+        "cooldown": 73,
+        "x": 25,
+        "y": 1.4
+      },
+      {
+        "level": 8,
+        "cooldown": 72,
+        "x": 27,
+        "y": 1.43
+      },
+      {
+        "level": 9,
+        "cooldown": 71,
+        "x": 28,
+        "y": 1.47
+      },
+      {
+        "level": 10,
+        "cooldown": 70,
+        "x": 30,
+        "y": 1.5
+      }
+    ],
+    "id": 122
+  },
+  {
+    "name": "妖狐覚醒",
+    "description": "X秒攻撃力とHPと防御力が2.0倍に上昇",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": 24,
+        "x": 25
+      },
+      {
+        "level": 2,
+        "cooldown": 23,
+        "x": 28
+      },
+      {
+        "level": 3,
+        "cooldown": 22,
+        "x": 30
+      }
+    ],
+    "id": 123
+  },
+  {
+    "name": "癒しの至宝",
+    "description": "15秒間射程がX倍範囲内の味方の状態異常を回復",
+    "levels": [
+      {
+        "level": 1,
+        "cooldown": null,
+        "x": 1.2
+      },
+      {
+        "level": 2,
+        "cooldown": null,
+        "x": 1.3
+      },
+      {
+        "level": 3,
+        "cooldown": null,
+        "x": 1.4
+      },
+      {
+        "level": 4,
+        "cooldown": null,
+        "x": 1.5
+      },
+      {
+        "level": 5,
+        "cooldown": 40,
+        "x": 1.6
+      }
+    ],
+    "id": 124
+  }
+]

@@ -20,11 +20,13 @@
   "devDependencies": {
     "bower": "^1.3.12",
     "canvas": "^1.2.1",
+    "cheerio-httpcli": "^0.3.1",
     "del": "^1.1.1",
     "ect": "^0.5.9",
     "event-stream": "^3.2.2",
     "expose-loader": "^0.6.0",
     "file-loader": "^0.8.1",
+    "follow-redirects": "0.0.3",
     "gm": "^1.17.0",
     "gulp": "^3.8.10",
     "gulp-ect-simple": "^0.1.0",
