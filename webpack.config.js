@@ -27,6 +27,21 @@ entry = fs.readdirSync(config.script.path).reduce(function (entry, pathname) {
   return entry;
 }, entry);
 
+var plugins = [
+  new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
+  new webpack.ResolverPlugin(
+    new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main']), ['normal', 'loader']
+  ),
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+  }),
+];
+
+if (config.script.optimize) {
+  plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
 module.exports = {
   entry: entry,
   output: {
@@ -47,16 +62,7 @@ module.exports = {
       'ionrangeslider': 'ionrangeslider/js/ion.rangeslider.js',
     },
   },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main']), ['normal', 'loader']
-    ),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-    }),
-  ],
+  plugins: plugins,
   devServer: {
     host: config.server.host,
     port: config.server.port,

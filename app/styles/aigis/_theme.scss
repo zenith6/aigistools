@@ -192,6 +192,10 @@
           background-position: left center;
         }
 
+        &.tool-sealing-talisman-timer:before {
+          background-image: url('../thumbnails/sealing-talisman-timer/index.png');
+        }
+
         &.tool-treasure-fragment-timer:before {
           background-image: url('../thumbnails/treasure-fragment-timer/index.png');
         }

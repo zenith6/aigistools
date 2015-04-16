@@ -1,0 +1,250 @@
+<% extend '_layouts/_default' %>
+
+<% @name = '封印の札タイマー' %>
+<% @description = '千年戦争アイギス緊急イベント「妖怪大戦」用のタイマーです。' %>
+<% @path = 'sealing-talisman-timer/' %>
+
+<% block 'style': %>
+  <link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
+  <link rel="stylesheet" type="text/css" href="<%= @asset('css/sealing-talisman-timer.css') %>">
+<% end %>
+
+<% block 'script': %>
+  <script src="<%= @asset('js/sealing-talisman-timer.js') %>"></script>
+<% end %>
+
+<% block 'copyright': %>
+  <li><a href="http://green.zero.jp/greentea/">クロリスGIFは <strong>建設中の茶柱</strong> さんからお借りしています。</a></li>
+  <li><a href="http://font.textar.tv/">web fonts provided by http://font.textar.tv/</a></li>
+<% end %>
+
+<form class="form" action="#">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <label class="control-label">現在の封印の札</label>
+        <input class="form-control input-lg" type="text" name="current" ime-mode="inactive" title="マウスホイールで+/-" />
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <label class="control-label">目標</label>
+
+        <div data-objective-mode="achievement">
+          <select name="objective" class="form-control input-lg"></select>
+        </div>
+
+        <div data-objective-mode="exchange">
+          <div class="input-group input-group-lg">
+            <span class="input-group-btn">
+              <button class="btn btn-default" name="reset" type="button" title="リセット">
+                <i class="fa fa-arrow-down"></i>0
+              </button>
+            </span>
+            <input type="text" name="objective" value="300" class="form-control" ime-mode="inactive" />
+            <span class="input-group-btn" id="increse_objective_list">
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label">イベント期間</label>
+    <div id="period_dates" class="progress">
+    </div>
+    <div id="period_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div id="objective_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div class="prediction">
+      <span class="pointer">
+        <span class="pointer-label">
+          このペースなら最終日までに
+          <strong id="prediction_collection">0</strong> 個集まるわ。
+          <span id="prediction_completion_date"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <section id="rewards" class="col-xs-5 col-sm-3" data-objective-mode="achievement">
+    <h1>追加報酬</h1>
+    <table class="table table-condenced">
+      <thead>
+        <tr>
+          <th class="text-right">収集数</th>
+          <th>報酬</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="exchange" class="col-xs-5 col-sm-3" data-objective-mode="exchange">
+    <h1>交換</h1>
+    <div id="prize_list"></div>
+  </section>
+
+  <section id="estimate" class="col-xs-7 col-sm-5 estimate">
+    <h1>見積り</h1>
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4">周回MAP</label>
+        <div class="col-sm-8">
+          <select name="estimate_map" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4">ランク</label>
+        <div class="col-sm-8">
+          <select name="estimate_rank" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4">結晶回復</label>
+        <div class="col-sm-8">
+          <select name="estimate_use_crystal" class="form-control">
+            <option value="both">カリスマ＆スタミナ</option>
+            <option value="charisma">カリスマのみ</option>
+            <option value="stamina">スタミナのみ</option>
+            <option value="none">使用しない</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-4">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="estimate_natural_recovery" value="1" /> 自然回復を計算に含める
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <tbody>
+        <tr class="estiamte-required-crystal">
+          <th class="col-xs-4">消費結晶</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_required_crystal"></span><span class="estimate-unit">個</span>
+            <span class="diff">
+            (カリスマ&times;<span id="estimate_required_crystal_for_charisma"></span>,
+            スタミナ&times;<span id="estimate_required_crystal_for_stamina"></span>)
+            </span>
+          </td>
+        </tr>
+        <tr class="estiamte-collection">
+          <th class="col-xs-4">到達収集数</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_result_collection"></span><span class="estimate-unit">個</span>
+            <span class="diff">(対目標数<span id="estimate_result_collection_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-required-marathon">
+          <th class="col-xs-4">可能周回数</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_available_marathon"></span><span class="estimate-unit">周</span>
+            <span class="diff">(対必要周回<span id="estimate_available_marathon_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-using-charisma">
+          <th class="col-xs-4">消費カリスマ</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_using_charisma"></span>
+            <span class="diff">(対必要カリスマ<span id="estimate_using_charisma_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-stamina">
+          <th class="col-xs-4">消費スタミナ</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_using_stamina"></span>
+            <span class="diff">(対必要スタミナ<span id="estimate_using_stamina_diff"></span>)</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="norma" class="col-xs-12 col-sm-4">
+    <h1>ノルマ</h1>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_day">
+          <span class="norma-label">1日当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_days"></span>日</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_hour">
+          <span class="norma-label">1時間当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_hours"></span>時間</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_minute">
+          <span class="norma-label">30分当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_minutes"></span>分</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="col-xs-12">
+    <table class="table table-condenced table-striped">
+      <thead>
+        <tr>
+          <th>MAP</th>
+          <th>カリスタ</th>
+          <th class="drops" colspan="3">ドロップ</th>
+          <th>
+            <select name="expectation" class="form-control input-sm">
+              <option value="drop">謎の期待値 1周</option>
+              <option value="charisma">カリスマ1当たり</option>
+              <option value="stamina">スタミナ1当たり</option>
+            </select>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="col-xs-12">
+    <div class="textar-aa">
+　　　 il　　　,、　 　　　 　　　 i<br />
+　･ ｡　||i 　{⌒＞==＜ﾞ⌒７　il<br />
+　 ＼. ||l 　∨从∧从:＼/　il |i<br />
+　ﾟヽ　| |￣￣￣￣￣￣￣￣| |　ｺﾝｯ!!<br />
+｡　ﾟ　_（,,)　御城の封印も　(,,）_ ／ ﾟ<br />
+　･／ヽ| 解いて欲しいの！.|て ─ ･｡ ：<br />
+／　 .ノ|＿＿＿＿＿＿＿＿.|（＼　ﾟ　｡<br />
+￣｡ﾟ ⌒)／⌒Y⌒Y⌒Y⌒Y⌒ヽ＼<br />
+
+    </div>
+  </section>
+</div>

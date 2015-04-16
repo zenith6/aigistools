@@ -17,6 +17,11 @@ module.exports = [
     path: 'onmitsu/',
   },
   {
+    name: '封印の札タイマー',
+    id: 'sealing-talisman-timer',
+    path: 'sealing-talisman-timer/',
+  },
+  {
     name: '刻水晶タイマー',
     id: 'time-crystal-timer',
     path: 'time-crystal-timer/',

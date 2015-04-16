@@ -100,7 +100,7 @@ function renderNextPage() {
   walker.on('end', onWalkerEnd);
 }
 
-gulp.task('thumbnail', ['build'], function (callback) {
+gulp.task('thumbnail', ['build', 'server'], function (callback) {
   gulpCallback = callback;
   serverRoot = path.join(config.server.root, config.server.base);
   thumbRoot = config.app.thumbnail;
