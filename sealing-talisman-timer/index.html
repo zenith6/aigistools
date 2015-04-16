@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
 
-<title>至宝のカケラタイマー | 千年戦争アイギスツール</title>
+<title>封印の札タイマー | 千年戦争アイギスツール</title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="千年戦争アイギス緊急イベント「癒しの至宝」用のタイマーです。">
+<meta name="description" content="千年戦争アイギス緊急イベント「妖怪大戦」用のタイマーです。">
 <meta name="author" content="Seiji Nitta">
 
-<link rel="canonical" href="https://zenith6.github.io/aigistools/treasure-fragment-timer/" />
+<link rel="canonical" href="https://zenith6.github.io/aigistools/sealing-talisman-timer/" />
 
-<meta property="og:title" content="至宝のカケラタイマー" />
+<meta property="og:title" content="封印の札タイマー" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="千年戦争アイギス緊急イベント「癒しの至宝」用のタイマーです。" />
-<meta property="og:image" content="https://zenith6.github.io/aigistools/assets/thumbnails/treasure-fragment-timer/index.png" />
-<meta property="og:url" content="https://zenith6.github.io/aigistools/treasure-fragment-timer/" />
+<meta property="og:description" content="千年戦争アイギス緊急イベント「妖怪大戦」用のタイマーです。" />
+<meta property="og:image" content="https://zenith6.github.io/aigistools/assets/thumbnails/sealing-talisman-timer/index.png" />
+<meta property="og:url" content="https://zenith6.github.io/aigistools/sealing-talisman-timer/" />
 <meta property="og:site_name" content="千年戦争アイギスツール" />
     <!--[if lt IE 9]>
   <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -25,7 +25,7 @@
 
 <link rel="stylesheet" type="text/css" href="/aigistools/assets/css/common.css">
       <link rel="stylesheet" href="/aigistools/assets/css/dark.css" />
-  <link rel="stylesheet" type="text/css" href="/aigistools/assets/css/treasure-fragment-timer.css">
+  <link rel="stylesheet" type="text/css" href="/aigistools/assets/css/sealing-talisman-timer.css">
   </head>
 
   <body>
@@ -80,7 +80,7 @@
   <div class="form-group">
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-3">
-        <label class="control-label">現在の至宝のカケラ</label>
+        <label class="control-label">現在の封印の札</label>
         <input class="form-control input-lg" type="text" name="current" ime-mode="inactive" title="マウスホイールで+/-" />
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
@@ -151,7 +151,7 @@
     <div id="prize_list"></div>
   </section>
 
-  <section id="estimate" class="col-xs-7 col-sm-5">
+  <section id="estimate" class="col-xs-7 col-sm-5 estimate">
     <h1>見積り</h1>
     <div class="form-horizontal">
       <div class="form-group">
@@ -193,39 +193,39 @@
         <tr class="estiamte-required-crystal">
           <th class="col-xs-4">消費結晶</th>
           <td class="col-xs-8">
-            <span id="estimate_required_crystal"></span><span class="estimate-unit">個</span>
+            <span class="estimate-value" id="estimate_required_crystal"></span><span class="estimate-unit">個</span>
             <span class="diff">
             (カリスマ&times;<span id="estimate_required_crystal_for_charisma"></span>,
             スタミナ&times;<span id="estimate_required_crystal_for_stamina"></span>)
             </span>
           </td>
         </tr>
-        <tr class="estiamte-required-marathon">
-          <th class="col-xs-4">可能周回数</th>
-          <td class="col-xs-8">
-            <span id="estimate_available_marathon"></span><span class="estimate-unit">周</span>
-            <span class="diff">(必要周回<span id="estimate_available_marathon_diff"></span>)</span>
-          </td>
-        </tr>
         <tr class="estiamte-collection">
           <th class="col-xs-4">到達収集数</th>
           <td class="col-xs-8">
-            <span id="estimate_result_collection"></span><span class="estimate-unit">個</span>
-            <span class="diff">(目標数<span id="estimate_result_collection_diff"></span>)</span>
+            <span class="estimate-value" id="estimate_result_collection"></span><span class="estimate-unit">個</span>
+            <span class="diff">(対目標数<span id="estimate_result_collection_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-required-marathon">
+          <th class="col-xs-4">可能周回数</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_available_marathon"></span><span class="estimate-unit">周</span>
+            <span class="diff">(対必要周回<span id="estimate_available_marathon_diff"></span>)</span>
           </td>
         </tr>
         <tr class="estiamte-using-charisma">
           <th class="col-xs-4">消費カリスマ</th>
           <td class="col-xs-8">
-            <span id="estimate_using_charisma"></span>
-            <span class="diff">(必要カリスマ<span id="estimate_using_charisma_diff"></span>)</span>
+            <span class="estimate-value" id="estimate_using_charisma"></span>
+            <span class="diff">(対必要カリスマ<span id="estimate_using_charisma_diff"></span>)</span>
           </td>
         </tr>
         <tr class="estiamte-stamina">
           <th class="col-xs-4">消費スタミナ</th>
           <td class="col-xs-8">
-            <span id="estimate_using_stamina"></span>
-            <span class="diff">(必要スタミナ<span id="estimate_using_stamina_diff"></span>)</span>
+            <span class="estimate-value" id="estimate_using_stamina"></span>
+            <span class="diff">(対必要スタミナ<span id="estimate_using_stamina_diff"></span>)</span>
           </td>
         </tr>
       </tbody>
@@ -294,15 +294,15 @@
 
   <section class="col-xs-12">
     <div class="textar-aa">
-　　　　　　　　　　　　 　 (~)<br />
-　　　　　　　　　 　 　 γ&acute;⌒｀ヽ<br />
-　　　＿＿＿＿ 　 　 {i:i:i:i:i:i:i:i:}<br />
-　　　|[100ﾊﾟﾘﾝ]|＼　（　&acute;・ω・）<br />
-　　　|￣￣￣￣| 　|　（:::::::::：:::）<br />
-　　　|＿＿＿＿l.／￣￣￣￣￣■／|　　 lヽ,,lヽ<br />
-　　　|￣￣￣￣￣￣￣￣￣￣￣|.　 | 　(ω･　　)　例のタートルネック<br />
-　　　|　　.　　　　　　　　 　 　 　 　 |.　  |　　し　　 i　　　　 ください！<br />
-　　　|＿＿＿＿＿＿＿＿＿＿＿|.／　　　しーJ
+　　　 il　　　,、　 　　　 　　　 i<br />
+　･ ｡　||i 　{⌒＞==＜ﾞ⌒７　il<br />
+　 ＼. ||l 　∨从∧从:＼/　il |i<br />
+　ﾟヽ　| |￣￣￣￣￣￣￣￣| |　ｺﾝｯ!!<br />
+｡　ﾟ　_（,,)　御城の封印も　(,,）_ ／ ﾟ<br />
+　･／ヽ| 解いて欲しいの！.|て ─ ･｡ ：<br />
+／　 .ノ|＿＿＿＿＿＿＿＿.|（＼　ﾟ　｡<br />
+￣｡ﾟ ⌒)／⌒Y⌒Y⌒Y⌒Y⌒ヽ＼<br />
+
     </div>
   </section>
 </div>
@@ -395,6 +395,6 @@
   </script>
     <script src="/aigistools/assets/js/common.js"></script>
 <script src="//font.textar.tv/webfont.js"></script>
-      <script src="/aigistools/assets/js/treasure-fragment-timer.js"></script>
+      <script src="/aigistools/assets/js/sealing-talisman-timer.js"></script>
   </body>
 </html>
