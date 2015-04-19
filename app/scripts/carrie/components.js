@@ -80,8 +80,8 @@ Image.prototype.render = function (ctx) {
       }
     }
   } else if (this.options.fill) {
-    dw = cw * scale;
-    dh = ch * scale;
+    dw = cw;
+    dh = ch;
     dx = 0;
     dy = 0;
 
