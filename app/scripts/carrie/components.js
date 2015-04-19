@@ -65,22 +65,34 @@ Image.prototype.render = function (ctx) {
   var ch = canvas.height;
   var sw = this.image.width;
   var sh = this.image.height;
-  var dw, dh;
+  var dw, dh, dx, dy;
   var ox = 0;
   var oy = 0;
+  var scale = this.options.scale;
 
   if (this.options.tiling) {
     dw = sw;
     dh = sh;
-  } else {
-    dw = cw;
-    dh = ch;
-  }
 
-  for (var dy = oy; dy < ch; dy += dh) {
-    for (var dx = ox; dx < cw; dx += dw) {
-      ctx.drawImage(this.image, 0, 0, sw, sh, dx, dy, dw, dh);
+    for (dy = oy; dy < ch; dy += dh) {
+      for (dx = ox; dx < cw; dx += dw) {
+        ctx.drawImage(this.image, 0, 0, sw, sh, dx, dy, dw, dh);
+      }
     }
+  } else if (this.options.fill) {
+    dw = cw * scale;
+    dh = ch * scale;
+    dx = 0;
+    dy = 0;
+
+    ctx.drawImage(this.image, 0, 0, sw, sh, dx, dy, dw, dh);
+  } else {
+    dw = sw * scale;
+    dh = sh * scale;
+    dx = (this.options.left || 0) * scale;
+    dy = (this.options.top || 0) * scale;
+
+    ctx.drawImage(this.image, 0, 0, sw, sh, dx, dy, dw, dh);
   }
 };
 

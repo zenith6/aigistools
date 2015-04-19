@@ -14,20 +14,46 @@
 <% end %>
 
 <% block 'copyright': %>
-  <li id="template_author"></li>
+  <li>
+    テンプレート作者様（敬称略）
+    <ul id="template_author" class="author-list">
+    </ul>
+  </li>
   <li><a href="http://font.textar.tv/">web fonts provided by http://font.textar.tv/</a></li>
 <% end %>
 
 <div class="container-fluid">
-  <div class="col-xs-12 col-sm-4 col-md-3">
-    <form action="#" class="form">
+  <form action="#" class="form-horizontal">
+    <div class="col-xs-12 col-sm-8 col-sm-push-4 col-md-9 col-md-push-3">
       <div class="form-group">
-        <label for="template" class="control-label">テンプレ</label>
-        <a id="template" class="thumbnail">
-          <span id="template_name" class="caption">テンプレートを選択して下さい</span> <span class="caret"></span></span>
-        </a>
-        <input type="hidden" name="template" value="" />
+        <div class="col-sm-12">
+          <button id="template" name="template" class="btn btn-default btn-lg btn-block">
+            <i class="fa fa-search"></i>
+            <span id="template_name" class="caption">テンプレートを選択して下さい</span>
+            <span class="caret"></span></span>
+          </button>
+        </div>
       </div>
+
+      <div class="canvas">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="form-group">
+        <button type="button" name="export" class="btn btn-default btn-block">
+          キャリーさんもそう思う （画像をダウンロード）
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label for="url">コピペ用URL</label>
+        <input id="url" name="url" type="text" size="60" class="form-control" placeholder="ここのURLをコピペして下さい" readonly="readonly" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-title="キャリーさん曰く" data-content="コピペ用URLを王子様達に教えて愛しいキャリーさんを共有しましょう！長すぎて張れない時は短縮URLサービスをご利用下さい。" />
+      </div>
+    </form>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9">
+    <form action="#" class="form">
       <div class="form-group">
         <label for="scale" class="control-label">サイズ</label>
         <input id="scale" type="text" name="scale" />
@@ -112,24 +138,6 @@
       </div>
     </form>
   </div>
-
-  <div class="col-xs-12 col-sm-8 col-md-9">
-    <div class="canvas">
-      <canvas id="canvas"></canvas>
-    </div>
-
-    <div class="form-group">
-      <button type="button" name="export" class="btn btn-default btn-block">
-        キャリーさんもそう思う （画像をダウンロード）
-      </button>
-    </div>
-
-    <div class="form-group">
-      <label for="url">コピペ用URL</label>
-      <input id="url" name="url" type="text" size="60" class="form-control" placeholder="ここのURLをコピペして下さい" readonly="readonly" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-title="キャリーさん曰く" data-content="コピペ用URLを王子様達に教えて愛しいキャリーさんを共有しましょう！長すぎて張れない時は短縮URLサービスをご利用下さい。" />
-    </div>
-  </div>
-
 </div>
 
 <div id="chooser" class="modal fade">

@@ -71,3 +71,10 @@ input[readonly] {
   position: absolute;
   opacity: 0;
 }
+
+.author-list {
+  > li {
+    display: inline-block;
+    margin-right: 1em;
+  }
+}

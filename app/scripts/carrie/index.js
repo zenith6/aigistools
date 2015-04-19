@@ -115,6 +115,10 @@ function createLayers(template, options) {
   var bgImage = new components.Image({
     src: template.bg,
     scale: options.scale,
+    width: template.width,
+    height: template.height,
+    left: template.left,
+    top: template.top,
     zIndex: 1000
   });
   layers.push(bgImage);
@@ -544,6 +548,17 @@ function initialize() {
   $('[name=outline]:input, [name=shadow]:input').each(function () {
     var $input = $(this);
     $($input.attr('data-target'))[this.checked ? 'addClass' : 'removeClass']('in');
+  });
+
+  var $authors = $('#template_author');
+  Object.keys(templates).forEach(function (id) {
+    var template = templates[id];
+    var homepage = template.homepage || '#';
+    var author = template.author || '不明';
+    $('<li >')
+      .append($('<i class="fa fa-user"></i> '))
+      .append($('<a />').attr('href', homepage).text(template.name + ' ' + author))
+      .appendTo($authors);
   });
 
   retained = false;

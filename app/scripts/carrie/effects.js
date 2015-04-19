@@ -46,7 +46,8 @@ module.exports = {
       {
         component: components.Image,
         options: {
-          src: 'http://i.imgur.com/BYdzlmS.png'
+          src: 'http://i.imgur.com/BYdzlmS.png',
+          fill: true
         },
         zIndex: 2700
       }
@@ -58,7 +59,8 @@ module.exports = {
       {
         component: components.Image,
         options: {
-          src: 'http://i.imgur.com/Fy9Ibw0.jpg'
+          src: 'http://i.imgur.com/Fy9Ibw0.jpg',
+          fill: true
         },
         zIndex: 500
       }
@@ -95,7 +97,8 @@ module.exports = {
         id: 'bg',
         component: components.Image,
         options: {
-          src: 'http://i.imgur.com/th8OtsE.png'
+          src: 'http://i.imgur.com/th8OtsE.png',
+          fill: true
         },
         zIndex: 500
       },

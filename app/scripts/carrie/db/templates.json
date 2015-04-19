@@ -1333,5 +1333,95 @@
     "thumbnail": "http://i.imgur.com/xUCGy8X.png",
     "author": "1699年目>>776",
     "homepage": "http://kilauea.bbspink.com/test/read.cgi/mobpink/1417616164/776"
+  },
+  {
+      "id": "freerita",
+      "name": "素材と化したリタちゃん",
+      "bg": "http://i.imgur.com/JD0vDba.jpg",
+      "scale": 1.25,
+      "board": {
+          "width": 100,
+          "height": 350,
+          "left": 10,
+          "top": 60,
+          "slope": 0,
+          "fontSize": 30,
+          "dir": "vertical"
+      },
+      "thumbnail": "http://i.imgur.com/sJOs9b1.jpg",
+      "author": "itoryusei | Twitter",
+      "homepage": "https://twitter.com/itoryusei/status/557912987676442625"
+  },
+  {
+      "id": "starbella",
+      "name": "☆ひとつな時のベラちゃん",
+      "bg": "http://i.imgur.com/sniXqS8.png",
+      "scale": 1,
+      "board": {
+          "width": 100,
+          "height": 350,
+          "left": 250,
+          "top": 20,
+          "slope": 0,
+          "fontSize": 40,
+          "dir": "vertical"
+      },
+      "thumbnail": "http://i.imgur.com/eDLCenu.png",
+      "author": "tsukichro | Twitter",
+      "homepage": "https://twitter.com/tsukichro/status/589798930818289665"
+  },
+  {
+      "id": "hungrybella",
+      "name": "空腹時のベラちゃん",
+      "bg": "http://i.imgur.com/rZ0hiow.png",
+      "scale": 1,
+      "board": {
+          "width": 100,
+          "height": 350,
+          "left": 250,
+          "top": 20,
+          "slope": 0,
+          "fontSize": 40,
+          "dir": "vertical"
+      },
+      "thumbnail": "http://i.imgur.com/LKTtBLs.png",
+      "author": "tsukichro | Twitter",
+      "homepage": "https://twitter.com/tsukichro/status/589798930818289665"
+  },
+  {
+      "id": "shockbella",
+      "name": "射程が足りていない時のベラちゃん",
+      "bg": "http://i.imgur.com/PFEoUR6.png",
+      "scale": 1,
+      "board": {
+          "width": 100,
+          "height": 350,
+          "left": 250,
+          "top": 20,
+          "slope": 0,
+          "fontSize": 40,
+          "dir": "vertical"
+      },
+      "thumbnail": "http://i.imgur.com/99tQSPG.png",
+      "author": "tsukichro | Twitter",
+      "homepage": "https://twitter.com/tsukichro/status/589798930818289665"
+  },
+  {
+      "id": "lovebella",
+      "name": "クサイ時のベラちゃん",
+      "bg": "http://i.imgur.com/EoU709U.png",
+      "scale": 1,
+      "board": {
+          "width": 100,
+          "height": 350,
+          "left": 250,
+          "top": 20,
+          "slope": 0,
+          "fontSize": 40,
+          "dir": "vertical"
+      },
+      "thumbnail": "http://i.imgur.com/GzeOfBx.png",
+      "author": "tsukichro | Twitter",
+      "homepage": "https://twitter.com/tsukichro/status/589798930818289665"
   }
 ]
