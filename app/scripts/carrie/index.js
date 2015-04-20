@@ -186,10 +186,10 @@ function createLayers(template, options) {
 var threadId = 0;
 var loaderTimer;
 var loaded;
-var retained = true;
+var updatePrevented = false;
 
 function update() {
-  if (retained) {
+  if (updatePrevented) {
     return;
   }
 
@@ -340,6 +340,8 @@ function prepareForm() {
   $('#template_list').on('click', 'li', function (event) {
     event.preventDefault();
 
+    updatePrevented = true;
+
     var id = $(event.currentTarget).attr('data-template-id');
     var template = templates[id];
 
@@ -360,7 +362,7 @@ function prepareForm() {
     var slider = $('[name=scale]:input').data('ionRangeSlider');
     slider.update({from: template.scale});
 
-    // ion.rangeSlider 経由でイベントが発火する
+    updatePrevented = false;
     update();
 
     $templateDialog.modal('hide');
@@ -486,6 +488,8 @@ function decode(string) {
 }
 
 function initialize() {
+  updatePrevented = true;
+
   prepareForm();
 
   var encoded = false;
@@ -561,7 +565,7 @@ function initialize() {
       .appendTo($authors);
   });
 
-  retained = false;
+  updatePrevented = false;
 }
 
 $(function () {
