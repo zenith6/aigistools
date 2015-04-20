@@ -11,6 +11,11 @@ var merge       = require('merge');
 var runSequence = require('run-sequence');
 var fs          = require('fs');
 var mergeStream = require('event-stream').merge;
+var notifier    = require('node-notifier');
+
+var config = loadConfig();
+var root   = __dirname;
+var webpackCompiler; // webpack compiler for livereload cache
 
 requireDir('./tasks', {recurse: true});
 
@@ -18,20 +23,15 @@ function loadConfig() {
   var config = require('./app/config');
   var stage = process.env.stage;
 
-  try {
-    var file = '.env' + (stage ? '.' + stage : '') + '.json';
+  var file = '.env' + (stage ? '.' + stage : '') + '.json';
+  if (fs.existsSync(file)) {
     var env = JSON.parse(fs.readFileSync(file));
     config = merge.recursive(config, env);
     $.util.log('Override config from ' + file);
-  } catch (error) {
   }
 
   return config;
 }
-
-var config = loadConfig();
-var root   = __dirname;
-var webpackCompiler; // webpack compiler for livereload cache
 
 gulp.task('script', function (callback) {
   if (!webpackCompiler) {
@@ -39,14 +39,32 @@ gulp.task('script', function (callback) {
     webpackCompiler = webpack(webpackConfig);
   }
 
-  webpackCompiler.run(function(error, status) {
-    if (error) {
-      $.notify.onError('Error: <%= error.message %>');
-
-      throw new $.util.PluginError('webpack', error);
+  webpackCompiler.run(function(err, stats) {
+    if (err) {
+      throw new $.util.PluginError('webpack', err);
     }
 
-    $.util.log('[webpack]', status.toString({colors: true}));
+    if (stats.hasErrors()) {
+      notifier.notify({
+        title: 'Webpack compile error',
+        message: stats.toString({
+          hash: false,
+          version: false,
+          timings: false,
+          assets: false,
+          chunks: false,
+          errorDetails: true,
+          source: true,
+        }),
+        sound: true,
+      }, function (err) {
+        if (err) {
+          throw new $.util.PluginError('node-notifier', err);
+        }
+      });
+    }
+
+    $.util.log('[webpack]', stats.toString({colors: true}));
 
     callback();
   });
@@ -55,12 +73,8 @@ gulp.task('script', function (callback) {
 gulp.task('style', function () {
   return gulp.src(path.join(config.style.path, '*.scss'))
     .pipe($.plumber({
-      errorHandler: function (error) {
-        $.util.log(error.message);
-        $.notify.onError('Error: <%= error.message %>');
-
-        this.emit('end');
-    }}))
+      errorHandler: $.notify.onError('<%= error.message %>')
+    }))
     .pipe($.sass({
       includePaths: [
         path.join(root, 'node_modules'),
