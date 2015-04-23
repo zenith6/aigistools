@@ -54,6 +54,42 @@ var prizes = [
 
 var maps = [
   {
+    name: '妖怪大決戦',
+    charisma: 90,
+    stamina: 12,
+    expectation: 22,
+    drops: [
+      {name: '封印の札5', icon: 'sealing-talisman-5', set: 3},
+      {name: '封印の札3', icon: 'sealing-talisman-3', set: 2},
+      {name: '封印の札1', icon: 'sealing-talisman-3', set: 1},
+      {name: '虹精霊', icon: 'rainbow-sprit'}
+    ]
+  },
+  {
+    name: '封妖の忍者',
+    charisma: 70,
+    stamina: 8,
+    expectation: 13,
+    drops: [
+      {name: '封印の札5', icon: 'sealing-talisman-5', set: 2},
+      {name: '封印の札1', icon: 'sealing-talisman-1', set: 3},
+      {name: 'サノスケ', icon: 'sanosuke'},
+      {name: 'ニエル', icon: 'niel'}
+    ]
+  },
+  {
+    name: '妖怪牛鬼',
+    charisma: 40,
+    stamina: 5,
+    expectation: 7,
+    drops: [
+      {name: '封印の札3', icon: 'sealing-talisman-3', set: 2},
+      {name: '封印の札1', icon: 'sealing-talisman-1', set: 1},
+      {name: 'ローレン', icon: 'loren'},
+      {name: '魔水晶', icon: 'demon-crystal-1', set: 3}
+    ]
+  },
+  {
     name: '大妖怪ぬらりひょん',
     charisma: 50,
     stamina: 7,
