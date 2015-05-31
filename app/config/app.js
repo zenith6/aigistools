@@ -6,5 +6,5 @@ module.exports = {
   path: path.resolve(__dirname, '../'),
   name: '千年戦争アイギスツール',
   author: 'Seiji Nitta',
-  thumbnail: path.resolve(__dirname, '../resources/thumbnails'),
+  thumbnail: path.resolve(__dirname, '../assets/thumbnails'),
 };

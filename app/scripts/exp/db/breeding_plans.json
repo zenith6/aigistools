@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "1→30",
+    "currentLevel": 1,
+    "targetLevel": 30
+  },
+  {
+    "id": 2,
+    "name": "1→50",
+    "currentLevel": 1,
+    "targetLevel": 50
+  },
+  {
+    "id": 3,
+    "name": "1→60",
+    "currentLevel": 1,
+    "targetLevel": 60
+  },
+  {
+    "id": 4,
+    "name": "1→80",
+    "currentLevel": 1,
+    "targetLevel": 80
+  },
+  {
+    "id": 7,
+    "name": "1→85",
+    "currentLevel": 1,
+    "targetLevel": 80
+  },
+  {
+    "id": 5,
+    "name": "1→90",
+    "currentLevel": 1,
+    "targetLevel": 90
+  },
+  {
+    "id": 6,
+    "name": "1→99",
+    "currentLevel": 1,
+    "targetLevel": 99
+  }
+]

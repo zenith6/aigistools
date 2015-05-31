@@ -187,6 +187,10 @@
           background-image: url('../thumbnails/onmitsu/index.png');
         }
 
+        &.tool-exp:before {
+          background-image: url('../thumbnails/exp/index.png');
+        }
+
         &.tool-rita:before {
           background-image: url('../rita.png');
           background-position: left center;

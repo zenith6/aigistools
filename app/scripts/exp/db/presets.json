@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "アイロン",
+    "rarityId": 1,
+    "minLevel": 1,
+    "maxLevel": 30,
+    "defaultCurrentLevel": 1,
+    "defaultCurrentRemainExp": 32,
+    "defaultTargetLevel": 30,
+    "icon": "iron-sprit"
+  },
+  {
+    "id": 2,
+    "name": "ブロンズ",
+    "rarityId": 2,
+    "minLevel": 1,
+    "maxLevel": 40,
+    "defaultCurrentLevel": 1,
+    "defaultCurrentRemainExp": 35,
+    "defaultTargetLevel": 40,
+    "icon": "bronze-sprit"
+  },
+  {
+    "id": 3,
+    "name": "シルバー",
+    "rarityId": 3,
+    "minLevel": 1,
+    "maxLevel": 50,
+    "defaultCurrentLevel": 1,
+    "defaultCurrentRemainExp": 38,
+    "defaultTargetLevel": 50,
+    "icon": "silver-sprit"
+  },
+  {
+    "id": 8,
+    "name": "覚醒素材用30CC銀",
+    "rarityId": 3,
+    "minLevel": 1,
+    "maxLevel": 50,
+    "defaultCurrentLevel": 1,
+    "defaultCurrentRemainExp": 38,
+    "defaultTargetLevel": 30,
+    "icon": "silver-sprit"
+  },
+  {
+    "id": 4,
+    "name": "ゴールド",
+    "rarityId": 4,
+    "minLevel": 1,
+    "maxLevel": 80,
+    "defaultCurrentLevel": 1,
+    "defaultCurrentRemainExp": 42,
+    "defaultTargetLevel": 60,
+    "icon": "gold-sprit"
+  },
+  {
+    "id": 5,
+    "name": "プラチナ",
+    "rarityId": 5,
+    "minLevel": 1,
+    "maxLevel": 90,
+    "defaultCurrentLevel": 1,
+    "defaultCurrentRemainExp": 45,
+    "defaultTargetLevel": 70,
+    "icon": "platinum-sprit"
+  },
+  {
+    "id": 6,
+    "name": "ブラック",
+    "rarityId": 6,
+    "minLevel": 1,
+    "maxLevel": 99,
+    "defaultCurrentLevel": 1,
+    "defaultCurrentRemainExp": 48,
+    "defaultTargetLevel": 80,
+    "icon": "black-sprit"
+  },
+  {
+    "id": 7,
+    "name": "サファイア",
+    "rarityId": 7,
+    "minLevel": 1,
+    "maxLevel": 85,
+    "defaultCurrentLevel": 1,
+    "defaultCurrentRemainExp": 45,
+    "defaultTargetLevel": 65,
+    "icon": "time-sprit"
+  }
+]

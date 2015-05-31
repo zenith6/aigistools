@@ -1,0 +1,102 @@
+.app-exp {
+  margin-bottom: 30px;
+
+  h1 {
+    color: #ccc;
+    font-size: 32px;
+  }
+
+  h4 {
+    color: #888;
+    font-size: 20px;
+  }
+
+  .form-control {
+    border-color: #111;
+    background-color: rgba(50, 50, 50, 0.8);
+    color: #fff;
+  }
+
+  .control-label {
+    color: #888;
+  }
+
+ .form-group:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+
+  .form-control + .input-group-addon,
+  .form-control + .input-group-addon + .form-control {
+    border-left: none;
+  }
+
+  .input-group-addon {
+    background-color: #373737;
+    color: #bbb;
+  }
+
+  .input-group-btn .bootstrap-touchspin-down {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
+
+  select[name=current_level] {
+    min-width: 6em;
+  }
+
+  input[type="text"]::-ms-clear {
+    display: none;
+  }
+
+  .breeding-item {
+    border-left: 2px solid #555;
+    margin-bottom: 20px;
+    padding-left: 10px;
+  }
+
+  .breeding-item.total-required-exp .exp {
+    display: block;
+    font-size: 64px;
+    color: #B478FF;
+    text-shadow: 0 1px 0 #000;
+    text-align: right;
+  }
+
+  .breeding-item.required-exp-unit table {
+    .unit,
+    .exp {
+      text-align: right;
+    }
+  }
+
+  .diff {
+  }
+
+  .diff-eq {
+   color: #aaa;
+  }
+
+  .diff-plus {
+   color: #62c462;
+  }
+
+  .diff-minus {
+   color: #ee5f5b;
+  }
+
+  .icon {
+    margin-right: 0.5em;
+  }
+}
+
+// select2
+.select2-results {
+  max-height: 350px;
+
+  .icon {
+    margin-right: 0.5em;
+  }
+}

@@ -98,9 +98,9 @@ gulp.task('style:update-vendor', function () {
     })).pipe(gulp.dest(path.join(config.style.path, 'vendor')));
 });
 
-gulp.task('resource', function () {
-  var resources = gulp.src([
-    path.join(root, 'app/resources/**/*'),
+gulp.task('asset', function () {
+  var assets = gulp.src([
+    path.join(root, 'app/assets/**/*'),
   ])
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset)));
 
@@ -115,7 +115,7 @@ gulp.task('resource', function () {
   ])
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'fonts')));
 
-  return mergeStream(resources, select2, fonts);
+  return mergeStream(assets, select2, fonts);
 });
 
 gulp.task('view', function () {
@@ -181,7 +181,7 @@ gulp.task('deploy', ['build'], function () {
 });
 
 gulp.task('build', function (callback) {
-  runSequence(['test', 'clean'], ['view', 'script', 'style', 'resource'], callback);
+  runSequence(['test', 'clean'], ['view', 'script', 'style', 'asset'], callback);
 });
 
 gulp.task('default', ['watch']);
