@@ -1423,5 +1423,27 @@
       "thumbnail": "http://i.imgur.com/GzeOfBx.png",
       "author": "tsukichro | Twitter",
       "homepage": "https://twitter.com/tsukichro/status/589798930818289665"
+  },
+  {
+      "id": "ino44",
+      "name": "(｡i _ i｡) ｷｭｯ",
+      "bg": "https://i.imgur.com/8zMANUO.png",
+      "scale": 1,
+      "width": 800,
+      "height": 450,
+      "left": 200,
+      "top": 50,
+      "board": {
+          "width": 500,
+          "height": 160,
+          "left": 150,
+          "top": 20,
+          "slope": 0,
+          "fontSize": 36,
+          "dir": "horizontal"
+      },
+      "thumbnail": "https://i.imgur.com/dLF4s4T.png",
+      "author": "3164年目>>293",
+      "homepage": "http://aoi.bbspink.com/test/read.cgi/mobpink/1433824878/293"
   }
 ]
