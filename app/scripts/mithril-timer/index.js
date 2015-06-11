@@ -412,12 +412,12 @@ function initialize() {
 
   var $map = $('#map')
     .on('keyup', 'input[type=number]', function () {
-      updateExpectation();
       syncCurrent();
+      updateExpectation();
     })
     .on('change', 'input[type=number]', function () {
-      updateExpectation();
       syncCurrent();
+      updateExpectation();
     })
     .on('click', 'input[type=number]', function () {
       this.select();
@@ -436,7 +436,12 @@ function initialize() {
         .end()
         .find('input[name=actual_expectation]')
           .parent()
-            .toggle(expectationInputMode === 'direct');
+            .toggle(expectationInputMode === 'direct')
+          .end()
+        .end()
+        .find('input[name=sync]')
+          .closest('tfoot')
+            .toggle(expectationInputMode === 'aggregate');
 
       updateExpectation();
     })
