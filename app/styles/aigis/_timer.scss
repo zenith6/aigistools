@@ -237,7 +237,7 @@ input[name=current] {
   }
 }
 
-@media (max-width: 420px) {
+@media screen and (max-width: 420px) {
   .norma-amount-fraction {
     display: none !important;
   }
@@ -274,4 +274,18 @@ input[name=current] {
 
 [data-objective-mode] {
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .table--map {
+    td.expectation,
+    th.expectation {
+      width: 40%;
+    }
+  }
+}
+
+[disabled] {
+  background-color: transparent !important;
+  color: #888 !important;
 }

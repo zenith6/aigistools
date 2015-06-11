@@ -214,13 +214,24 @@
   </section>
 
   <section id="map" class="col-xs-12">
-    <table class="table table-condenced table-striped">
+    <table class="table table-condenced table-striped table--map">
       <thead>
         <tr>
           <th>MAP</th>
           <th>カリスタ</th>
           <th class="drops" colspan="3">ドロップ</th>
-          <th>1周当たりの期待値</th>
+          <th class="expectation">
+            <div class="btn-group btn-group-sm" data-toggle="buttons">
+              <label class="btn btn-default">
+                <input type="radio" name="expectation_input_mode" value="aggregate" autocomplete="off" />
+                <i class="fa fa-calculator"></i> 周回数とドロップ数から期待値を算出
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="expectation_input_mode" value="direct" autocomplete="off" />
+                <i class="fa fa-pencil"></i> 期待値を直接入力
+              </label>
+            </div>
+          </th>
           <th>
             <select name="expectation" class="form-control input-sm">
               <option value="drop">謎の期待値</option>
@@ -233,6 +244,12 @@
       <tbody>
       </tbody>
     </table>
+  </section>
+
+  <section class="help col-xs-12">
+    <p class="help-block">
+      設定は Cookie に自動的に保存します。動かなくなったら頑張って消して下さい！
+    </p>
   </section>
 
   <section class="col-xs-12">

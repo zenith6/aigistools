@@ -21,6 +21,7 @@ var initialEstimateRank = 100;
 var initialEstimateUseCrystal = 'both';
 var initialEstimateNaturalRecovery = true;
 var defaultChart = 'stamina';
+var expectationInputMode = 'aggregate'; // 'aggregate' or 'direct'
 
 var objectives = {
   '25': 'セラが仲間になる',
@@ -270,14 +271,6 @@ function format(value, scale) {
 }
 
 function initialize() {
-  var state = loadState();
-
-  state.expectations.forEach(function (expectation, mapId) {
-    if (typeof expectation === 'number') {
-      maps[mapId].expectation = expectation;
-    }
-  });
-
   var now = (new Date()).getTime();
   var view = $('#period_dates');
   periods.forEach(function (period) {
@@ -363,28 +356,69 @@ function initialize() {
     return Math.max(num, map.drops.length);
   }, 0);
 
-  var onChangeActualExpectation = function () {
-      var $expectation = $(this);
-      var mapId = parseInt($expectation.closest('tr').attr('data-map'));
-      var map = maps[mapId];
-      map.expectation = parseFloat($expectation.val()) || 0;
+  var state = loadState();
 
-      state.expectations[mapId] = map.expectation;
-      saveState(state);
+  state.maps.forEach(function (mapState, mapId) {
+    maps[mapId].expectation = mapState.expectation;
+  });
 
-      updateEstimate();
-      updateExpectationChart();
-      updateMarathon();
-  };
+  var updateExpectation = function () {
+    var $map = $('#map');
 
-  var $tbody = $('#map tbody')
-    .on('keyup', 'input[name=actual_expectation]', onChangeActualExpectation)
-    .on('change', 'input[name=actual_expectation]', onChangeActualExpectation)
-    .on('focus', 'input[name=actual_expectation]', function () {
-      this.select();
+    maps.forEach(function (map, mapId) {
+      var $tr = $map.find('tr[data-map=' + mapId + ']');
+      var numLaps = parseInt($tr.find('input[name=num_laps]').val()) || 0;
+      var numDrops = parseInt($tr.find('input[name=num_drops]').val()) || 0;
+      var $expectation = $tr.find('input[name=actual_expectation]');
+      var expectation = parseFloat($expectation.val()) || 0;
+
+      if (expectationInputMode === 'aggregate') {
+        expectation = (numDrops / numLaps) || 0;
+        $expectation.val(expectation);
+      }
+
+      state.maps[mapId].numLaps = numLaps;
+      state.maps[mapId].numDrops = numDrops;
+      map.expectation = state.maps[mapId].expectation = expectation;
     });
 
+    saveState(state);
+
+    updateEstimate();
+    updateExpectationChart();
+    updateMarathon();
+  };
+
+  var $map = $('#map')
+    .on('keyup', 'input[type=text]', updateExpectation)
+    .on('change', 'input[type=text]', updateExpectation)
+    .on('click', 'input[type=text]', function () {
+      this.select();
+    })
+    .on('change', 'input[name=expectation_input_mode]', function () {
+      expectationInputMode = $(this).val();
+
+      state.expectationInputMode = expectationInputMode;
+      saveState(state);
+
+      $map
+        .find('input[name=num_laps], input[name=num_drops]')
+          .parent()
+            .toggle(expectationInputMode === 'aggregate')
+          .end()
+        .end()
+        .find('input[name=actual_expectation]')
+          .parent()
+            .toggle(expectationInputMode === 'direct');
+
+      updateExpectation();
+    });
+
+  var $tbody = $map.find('tbody');
+
   maps.forEach(function (map, i) {
+    var mapState = state.maps[i];
+
     var $chart = $('<td />')
       .attr('data-chart', i)
       .append($('<span class="barchart" />'))
@@ -401,9 +435,7 @@ function initialize() {
             $('<i />').attr('title', drop.name).addClass('icon icon-' + drop.icon) :
             $('<span />').text(drop.name);
 
-          var $set = drop.set ?
-            $('<span class="badge" />').text('x' + drop.set) :
-            null;
+          var $set = drop.set ? $('<span class="badge" />').text('x' + drop.set) : null;
 
           return $('<td />')
             .append($icon)
@@ -417,8 +449,19 @@ function initialize() {
         return $drops;
       })
       .append(function () {
-        return $('<input type="text" name="actual_expectation" class="form-control" size="4" />')
-          .val(map.expectation);
+        var $expectation = $('<span class="input-group input-group-sm" />')
+          .append($('<span class="input-group-addon">1周の期待値</span>'))
+          .append($('<input type="text" name="actual_expectation" class="form-control" />').val(mapState.expectation));
+
+        var $marathon = $('<span class="input-group input-group-sm" />')
+          .append($('<span class="input-group-addon">周回</span>'))
+          .append($('<input type="text" name="num_laps" class="form-control" />').val(mapState.numLaps))
+          .append($('<span class="input-group-addon">ドロップ</span>'))
+          .append($('<input type="text" name="num_drops" class="form-control" />').val(mapState.numDrops));
+
+        return $('<td class="expectation" />')
+          .append($marathon)
+          .append($expectation);
       })
       .append($chart)
       .prependTo($tbody);
@@ -508,16 +551,23 @@ function initialize() {
     updateRewardList();
   }
 
-  updateExpectationChart();
-  updateMarathon();
-  updateEstimate();
+  $map
+    .find('input[name=expectation_input_mode][value="' + state.expectationInputMode + '"]')
+    .prop('checked', true)
+    .trigger('change')
+    .parent()
+    .addClass('active');
 }
 
 function loadState() {
   var state = {};
 
-  var expectations = maps.map(function (map) {
-    return map.expectation;
+  var defaultMaps = maps.map(function (map) {
+    return {
+      numLaps: 0,
+      numDrops: 0,
+      expectation: map.expectation
+    };
   });
 
   var defaults = {
@@ -527,7 +577,8 @@ function loadState() {
     estimateRank: initialEstimateRank,
     estimateUseCrystal: initialEstimateUseCrystal,
     estimateNaturalRecovery: initialEstimateNaturalRecovery,
-    expectations: expectations
+    expectationInputMode: expectationInputMode,
+    maps: defaultMaps
   };
 
   try {
