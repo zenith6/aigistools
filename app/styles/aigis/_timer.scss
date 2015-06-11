@@ -1,6 +1,10 @@
 section {
   h1 {
     font-size: 32px;
+
+    > a.label {
+      font-size: 12px;
+    }
   }
 }
 

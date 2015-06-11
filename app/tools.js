@@ -27,6 +27,11 @@ module.exports = [
     path: 'exp/',
   },
   {
+    name: 'ミスリル鉱タイマー',
+    id: 'mithril-timer',
+    path: 'mithril-timer/',
+  },
+  {
     name: '封印の札タイマー',
     id: 'sealing-talisman-timer',
     path: 'sealing-talisman-timer/',
