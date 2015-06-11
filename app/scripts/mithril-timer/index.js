@@ -22,6 +22,7 @@ var initialEstimateUseCrystal = 'both';
 var initialEstimateNaturalRecovery = true;
 var defaultChart = 'stamina';
 var expectationInputMode = 'aggregate'; // 'aggregate' or 'direct'
+var syncCurrentEnabled = true;
 
 var objectives = {
   '25': 'セラが仲間になる',
@@ -270,6 +271,24 @@ function format(value, scale) {
   return value.toFixed(scale);
 }
 
+function syncCurrent() {
+  if (!syncCurrentEnabled) {
+    return;
+  }
+
+  var current = $('#map')
+    .find('tbody tr input[name=num_drops]')
+    .map(function () {
+      return parseInt($(this).val()) || 0;
+    })
+    .toArray()
+    .reduce(function (total, num) {
+      return total + num;
+    }, 0);
+
+  $('input[name=current]').val(current);
+}
+
 function initialize() {
   var now = (new Date()).getTime();
   var view = $('#period_dates');
@@ -362,6 +381,8 @@ function initialize() {
     maps[mapId].expectation = mapState.expectation;
   });
 
+  syncCurrentEnabled = state.syncCurrentEnabled;
+
   var updateExpectation = function () {
     var $map = $('#map');
 
@@ -390,8 +411,14 @@ function initialize() {
   };
 
   var $map = $('#map')
-    .on('keyup', 'input[type=number]', updateExpectation)
-    .on('change', 'input[type=number]', updateExpectation)
+    .on('keyup', 'input[type=number]', function () {
+      updateExpectation();
+      syncCurrent();
+    })
+    .on('change', 'input[type=number]', function () {
+      updateExpectation();
+      syncCurrent();
+    })
     .on('click', 'input[type=number]', function () {
       this.select();
     })
@@ -412,6 +439,12 @@ function initialize() {
             .toggle(expectationInputMode === 'direct');
 
       updateExpectation();
+    })
+    .on('click', 'input[name=sync]', function () {
+      state.syncCurrentEnabled = syncCurrentEnabled = this.checked;
+      saveState(state);
+
+      syncCurrent();
     });
 
   var $tbody = $map.find('tbody');
@@ -552,6 +585,9 @@ function initialize() {
   }
 
   $map
+    .find('input[name=sync]')
+    .prop('checked', syncCurrentEnabled)
+    .end()
     .find('input[name=expectation_input_mode][value="' + state.expectationInputMode + '"]')
     .prop('checked', true)
     .trigger('change')
@@ -578,7 +614,8 @@ function loadState() {
     estimateUseCrystal: initialEstimateUseCrystal,
     estimateNaturalRecovery: initialEstimateNaturalRecovery,
     expectationInputMode: expectationInputMode,
-    maps: defaultMaps
+    maps: defaultMaps,
+    syncCurrentEnabled: syncCurrentEnabled
   };
 
   try {
