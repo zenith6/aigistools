@@ -367,10 +367,10 @@ function initialize() {
 
     maps.forEach(function (map, mapId) {
       var $tr = $map.find('tr[data-map=' + mapId + ']');
-      var numLaps = parseInt($tr.find('input[name=num_laps]').val()) || 0;
-      var numDrops = parseInt($tr.find('input[name=num_drops]').val()) || 0;
+      var numLaps = Math.max(parseInt($tr.find('input[name=num_laps]').val()) || 0, 0);
+      var numDrops = Math.max(parseInt($tr.find('input[name=num_drops]').val()) || 0, 0);
       var $expectation = $tr.find('input[name=actual_expectation]');
-      var expectation = parseFloat($expectation.val()) || 0;
+      var expectation = Math.max(parseFloat($expectation.val()) || 0, 0);
 
       if (expectationInputMode === 'aggregate') {
         expectation = (numDrops / numLaps) || 0;
@@ -390,9 +390,9 @@ function initialize() {
   };
 
   var $map = $('#map')
-    .on('keyup', 'input[type=text]', updateExpectation)
-    .on('change', 'input[type=text]', updateExpectation)
-    .on('click', 'input[type=text]', function () {
+    .on('keyup', 'input[type=number]', updateExpectation)
+    .on('change', 'input[type=number]', updateExpectation)
+    .on('click', 'input[type=number]', function () {
       this.select();
     })
     .on('change', 'input[name=expectation_input_mode]', function () {
@@ -451,13 +451,13 @@ function initialize() {
       .append(function () {
         var $expectation = $('<span class="input-group input-group-sm" />')
           .append($('<span class="input-group-addon">1周の期待値</span>'))
-          .append($('<input type="text" name="actual_expectation" class="form-control" />').val(mapState.expectation));
+          .append($('<input type="number" name="actual_expectation" min="0" class="form-control" />').val(mapState.expectation));
 
         var $marathon = $('<span class="input-group input-group-sm" />')
           .append($('<span class="input-group-addon">周回</span>'))
-          .append($('<input type="text" name="num_laps" class="form-control" />').val(mapState.numLaps))
+          .append($('<input type="number" name="num_laps" min="0" class="form-control" />').val(mapState.numLaps))
           .append($('<span class="input-group-addon">ドロップ</span>'))
-          .append($('<input type="text" name="num_drops" class="form-control" />').val(mapState.numDrops));
+          .append($('<input type="number" name="num_drops" min="0" class="form-control" />').val(mapState.numDrops));
 
         return $('<td class="expectation" />')
           .append($marathon)
