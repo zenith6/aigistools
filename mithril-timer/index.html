@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
 
-<title>キャリーさんもそう思うジェネレーター | 千年戦争アイギスツール</title>
+<title>ミスリル鉱タイマー | 千年戦争アイギスツール</title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="千年戦争アイギスのキャラクターでメッセージボードを作成します。">
+<meta name="description" content="千年戦争アイギス緊急イベント「神官戦士とミスリルの巨兵」用のタイマーです。">
 <meta name="author" content="Seiji Nitta">
 
-<link rel="canonical" href="https://zenith6.github.io/aigistools/carrie/" />
+<link rel="canonical" href="https://zenith6.github.io/aigistools/mithril-timer/" />
 
-<meta property="og:title" content="キャリーさんもそう思うジェネレーター" />
+<meta property="og:title" content="ミスリル鉱タイマー" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="千年戦争アイギスのキャラクターでメッセージボードを作成します。" />
-<meta property="og:image" content="https://zenith6.github.io/aigistools/assets/thumbnails/carrie/index.png" />
-<meta property="og:url" content="https://zenith6.github.io/aigistools/carrie/" />
+<meta property="og:description" content="千年戦争アイギス緊急イベント「神官戦士とミスリルの巨兵」用のタイマーです。" />
+<meta property="og:image" content="https://zenith6.github.io/aigistools/assets/thumbnails/mithril-timer/index.png" />
+<meta property="og:url" content="https://zenith6.github.io/aigistools/mithril-timer/" />
 <meta property="og:site_name" content="千年戦争アイギスツール" />
     <!--[if lt IE 9]>
   <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -24,8 +24,8 @@
 <![endif]-->
 
 <link rel="stylesheet" type="text/css" href="/aigistools/assets/css/common.css">
-      <link rel="stylesheet" href="/aigistools/assets/css/light.css" />
-  <link rel="stylesheet" href="/aigistools/assets/css/carrie.css" />
+      <link rel="stylesheet" href="/aigistools/assets/css/dark.css" />
+  <link rel="stylesheet" type="text/css" href="/aigistools/assets/css/mithril-timer.css">
   </head>
 
   <body>
@@ -79,176 +79,233 @@
 
 
 
-<div class="container-fluid">
-  <form action="#" class="form-horizontal">
-    <div class="col-xs-12 col-sm-8 col-sm-push-4 col-md-9 col-md-push-3">
-      <div class="form-group">
-        <div class="col-sm-12">
-          <button id="template" name="template" class="btn btn-default btn-lg btn-block">
-            <i class="fa fa-search"></i>
-            <span id="template_name" class="caption">テンプレートを選択して下さい</span>
-            <span class="caret"></span></span>
-          </button>
+<form class="form" action="#">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <label class="control-label">現在のミスリル鉱</label>
+        <input class="form-control input-lg" type="text" name="current" ime-mode="inactive" title="マウスホイールで+/-" />
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <label class="control-label">目標</label>
+
+        <div data-objective-mode="achievement">
+          <select name="objective" class="form-control input-lg"></select>
         </div>
-      </div>
 
-      <div class="canvas">
-        <canvas id="canvas"></canvas>
-      </div>
-
-      <div class="form-group">
-        <button type="button" name="export" class="btn btn-default btn-block">
-          キャリーさんもそう思う （画像をダウンロード）
-        </button>
-      </div>
-
-      <div class="form-group">
-        <label for="url">コピペ用URL</label>
-        <input id="url" name="url" type="text" size="60" class="form-control" placeholder="ここのURLをコピペして下さい" readonly="readonly" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-title="キャリーさん曰く" data-content="コピペ用URLを王子様達に教えて愛しいキャリーさんを共有しましょう！長すぎて張れない時は短縮URLサービスをご利用下さい。" />
-      </div>
-    </form>
-  </div>
-
-  <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9">
-    <form action="#" class="form">
-      <div class="form-group">
-        <label for="scale" class="control-label">サイズ</label>
-        <input id="scale" type="text" name="scale" />
-      </div>
-      <div class="form-group">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="shrink" value="1" />
-            画面内に収める
-          </label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="message" class="control-label">看板の内容</label>
-        <textarea id="message" name="message" cols="60" rows="4" wrap="off" class="form-control"></textarea>
-      </div>
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-6 col-sm-12">
-            <label for="form_font_color" class="control-label">文字</label>
-            <input id="form_font_color" name="foregroundColor" class="form-control" />
-          </div>
-          <div class="col-xs-6 col-sm-12">
-            <label for="form_font_size" class="control-label">フォントサイズ</label>
-            <select id="form_font_size" name="fontSize" class="form-control">
-            </select>
-          </div>
-          <div class="col-xs-12 col-sm-12">
-            <label for="form_font_family" class="control-label">フォント名</label>
-            <select id="form_font_family" name="fontFamily" class="form-control">
-            </select>
-          </div>
-          <div class="col-xs-6 col-sm-12">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="outline" value="1" data-toggle="collapse" data-target="#outline_options" /> 縁取
-              </label>
-            </div>
-            <div id="outline_options" class="collapse">
-              <input id="outline_color" name="outlineColor" class="form-control" />
-            </div>
-          </div>
-          <div class="col-xs-6 col-sm-12">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="shadow" value="1" data-toggle="collapse" data-target="#shadow_options" /> 影
-              </label>
-            </div>
-            <div id="shadow_options" class="collapse">
-              <input name="shadowColor" class="form-control" />
-            </div>
-          </div>
-          <div class="col-xs-6 col-sm-12">
-            <div class="form-group">
-              <label for="bg" class="control-label">背景</label>
-              <input id="bg" name="backgroundColor" class="form-control" />
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="effect_list" class="control-label">エフェクト</label>
-              <div id="effect_list"></div>
-
-              <div id="gedou_options">
-                <div class="input-group">
-                  <div class="input-group-addon">まさに</div>
-                  <input type="text" name="gedou_text" value="" class="form-control" />
-                </div>
-              </div>
-
-              <div id="gameover_options">
-                <div class="input-group">
-                  <div class="input-group-addon">窓</div>
-                  <input type="text" name="gameover_text" value="" class="form-control" />
-                </div>
-              </div>
-
-              <p class="help-block">背景色や火属性付与は透過色を持つテンプレートでのみ有効です。</p>
-            </div>
+        <div data-objective-mode="exchange">
+          <div class="input-group input-group-lg">
+            <span class="input-group-btn">
+              <button class="btn btn-default" name="reset" type="button" title="リセット">
+                <i class="fa fa-arrow-down"></i>0
+              </button>
+            </span>
+            <input type="text" name="objective" value="300" class="form-control" ime-mode="inactive" />
+            <span class="input-group-btn" id="increse_objective_list">
+            </span>
           </div>
         </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div id="chooser" class="modal fade">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">テンプレート選択</h4>
-      </div>
-      <div class="modal-body">
-        <ul id="template_list" class="template-list">
-        </ul>
-        <p class="help-block">
-          テンプレート名の＠以降は作者様、または確認できる初出のレスを表します。 作者名の変更や、テンプレートの差し替え・削除をご希望される作者様は、お手数ですが本スレの方まで伝言をお願いいたします。
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</div>
-
-<div id="export" class="modal fade">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">画像出力</h4>
-      </div>
-      <div class="modal-body">
-        <img src="" id="export_content" />
-        <p class="help-block">
-          画像は右クリックで保存して下さい。
-          <a href="http://jsfiddle.net/RJNGV/show/" target="_blank">千年パズルアイギス</a>を使うと作成したキャリーさん同士を組み合わせられます。
-          <span class="label label-primary">ヒント</span> 背景が干渉する時は背景色を透明に設定して下さい。</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <div class="form-group">
+    <label class="control-label">イベント期間</label>
+    <div id="period_dates" class="progress">
+    </div>
+    <div id="period_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
       </div>
     </div>
+    <div id="objective_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div class="prediction">
+      <span class="pointer">
+        <span class="pointer-label">
+          このペースなら最終日までに
+          <strong id="prediction_collection">0</strong> 個集まるわ。
+          <span id="prediction_completion_date"></span>
+        </span>
+      </span>
+    </div>
   </div>
+</form>
+
+<div class="row">
+  <section id="rewards" class="col-xs-5 col-sm-3" data-objective-mode="achievement">
+    <h1>追加報酬</h1>
+    <table class="table table-condenced">
+      <thead>
+        <tr>
+          <th class="text-right">収集数</th>
+          <th>報酬</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="exchange" class="col-xs-5 col-sm-3" data-objective-mode="exchange">
+    <h1>交換</h1>
+    <div id="prize_list"></div>
+  </section>
+
+  <section id="estimate" class="col-xs-7 col-sm-5 estimate">
+    <h1>見積り <a href="#map" class="label label-info"><i class="fa fa-arrow-right"></i> 要期待値入力</a></h1>
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4">周回MAP</label>
+        <div class="col-sm-8">
+          <select name="estimate_map" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4">ランク</label>
+        <div class="col-sm-8">
+          <select name="estimate_rank" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4">結晶回復</label>
+        <div class="col-sm-8">
+          <select name="estimate_use_crystal" class="form-control">
+            <option value="both">カリスマ＆スタミナ</option>
+            <option value="charisma">カリスマのみ</option>
+            <option value="stamina">スタミナのみ</option>
+            <option value="none">使用しない</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-4">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="estimate_natural_recovery" value="1" /> 自然回復を計算に含める
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <tbody>
+        <tr class="estiamte-required-crystal">
+          <th class="col-xs-4">消費結晶</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_required_crystal"></span><span class="estimate-unit">個</span>
+            <span class="diff">
+            (カリスマ&times;<span id="estimate_required_crystal_for_charisma"></span>,
+            スタミナ&times;<span id="estimate_required_crystal_for_stamina"></span>)
+            </span>
+          </td>
+        </tr>
+        <tr class="estiamte-collection">
+          <th class="col-xs-4">到達収集数</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_result_collection"></span><span class="estimate-unit">個</span>
+            <span class="diff">(対目標数<span id="estimate_result_collection_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-required-marathon">
+          <th class="col-xs-4">可能周回数</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_available_marathon"></span><span class="estimate-unit">周</span>
+            <span class="diff">(対必要周回<span id="estimate_available_marathon_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-using-charisma">
+          <th class="col-xs-4">消費カリスマ</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_using_charisma"></span>
+            <span class="diff">(対必要カリスマ<span id="estimate_using_charisma_diff"></span>)</span>
+          </td>
+        </tr>
+        <tr class="estiamte-stamina">
+          <th class="col-xs-4">消費スタミナ</th>
+          <td class="col-xs-8">
+            <span class="estimate-value" id="estimate_using_stamina"></span>
+            <span class="diff">(対必要スタミナ<span id="estimate_using_stamina_diff"></span>)</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="norma" class="col-xs-12 col-sm-4">
+    <h1>ノルマ</h1>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_day">
+          <span class="norma-label">1日当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_days"></span>日</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_hour">
+          <span class="norma-label">1時間当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_hours"></span>時間</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_minute">
+          <span class="norma-label">30分当たり</span>
+          <span class="norma-remains badge">残り<span id="remains_minutes"></span>分</span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit">個</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="col-xs-12">
+    <table class="table table-condenced table-striped">
+      <thead>
+        <tr>
+          <th>MAP</th>
+          <th>カリスタ</th>
+          <th class="drops" colspan="3">ドロップ</th>
+          <th>1周当たりの期待値</th>
+          <th>
+            <select name="expectation" class="form-control input-sm">
+              <option value="drop">謎の期待値</option>
+              <option value="charisma">カリスマ1当たり</option>
+              <option value="stamina">スタミナ1当たり</option>
+            </select>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="col-xs-12">
+    <div class="textar-aa">　　　　　　　　　　　　　　　　&gt;&acute;＼　 　M <br />
+　　　　　　　　　　　　　　　/y　◆＼ノ ﾉ <br />
+　 　　　　　　　　　　　　/⌒ 　　　ｔ　　/　 <br />
+　　　　　　　　　　　　　ｗ⌒|ｖ ＿　　/ <br />
+　　　　　　　　　　　　　　　/／　　&gt; &gt;　 <br />
+
+    </div>
+  </section>
 </div>
-
-
-<div id="loader" class="loader">
-  <span class="loader-title">しばらくキャリーさんでお待ちください</span>
-  <span class="loader-spinner"></span>
-</div>
-
-<object id="font_finder" type="application/x-shockwave-flash" data="/aigistools/assets/FontList.swf" width="1" height="1">
-  <param name="movie" value="/aigistools/assets/FontList.swf" />
-  <param name="allowScriptAccess" value="always" />
-</object>
     </div>
 
     <footer id="footer" class="footer">
@@ -257,11 +314,7 @@
     <aside class="copyright">
       <h1>Copyright</h1>
       <ul>
-          <li>
-    テンプレート作者様（敬称略）
-    <ul id="template_author" class="author-list">
-    </ul>
-  </li>
+          <li><a href="http://green.zero.jp/greentea/">クロリスGIFは <strong>建設中の茶柱</strong> さんからお借りしています。</a></li>
   <li><a href="http://font.textar.tv/">web fonts provided by http://font.textar.tv/</a></li>
         <li><a href="http://www.dmm.com/netgame_s/aigisc/">千年戦争アイギス &copy;株式会社DMM.comラボ</a></li>
       </ul>
@@ -343,6 +396,6 @@
   </script>
     <script src="/aigistools/assets/js/common.js"></script>
 <script src="//font.textar.tv/webfont.js" async="async" defer="defer"></script>
-      <script src="/aigistools/assets/js/carrie.js"></script>
+      <script src="/aigistools/assets/js/mithril-timer.js"></script>
   </body>
 </html>
