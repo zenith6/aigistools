@@ -286,7 +286,7 @@ function syncCurrent() {
       return total + num;
     }, 0);
 
-  $('input[name=current]').val(current);
+  $('input[name=current]').val(current).trigger('change');
 }
 
 function initialize() {
@@ -413,11 +413,9 @@ function initialize() {
   var $map = $('#map')
     .on('keyup', 'input[type=number]', function () {
       syncCurrent();
-      updateExpectation();
     })
     .on('change', 'input[type=number]', function () {
       syncCurrent();
-      updateExpectation();
     })
     .on('click', 'input[type=number]', function () {
       this.select();
