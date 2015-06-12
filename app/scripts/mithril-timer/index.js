@@ -412,9 +412,11 @@ function initialize() {
 
   var $map = $('#map')
     .on('keyup', 'input[type=number]', function () {
+      updateExpectation();
       syncCurrent();
     })
     .on('change', 'input[type=number]', function () {
+      updateExpectation();
       syncCurrent();
     })
     .on('click', 'input[type=number]', function () {
