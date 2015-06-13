@@ -16,12 +16,12 @@ var initialObjective = 1500;
 var initialCurrent = 20;
 var rewardEnabled = true;
 var cookieName = 'mithril-timer';
-var initialEstimateMap = 0;
+var initialEstimateMap = 3;
 var initialEstimateRank = 100;
 var initialEstimateUseCrystal = 'both';
 var initialEstimateNaturalRecovery = true;
 var defaultChart = 'stamina';
-var expectationInputMode = 'aggregate'; // 'aggregate' or 'direct'
+var expectationInputMode = 'direct'; // 'aggregate' or 'direct'
 var syncCurrentEnabled = true;
 
 var objectives = {
@@ -52,7 +52,7 @@ var prizes = [
 
 var maps = [
   {
-    name: '洞窟',
+    name: 'ミスリルの洞窟',
     charisma: 20,
     stamina: 1,
     expectation: 0,
@@ -61,7 +61,7 @@ var maps = [
     ]
   },
   {
-    name: '魔物',
+    name: '硬質の魔物',
     charisma: 30,
     stamina: 2,
     expectation: 0,
@@ -72,7 +72,7 @@ var maps = [
     ]
   },
   {
-    name: '争奪',
+    name: 'ミスリル争奪戦',
     charisma: 40,
     stamina: 4,
     expectation: 0,
@@ -84,10 +84,10 @@ var maps = [
     ]
   },
   {
-    name: '陣容',
+    name: '交錯する陣容',
     charisma: 50,
     stamina: 7,
-    expectation: 0,
+    expectation: 11,
     drops: [
       {name: 'ミスリル鉱3', icon: 'mithril-3', set: 3},
       {name: 'ミスリル鉱1', icon: 'mithril-1', set: 2},
@@ -96,7 +96,7 @@ var maps = [
     ]
   },
   {
-    name: '炎獣',
+    name: '怒涛の炎獣',
     charisma: 80,
     stamina: 9,
     expectation: 0,
