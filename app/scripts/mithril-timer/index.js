@@ -268,7 +268,10 @@ function format(value, scale) {
     return '∞';
   }
 
-  return value.toFixed(scale);
+  var parts = value.toFixed(scale).split('.');
+  var decimal = parseInt(parts[0]);
+
+  return decimal.toLocaleString() + (parts.length === 1 ? '' : '.' + parts[1]);
 }
 
 function syncCurrent() {
@@ -398,6 +401,12 @@ function initialize() {
         $expectation.val(expectation);
       }
 
+      var increment = Math.floor(expectation);
+      $tr
+        .find('button[name=increase]')
+        .val(increment)
+        .text('+' + format(increment));
+
       state.maps[mapId].numLaps = numLaps;
       state.maps[mapId].numDrops = numDrops;
       map.expectation = state.maps[mapId].expectation = expectation;
@@ -421,6 +430,19 @@ function initialize() {
     })
     .on('click', 'input[type=number]', function () {
       this.select();
+    })
+    .on('click', 'button[name=increase]', function (e) {
+      e.preventDefault();
+      var $tr = $(this).closest('tr');
+      var $numLaps = $tr.find('input[name=num_laps]');
+      var numLaps = parseInt($numLaps.val()) + 1;
+      $numLaps.val(numLaps);
+
+      var $numDrops = $tr.find('input[name=num_drops]');
+      var numDrops = parseInt($numDrops.val()) + parseInt(this.value);
+      $numDrops.val(numDrops);
+
+      $numDrops.trigger('change');
     })
     .on('change', 'input[name=expectation_input_mode]', function () {
       expectationInputMode = $(this).val();
@@ -495,7 +517,8 @@ function initialize() {
           .append($('<span class="input-group-addon">周回</span>'))
           .append($('<input type="number" name="num_laps" min="0" class="form-control" />').val(mapState.numLaps))
           .append($('<span class="input-group-addon">ドロップ</span>'))
-          .append($('<input type="number" name="num_drops" min="0" class="form-control" />').val(mapState.numDrops));
+          .append($('<input type="number" name="num_drops" min="0" class="form-control" />').val(mapState.numDrops))
+          .append($('<span class="input-group-btn"><button name="increase" class="btn btn-default"></button></span>'));
 
         return $('<td class="expectation" />')
           .append($marathon)

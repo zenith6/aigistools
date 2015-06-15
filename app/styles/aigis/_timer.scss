@@ -59,12 +59,18 @@ section {
 }
 
 input[name=objective],
-input[name=current] {
+input[name=current],
+input[type=number] {
   text-align: right;
 
   &::-ms-clear {
     display: none;
   }
+}
+
+button[name=increase] {
+  min-width: 4em;
+  text-align: right;
 }
 
 .norma {
