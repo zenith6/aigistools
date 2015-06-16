@@ -2,7 +2,7 @@
 
 var formatTime = require('./formatTime');
 
-this.Aigis = {
+window.Aigis = {
   settings: {
     databaseUrl: 'https://docs.google.com/spreadsheets/d/1-zStm1B36Ckq1Tpxrz018h3YVAsZyd2vustqghPFie0/edit',
     debug: false
@@ -25,7 +25,7 @@ this.Aigis = {
   cache: {}
 };
 
-this.Stage = function Stage() {
+window.Stage = function Stage() {
   this.name = 'ステージ';
   this.condition = null;
   this.units = [];
@@ -97,7 +97,7 @@ Stage.prototype.addCost = function (cost, from, elapsedTime) {
 /**
  * Unit
  */
-this.Unit = function Unit(id) {
+window.Unit = function Unit(id) {
   this.id = id;
   this.group = 0;
   this.name = '';
@@ -230,7 +230,7 @@ Unit.prototype.addEffect = function (effect, elapsedTime) {
 /**
  * Action
  */
-this.Action = function Action(owner, warmupTime, cooldownTime) {
+window.Action = function Action(owner, warmupTime, cooldownTime) {
   this.name = '?';
   this.owner = owner;
   this.warmupTime = warmupTime;
@@ -339,7 +339,7 @@ Action.prototype.getCooldownDelay = function () {
 /**
  * Attack
  */
-this.Attack = function Attack(owner, warmupTime, cooldownTime) {
+window.Attack = function Attack(owner, warmupTime, cooldownTime) {
   Action.call(this, owner, warmupTime, cooldownTime);
 };
 
@@ -361,7 +361,7 @@ Attack.prototype.calcDamage = function (attacker, defender) {
 /**
  * NullAttack
  */
-this.NullAttack = function PhygicalAttack(owner, warmupTime, cooldownTime) {
+window.NullAttack = function PhygicalAttack(owner, warmupTime, cooldownTime) {
   Attack.call(this, owner, Infinity, Infinity);
 };
 
@@ -375,7 +375,7 @@ NullAttack.prototype.calcDamage = function (attacker, defender) {
 /**
  * PhygicalAttack
  */
-this.PhygicalAttack = function PhygicalAttack(owner, warmupTime, cooldownTime) {
+window.PhygicalAttack = function PhygicalAttack(owner, warmupTime, cooldownTime) {
   Attack.call(this, owner, warmupTime, cooldownTime);
 
   this.magical = false;
@@ -395,7 +395,7 @@ PhygicalAttack.prototype.calcDamage = function (attacker, defender) {
 /**
  * MagicalAttack
  */
-this.MagicalAttack = function MagicalAttack(owner, warmupTime, cooldownTime) {
+window.MagicalAttack = function MagicalAttack(owner, warmupTime, cooldownTime) {
   Attack.call(this, owner, warmupTime, cooldownTime);
 };
 
@@ -412,7 +412,7 @@ MagicalAttack.prototype.calcDamage = function (attacker, defender) {
 /**
  * MagicalSplashAttack
  */
-this.MagicalSplashAttack = function MagicalSplashAttack(owner, warmupTime, cooldownTime) {
+window.MagicalSplashAttack = function MagicalSplashAttack(owner, warmupTime, cooldownTime) {
   Attack.call(this, owner, warmupTime, cooldownTime);
 };
 
@@ -428,7 +428,7 @@ MagicalSplashAttack.prototype.calcDamage = function (attacker, defender) {
 /**
  * Heal
  */
-this.Heal = function Heal(owner, warmupTime, cooldownTime) {
+window.Heal = function Heal(owner, warmupTime, cooldownTime) {
   Action.call(this, owner, warmupTime, cooldownTime);
 };
 
@@ -450,7 +450,7 @@ Heal.prototype.calcRecovery = function (healer, defender) {
 /**
  * NullHeal
  */
-this.NullHeal = function NullHeal(owner, warmupTime, cooldownTime) {
+window.NullHeal = function NullHeal(owner, warmupTime, cooldownTime) {
   Heal.call(this, owner, Infinity, Infinity);
 };
 
@@ -464,7 +464,7 @@ NullHeal.prototype.calcRecovery = function (healer, defender) {
 /**
  * MagicalHeal
  */
-this.MagicalHeal = function MagicalHeal(owner, warmupTime, cooldownTime) {
+window.MagicalHeal = function MagicalHeal(owner, warmupTime, cooldownTime) {
   Heal.call(this, owner, warmupTime, cooldownTime);
 };
 
@@ -479,7 +479,7 @@ MagicalHeal.prototype.calcDamage = function (healer, defender) {
 /**
  * Skill
  */
-this.Skill = function Skill(owner, level, parameters) {
+window.Skill = function Skill(owner, level, parameters) {
   Action.call(this, owner, Infinity, Infinity);
 
   this.level = level;
@@ -533,7 +533,7 @@ Skill.prototype.getParamTable = function () {
 /**
  * NullSkill
  */
-this.NullSkill = function NullSkill(owner, level) {
+window.NullSkill = function NullSkill(owner, level) {
   Skill.call(this, owner, level);
 
   this.warmupTime = Infinity;
@@ -546,7 +546,7 @@ NullSkill.prototype.constructor = Skill;
 /**
  * RaiseMoraleSkill
  */
-this.RaiseMoraleSkill = function RaiseMoraleSkill(owner, level) {
+window.RaiseMoraleSkill = function RaiseMoraleSkill(owner, level) {
   Skill.call(this, owner, level);
 };
 
@@ -584,7 +584,7 @@ RaiseMoraleSkill.prototype.getParamTable = function () {
 /**
  * EnforceStrengthSkill
  */
-this.EnforceStrengthSkill = function EnforceStrengthSkill(owner, level, parameters) {
+window.EnforceStrengthSkill = function EnforceStrengthSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -603,7 +603,7 @@ EnforceStrengthSkill.prototype.execute = function (elapsedTime) {
 /**
  * DesperationSkill
  */
-this.DesperationSkill = function DesperationSkill(owner, level) {
+window.DesperationSkill = function DesperationSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -613,7 +613,7 @@ DesperationSkill.prototype.constructor = EnforceStrengthSkill;
 /**
  * Desperation1Skill
  */
-this.Desperation1Skill = function Desperation1Skill(owner, level) {
+window.Desperation1Skill = function Desperation1Skill(owner, level) {
   DesperationSkill.call(this, owner, level);
 };
 
@@ -638,7 +638,7 @@ Desperation1Skill.prototype.getParamTable = function () {
 /**
  * Desperation2Skill
  */
-this.Desperation2Skill = function Desperation2Skill(owner, level) {
+window.Desperation2Skill = function Desperation2Skill(owner, level) {
   DesperationSkill.call(this, owner, level);
 };
 
@@ -673,7 +673,7 @@ Desperation2Skill.prototype.getParamTable = function () {
 /**
  * Desperation3Skill
  */
-this.Desperation3Skill = function Desperation3Skill(owner, level) {
+window.Desperation3Skill = function Desperation3Skill(owner, level) {
   DesperationSkill.call(this, owner, level);
 };
 
@@ -708,7 +708,7 @@ Desperation3Skill.prototype.getParamTable = function () {
 /**
  * AssassinationSkill
  */
-this.AssassinationSkill = function AssassinationSkill(owner, level) {
+window.AssassinationSkill = function AssassinationSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -718,7 +718,7 @@ AssassinationSkill.prototype.constructor = EnforceStrengthSkill;
 /**
  * Assassination1Skill
  */
-this.Assassination1Skill = function Assassination1Skill(owner, level) {
+window.Assassination1Skill = function Assassination1Skill(owner, level) {
   AssassinationSkill.call(this, owner, level);
 };
 
@@ -753,7 +753,7 @@ Assassination1Skill.prototype.getParamTable = function () {
 /**
  * Assassination2Skill
  */
-this.Assassination2Skill = function Assassination2Skill(owner, level) {
+window.Assassination2Skill = function Assassination2Skill(owner, level) {
   AssassinationSkill.call(this, owner, level);
 };
 
@@ -788,7 +788,7 @@ Assassination2Skill.prototype.getParamTable = function () {
 /**
  * Assassination3Skill
  */
-this.Assassination3Skill = function Assassination3Skill(owner, level) {
+window.Assassination3Skill = function Assassination3Skill(owner, level) {
   AssassinationSkill.call(this, owner, level);
 };
 
@@ -813,7 +813,7 @@ Assassination3Skill.prototype.getParamTable = function () {
 /**
  * AroundightSkill
  */
-this.AroundightSkill = function AroundightSkill(owner, level) {
+window.AroundightSkill = function AroundightSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -838,7 +838,7 @@ AroundightSkill.prototype.getParamTable = function () {
 /**
  * FragarachSkill
  */
-this.FragarachSkill = function FragarachSkill(owner, level) {
+window.FragarachSkill = function FragarachSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -863,7 +863,7 @@ FragarachSkill.prototype.getParamTable = function () {
 /**
  * TyrfingSkill
  */
-this.TyrfingSkill = function TyrfingSkill(owner, level) {
+window.TyrfingSkill = function TyrfingSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -898,7 +898,7 @@ TyrfingSkill.prototype.getParamTable = function () {
 /**
  * ExorcismFireSkill
  */
-this.ExorcismFireSkill = function ExorcismFireSkill(owner, level) {
+window.ExorcismFireSkill = function ExorcismFireSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -923,7 +923,7 @@ ExorcismFireSkill.prototype.getParamTable = function () {
 /**
  * HolySenseSkill
  */
-this.HolySenseSkill = function HolySenseSkill(owner, level) {
+window.HolySenseSkill = function HolySenseSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -948,7 +948,7 @@ HolySenseSkill.prototype.getParamTable = function () {
 /**
  * MultipleShotSkill
  */
-this.MultipleShotSkill = function MultipleShotSkill(owner, level) {
+window.MultipleShotSkill = function MultipleShotSkill(owner, level) {
   Skill.call(this, owner, level);
 
   this.delta = 0;
@@ -972,7 +972,7 @@ MultipleShotSkill.prototype.getParamTable = function () {
 /**
  * DoubleShotSkill
  */
-this.DoubleShotSkill = function DoubleShotSkill(owner, level) {
+window.DoubleShotSkill = function DoubleShotSkill(owner, level) {
   MultipleShotSkill.call(this, owner, level);
 
   this.delta = 2;
@@ -1005,7 +1005,7 @@ DoubleShotSkill.prototype.getParamTable = function () {
 /**
  * TripleShotSkill
  */
-this.TripleShotSkill = function TripleShotSkill(owner, level) {
+window.TripleShotSkill = function TripleShotSkill(owner, level) {
   MultipleShotSkill.call(this, owner, level);
 
   this.delta = 2;
@@ -1038,7 +1038,7 @@ TripleShotSkill.prototype.getParamTable = function () {
 /**
  * QuadroShotSkill
  */
-this.QuadroShotSkill = function QuadroShotSkill(owner, level) {
+window.QuadroShotSkill = function QuadroShotSkill(owner, level) {
   MultipleShotSkill.call(this, owner, level);
 
   this.delta = 3;
@@ -1063,7 +1063,7 @@ QuadroShotSkill.prototype.getParamTable = function () {
 /**
  * QuickShotSkill
  */
-this.QuickShotSkill = function QuickShotSkill(owner, level, parameters) {
+window.QuickShotSkill = function QuickShotSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -1093,7 +1093,7 @@ QuickShotSkill.prototype.getDelay = function () {
 /**
  * BarrageShotSkill
  */
-this.BarrageShotSkill = function BarrageShotSkill(owner, level, parameters) {
+window.BarrageShotSkill = function BarrageShotSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -1123,7 +1123,7 @@ BarrageShotSkill.prototype.getDelay = function () {
 /**
  * ModeChangeSkill
  */
-this.ModeChangeSkill = function ModeChangeSkill(owner, level, parameters) {
+window.ModeChangeSkill = function ModeChangeSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -1149,7 +1149,7 @@ ModeChangeSkill.prototype.getDelay = function () {
 /**
  * MagicBulletSkill
  */
-this.MagicBulletSkill = function MagicBulletSkill(owner, level) {
+window.MagicBulletSkill = function MagicBulletSkill(owner, level) {
   QuickShotSkill.call(this, owner, level);
 };
 
@@ -1159,7 +1159,7 @@ MagicBulletSkill.prototype.constructor = QuickShotSkill;
 /**
  * MagicBullet1Skill
  */
-this.MagicBullet1Skill = function MagicBullet1Skill(owner, level) {
+window.MagicBullet1Skill = function MagicBullet1Skill(owner, level) {
   MagicBulletSkill.call(this, owner, level);
 };
 
@@ -1186,7 +1186,7 @@ MagicBullet1Skill.prototype.getParamTable = function () {
 /**
  * MagicBullet2Skill
  */
-this.MagicBullet2Skill = function MagicBullet2Skill(owner, level) {
+window.MagicBullet2Skill = function MagicBullet2Skill(owner, level) {
   MagicBulletSkill.call(this, owner, level);
 };
 
@@ -1213,7 +1213,7 @@ MagicBullet2Skill.prototype.getParamTable = function () {
 /**
  * ExcellentAllowSkill
  */
-this.ExcellentAllowSkill = function ExcellentAllowSkill(owner, level, parameters) {
+window.ExcellentAllowSkill = function ExcellentAllowSkill(owner, level, parameters) {
   EnforceStrengthSkill.call(this, owner, level, parameters);
 };
 
@@ -1223,7 +1223,7 @@ ExcellentAllowSkill.prototype.constructor = EnforceStrengthSkill;
 /**
  * EnforceHealingSkill
  */
-this.EnforceHealingSkill = function EnforceHealingSkill(owner, level, parameters) {
+window.EnforceHealingSkill = function EnforceHealingSkill(owner, level, parameters) {
   EnforceStrengthSkill.call(this, owner, level, parameters);
 };
 
@@ -1234,7 +1234,7 @@ EnforceHealingSkill.prototype.constructor = EnforceStrengthSkill;
 /**
  * EnforceHealing1Skill
  */
-this.EnforceHealing1Skill = function EnforceHealing1Skill(owner, level) {
+window.EnforceHealing1Skill = function EnforceHealing1Skill(owner, level) {
   EnforceHealingSkill.call(this, owner, level);
 };
 
@@ -1269,7 +1269,7 @@ EnforceHealing1Skill.prototype.getParamTable = function () {
 /**
  * EnforceHealing2Skill
  */
-this.EnforceHealing2Skill = function EnforceHealing2Skill(owner, level) {
+window.EnforceHealing2Skill = function EnforceHealing2Skill(owner, level) {
   EnforceHealingSkill.call(this, owner, level);
 };
 
@@ -1304,7 +1304,7 @@ EnforceHealing2Skill.prototype.getParamTable = function () {
 /**
  * EnforceHealing3Skill
  */
-this.EnforceHealing3Skill = function EnforceHealing3Skill(owner, level) {
+window.EnforceHealing3Skill = function EnforceHealing3Skill(owner, level) {
   EnforceHealingSkill.call(this, owner, level);
 };
 
@@ -1329,7 +1329,7 @@ EnforceHealing3Skill.prototype.getParamTable = function () {
 /**
  * HealingPrayerSkill
  */
-this.HealingPrayerSkill = function HealingPrayerSkill(owner, level) {
+window.HealingPrayerSkill = function HealingPrayerSkill(owner, level) {
   EnforceHealingSkill.call(this, owner, level);
 };
 
@@ -1354,7 +1354,7 @@ HealingPrayerSkill.prototype.getParamTable = function () {
 /**
  * StarWandSkill
  */
-this.StarWandSkill = function StarWandSkill(owner, level) {
+window.StarWandSkill = function StarWandSkill(owner, level) {
   EnforceHealingSkill.call(this, owner, level);
 };
 
@@ -1379,7 +1379,7 @@ StarWandSkill.prototype.getParamTable = function () {
 /**
  * HealingMagicSkill
  */
-this.HealingMagicSkill = function HealingMagicSkill(owner, level, parameters) {
+window.HealingMagicSkill = function HealingMagicSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -1401,7 +1401,7 @@ HealingMagicSkill.prototype.execute = function (elapsedTime) {
 /**
  * Effect
  */
-this.Effect = function Effect(owner, startTime, duration) {
+window.Effect = function Effect(owner, startTime, duration) {
   this.name = '?';
   this.owner = owner;
   this.startTime = startTime;
@@ -1441,7 +1441,7 @@ Effect.prototype.dump = function () {
 /**
  * MoraleEffect
  */
-this.MoraleEffect = function MoraleEffect(owner, startTime, duration, rate) {
+window.MoraleEffect = function MoraleEffect(owner, startTime, duration, rate) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '士気高揚';
@@ -1471,7 +1471,7 @@ MoraleEffect.prototype.dump = function () {
 /**
  * EnforceStrengthEffect
  */
-this.EnforceStrengthEffect = function EnforceStrengthEffect(owner, startTime, duration, multiplier) {
+window.EnforceStrengthEffect = function EnforceStrengthEffect(owner, startTime, duration, multiplier) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '攻撃力強化';
@@ -1498,7 +1498,7 @@ EnforceStrengthEffect.prototype.dump = function () {
 /**
  * EnforceHealthEffect
  */
-this.EnforceHealthEffect = function EnforceHealthEffect(owner, startTime, duration, multiplier) {
+window.EnforceHealthEffect = function EnforceHealthEffect(owner, startTime, duration, multiplier) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '最大HP強化';
@@ -1525,7 +1525,7 @@ EnforceHealthEffect.prototype.dump = function () {
 /**
  * EnforceDefenceEffect
  */
-this.EnforceDefenceEffect = function EnforceDefenceEffect(owner, startTime, duration, multiplier) {
+window.EnforceDefenceEffect = function EnforceDefenceEffect(owner, startTime, duration, multiplier) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '防御力強化';
@@ -1553,7 +1553,7 @@ EnforceDefenceEffect.prototype.dump = function () {
 /**
  * AttackDelayEffect
  */
-this.AttackDelayEffect = function AttackDelayEffect(owner, startTime, duration, warmupDelay, cooldownDelay) {
+window.AttackDelayEffect = function AttackDelayEffect(owner, startTime, duration, warmupDelay, cooldownDelay) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '攻撃速度変化';
@@ -1582,7 +1582,7 @@ AttackDelayEffect.prototype.dump = function () {
 /**
  * MultipleAttackEffect
  */
-this.MultipleAttackEffect = function MultipleAttackEffect(owner, startTime, duration, delta) {
+window.MultipleAttackEffect = function MultipleAttackEffect(owner, startTime, duration, delta) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '攻撃回数変化';
@@ -1609,7 +1609,7 @@ MultipleAttackEffect.prototype.dump = function () {
 /**
  * SelfHealingSkill
  */
-this.SelfHealingSkill = function SelfHealingSkill(owner, level) {
+window.SelfHealingSkill = function SelfHealingSkill(owner, level) {
   Skill.call(this, owner, level);
 };
 
@@ -1631,7 +1631,7 @@ SelfHealingSkill.prototype.getParamTable = function () {
 /**
  * SelfHealing1Skill
  */
-this.SelfHealing1Skill = function SelfHealing1Skill(owner, level) {
+window.SelfHealing1Skill = function SelfHealing1Skill(owner, level) {
   SelfHealingSkill.call(this, owner, level);
 };
 
@@ -1656,7 +1656,7 @@ SelfHealing1Skill.prototype.getParamTable = function () {
 /**
  * SelfHealing2Skill
  */
-this.SelfHealing2Skill = function SelfHealing2Skill(owner, level) {
+window.SelfHealing2Skill = function SelfHealing2Skill(owner, level) {
   SelfHealingSkill.call(this, owner, level);
 };
 
@@ -1681,7 +1681,7 @@ SelfHealing2Skill.prototype.getParamTable = function () {
 /**
  * SelfHealing3Skill
  */
-this.SelfHealing3Skill = function SelfHealing3Skill(owner, level) {
+window.SelfHealing3Skill = function SelfHealing3Skill(owner, level) {
   SelfHealingSkill.call(this, owner, level);
 };
 
@@ -1716,7 +1716,7 @@ SelfHealing3Skill.prototype.getParamTable = function () {
 /**
  * SelfHealing4Skill
  */
-this.SelfHealing4Skill = function SelfHealing4Skill(owner, level) {
+window.SelfHealing4Skill = function SelfHealing4Skill(owner, level) {
   SelfHealingSkill.call(this, owner, level);
 };
 
@@ -1741,7 +1741,7 @@ SelfHealing4Skill.prototype.getParamTable = function () {
 /**
  * SelfHealingEffect
  */
-this.SelfHealingEffect = function SelfHealingEffect(owner, startTime, duration, multiplier) {
+window.SelfHealingEffect = function SelfHealingEffect(owner, startTime, duration, multiplier) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '自己回復';
@@ -1774,7 +1774,7 @@ SelfHealingEffect.prototype.calcRecovery = function () {
 /**
  * HealingPrayerSkill
  */
-this.HealingPrayerSkill = function HealingPrayerSkill(owner, level) {
+window.HealingPrayerSkill = function HealingPrayerSkill(owner, level) {
   Skill.call(this, owner, level);
 };
 
@@ -1811,7 +1811,7 @@ HealingPrayerSkill.prototype.getParamTable = function () {
 /**
  * SwitchAttackerEffect
  */
-this.SwitchAttackerEffect = function SwitchAttackerEffect(owner, startTime, duration) {
+window.SwitchAttackerEffect = function SwitchAttackerEffect(owner, startTime, duration) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '攻撃モード';
@@ -1846,7 +1846,7 @@ SwitchAttackerEffect.prototype.dump = function () {
 /**
  * SwitchHealerEffect
  */
-this.SwitchHealerEffect = function SwitchHealerEffect(owner, startTime, duration) {
+window.SwitchHealerEffect = function SwitchHealerEffect(owner, startTime, duration) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '回復モード';
@@ -1881,7 +1881,7 @@ SwitchHealerEffect.prototype.dump = function () {
 /**
  * MagicalSwordSkill
  */
-this.MagicalSwordSkill = function MagicalSwordSkill(owner, level, parameters) {
+window.MagicalSwordSkill = function MagicalSwordSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -1903,7 +1903,7 @@ MagicalSwordSkill.prototype.execute = function (elapsedTime) {
 /**
  * SwordEnhanceSkill
  */
-this.SwordEnhanceSkill = function SwordEnhanceSkill(owner, level, parameters) {
+window.SwordEnhanceSkill = function SwordEnhanceSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -1925,7 +1925,7 @@ SwordEnhanceSkill.prototype.execute = function (elapsedTime) {
 /**
  * EnchantAttributionEffect
  */
-this.EnchantAttributionEffect = function EnchantAttributionEffect(owner, startTime, duration, attribution) {
+window.EnchantAttributionEffect = function EnchantAttributionEffect(owner, startTime, duration, attribution) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '属性付与';
@@ -1953,7 +1953,7 @@ EnchantAttributionEffect.prototype.dump = function () {
 /**
  * ExorcismFireSkill
  */
-this.ExorcismFireSkill = function ExorcismFireSkill(owner, level) {
+window.ExorcismFireSkill = function ExorcismFireSkill(owner, level) {
   Skill.call(this, owner, level);
 };
 
@@ -1990,7 +1990,7 @@ ExorcismFireSkill.prototype.getParamTable = function () {
 /**
  * MuramasaSkill
  */
-this.MuramasaSkill = function MuramasaSkill(owner, level) {
+window.MuramasaSkill = function MuramasaSkill(owner, level) {
   Skill.call(this, owner, level);
 };
 
@@ -2024,7 +2024,7 @@ MuramasaSkill.prototype.getParamTable = function () {
 /**
  * DrainEffect
  */
-this.DrainEffect = function DrainEffect(owner, startTime, duration, multiplier) {
+window.DrainEffect = function DrainEffect(owner, startTime, duration, multiplier) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '攻撃時回復';
@@ -2058,7 +2058,7 @@ DrainEffect.prototype.calcRecovery = function () {
 /**
  * FlameFormationSkill
  */
-this.FlameFormationSkill = function FlameFormationSkill(owner, level) {
+window.FlameFormationSkill = function FlameFormationSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -2083,7 +2083,7 @@ FlameFormationSkill.prototype.getParamTable = function () {
 /**
  * RushSkill
  */
-this.RushSkill = function RushSkill(owner, level) {
+window.RushSkill = function RushSkill(owner, level) {
   Skill.call(this, owner, level);
 };
 
@@ -2124,7 +2124,7 @@ RushSkill.prototype.getParamTable = function () {
 /**
  * IfritSkill
  */
-this.IfritSkill = function IfritSkill(owner, level) {
+window.IfritSkill = function IfritSkill(owner, level) {
   Skill.call(this, owner, level);
 };
 
@@ -2155,7 +2155,7 @@ IfritSkill.prototype.getParamTable = function () {
 /**
  * BreakSealSkill
  */
-this.BreakSealSkill = function BreakSealSkill(owner, level, parameters) {
+window.BreakSealSkill = function BreakSealSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -2173,7 +2173,7 @@ BreakSealSkill.prototype.execute = function (elapsedTime) {
 /**
  * EnableAttackEffect
  */
-this.EnableAttackEffect = function EnableAttackEffect(owner, startTime, duration) {
+window.EnableAttackEffect = function EnableAttackEffect(owner, startTime, duration) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '攻撃有効化';
@@ -2198,7 +2198,7 @@ EnableAttackEffect.prototype.dump = function () {
 /**
  * MagicEnhanceSkill
  */
-this.MagicEnhanceSkill = function MagicEnhanceSkill(owner, level) {
+window.MagicEnhanceSkill = function MagicEnhanceSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -2223,7 +2223,7 @@ MagicEnhanceSkill.prototype.getParamTable = function () {
 /**
  * CursedBloodSkill
  */
-this.CursedBloodSkill = function CursedBloodSkill(owner, level) {
+window.CursedBloodSkill = function CursedBloodSkill(owner, level) {
   EnforceStrengthSkill.call(this, owner, level);
 };
 
@@ -2248,7 +2248,7 @@ CursedBloodSkill.prototype.getParamTable = function () {
 /**
  * Ability
  */
-this.Ability = function Ability(owner) {
+window.Ability = function Ability(owner) {
   this.name = '?';
   this.owner = owner;
   this.callbacks = {};
@@ -2275,7 +2275,7 @@ Ability.prototype.start = function (elapsedTime) {
 /**
  * NullAbility
  */
-this.NullAbility = function NullAbility(owner) {
+window.NullAbility = function NullAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2287,7 +2287,7 @@ NullAbility.prototype.start = function (elapsedTime) {};
 /**
  * PrinceAbility
  */
-this.PrinceAbility = function PrinceAbility(owner) {
+window.PrinceAbility = function PrinceAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2321,7 +2321,7 @@ PrinceAbility.prototype.calcMorale = function () {
 /**
  * TitleEffect
  */
-this.TitleEffect = function TitleEffect(owner, startTime, duration, title) {
+window.TitleEffect = function TitleEffect(owner, startTime, duration, title) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '称号効果';
@@ -2353,7 +2353,7 @@ TitleEffect.prototype.dump = function () {
 /**
  * PowerAttackAbility
  */
-this.PowerAttackAbility = function PowerAttackAbility(owner) {
+window.PowerAttackAbility = function PowerAttackAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2375,7 +2375,7 @@ PowerAttackAbility.prototype.start = function (elapsedTime) {
 /**
  * HealthBoostAbility
  */
-this.HealthBoostAbility = function HealthBoostAbility(owner) {
+window.HealthBoostAbility = function HealthBoostAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2393,7 +2393,7 @@ HealthBoostAbility.prototype.start = function (elapsedTime) {
 /**
  * TeamHealthBoostAbility
  */
-this.TeamHealthBoostAbility = function TeamHealthBoostAbility(owner) {
+window.TeamHealthBoostAbility = function TeamHealthBoostAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2418,7 +2418,7 @@ TeamHealthBoostAbility.prototype.start = function (elapsedTime) {
 /**
  * QuickAttackAbility
  */
-this.QuickAttackAbility = function QuickAttackAbility(owner) {
+window.QuickAttackAbility = function QuickAttackAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2437,7 +2437,7 @@ QuickAttackAbility.prototype.start = function (elapsedTime) {
 /**
  * IaiAbility
  */
-this.IaiAbility = function IaiAbility(owner) {
+window.IaiAbility = function IaiAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2456,7 +2456,7 @@ IaiAbility.prototype.start = function (elapsedTime) {
 /**
  * QuickChantAbility
  */
-this.QuickChantAbility = function QuickChantAbility(owner) {
+window.QuickChantAbility = function QuickChantAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2475,7 +2475,7 @@ QuickChantAbility.prototype.start = function (elapsedTime) {
 /**
  * QuickDrawAbility
  */
-this.QuickDrawAbility = function QuickDrawAbility(owner) {
+window.QuickDrawAbility = function QuickDrawAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2494,7 +2494,7 @@ QuickDrawAbility.prototype.start = function (elapsedTime) {
 /**
  * TeamStrengthBoostAbility
  */
-this.TeamStrengthBoostAbility = function TeamStrengthBoostAbility(owner) {
+window.TeamStrengthBoostAbility = function TeamStrengthBoostAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2519,7 +2519,7 @@ TeamStrengthBoostAbility.prototype.start = function (elapsedTime) {
 /**
  * TeamDefenceBoostAbility
  */
-this.TeamDefenceBoostAbility = function TeamDefenceBoostAbility(owner) {
+window.TeamDefenceBoostAbility = function TeamDefenceBoostAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2544,7 +2544,7 @@ TeamDefenceBoostAbility.prototype.start = function (elapsedTime) {
 /**
  * ClassifiedStrengthBoostAbility
  */
-this.ClassifiedStrengthBoostAbility = function ClassifiedStrengthBoostAbility(owner) {
+window.ClassifiedStrengthBoostAbility = function ClassifiedStrengthBoostAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2574,7 +2574,7 @@ ClassifiedStrengthBoostAbility.prototype.start = function (elapsedTime) {
 /**
  * ClassifiedDefenceBoostAbility
  */
-this.ClassifiedDefenceBoostAbility = function ClassifiedDefenceBoostAbility(owner) {
+window.ClassifiedDefenceBoostAbility = function ClassifiedDefenceBoostAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2604,7 +2604,7 @@ ClassifiedDefenceBoostAbility.prototype.start = function (elapsedTime) {
 /**
  * SnipeAbility
  */
-this.SnipeAbility = function SnipeAbility(owner) {
+window.SnipeAbility = function SnipeAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2623,7 +2623,7 @@ SnipeAbility.prototype.start = function (elapsedTime) {
 /**
  * WhiteMagicAbility
  */
-this.WhiteMagicAbility = function WhiteMagicAbility(owner) {
+window.WhiteMagicAbility = function WhiteMagicAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2642,7 +2642,7 @@ WhiteMagicAbility.prototype.start = function (elapsedTime) {
 /**
  * BlackMagicAbility
  */
-this.BlackMagicAbility = function BlackMagicAbility(owner) {
+window.BlackMagicAbility = function BlackMagicAbility(owner) {
   Ability.call(this, owner);
 };
 
@@ -2661,7 +2661,7 @@ BlackMagicAbility.prototype.start = function (elapsedTime) {
 /**
  * QuickHealingPrayerSkill
  */
-this.QuickHealingPrayerSkill = function QuickHealingPrayerSkill(owner, level, parameters) {
+window.QuickHealingPrayerSkill = function QuickHealingPrayerSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -2687,7 +2687,7 @@ QuickHealingPrayerSkill.prototype.getAttackCooldownCorrection = function () {
 /**
  * RecoveryCostSkill
  */
-this.RecoveryCostSkill = function RecoveryCostSkill(owner, level, parameters) {
+window.RecoveryCostSkill = function RecoveryCostSkill(owner, level, parameters) {
   Skill.call(this, owner, level, parameters);
 };
 
@@ -2704,7 +2704,7 @@ RecoveryCostSkill.prototype.execute = function (elapsedTime) {
 /**
  * RecoveryCostEffect
  */
-this.RecoveryCostEffect = function RecoveryCostEffect(owner, startTime, duration, point) {
+window.RecoveryCostEffect = function RecoveryCostEffect(owner, startTime, duration, point) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '出撃コスト回復';
@@ -2731,7 +2731,7 @@ RecoveryCostEffect.prototype.dump = function () {
 /**
  * DestroyedCostBonusEffect
  */
-this.DestroyedCostBonusEffect = function DestroyedCostBonusEffect(owner, startTime, duration, point) {
+window.DestroyedCostBonusEffect = function DestroyedCostBonusEffect(owner, startTime, duration, point) {
   Effect.call(this, owner, startTime, duration);
 
   this.name = '撃破時コスト回復';
@@ -2752,7 +2752,7 @@ DestroyedCostBonusEffect.prototype.dump = function () {
 /**
  * Database
  */
-this.Database = function Database(url) {
+window.Database = function Database(url) {
   this.url = url;
 }
 

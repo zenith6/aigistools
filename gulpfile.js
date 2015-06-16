@@ -10,7 +10,7 @@ var webpack     = require('webpack');
 var merge       = require('merge');
 var runSequence = require('run-sequence');
 var fs          = require('fs');
-var mergeStream = require('event-stream').merge;
+var es          = require('event-stream');
 var notifier    = require('node-notifier');
 
 var config = loadConfig();
@@ -77,7 +77,6 @@ gulp.task('style', function () {
     }))
     .pipe($.sass({
       includePaths: [
-        path.join(root, 'node_modules'),
         path.join(root, 'bower_components'),
       ]
     }))
@@ -87,8 +86,8 @@ gulp.task('style', function () {
 
 gulp.task('style:update-vendor', function () {
   return gulp.src([
-      path.join(root, 'node_modules/select2/select2.css'),
-      path.join(root, 'node_modules/select2/select2-bootstrap.css'),
+      path.join(root, 'bower_components/select2/select2.css'),
+      path.join(root, 'bower_components/select2/select2-bootstrap.css'),
       path.join(root, 'bower_components/jquery-minicolors/jquery.minicolors.css'),
       path.join(root, 'bower_components/ionrangeslider/css/*.css'),
       '!' + path.join(root, 'bower_components/ionrangeslider/css/normalize.css'),
@@ -105,17 +104,17 @@ gulp.task('asset', function () {
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset)));
 
   var select2 = gulp.src([
-    './node_modules/select2/*.{png,gif}',
+    './bower_components/select2/*.{png,gif}',
   ])
   .pipe(gulp.dest('public/assets/css'));
 
   var fonts = gulp.src([
-    path.join(root, 'node_modules/bootstrap-sass/assets/fonts/**/*'),
-    path.join(root, 'node_modules/font-awesome/fonts/*'),
+    path.join(root, 'bower_components/bootstrap-sass/assets/fonts/**/*'),
+    path.join(root, 'bower_components/font-awesome/fonts/*'),
   ])
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'fonts')));
 
-  return mergeStream(assets, select2, fonts);
+  return es.merge(assets, select2, fonts);
 });
 
 gulp.task('view', function () {

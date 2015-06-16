@@ -30,7 +30,7 @@ entry = fs.readdirSync(config.script.path).reduce(function (entry, pathname) {
 var plugins = [
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
   new webpack.ResolverPlugin(
-    new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main']), ['normal', 'loader']
+    new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
   ),
   new webpack.ProvidePlugin({
     $: 'jquery',
@@ -59,6 +59,7 @@ module.exports = {
       'bootstrap-touchspin': 'bootstrap-touchspin/src/jquery.bootstrap-touchspin.js',
       'jquery.cookie': 'jquery-cookie/jquery.cookie.js',
       'jquery-minicolors': 'jquery-minicolors/jquery.minicolors.js',
+      'jquery-ui': 'jquery-ui/jquery-ui.js',
       'ionrangeslider': 'ionrangeslider/js/ion.rangeslider.js',
     },
   },
