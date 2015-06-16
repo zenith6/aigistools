@@ -64,6 +64,15 @@ module.exports = {
     },
   },
   plugins: plugins,
+  module: {
+    loaders: [
+      {
+        test: /\.js?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel'
+      }
+    ]
+  },
   devServer: {
     host: config.server.host,
     port: config.server.port,

@@ -1,8 +1,8 @@
 'use strict';
 
-var components = require('./components');
+import * as components from './components';
 
-module.exports = {
+export default {
   flame: {
     name: '火属性付与',
     layers: [

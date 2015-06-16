@@ -1,12 +1,13 @@
 'use strict';
 
-require('jquery-minicolors');
-require('ionrangeslider');
+import $ from 'jquery';
+import 'jquery-minicolors';
+import 'ionrangeslider';
 
-var loadImage  = require('./loadimage');
-var components = require('./components');
-var commands   = require('./commands');
-var effects    = require('./effects');
+import loadImage from './lib/loadimage';
+import * as components from './lib/components';
+import commands from './lib/commands';
+import effects from './lib/effects';
 
 var templates = require('json!./db/templates.json')
   .reduce(function (templates, template) {
