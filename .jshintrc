@@ -1,6 +1,6 @@
 {
   "node" : true,
-  "es5" : true,
+  "esnext" : true,
   "browser" : true,
   "jquery": true,
   "indent": 2,
