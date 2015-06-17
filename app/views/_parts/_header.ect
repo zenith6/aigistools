@@ -14,7 +14,7 @@
           <i class="fa fa-wrench"></i> Tools <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
-            <% for tool in @tools: %>
+            <% for tool in @config.tools: %>
               <li><a href="<%= @url(tool.path) %>"><%= tool.name %></a></li>
             <% end %>
           </ul>

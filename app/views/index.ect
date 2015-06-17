@@ -9,21 +9,14 @@
 <% end %>
 
 <% block 'copyright': %>
-  <li><a href="#">メメンテナンスちゃんおよびリタちゃんの画像はぴんくちゃんねるのアイギススレに投稿された物を使用しています。</a></li>
+  <li><a href="#">メメンテナンスちゃんを始めキャラクターの画像はほぼ全てぴんくちゃんねるのアイギススレに投稿された物を使用しています。</a></li>
 <% end %>
 
 <nav class="tool-list">
   <ul>
-    <li class="tool tool-carrie"><a href="<%= @url('carrie/') %>">キャリーさんもそう思う</a></li>
-    <li class="tool tool-visualizer"><a href="<%= @url('visualizer/') %>">ダメージビジュアライザー</a></li>
-    <li class="tool tool-onmitsu"><a href="<%= @url('onmitsu/') %>">隠密測定</a></li>
-    <li class="tool tool-rita"><a href="<%= @url('https://chrome.google.com/webstore/detail/ememknmjckfbganihedbodegbdddlhhl') %>">漆黒の射手リタさんがチラチラ見てくる</a></li>
-    <li class="tool tool-exp"><a href="<%= @url('exp/') %>">ご飯計算機</a></li>
-    <li class="tool tool-mithril-timer"><a href="<%= @url('mithril-timer/') %>">ミスリル鉱タイマー</a></li>
-    <li class="tool tool-sealing-talisman-timer"><a href="<%= @url('sealing-talisman-timer/') %>">封印の札タイマー</a></li>
-    <li class="tool tool-time-fragment-timer"><a href="<%= @url('time-crystal-timer/') %>">刻水晶カケラタイマー</a></li>
-    <li class="tool tool-treasure-fragment-timer obsoleted"><a href="<%= @url('treasure-fragment-timer/') %>">至宝のカケラタイマー</a></li>
-    <li class="tool tool-dragon-crystal-timer obsoleted"><a href="<%= @url('dragon-crystal-timer/') %>">竜水晶タイマー</a></li>
+    <% for tool in @config.tools: %>
+      <li class="tool tool-<%= tool.id %>"><a href="<%= @url(tool.path) %>"><%= tool.name %></a></li>
+    <% end %>
   </ul>
 </nav>
 
