@@ -138,7 +138,7 @@ var maps = [
     expectation: 0,
     drops: [
       {name: 'ミスリル鉱5', icon: 'mithril-5', set: 4},
-      {name: 'ミスリル鉱3', icon: 'mithril-3', set: 3},
+      {name: 'ミスリル鉱3', icon: 'mithril-3', set: 2},
       {name: '虹精霊', icon: 'rainbow-sprit'}
     ]
   },
@@ -433,37 +433,44 @@ function initialize() {
 
   syncCurrentEnabled = state.syncCurrentEnabled;
 
+  var updateExpectationTimer;
   var updateExpectation = function () {
-    var $map = $('#map');
+    if (updateExpectationTimer) {
+      clearTimeout(updateExpectationTimer);
+    }
 
-    maps.forEach(function (map, mapId) {
-      var $tr = $map.find('tr[data-map=' + mapId + ']');
-      var numLaps = Math.max(parseInt($tr.find('input[name=num_laps]').val()) || 0, 0);
-      var numDrops = Math.max(parseInt($tr.find('input[name=num_drops]').val()) || 0, 0);
-      var $expectation = $tr.find('input[name=actual_expectation]');
-      var expectation = Math.max(parseFloat($expectation.val()) || 0, 0);
+    setTimeout(function () {
+      var $map = $('#map');
 
-      if (expectationInputMode === 'aggregate') {
-        expectation = (numDrops / numLaps) || 0;
-        $expectation.val(expectation);
-      }
+      maps.forEach(function (map, mapId) {
+        var $tr = $map.find('tr[data-map=' + mapId + ']');
+        var numLaps = Math.max(parseInt($tr.find('input[name=num_laps]').val()) || 0, 0);
+        var numDrops = Math.max(parseInt($tr.find('input[name=num_drops]').val()) || 0, 0);
+        var $expectation = $tr.find('input[name=actual_expectation]');
+        var expectation = Math.max(parseFloat($expectation.val()) || 0, 0);
 
-      var increment = Math.floor(expectation);
-      $tr
-        .find('button[name=increase]')
-        .val(increment)
-        .text('+' + format(increment));
+        if (expectationInputMode === 'aggregate') {
+          expectation = (numDrops / numLaps) || 0;
+          $expectation.val(expectation);
+        }
 
-      state.maps[mapId].numLaps = numLaps;
-      state.maps[mapId].numDrops = numDrops;
-      map.expectation = state.maps[mapId].expectation = expectation;
-    });
+        var increment = Math.floor(expectation);
+        $tr
+          .find('button[name=increase]')
+          .val(increment)
+          .text('+' + format(increment));
 
-    saveState(state);
+        state.maps[mapId].numLaps = numLaps;
+        state.maps[mapId].numDrops = numDrops;
+        map.expectation = state.maps[mapId].expectation = expectation;
+      });
 
-    updateEstimate();
-    updateExpectationChart();
-    updateMarathon();
+      saveState(state);
+
+      updateEstimate();
+      updateExpectationChart();
+      updateMarathon();
+    }, 100);
   };
 
   var $map = $('#map')
