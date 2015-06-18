@@ -106,6 +106,53 @@ var maps = [
       {name: '白バケツ', icon: 'platinum-bucket'},
       {name: '極上酒', icon: 'hq-liquor'}
     ]
+  },
+  {
+    name: '痺れる毒針',
+    charisma: 40,
+    stamina: 5,
+    expectation: 0,
+    drops: [
+      {name: 'ミスリル鉱3', icon: 'mithril-3', set: 2},
+      {name: 'ミスリル鉱1', icon: 'mithril-1', set: 1},
+      {name: 'カズハ', icon: 'rosalie'},
+      {name: '白精霊', icon: 'platinum-sprit'}
+    ]
+  },
+  {
+    name: '目覚まし機甲兵',
+    charisma: 70,
+    stamina: 8,
+    expectation: 0,
+    drops: [
+      {name: 'ミスリル鉱5', icon: 'mithril-5', set: 2},
+      {name: 'ミスリル鉱3', icon: 'mithril-3', set: 2},
+      {name: 'アリサ', icon: 'arisa'},
+      {name: 'ルビー', icon: 'ruby'}
+    ]
+  },
+  {
+    name: '魔の決戦兵器',
+    charisma: 90,
+    stamina: 12,
+    expectation: 0,
+    drops: [
+      {name: 'ミスリル鉱5', icon: 'mithril-5', set: 4},
+      {name: 'ミスリル鉱3', icon: 'mithril-3', set: 3},
+      {name: '虹精霊', icon: 'rainbow-sprit'}
+    ]
+  },
+  {
+    name: '妖精郷の決戦',
+    charisma: 100,
+    stamina: 2,
+    expectation: 0,
+    drops: [
+      {name: '金精霊', icon: 'gold-sprit'},
+      {name: '白精霊', icon: 'platinum-sprit'},
+      {name: '黒精霊', icon: 'black-sprit'},
+      {name: '虹精霊', icon: 'rainbow-sprit'}
+    ]
   }
 ];
 
@@ -651,7 +698,7 @@ function loadState() {
   } catch (e) {
   }
 
-  return $.extend(defaults, state);
+  return $.extend(true, defaults, state);
 }
 
 function saveState(state) {

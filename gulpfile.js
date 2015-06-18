@@ -122,7 +122,6 @@ gulp.task('view', function () {
     require(config.view.helper),
     {
       config: config,
-      tools: require('./app/tools'),
     }
   );
 
