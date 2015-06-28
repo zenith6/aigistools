@@ -1,0 +1,16 @@
+{
+  "text": "THANK YOU",
+  "fontFamily": "'ＭＳ ゴシック', monospace",
+  "fontSize": 10,
+  "letterSpace": 1,
+  "dot": "../assets/massgame/dot.png",
+  "background": "../assets/massgame/bg.png",
+  "origin": {
+    "x": 0,
+    "y": -50
+  },
+  "padding": {
+    "x": 100,
+    "y": 0
+  }
+}

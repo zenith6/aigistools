@@ -20,7 +20,10 @@ entry.common = [
   'bootstrap-touchspin',
   'ionrangeslider',
   'select2',
+  'es6-promise',
   'react',
+  'flux',
+  'wolfy87-eventemitter',
 ];
 
 var plugins = [

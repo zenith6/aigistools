@@ -1,0 +1,22 @@
+<% extend '_layouts/_default' %>
+
+<% @name = '千年マスゲーム' %>
+<% @description = '千年戦争アイギスのゴブリンが一周年記念を祝います。' %>
+<% @path = 'massgame/' %>
+
+<% block 'style': %>
+  <link rel="stylesheet" href="<%= @asset('css/light.css') %>" />
+  <link rel="stylesheet" type="text/css" href="<%= @asset('css/massgame.css') %>">
+<% end %>
+
+<% block 'script': %>
+  <script src="<%= @asset('js/massgame.js') %>"></script>
+<% end %>
+
+<% block 'copyright': %>
+<% end %>
+
+<div class="container-fluid">
+  <h1>千年マスゲーム</h1>
+  <div id="massgame"></div>
+</div>

@@ -27,6 +27,11 @@ module.exports = [
     path: 'exp/',
   },
   {
+    name: '千年マスゲーム',
+    id: 'massgame',
+    path: 'massgame/',
+  },
+  {
     name: 'ミスリル鉱タイマー',
     id: 'mithril-timer',
     path: 'mithril-timer/',

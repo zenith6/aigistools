@@ -8,8 +8,12 @@
   "author": "Seiji Nitta <zenith6@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "es6-promise": "^2.3.0",
+    "flux": "^2.0.3",
     "onecolor": "^2.5.0",
-    "underscore": "^1.8.3"
+    "react": "^0.13.3",
+    "underscore": "^1.8.3",
+    "wolfy87-eventemitter": "^4.2.11"
   },
   "devDependencies": {
     "babel-core": "^5.5.8",

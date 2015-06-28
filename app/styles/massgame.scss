@@ -1,0 +1,47 @@
+.massgame {
+  .pane {
+
+  }
+
+  .message-view {
+    position: relative;
+    margin: 20px 0;
+
+    & > canvas {
+      max-width: 100%;
+      transition: opacity 500ms;
+      animation: pane-fadein ease 500ms;
+    }
+
+    .loading-indicator {
+      & > .spinner {
+        display: block;
+        border: 25px solid #eee;
+        border-top-color: #ccc;
+        border-radius: 100px;
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        color: transparent;
+        animation: loading-indicator-spinner linear 1000ms infinite;
+        z-index: 9999;
+      }
+    }
+  }
+
+  &.updating {
+    .message-view > canvas {
+      opacity: 0.6;
+    }
+  }
+}
+
+@keyframes loading-indicator-spinner {
+  0% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}
+
+@keyframes pane-fadein {
+  0% { transform: translateX(20px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
