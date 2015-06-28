@@ -9,7 +9,7 @@ import * as components from './lib/components';
 import commands from './lib/commands';
 import effects from './lib/effects';
 
-var templates = require('json!./db/templates.json')
+var templates = require('./db/templates.json')
   .reduce(function (templates, template) {
     templates[template.id] = template;
     return templates;

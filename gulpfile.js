@@ -59,7 +59,7 @@ gulp.task('script', function (callback) {
         sound: true,
       }, function (err) {
         if (err) {
-          throw new $.util.PluginError('node-notifier', err);
+          // throw new $.util.PluginError('node-notifier', 'Failed to notify errors');
         }
       });
     }

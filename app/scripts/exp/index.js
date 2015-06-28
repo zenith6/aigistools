@@ -1,10 +1,10 @@
 'use strict';
 
-var _ = require('underscore');
-var experiences = require('json!./db/experiences.json');
-var presets = require('json!./db/presets.json');
-var expUnits = require('json!./db/exp_units.json');
-var breedingPlans = require('json!./db/breeding_plans.json');
+import _ from 'underscore';
+import experiences from './db/experiences.json';
+import presets from './db/presets.json';
+import expUnits from './db/exp_units.json';
+import breedingPlans from './db/breeding_plans.json';
 
 var defaults = {
   presetId: 3,

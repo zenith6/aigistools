@@ -4,28 +4,24 @@ var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
 var config = require('./app/config');
-var root = __dirname;
 
-var entry = {
-  common: [
-    'jquery',
-    'jquery-ui',
-    'jquery-minicolors',
-    'jquery.cookie',
-    'bootstrap',
-    'bootstrap-touchspin',
-    'ionrangeslider',
-    'select2',
-  ],
-};
+var entry = fs.readdirSync(config.script.path)
+  .reduce(function (entry, pathname) {
+    entry[pathname] = path.join(config.script.path, pathname, 'index');
+    return entry;
+  }, {});
 
-entry = fs.readdirSync(config.script.path).reduce(function (entry, pathname) {
-  var index = path.join(config.script.path, pathname, 'index.js');
-  if (fs.existsSync(index)) {
-    entry[pathname] = index;
-  }
-  return entry;
-}, entry);
+entry.common = [
+  'jquery',
+  'jquery-ui',
+  'jquery-minicolors',
+  'jquery.cookie',
+  'bootstrap',
+  'bootstrap-touchspin',
+  'ionrangeslider',
+  'select2',
+  'react',
+];
 
 var plugins = [
   new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
@@ -50,7 +46,12 @@ module.exports = {
     publicPath: config.server.base,
   },
   resolve: {
-    root: root,
+    root: __dirname,
+    extensions: [
+      '',
+      '.jsx',
+      '.js',
+    ],
     modulesDirectories: [
       'node_modules',
       'bower_components',
@@ -67,9 +68,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel'
+        loader: 'babel',
+      },
+      {
+        test: /\.json$/,
+        loader: 'json',
       }
     ]
   },
