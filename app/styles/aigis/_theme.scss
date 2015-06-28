@@ -203,6 +203,10 @@
           background-position: left center;
         }
 
+        &.tool-massgame:before {
+          background-image: url('../thumbnails/massgame/index.png');
+        }
+
         &.tool-mithril-timer:before {
           background-image: url('../thumbnails/mithril-timer/index.png');
         }
