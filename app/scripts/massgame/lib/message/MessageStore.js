@@ -8,12 +8,13 @@ export default class MessageStore extends EventEmitter {
     super();
 
     this.currentMessage = null;
+    this.messageDispatcherToken = null;
 
     this.registerDispatcher(dispatcher);
   }
 
   registerDispatcher(dispatcher) {
-    this.dispatcherToken = dispatcher.register((action) => {
+    this.messageDispatcherToken = dispatcher.register((action) => {
       switch (action.type) {
         case MessageActionTypes.MESSAGE_RESTORING:
           this.emit('restoring');

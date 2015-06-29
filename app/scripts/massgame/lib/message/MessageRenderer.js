@@ -1,5 +1,4 @@
 'use strict';
-let times = 0;
 
 export default class MessageRenderer {
   constructor() {
@@ -7,7 +6,6 @@ export default class MessageRenderer {
   }
 
   render(target, message) {
-    console.log('render', times++);
     let text = message.text;
     let fontFamily = message.fontFamily;
     let fontSize = message.fontSize;
@@ -38,11 +36,10 @@ export default class MessageRenderer {
     mCtx.font = '' + fontSize + 'px ' + fontFamily;
     mCtx.textAlign = 'left';
     mCtx.textBaseline = 'top';
-    let x = 0;
-    chars.forEach(function (char) {
+    chars.reduce(function (x, char) {
       mCtx.fillText(char, x, 0);
-      x += mCtx.measureText(char).width + 1;
-    });
+      return mCtx.measureText(char).width + 1;
+    }, 0);
 
     let bg = message.backgroundImage;
     let bgw = bg.width;

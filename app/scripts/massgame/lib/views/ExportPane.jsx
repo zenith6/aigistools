@@ -3,7 +3,6 @@
 import React from 'react';
 
 import services from '../../services';
-let messageRenderer = services.messageRenderer;
 
 export default class ExportPane extends React.Component {
   constructor(props) {
@@ -23,7 +22,6 @@ export default class ExportPane extends React.Component {
   }
 
   render() {
-    let message = this.props.data;
     let enabled = this.state.enabled;
 
     return (

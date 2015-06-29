@@ -1,0 +1,20 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+  },
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true,
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "comma-dangle": [0],
+    "no-alert": [0],
+    "dot-notation": [0],
+  },
+  "plugins": [
+    "react",
+  ],
+}

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import LoadingIndicator from './LoadingIndicator';
-import { Promise } from 'es6-promise';
 
 import services from '../../services';
 
@@ -25,7 +24,7 @@ export default class MessageView extends React.Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     let message = this.props.data;
 
     if (this.state.hasError) {
@@ -66,7 +65,7 @@ export default class MessageView extends React.Component {
 
   loadResources(message) {
     message.loadResources()
-      ['catch']((err) => {
+      .catch(() => {
         this.setState({loaded: true, hasError: true});
       })
       .then(() => {

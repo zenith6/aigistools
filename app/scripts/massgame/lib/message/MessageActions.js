@@ -33,7 +33,7 @@ export default class MessageActions extends EventEmitter {
       message: message,
     });
 
-    this.messageChangeTimer = setTimeout(() => {
+    setTimeout(() => {
       this.dispatcher.dispatch({
         type: MessageActionTypes.MESSAGE_UPDATED,
         message: message,

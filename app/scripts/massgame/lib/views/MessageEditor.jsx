@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import Message from '../message/Message';
 
 export default class MessageEditor extends React.Component {
   constructor(props) {
@@ -54,7 +53,7 @@ export default class MessageEditor extends React.Component {
     event.preventDefault();
   }
 
-  handleChange(event) {
+  handleChange() {
     let message = this.props.data;
 
     if (!message) {

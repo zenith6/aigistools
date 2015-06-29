@@ -45,7 +45,7 @@ export default class Massgame extends React.Component {
       <div className={rootClassName}>
         <MessageEditor
             data={message}
-            onChange={(message) => { this.handleMessageEditorChange(message); }}
+            onChange={this.handleMessageEditorChange.bind(this)}
           />
         <MessageView key="view" data={message} />
         <ExportPane key="export" data={message} />

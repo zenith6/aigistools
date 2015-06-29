@@ -22,6 +22,8 @@
     "canvas": "^1.2.1",
     "del": "^1.1.1",
     "ect": "^0.5.9",
+    "eslint": "^0.24.0",
+    "eslint-plugin-react": "^2.5.2",
     "event-stream": "^3.2.2",
     "expose-loader": "^0.6.0",
     "file-loader": "^0.8.1",
