@@ -77,8 +77,8 @@ var maps = [
     stamina: 7,
     expectation: 0,
     drops: [
-      {name: '魔神の骨片3', icon: 'demon-bone-5', set: 2},
-      {name: '魔神の骨片1', icon: 'demon-bone-3', set: 2},
+      {name: '魔神の骨片5', icon: 'demon-bone-5', set: 2},
+      {name: '魔神の骨片3', icon: 'demon-bone-3', set: 2},
       {name: 'ジョバンニ', icon: 'giovanni'},
       {name: '白銀の精霊', icon: 'platinum-sprit'}
     ]
