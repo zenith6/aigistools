@@ -24,6 +24,8 @@ entry.common = [
   'react',
   'flux',
   'wolfy87-eventemitter',
+  'lodash',
+  'classnames',
 ];
 
 var plugins = [

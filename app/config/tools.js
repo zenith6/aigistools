@@ -32,6 +32,11 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '魔神の骨片タイマー',
+    id: 'demon-bone-timer',
+    path: 'demon-bone-timer/',
+  },
+  {
     name: 'ミスリル鉱タイマー',
     id: 'mithril-timer',
     path: 'mithril-timer/',

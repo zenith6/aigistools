@@ -1,6 +1,6 @@
 'use strict';
 
-import _ from 'underscore';
+import _ from 'lodash';
 import experiences from './db/experiences.json';
 import presets from './db/presets.json';
 import expUnits from './db/exp_units.json';

@@ -167,10 +167,18 @@ gulp.task('server', function() {
     }));
 });
 
-gulp.task('watch', ['server'], function () {
-  gulp.watch(path.join(config.view.path, '**/*'), ['view']);
-  gulp.watch(path.join(config.style.path, '**/*'), ['style']);
-  gulp.watch(path.join(config.script.path, '**/*'), ['script']);
+gulp.task('watch', function () {
+  $.watch(path.join(config.view.path, '**/*'), function () {
+    gulp.start('view');
+  });
+
+  $.watch(path.join(config.style.path, '**/*'), function () {
+    gulp.start('style');
+  });
+
+  $.watch(path.join(config.script.path, '**/*'), function () {
+    gulp.start('script');
+  });
 });
 
 gulp.task('deploy', ['build'], function () {
@@ -182,4 +190,4 @@ gulp.task('build', function (callback) {
   runSequence(['test', 'clean'], ['view', 'script', 'style', 'asset'], callback);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'server']);

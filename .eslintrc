@@ -3,16 +3,19 @@
     "node": true,
     "browser": true,
     "es6": true,
+    "jquery": true,
   },
   "ecmaFeatures": {
     "modules": true,
     "jsx": true,
   },
   "rules": {
-    "quotes": [2, "single"],
+    "camelcase": [0],
     "comma-dangle": [0],
-    "no-alert": [0],
     "dot-notation": [0],
+    "no-alert": [0],
+    "quotes": [2, "single"],
+    "capIsNew": false,
   },
   "plugins": [
     "react",

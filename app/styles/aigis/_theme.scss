@@ -207,6 +207,10 @@
           background-image: url('../thumbnails/massgame/index.png');
         }
 
+        &.tool-demon-bone-timer:before {
+          background-image: url('../thumbnails/demon-bone-timer/index.png');
+        }
+
         &.tool-mithril-timer:before {
           background-image: url('../thumbnails/mithril-timer/index.png');
         }
@@ -229,4 +233,9 @@
       }
     }
   }
+}
+
+.textar-aa {
+  font-family: 'ＭＳ Ｐゴシック';
+  font-size: 16px;
 }

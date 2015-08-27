@@ -27,7 +27,6 @@ export default class MessageRenderer {
     mask.width = mw;
     mask.height = mh;
 
-
     mCtx.fillStyle = 'rgb(0, 0, 0)';
     mCtx.fillRect(0, 0, mw, mh);
 
@@ -38,7 +37,7 @@ export default class MessageRenderer {
     mCtx.textBaseline = 'top';
     chars.reduce(function (x, char) {
       mCtx.fillText(char, x, 0);
-      return mCtx.measureText(char).width + 1;
+      return x + mCtx.measureText(char).width + 1;
     }, 0);
 
     let bg = message.backgroundImage;
