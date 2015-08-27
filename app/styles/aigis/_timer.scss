@@ -55,7 +55,10 @@ section {
 
 .textar-aa {
   margin: 20em 1em 1em 2em;
-  background-color: rgba(0, 0, 0, 0.4);
+  line-height: 1;
+  color: #666;
+  background-color: transparent;
+  border: none;
 }
 
 input[name=objective],
