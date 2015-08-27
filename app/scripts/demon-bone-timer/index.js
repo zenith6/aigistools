@@ -840,13 +840,13 @@ function initialize() {
 
   $('#estimate_tutorial')
     .on('click', 'a, button', function (e) {
-      console.log(e.target);
       if (e.target.nodeName.toLowerCase() !== 'a') {
         e.preventDefault();
       }
 
       state.estimateTutorialHidden = true;
       saveState(state);
+
       $('#estimate_tutorial').fadeOut();
     })
     .toggle(!state.estimateTutorialHidden);
