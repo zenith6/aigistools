@@ -141,13 +141,13 @@ gulp.task('view', function () {
       },
       data: data,
     }))
-    .pipe($.minifyHtml({
+    .pipe($.if(config.optimize, $.minifyHtml({
       empty: true,
       conditionals: true,
       spare: true,
       quotes: true,
       loose: true,
-    }))
+    })))
     .pipe(gulp.dest(config.server.root));
 });
 

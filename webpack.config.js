@@ -39,7 +39,7 @@ var plugins = [
   }),
 ];
 
-if (config.script.optimize) {
+if (config.optimize) {
   plugins.push(new webpack.optimize.UglifyJsPlugin());
 }
 
