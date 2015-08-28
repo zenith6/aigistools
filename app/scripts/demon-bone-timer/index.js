@@ -42,7 +42,7 @@ var maps = [
     name: '紅の霧の脅威',
     charisma: 20,
     stamina: 1,
-    expectation: 0,
+    expectation: 2,
     drops: [
       {name: '魔神の骨片1', icon: 'demon-bone-1', set: 2},
       {name: '花束', icon: 'flower'}
@@ -52,7 +52,7 @@ var maps = [
     name: '密林の防衛戦',
     charisma: 30,
     stamina: 2,
-    expectation: 0,
+    expectation: 3,
     drops: [
       {name: '魔神の骨片1', icon: 'demon-bone-1', set: 3},
       {name: 'フューネス', icon: 'funes'},
@@ -63,7 +63,7 @@ var maps = [
     name: '猛追の奪還戦',
     charisma: 40,
     stamina: 4,
-    expectation: 0,
+    expectation: 6,
     drops: [
       {name: '魔神の骨片3', icon: 'demon-bone-3', set: 1},
       {name: '魔神の骨片5', icon: 'demon-bone-1', set: 3},
@@ -75,7 +75,7 @@ var maps = [
     name: '魔神の骨の力',
     charisma: 50,
     stamina: 7,
-    expectation: 0,
+    expectation: 16,
     drops: [
       {name: '魔神の骨片5', icon: 'demon-bone-5', set: 2},
       {name: '魔神の骨片3', icon: 'demon-bone-3', set: 2},
@@ -87,7 +87,7 @@ var maps = [
     name: '忍者と盗賊',
     charisma: 80,
     stamina: 9,
-    expectation: 0,
+    expectation: 15,
     drops: [
       {name: '魔神の骨片5', icon: 'demon-bone-5', set: 3},
       {name: 'リカルド', icon: 'ricard'},
@@ -159,8 +159,8 @@ var defaultState = {
   syncCurrentEnabled: syncCurrentEnabled,
   maps: maps.map(function (map) {
     return {
-      numLaps: 0,
-      numDrops: 0,
+      numLaps: 1,
+      numDrops: Math.floor(map.expectation),
       expectation: map.expectation
     };
   }),
@@ -847,9 +847,25 @@ function initialize() {
       state.estimateTutorialHidden = true;
       saveState(state);
 
-      $('#estimate_tutorial').fadeOut();
+      $('#estimate_tutorial')
+        .addClass('animated zoomOutRight')
+        .delay(1000)
+        .queue(function () {
+          $(this).hide();
+        })
     })
-    .toggle(!state.estimateTutorialHidden);
+    .toggle(!state.estimateTutorialHidden)
+    .each(function () {
+      var $tutorial = $(this);
+      var $anna = $tutorial.find('.anna');
+      $tutorial
+        .on('mouseenter', function () {
+          $anna.addClass('animated bounce');
+        })
+        .on('mouseleave', function () {
+          $anna.removeClass('animated bounce');
+        });
+    });
 }
 
 $(function () {

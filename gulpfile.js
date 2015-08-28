@@ -40,32 +40,26 @@ gulp.task('script', function (callback) {
   }
 
   webpackCompiler.run(function(err, stats) {
-    if (err) {
-      throw new $.util.PluginError('webpack', err);
-    }
-
-    if (stats.hasErrors()) {
+    if (err || stats.hasErrors()) {
+      var message = err
+        ? err.message
+        : stats.compilation.errors[0].error.toString();
       notifier.notify({
         title: 'Webpack compile error',
-        message: stats.toString({
-          hash: false,
-          version: false,
-          timings: false,
-          assets: false,
-          chunks: false,
-          errorDetails: true,
-          source: true,
-        }),
-        sound: true,
+        message: message,
+        sound: true
       }, function (err) {
         if (err) {
-          // throw new $.util.PluginError('node-notifier', 'Failed to notify errors');
+          throw new $.util.PluginError('node-notifier', err);
         }
       });
     }
 
-    $.util.log('[webpack]', stats.toString({colors: true}));
+    if (err) {
+      throw new $.util.PluginError('webpack', err);
+    }
 
+    $.util.log('[webpack]', stats.toString({colors: true}));
     callback();
   });
 });
@@ -91,10 +85,13 @@ gulp.task('style:update-vendor', function () {
       path.join(root, 'bower_components/jquery-minicolors/jquery.minicolors.css'),
       path.join(root, 'bower_components/ionrangeslider/css/*.css'),
       '!' + path.join(root, 'bower_components/ionrangeslider/css/normalize.css'),
-    ]).pipe($.rename({
+      path.join(root, 'bower_components/animate.css/animate.css'),
+    ])
+    .pipe($.rename({
       prefix: '_',
       extname: '.scss'
-    })).pipe(gulp.dest(path.join(config.style.path, 'vendor')));
+    }))
+    .pipe(gulp.dest(path.join(config.style.path, 'vendor')));
 });
 
 gulp.task('asset', function () {
@@ -194,7 +191,12 @@ gulp.task('deploy', ['build'], function () {
 });
 
 gulp.task('build', function (callback) {
-  runSequence(['test', 'clean'], ['view', 'script', 'style', 'asset'], callback);
+  runSequence(
+    ['test', 'clean'],
+    ['style:update-vendor'],
+    ['view', 'script', 'style', 'asset'],
+    callback
+  );
 });
 
 gulp.task('default', ['watch', 'server']);

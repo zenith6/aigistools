@@ -15,7 +15,7 @@
     "dot-notation": [0],
     "no-alert": [0],
     "quotes": [2, "single"],
-    "capIsNew": false,
+    "new-cap": [1, {"newIsCap": true, "capIsNew": false}],
   },
   "plugins": [
     "react",
