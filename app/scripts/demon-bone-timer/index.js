@@ -1,12 +1,10 @@
-'use strict';
-
 // [begin...end)
-var periods = [
+let periods = [
   ['2015/08/27 16:00:00', '2015/09/03 10:00:00'],
   ['2015/09/03 15:00:00', '2015/09/10 10:00:00']
 ];
 
-var objectives = {
+let objectives = {
   '25': 'ピピンが仲間になる',
   '50': 'スキルレベル2',
   '100': '初期レベル10',
@@ -34,10 +32,10 @@ var objectives = {
   '1800': '+ 虹精霊'
 };
 
-var prizes = [
+let prizes = [
 ];
 
-var maps = [
+let maps = [
   {
     name: '紅の霧の脅威',
     charisma: 20,
@@ -97,7 +95,7 @@ var maps = [
   }
 ];
 
-var rewards = [
+let rewards = [
   {amount: 45, unit: 'gold-bucket'},
   {amount: 90, unit: 'gold-sprit'},
   {amount: 135, unit: 'platinum-bucket'},
@@ -140,15 +138,15 @@ var rewards = [
   {amount: 1800, unit: 'rainbow-sprit'}
 ];
 
-var objectiveMode = 'achievement'; // 'achievement' or 'exchange'
-var maxObjective = Infinity;
-var rewardEnabled = true;
-var cookieName = 'demon-bone-timer';
-var defaultChart = 'stamina';
-var expectationInputMode = 'direct'; // 'aggregate' or 'direct'
-var syncCurrentEnabled = true;
+let objectiveMode = 'achievement'; // 'achievement' or 'exchange'
+let maxObjective = Infinity;
+let rewardEnabled = true;
+let cookieName = 'demon-bone-timer';
+let defaultChart = 'stamina';
+let expectationInputMode = 'direct'; // 'aggregate' or 'direct'
+let syncCurrentEnabled = true;
 
-var defaultState = {
+let defaultState = {
   current: 20,
   objective: 1500,
   estimateMap: 4,
@@ -171,7 +169,7 @@ periods = periods.map(function (period) {
   return period.map(Date.parse);
 });
 
-var totalPeriod = periods.reduce(function (total, period) {
+let totalPeriod = periods.reduce(function (total, period) {
   return total + period[1] - period[0];
 }, 0);
 
@@ -194,8 +192,8 @@ function format(value, scale) {
     return '∞';
   }
 
-  var parts = value.toFixed(scale).split('.');
-  var decimal = parseInt(parts[0]);
+  let parts = value.toFixed(scale).split('.');
+  let decimal = parseInt(parts[0]);
 
   return decimal.toLocaleString() + (parts.length === 1 ? '' : '.' + parts[1]);
 }
@@ -205,7 +203,7 @@ function syncCurrent() {
     return;
   }
 
-  var current = $('#map')
+  let current = $('#map')
     .find('tbody tr input[name=num_drops]')
     .map(function () {
       return parseInt($(this).val()) || 0;
@@ -219,7 +217,7 @@ function syncCurrent() {
 }
 
 function loadState() {
-  var state = {};
+  let state = {};
 
   try {
     state = JSON.parse($.cookie(cookieName));
@@ -239,12 +237,12 @@ function updateRewardList() {
     return;
   }
 
-  var stride = 45, slot = 7;
-  var current = parseInt($('[name=current]:input').val());
-  var rewardList = $('#rewards tbody');
+  let stride = 45, slot = 7;
+  let current = parseInt($('[name=current]:input').val());
+  let rewardList = $('#rewards tbody');
   rewardList.find('tr').removeClass('active').each(function () {
-    var self = $(this);
-    var delta = self.attr('data-amount') - current;
+    let self = $(this);
+    let delta = self.attr('data-amount') - current;
     if (delta < -stride) {
       self.hide();
     } else if (delta < 0) {
@@ -252,13 +250,13 @@ function updateRewardList() {
     } else if (delta < stride) {
       self.addClass('active').css('opacity', 1).show();
     } else if (delta < stride * slot) {
-      var opacity = 1 - Math.floor(delta / stride) * stride / (stride * (slot + 1));
+      let opacity = 1 - Math.floor(delta / stride) * stride / (stride * (slot + 1));
       self.show().css('opacity', opacity);
     } else {
       self.hide();
     }
-    var klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
-    var text = delta === 0 ? '' : (delta > 0 ? '+' : '') + delta;
+    let klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
+    let text = delta === 0 ? '' : (delta > 0 ? '+' : '') + delta;
     self.find('span.diff')
       .removeClass('diff-eq diff-plus diff-minus')
       .addClass(klass)
@@ -271,12 +269,12 @@ function updatePrizeList() {
     return;
   }
 
-  var current = parseInt($('[name=current]:input').val());
+  let current = parseInt($('[name=current]:input').val());
   prizes.forEach(function (prize) {
-    var $container = $('[data-prize="' + prize.unit + '"]').empty();
-    for (var i = 0; i < current; i += prize.value) {
-      var icon = $('<i />').addClass('icon icon-' + prize.unit);
-      var width = 25 * Math.min(current - i, prize.value) / prize.value;
+    let $container = $('[data-prize="' + prize.unit + '"]').empty();
+    for (let i = 0; i < current; i += prize.value) {
+      let icon = $('<i />').addClass('icon icon-' + prize.unit);
+      let width = 25 * Math.min(current - i, prize.value) / prize.value;
       $('<div class="prize-gage" />')
         .append(icon.clone().css({position: 'absolute', opacity: 0.2, boxShadow: 'none', paddingRight: 25 - width}))
         .append(icon.clone().css({width: width + 'px'}))
@@ -286,22 +284,22 @@ function updatePrizeList() {
 }
 
 function updateExpectationChart() {
-  var mode = $('[name=expectation]:input').val();
-  var min = Infinity, max = 0;
-  var dividor = mode === 'drop' ? null : mode;
-  var data = maps.map(function (map) {
-    var value = map.expectation / ((dividor && map[dividor]) || 1);
+  let mode = $('[name=expectation]:input').val();
+  let min = Infinity, max = 0;
+  let dividor = mode === 'drop' ? null : mode;
+  let data = maps.map(function (map) {
+    let value = map.expectation / ((dividor && map[dividor]) || 1);
     min = 0; // Math.min(min, value);
     max = Math.max(max, value);
     return value;
   });
 
-  var scale = dividor ? 3 : 2;
+  let scale = dividor ? 3 : 2;
   maps.forEach(function (map, i) {
-    var $chart = $('[data-chart=' + i + ']');
-    var value = data[i];
-    var rate = value / (max - min);
-    var hue = 120 * rate + 240;
+    let $chart = $('[data-chart=' + i + ']');
+    let value = data[i];
+    let rate = value / (max - min);
+    let hue = 120 * rate + 240;
     $chart.find('span.barchart-label').text(format(value, scale) + '個');
     $chart.find('span.barchart')
       .css({
@@ -312,62 +310,62 @@ function updateExpectationChart() {
 }
 
 function updateMarathon() {
-  var objective = parseInt($('[name=objective]:input').val());
-  var current = parseInt($('[name=current]:input').val());
-  var norma = Math.max(objective - current, 0);
+  let objective = parseInt($('[name=objective]:input').val());
+  let current = parseInt($('[name=current]:input').val());
+  let norma = Math.max(objective - current, 0);
   maps.forEach(function (map, i) {
-    var $chart = $('[data-chart=' + i + ']');
-    var marathon = norma ? Math.ceil(norma / map.expectation) : 0;
+    let $chart = $('[data-chart=' + i + ']');
+    let marathon = norma ? Math.ceil(norma / map.expectation) : 0;
     $chart.find('span.marathon').text('残り' + format(marathon) + '周');
   });
 }
 
 function updateEstimate() {
-  var current = parseInt($('[name=current]:input').val());
-  var objective = parseInt($('[name=objective]:input').val());
-  var map = maps[parseInt($('[name=estimate_map]:input').val())];
-  var left = Math.max(objective - current, 0);
-  var requiredMarathon = Math.ceil(left / map.expectation);
+  let current = parseInt($('[name=current]:input').val());
+  let objective = parseInt($('[name=objective]:input').val());
+  let map = maps[parseInt($('[name=estimate_map]:input').val())];
+  let left = Math.max(objective - current, 0);
+  let requiredMarathon = Math.ceil(left / map.expectation);
   $('#estimate_required_marathon').text(format(requiredMarathon));
 
-  var now = (new Date()).getTime();
-  var remains = periods.reduce(function (expired, period) {
+  let now = (new Date()).getTime();
+  let remains = periods.reduce(function (expired, period) {
     return expired + Math.max(period[1], now) - Math.max(period[0], now);
   }, 0);
-  var useNaturalRecovery = 0 + $('[name=estimate_natural_recovery]:input').prop('checked');
-  var naturalRecoveryCharisma = Math.floor(remains / (1000 * 60 * 3)) * useNaturalRecovery;
-  var naturalRecoveryStamina = Math.floor(remains / (1000 * 60 * 60)) * useNaturalRecovery;
+  let useNaturalRecovery = 0 + $('[name=estimate_natural_recovery]:input').prop('checked');
+  let naturalRecoveryCharisma = Math.floor(remains / (1000 * 60 * 3)) * useNaturalRecovery;
+  let naturalRecoveryStamina = Math.floor(remains / (1000 * 60 * 60)) * useNaturalRecovery;
 
-  var rank = parseInt($('[name=estimate_rank]').val());
-  var capacityCharisma = calculateCharismaCapacity(rank);
-  var capacityStamina = calculateStaminaCapacity(rank);
-  var requiredCharisma = Math.ceil(map.charisma * requiredMarathon);
-  var requiredStamina = Math.ceil(map.stamina * requiredMarathon);
-  var useCrystal = $('[name=estimate_use_crystal]:input').val();
-  var useForCharisma = 0 + (useCrystal === 'both' || useCrystal === 'charisma');
-  var useForStamina = 0 + (useCrystal === 'both' || useCrystal === 'stamina');
-  var charismaCrystal = Math.ceil(Math.max(requiredCharisma - naturalRecoveryCharisma, 0) / capacityCharisma) * useForCharisma;
-  var staminaCrystal = Math.ceil(Math.max(requiredStamina - naturalRecoveryStamina, 0) / capacityStamina) * useForStamina;
-  var requiredCrystal = charismaCrystal + staminaCrystal;
+  let rank = parseInt($('[name=estimate_rank]').val());
+  let capacityCharisma = calculateCharismaCapacity(rank);
+  let capacityStamina = calculateStaminaCapacity(rank);
+  let requiredCharisma = Math.ceil(map.charisma * requiredMarathon);
+  let requiredStamina = Math.ceil(map.stamina * requiredMarathon);
+  let useCrystal = $('[name=estimate_use_crystal]:input').val();
+  let useForCharisma = 0 + (useCrystal === 'both' || useCrystal === 'charisma');
+  let useForStamina = 0 + (useCrystal === 'both' || useCrystal === 'stamina');
+  let charismaCrystal = Math.ceil(Math.max(requiredCharisma - naturalRecoveryCharisma, 0) / capacityCharisma) * useForCharisma;
+  let staminaCrystal = Math.ceil(Math.max(requiredStamina - naturalRecoveryStamina, 0) / capacityStamina) * useForStamina;
+  let requiredCrystal = charismaCrystal + staminaCrystal;
   $('#estimate_required_crystal').text(format(requiredCrystal));
 
-  var klass = charismaCrystal === 0 ? 'diff-eq' : charismaCrystal > 0 ? 'diff-plus' : 'diff-minus';
+  let klass = charismaCrystal === 0 ? 'diff-eq' : charismaCrystal > 0 ? 'diff-plus' : 'diff-minus';
   $('#estimate_required_crystal_for_charisma').attr('class', klass).text(format(charismaCrystal));
 
   klass = staminaCrystal === 0 ? 'diff-eq' : staminaCrystal > 0 ? 'diff-plus' : 'diff-minus';
   $('#estimate_required_crystal_for_stamina').attr('class', klass).text(format(staminaCrystal));
 
-  var availableCharisma = naturalRecoveryCharisma + (capacityCharisma * charismaCrystal);
-  var availableStamina = naturalRecoveryStamina + (capacityStamina * staminaCrystal);
-  var availableMarathon = Math.floor(Math.min(availableCharisma / map.charisma, availableStamina / map.stamina, requiredMarathon));
+  let availableCharisma = naturalRecoveryCharisma + (capacityCharisma * charismaCrystal);
+  let availableStamina = naturalRecoveryStamina + (capacityStamina * staminaCrystal);
+  let availableMarathon = Math.floor(Math.min(availableCharisma / map.charisma, availableStamina / map.stamina, requiredMarathon));
   $('#estimate_available_marathon').text(format(availableMarathon));
 
-  var delta = availableMarathon - requiredMarathon;
+  let delta = availableMarathon - requiredMarathon;
   klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
-  var text = (delta >= 0 ? '+' : '') + format(delta);
+  let text = (delta >= 0 ? '+' : '') + format(delta);
   $('#estimate_available_marathon_diff').attr('class', klass).text(text);
 
-  var usingCharisma = map.charisma * availableMarathon;
+  let usingCharisma = map.charisma * availableMarathon;
   $('#estimate_using_charisma').text(format(usingCharisma));
 
   delta = usingCharisma - requiredCharisma;
@@ -375,7 +373,7 @@ function updateEstimate() {
   text = (delta >= 0 ? '+' : '') + format(delta);
   $('#estimate_using_charisma_diff').attr('class', klass).text(text);
 
-  var usingStamina = Math.ceil(map.stamina * availableMarathon);
+  let usingStamina = Math.ceil(map.stamina * availableMarathon);
   $('#estimate_using_stamina').text(format(usingStamina));
 
   delta = usingStamina - requiredStamina;
@@ -383,7 +381,7 @@ function updateEstimate() {
   text = (delta >= 0 ? '+' : '') + format(delta);
   $('#estimate_using_stamina_diff').attr('class', klass).text(text);
 
-  var result = current + Math.ceil(map.expectation * availableMarathon);
+  let result = current + Math.ceil(map.expectation * availableMarathon);
   $('#estimate_result_collection').text(format(result));
 
   delta = result - objective;
@@ -393,21 +391,21 @@ function updateEstimate() {
 }
 
 function update() {
-  var current = parseInt($('[name=current]:input').val());
-  var objective = parseInt($('[name=objective]:input').val());
-  var now = (new Date()).getTime();
-  var remains = periods.reduce(function (expired, period) {
+  let current = parseInt($('[name=current]:input').val());
+  let objective = parseInt($('[name=objective]:input').val());
+  let now = (new Date()).getTime();
+  let remains = periods.reduce(function (expired, period) {
     return expired + Math.max(period[1], now) - Math.max(period[0], now);
   }, 0);
 
-  var norma = Math.max(objective - current, 0);
-  var days = remains / (1000 * 60 * 60 * 24);
-  var norma_per_day = norma / Math.max(days, 1);
-  var hours = remains / (1000 * 60 * 60);
-  var norma_per_hour = norma / Math.max(hours, 1);
-  var minutes = remains / (1000 * 60 * 30);
-  var norma_per_minute = norma / Math.max(minutes, 1);
-  var amount = format(norma_per_day, 3).split('.');
+  let norma = Math.max(objective - current, 0);
+  let days = remains / (1000 * 60 * 60 * 24);
+  let norma_per_day = norma / Math.max(days, 1);
+  let hours = remains / (1000 * 60 * 60);
+  let norma_per_hour = norma / Math.max(hours, 1);
+  let minutes = remains / (1000 * 60 * 30);
+  let norma_per_minute = norma / Math.max(minutes, 1);
+  let amount = format(norma_per_day, 3).split('.');
   $('#norma_per_day')
     .find('.norma-amount-actual').text(amount[0]).parent()
     .find('.norma-amount-fraction').text('.' + amount[1]).parent();
@@ -423,11 +421,11 @@ function update() {
   $('#remains_hours').text(format(hours, 0));
   $('#remains_minutes').text(format(hours * 60, 0));
 
-  var collected = Math.min(current, objective) * 100;
-  var obj_progress = parseInt(collected / objective) || 0;
-  var elapsed = totalPeriod - remains;
-  var time_progress = parseInt(elapsed * 100 / totalPeriod) || 0;
-  var bar_class;
+  let collected = Math.min(current, objective) * 100;
+  let obj_progress = parseInt(collected / objective) || 0;
+  let elapsed = totalPeriod - remains;
+  let time_progress = parseInt(elapsed * 100 / totalPeriod) || 0;
+  let bar_class;
 
   if (obj_progress === 100) {
     bar_class = 'progress-bar-success';
@@ -452,31 +450,31 @@ function update() {
     .children('span')
     .text(time_progress + '%経過');
 
-  var estimate = current * totalPeriod / elapsed;
+  let estimate = current * totalPeriod / elapsed;
   $('#prediction_collection').text(format(Math.floor(estimate)));
 
-  var per = Math.min(estimate / objective, 1);
-  var width = $('#objective_progress').width();
-  var left = width * per - 47;
+  let per = Math.min(estimate / objective, 1);
+  let width = $('#objective_progress').width();
+  let left = width * per - 47;
   $('.pointer').css('left', left + 'px');
-  var margin = width - left < 230 ? -250 : 0;
+  let margin = width - left < 230 ? -250 : 0;
   $('.pointer-label').css('margin-left', margin + 'px');
 
-  var completionDate = '';
+  let completionDate = '';
   if (current < objective && estimate >= objective) {
-    var start, end;
+    let start, end;
     periods.forEach(function (period) {
       start = start || period[0];
       end = end || period[1];
     });
 
-    var completionSpan = objective / estimate * totalPeriod;
-    var date = periods.reduce(function (date, period) {
+    let completionSpan = objective / estimate * totalPeriod;
+    let date = periods.reduce(function (date, period) {
       if (date) {
         return date;
       }
 
-      var span = period[1] - period[0];
+      let span = period[1] - period[0];
       if (span < completionSpan) {
         completionSpan -= span;
         return null;
@@ -484,8 +482,8 @@ function update() {
 
       return new Date(period[0] + completionSpan);
     }, null);
-    var m = date.getMonth(), d = date.getDate(), h = date.getHours(), i = date.getMinutes();
-    var formatted = (m + 1) + '/' + d + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i);
+    let m = date.getMonth(), d = date.getDate(), h = date.getHours(), i = date.getMinutes();
+    let formatted = (m + 1) + '/' + d + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i);
     completionDate = formatted + '頃に目標達成できそうよ。';
   }
 
@@ -493,18 +491,18 @@ function update() {
 }
 
 function initialize() {
-  var now = (new Date()).getTime();
-  var view = $('#period_dates');
+  let now = (new Date()).getTime();
+  let view = $('#period_dates');
   periods.forEach(function (period) {
-    var span = period[1] - period[0];
-    var width = (span * 100 / totalPeriod) + '%';
-    var begin = new Date(period[0]);
-    var end = new Date(period[1] - 1);
-    var label = (begin.getMonth() + 1) + '/' + begin.getDate() +
+    let span = period[1] - period[0];
+    let width = (span * 100 / totalPeriod) + '%';
+    let begin = new Date(period[0]);
+    let end = new Date(period[1] - 1);
+    let label = (begin.getMonth() + 1) + '/' + begin.getDate() +
       '-' + (end.getMonth() + 1) + '/' + end.getDate();
-    var active = now >= period[0] && now < period[1];
-    var expired = now >= period[1];
-    var klass = active ? 'progress-bar-active'
+    let active = now >= period[0] && now < period[1];
+    let expired = now >= period[1];
+    let klass = active ? 'progress-bar-active'
       : expired ? 'progress-bar-expired' : 'progress-bar-remain';
     $('<div class="progress-bar">')
       .width(width)
@@ -527,7 +525,7 @@ function initialize() {
     });
 
   if (objectiveMode === 'achievement') {
-    var $objective = $('[name=objective]:input');
+    let $objective = $('[name=objective]:input');
     $.each(objectives, function (value, label) {
       $('<option />')
         .attr('value', value)
@@ -539,7 +537,7 @@ function initialize() {
       this.select();
     });
 
-    var $list = $('#increse_objective_list');
+    let $list = $('#increse_objective_list');
     prizes.forEach(function (prize) {
       $('<button class="btn btn-default" name="add"  type="button" />')
         .val(prize.value)
@@ -552,8 +550,8 @@ function initialize() {
 
   $('button[name=add]').click(function (e) {
     e.preventDefault();
-    var increment = parseInt($(this).val());
-    var amount = parseInt($('[name=objective]:input').val());
+    let increment = parseInt($(this).val());
+    let amount = parseInt($('[name=objective]:input').val());
     $('[name=objective]:input').val(amount + increment).trigger('change');
   });
 
@@ -567,7 +565,7 @@ function initialize() {
     updateMarathon();
   }).val(defaultChart);
 
-  var $prizeList = $('#prize_list');
+  let $prizeList = $('#prize_list');
   prizes.forEach(function (prize) {
     $('<div class="prize-list" />')
       .append($('<h4 class="prize-list-header" />').text(prize.name)
@@ -576,11 +574,11 @@ function initialize() {
       .appendTo($prizeList);
   });
 
-  var maxDrops = maps.reduce(function (num, map) {
+  let maxDrops = maps.reduce(function (num, map) {
     return Math.max(num, map.drops.length);
   }, 0);
 
-  var state = loadState();
+  let state = loadState();
 
   state.maps.forEach(function (mapState, mapId) {
     maps[mapId].expectation = mapState.expectation;
@@ -588,28 +586,28 @@ function initialize() {
 
   syncCurrentEnabled = state.syncCurrentEnabled;
 
-  var updateExpectationTimer;
-  var updateExpectation = function () {
+  let updateExpectationTimer;
+  let updateExpectation = function () {
     if (updateExpectationTimer) {
       clearTimeout(updateExpectationTimer);
     }
 
     setTimeout(function () {
-      var $map = $('#map');
+      let $map = $('#map');
 
       maps.forEach(function (map, mapId) {
-        var $tr = $map.find('tr[data-map=' + mapId + ']');
-        var numLaps = Math.max(parseInt($tr.find('input[name=num_laps]').val()) || 0, 0);
-        var numDrops = Math.max(parseInt($tr.find('input[name=num_drops]').val()) || 0, 0);
-        var $expectation = $tr.find('input[name=actual_expectation]');
-        var expectation = Math.max(parseFloat($expectation.val()) || 0, 0);
+        let $tr = $map.find('tr[data-map=' + mapId + ']');
+        let numLaps = Math.max(parseInt($tr.find('input[name=num_laps]').val()) || 0, 0);
+        let numDrops = Math.max(parseInt($tr.find('input[name=num_drops]').val()) || 0, 0);
+        let $expectation = $tr.find('input[name=actual_expectation]');
+        let expectation = Math.max(parseFloat($expectation.val()) || 0, 0);
 
         if (expectationInputMode === 'aggregate') {
           expectation = (numDrops / numLaps) || 0;
           $expectation.val(expectation);
         }
 
-        var increment = Math.floor(expectation);
+        let increment = Math.floor(expectation);
         $tr
           .find('button[name=increase]')
           .val(increment)
@@ -628,7 +626,7 @@ function initialize() {
     }, 100);
   };
 
-  var $map = $('#map')
+  let $map = $('#map')
     .on('keyup', 'input[type=number]', function () {
       updateExpectation();
       syncCurrent();
@@ -642,13 +640,13 @@ function initialize() {
     })
     .on('click', 'button[name=increase]', function (e) {
       e.preventDefault();
-      var $tr = $(this).closest('tr');
-      var $numLaps = $tr.find('input[name=num_laps]');
-      var numLaps = parseInt($numLaps.val()) + 1;
+      let $tr = $(this).closest('tr');
+      let $numLaps = $tr.find('input[name=num_laps]');
+      let numLaps = parseInt($numLaps.val()) + 1;
       $numLaps.val(numLaps);
 
-      var $numDrops = $tr.find('input[name=num_drops]');
-      var numDrops = parseInt($numDrops.val()) + parseInt(this.value);
+      let $numDrops = $tr.find('input[name=num_drops]');
+      let numDrops = parseInt($numDrops.val()) + parseInt(this.value);
       $numDrops.val(numDrops);
 
       $numDrops.trigger('change');
@@ -683,46 +681,46 @@ function initialize() {
       syncCurrent();
     });
 
-  var $tbody = $map.find('tbody');
+  let $tbody = $map.find('tbody');
 
-  maps.forEach(function (map, i) {
-    var mapState = state.maps[i];
+  maps.forEach(function (map, idx) {
+    let mapState = state.maps[idx];
 
-    var $chart = $('<td />')
-      .attr('data-chart', i)
+    let $chart = $('<td />')
+      .attr('data-chart', idx)
       .append($('<span class="barchart" />'))
       .append($('<span class="barchart-label" />'))
       .append($('<span class="marathon" />'));
 
     $('<tr />')
-      .attr('data-map', i)
+      .attr('data-map', idx)
       .append($('<th />').text(map.name))
       .append($('<td />').text('' + map.charisma + '/' + map.stamina))
       .append(function () {
-        var $drops = map.drops.map(function (drop) {
-          var $icon = drop.icon ?
+        let $drops = map.drops.map(function (drop) {
+          let $icon = drop.icon ?
             $('<i />').attr('title', drop.name).addClass('icon icon-' + drop.icon) :
             $('<span />').text(drop.name);
 
-          var $set = drop.set ? $('<span class="badge" />').text('x' + drop.set) : null;
+          let $set = drop.set ? $('<span class="badge" />').text('x' + drop.set) : null;
 
           return $('<td />')
             .append($icon)
             .append($set);
         });
 
-        for (var i = map.drops.length; i < maxDrops; i++) {
+        for (let i = map.drops.length; i < maxDrops; i++) {
           $drops.push($('<td />'));
         }
 
         return $drops;
       })
       .append(function () {
-        var $expectation = $('<span class="input-group input-group-sm" />')
+        let $expectation = $('<span class="input-group input-group-sm" />')
           .append($('<span class="input-group-addon">1周の期待値</span>'))
           .append($('<input type="number" name="actual_expectation" min="0" class="form-control" />').val(mapState.expectation));
 
-        var $marathon = $('<span class="input-group input-group-sm" />')
+        let $marathon = $('<span class="input-group input-group-sm" />')
           .append($('<span class="input-group-addon">周回</span>'))
           .append($('<input type="number" name="num_laps" min="0" class="form-control" />').val(mapState.numLaps))
           .append($('<span class="input-group-addon">ドロップ</span>'))
@@ -740,9 +738,9 @@ function initialize() {
   $('#map thead th.drops').attr('colspan', maxDrops);
 
   if (rewardEnabled) {
-    var $rewardList = $('#rewards tbody');
+    let $rewardList = $('#rewards tbody');
     rewards.forEach(function (reward) {
-      var $icon = $('<span class="icon" />').addClass('icon-' + reward.unit);
+      let $icon = $('<span class="icon" />').addClass('icon-' + reward.unit);
       $('<tr />')
         .attr('data-amount', reward.amount)
         .append($('<td class="text-right" />').html('<span class="diff"></span> ' + reward.amount))
@@ -751,7 +749,7 @@ function initialize() {
     });
   }
 
-  var $estimateMap = $('[name=estimate_map]:input').change(function () {
+  let $estimateMap = $('[name=estimate_map]:input').change(function () {
     updateEstimate();
     state.estimateMap = parseInt($(this).val());
     saveState(state);
@@ -764,26 +762,26 @@ function initialize() {
       .prependTo($estimateMap);
   });
 
-  var $estimateRank = $('[name=estimate_rank]:input').change(function () {
+  let $estimateRank = $('[name=estimate_rank]:input').change(function () {
     updateEstimate();
     state.estimateRank = parseInt($(this).val());
     saveState(state);
   });
 
-  for (var rank = 1; rank <= 200; rank++) {
-    var charisma = calculateCharismaCapacity(rank);
-    var stamina = calculateStaminaCapacity(rank);
-    var label = '' + rank + ' (' + charisma + '/' + stamina + ')';
+  for (let rank = 1; rank <= 200; rank++) {
+    let charisma = calculateCharismaCapacity(rank);
+    let stamina = calculateStaminaCapacity(rank);
+    let label = '' + rank + ' (' + charisma + '/' + stamina + ')';
     $('<option />').val(rank).text(label).appendTo($estimateRank);
   }
 
-  var $estimateUseCrystal = $('[name=estimate_use_crystal]').change(function () {
+  let $estimateUseCrystal = $('[name=estimate_use_crystal]').change(function () {
     updateEstimate();
     state.estimateUseCrystal = $(this).val();
     saveState(state);
   });
 
-  var $estimateNaturalRecovery = $('[name=estimate_natural_recovery]:input').change(function () {
+  let $estimateNaturalRecovery = $('[name=estimate_natural_recovery]:input').change(function () {
     updateEstimate();
     state.estimateNaturalRecovery = this.checked;
     saveState(state);
@@ -793,7 +791,7 @@ function initialize() {
 
   $('[name=current]:input').val(state.current);
 
-  if (objectiveMode == 'exchange') {
+  if (objectiveMode === 'exchange') {
     $('[name=objective]:input').val(state.objective);
   } else {
     $('[name=objective]:input').val([state.objective]);
@@ -814,7 +812,7 @@ function initialize() {
   $estimateUseCrystal.val(state.estimateUseCrystal);
   $estimateNaturalRecovery.prop('checked', state.estimateNaturalRecovery);
 
-  if (objectiveMode == 'exchange') {
+  if (objectiveMode === 'exchange') {
     updatePrizeList();
   }
 
@@ -852,12 +850,12 @@ function initialize() {
         .delay(1000)
         .queue(function () {
           $(this).hide();
-        })
+        });
     })
     .toggle(!state.estimateTutorialHidden)
     .each(function () {
-      var $tutorial = $(this);
-      var $anna = $tutorial.find('.anna');
+      let $tutorial = $(this);
+      let $anna = $tutorial.find('.anna');
       $tutorial
         .on('mouseenter', function () {
           $anna.addClass('animated bounce');

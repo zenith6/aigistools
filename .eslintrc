@@ -13,9 +13,10 @@
     "camelcase": [0],
     "comma-dangle": [0],
     "dot-notation": [0],
+    "new-cap": [1, {"newIsCap": true, "capIsNew": false}],
     "no-alert": [0],
     "quotes": [2, "single"],
-    "new-cap": [1, {"newIsCap": true, "capIsNew": false}],
+    "strict": [2, "global"],
   },
   "plugins": [
     "react",

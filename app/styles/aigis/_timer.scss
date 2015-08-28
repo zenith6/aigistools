@@ -357,3 +357,27 @@ button[name=increase] {
   height: 64px;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAADAFBMVEUAAACAAAAAgACAgAAAAICAAIAAgIDAwMDA3MCmyvAKAAAbEBAMAAANAAAOAAAPAAAgAAAYAABgAAB/AACgAADAAADgAAD+AAD/HBz/ODj/VFT/cHD/jIz/qKj/xMT/4OAAIAAAQAAAYAAAfwAAoAAAwAAA4AAA/gAc/xw4/zhU/1Rw/3CM/4yo/6jE/8Tg/+AAACAAAEAAAGAAAH8AAKAAAMAAAG4AAP4cHP84OP9UVP9wcP+MjP+oqP/ExP/g4P8gIABAQABgYAB/fwCgoADAwADg4AD+/gD//xz//zj//1T//3D//4z//6j/6sT//+AAICAAQEAAYGAAf38AoKAAwMAA4OAA/v4c//84//9U//9w//+M//+o///E///g//8gACBAAEBgAGB/AH+gAKDAAMDgAOD+AP7/HP//OP//VP//cP//jP+3YLfSef//4P/Pj0/fn1/vr2//v3//7t3/0rrx1qz/57+AQABkNwCfbz+vh1+/n3/Pt5/fz7/v598AgP8fj/8/n/9fr/9/v/+fz/+/3//f7/8AQIAfV48/b59fh69/n7+ft8+/z9/f5++AAP+PH/+fP/+vX/+/f//Pn//fv//v3/9AAIBXH49vP5+HX6+ff7+3n8/Pv9/n3++A/wCP/x+f/z+v/1+//3/P/5/f/7////5AgABXjx9vnz+Hr1+fv3+3z5/P37/n79//Ziv/djz/hk3/ll//p3D/t4L/x5P/2KWAQICPV4+fb5+vh6+/n7/Pt8/fz9/v5+8A/4Af/48//59f/69//7+f/8+//9/f/+8AgEAfj1c/n29fr4d/v5+fz7e/38/f7+cAUgAkSwBIRQBtPwCROAC2MgDaLAD/JgD/UAD/egD/pAD/zhD/+ED//2///6D//9AzLTBgTzdaVlpAQEBQUFBgYGBwcHB/f3+QkJCgoKCwsLDAwMDQ0NDq6urw8PD+/v74AAD9AAD8AAD7AAD6AAD5AAD/6t2goKSAgID/AAAA/wD//wAAAP//AP8A//////87sKtBAAABAHRSTlP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AU/cHJQAAAJhJREFUeJzlljEOgCAUQ7kBB/W+zhxAcWPV36HJTwOTW3kLzYe+gURDeX9SjAVV2E2AwpXowUriKGD5FFYSN0Eud2ElcRXg4AhYznkXAQrILGreTTCT7SA4giFg5i5gmVSBHxn33AXILcCPFBeIrPvOAqx3oIU8cxWopAmYPUEuOwooyY8rCJm17CqghBeX8+ysq4CSWTYUfNOHiEUdWQCeAAAAAElFTkSuQmCC');
 }
+
+.reward {
+  .table {
+    background-color: transparent;
+
+    & > thead {
+      & > tr {
+        & > th,
+        & > td {
+          border: none;
+        }
+      }
+    }
+
+    & > tbody {
+      & > tr {
+        & > th,
+        & > td {
+          border: none;
+        }
+      }
+    }
+  }
+}

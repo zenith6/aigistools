@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-3">
         <label class="control-label">現在の魔神の骨片</label>
-        <input class="form-control input-lg" type="text" name="current" ime-mode="inactive" title="マウスホイールで+/-" />
+        <input class="form-control input-lg" type="number" name="current" ime-mode="inactive" title="マウスホイールで+/-" />
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
         <label class="control-label">目標</label>
@@ -39,7 +39,7 @@
                 <i class="fa fa-arrow-down"></i>0
               </button>
             </span>
-            <input type="text" name="objective" value="300" class="form-control" ime-mode="inactive" />
+            <input type="number" name="objective" value="300" class="form-control" ime-mode="inactive" />
             <span class="input-group-btn" id="increse_objective_list">
             </span>
           </div>
@@ -74,9 +74,9 @@
 </form>
 
 <div class="row">
-  <section id="rewards" class="col-xs-12 col-sm-3" data-objective-mode="achievement">
+  <section id="rewards" class="col-xs-12 col-sm-3 reward" data-objective-mode="achievement">
     <h2>追加報酬</h2>
-    <table class="table table-condenced">
+    <table class="table table-condenced table-hover">
       <thead>
         <tr>
           <th class="text-right">収集数</th>
@@ -230,7 +230,7 @@
   </section>
 
   <section id="map" class="col-xs-12">
-    <table class="table table-condenced table-striped table--map">
+    <table class="table table-condenced table-striped table-responsive table--map">
       <thead>
         <tr>
           <th>MAP</th>
