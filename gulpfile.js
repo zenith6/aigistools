@@ -106,7 +106,6 @@ gulp.task('asset', function () {
   .pipe(gulp.dest('public/assets/css'));
 
   var fonts = gulp.src([
-    path.join(root, 'bower_components/bootstrap-sass/assets/fonts/**/*'),
     path.join(root, 'bower_components/font-awesome/fonts/*'),
   ])
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'fonts')));
