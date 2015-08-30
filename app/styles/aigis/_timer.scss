@@ -340,14 +340,25 @@ button[name=increase] {
   display: block;
   width: 100%;
   padding: 1em 1em 1em 80px;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   transform: translateY(-50%);
 
+  .tutorial-title {
+    margin: 0 0 1em 80px;
+    color: #ccc;
+    font-size: 24px;
+  }
+
   .anna {
-    position: absolute;
-    left: 40px;
+    position: relative;
     top: 2em;
+    float: left;
+  }
+
+  & > p {
+    margin-left: 80px;
+    line-height: 1.8;
   }
 }
 
@@ -380,4 +391,9 @@ button[name=increase] {
       }
     }
   }
+}
+
+code {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: none;
 }

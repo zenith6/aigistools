@@ -162,7 +162,8 @@ let defaultState = {
       expectation: map.expectation
     };
   }),
-  estimateTutorialHidden: false
+  estimateTutorialHidden: false,
+  version: 2,
 };
 
 periods = periods.map(function (period) {
@@ -221,6 +222,10 @@ function loadState() {
 
   try {
     state = JSON.parse($.cookie(cookieName));
+
+    if (state.version === undefined) {
+      state.version = 1;
+    }
   } catch (e) {
     console.warn(e);
   }
@@ -344,8 +349,13 @@ function updateEstimate() {
   let useCrystal = $('[name=estimate_use_crystal]:input').val();
   let useForCharisma = 0 + (useCrystal === 'both' || useCrystal === 'charisma');
   let useForStamina = 0 + (useCrystal === 'both' || useCrystal === 'stamina');
-  let charismaCrystal = Math.ceil(Math.max(requiredCharisma - naturalRecoveryCharisma, 0) / capacityCharisma) * useForCharisma;
-  let staminaCrystal = Math.ceil(Math.max(requiredStamina - naturalRecoveryStamina, 0) / capacityStamina) * useForStamina;
+  let suppliedCharisma = useForCharisma ? requiredCharisma : naturalRecoveryCharisma;
+  let suppliedStamina = useForStamina ? requiredStamina : naturalRecoveryStamina;
+  let availableMarathon = Math.floor(Math.min(suppliedCharisma / map.charisma, suppliedStamina / map.stamina));
+  $('#estimate_available_marathon').text(format(availableMarathon));
+
+  let charismaCrystal = Math.ceil(Math.max(map.charisma * availableMarathon - naturalRecoveryCharisma, 0) / capacityCharisma);
+  let staminaCrystal = Math.ceil(Math.max(map.stamina * availableMarathon - naturalRecoveryStamina, 0) / capacityStamina);
   let requiredCrystal = charismaCrystal + staminaCrystal;
   $('#estimate_required_crystal').text(format(requiredCrystal));
 
@@ -354,11 +364,6 @@ function updateEstimate() {
 
   klass = staminaCrystal === 0 ? 'diff-eq' : staminaCrystal > 0 ? 'diff-plus' : 'diff-minus';
   $('#estimate_required_crystal_for_stamina').attr('class', klass).text(format(staminaCrystal));
-
-  let availableCharisma = naturalRecoveryCharisma + (capacityCharisma * charismaCrystal);
-  let availableStamina = naturalRecoveryStamina + (capacityStamina * staminaCrystal);
-  let availableMarathon = Math.floor(Math.min(availableCharisma / map.charisma, availableStamina / map.stamina, requiredMarathon));
-  $('#estimate_available_marathon').text(format(availableMarathon));
 
   let delta = availableMarathon - requiredMarathon;
   klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
@@ -381,7 +386,7 @@ function updateEstimate() {
   text = (delta >= 0 ? '+' : '') + format(delta);
   $('#estimate_using_stamina_diff').attr('class', klass).text(text);
 
-  let result = current + Math.ceil(map.expectation * availableMarathon);
+  let result = current + Math.floor(map.expectation * availableMarathon);
   $('#estimate_result_collection').text(format(result));
 
   delta = result - objective;
@@ -837,18 +842,21 @@ function initialize() {
     });
 
   $('#estimate_tutorial')
-    .on('click', 'a, button', function (e) {
-      if (e.target.nodeName.toLowerCase() !== 'a') {
-        e.preventDefault();
-      }
-
+    .on('click', 'a', function (e) {
+      e.preventDefault();
+      $('#map .expectation')
+        .addClass('animated flash')
+        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+          $(this).removeClass('animated flash');
+        });
+    })
+    .on('click', 'button', function (e) {
       state.estimateTutorialHidden = true;
       saveState(state);
 
-      $('#estimate_tutorial')
+      $(e.delegateTarget)
         .addClass('animated zoomOutRight')
-        .delay(1000)
-        .queue(function () {
+        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
           $(this).hide();
         });
     })
@@ -864,6 +872,32 @@ function initialize() {
           $anna.removeClass('animated bounce');
         });
     });
+
+  if (state.version === 1) {
+    $('#estimate_bug')
+      .on('click', 'button', function (e) {
+        state.version++;
+        saveState(state);
+
+        $(e.delegateTarget)
+          .addClass('animated hinge')
+          .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+            $(this).hide();
+          });
+      })
+      .toggle(state.version === 1)
+      .each(function () {
+        let $tutorial = $(this);
+        let $anna = $tutorial.find('.anna');
+        $tutorial
+          .on('mouseenter', function () {
+            $anna.addClass('animated bounce');
+          })
+          .on('mouseleave', function () {
+            $anna.removeClass('animated bounce');
+          });
+      });
+  }
 }
 
 $(function () {
