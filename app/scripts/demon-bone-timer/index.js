@@ -495,6 +495,32 @@ function update() {
   $('#prediction_completion_date').text(completionDate);
 }
 
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_animations/Detecting_CSS_animation_support
+ */
+function isAnimationSupported() {
+  let animationstring = 'animated bounce',
+    keyframeprefix = '',
+    domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
+    pfx  = '',
+    elm = document.createElement('div');
+
+  if (elm.style.animationName !== undefined) {
+    return true;
+  }
+
+  for (let i = 0; i < domPrefixes.length; i++) {
+    if (elm.style[domPrefixes[i] + 'AnimationName'] !== undefined) {
+      pfx = domPrefixes[i];
+      animationstring = pfx + 'Animation';
+      keyframeprefix = '-' + pfx.toLowerCase() + '-';
+      return true;
+    }
+  }
+
+  return false;
+}
+
 function initialize() {
   let now = (new Date()).getTime();
   let view = $('#period_dates');
@@ -841,23 +867,47 @@ function initialize() {
       window.location.reload();
     });
 
+  let animationSupporeted = isAnimationSupported();
+  let animationEndEventName = [
+    'webkitAnimationEnd',
+    'mozAnimationEnd',
+    'MSAnimationEnd',
+    'oanimationend',
+    'animationend'
+  ].join(' ');
+
   $('#estimate_tutorial')
     .on('click', 'a', function (e) {
-      e.preventDefault();
-      $('#map .expectation')
-        .addClass('animated flash')
-        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-          $(this).removeClass('animated flash');
-        });
+     $('#map .expectation').each(function () {
+        let $this = $(this);
+
+        if (animationSupporeted) {
+          e.preventDefault();
+          $this
+            .addClass('animated flash')
+            .one(animationEndEventName, function () {
+              $this.removeClass('animated flash');
+            });
+        }
+      });
     })
     .on('click', 'button', function (e) {
       state.estimateTutorialHidden = true;
       saveState(state);
 
       $(e.delegateTarget)
-        .addClass('animated zoomOutRight')
-        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-          $(this).hide();
+        .each(function () {
+          let $this = $(this);
+
+          if (animationSupporeted) {
+            $this
+              .addClass('animated zoomOutRight')
+              .one(animationEndEventName, function () {
+                $this.hide();
+              });
+          } else {
+            $this.hide();
+          }
         });
     })
     .toggle(!state.estimateTutorialHidden)
@@ -879,11 +929,19 @@ function initialize() {
         state.version++;
         saveState(state);
 
-        $(e.delegateTarget)
-          .addClass('animated hinge')
-          .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-            $(this).hide();
-          });
+        $(e.delegateTarget).each(function () {
+          let $this = $(this);
+
+          if (animationSupporeted) {
+            $this
+              .addClass('animated hinge')
+              .one(animationEndEventName, function () {
+                $this.hide();
+              });
+          } else {
+            $this.hide();
+          }
+        });
       })
       .toggle(state.version === 1)
       .each(function () {
