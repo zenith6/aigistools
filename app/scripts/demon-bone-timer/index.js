@@ -923,39 +923,37 @@ function initialize() {
         });
     });
 
-  if (state.version === 1) {
-    $('#estimate_bug')
-      .on('click', 'button', function (e) {
-        state.version++;
-        saveState(state);
+  $('#estimate_bug')
+    .on('click', 'button', function (e) {
+      state.version++;
+      saveState(state);
 
-        $(e.delegateTarget).each(function () {
-          let $this = $(this);
+      $(e.delegateTarget).each(function () {
+        let $this = $(this);
 
-          if (animationSupporeted) {
-            $this
-              .addClass('animated hinge')
-              .one(animationEndEventName, function () {
-                $this.hide();
-              });
-          } else {
-            $this.hide();
-          }
-        });
-      })
-      .toggle(state.version === 1)
-      .each(function () {
-        let $tutorial = $(this);
-        let $anna = $tutorial.find('.anna');
-        $tutorial
-          .on('mouseenter', function () {
-            $anna.addClass('animated bounce');
-          })
-          .on('mouseleave', function () {
-            $anna.removeClass('animated bounce');
-          });
+        if (animationSupporeted) {
+          $this
+            .addClass('animated hinge')
+            .one(animationEndEventName, function () {
+              $this.hide();
+            });
+        } else {
+          $this.hide();
+        }
       });
-  }
+    })
+    .toggle(state.version === 1)
+    .each(function () {
+      let $tutorial = $(this);
+      let $anna = $tutorial.find('.anna');
+      $tutorial
+        .on('mouseenter', function () {
+          $anna.addClass('animated bounce');
+        })
+        .on('mouseleave', function () {
+          $anna.removeClass('animated bounce');
+        });
+    });
 }
 
 $(function () {
