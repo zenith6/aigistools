@@ -25,11 +25,11 @@ let objectives = {
   '1400': '出撃コスト-5',
   '1500': 'スキルレベル10',
   '1600': '初期レベル50',
-  '1620': '+ 黒精霊',
+  '1620': '+ 黒聖霊',
   '1665': '+ ゴールドアーマー',
-  '1710': '+ 黒精霊',
+  '1710': '+ 黒聖霊',
   '1755': '+ プラチナアーマー',
-  '1800': '+ 虹精霊'
+  '1800': '+ 虹聖霊'
 };
 
 let prizes = [
@@ -78,7 +78,7 @@ let maps = [
       {name: '魔神の骨片5', icon: 'demon-bone-5', set: 2},
       {name: '魔神の骨片3', icon: 'demon-bone-3', set: 2},
       {name: 'ジョバンニ', icon: 'giovanni'},
-      {name: '白銀の精霊', icon: 'platinum-sprit'}
+      {name: '白銀の聖霊', icon: 'platinum-sprit'}
     ]
   },
   {
@@ -91,6 +91,53 @@ let maps = [
       {name: 'リカルド', icon: 'ricard'},
       {name: '白バケツ', icon: 'platinum-bucket'},
       {name: '魔水晶', icon: 'demon-crystal-2'}
+    ]
+  },
+  {
+    name: '紅の包囲網',
+    charisma: 40,
+    stamina: 5,
+    expectation: 6,
+    drops: [
+      {name: '魔神の骨片3', icon: 'demon-bone-3', set: 1},
+      {name: '魔神の骨片1', icon: 'demon-bone-1', set: 3},
+      {name: 'カゲロウ', icon: 'kagerou'},
+      {name: '白バケツ', icon: 'platinum-bucket'}
+    ]
+  },
+  {
+    name: '邪悪な共謀',
+    charisma: 70,
+    stamina: 8,
+    expectation: 13,
+    drops: [
+      {name: '魔神の骨片5', icon: 'demon-bone-5', set: 2},
+      {name: '魔神の骨片3', icon: 'demon-bone-3', set: 1},
+      {name: 'ルビー', icon: 'ruby'},
+      {name: 'ミーシャ', icon: 'misha'}
+    ]
+  },
+  {
+    name: '魔に身を捧げし者',
+    charisma: 90,
+    stamina: 12,
+    expectation: 26,
+    drops: [
+      {name: '魔神の骨片5', icon: 'demon-bone-5', set: 4},
+      {name: '魔神の骨片3', icon: 'demon-bone-3', set: 2},
+      {name: '虹の聖霊', icon: 'rainbow-sprit'}
+    ]
+  },
+  {
+    name: 'ピピンの決心',
+    charisma: 100,
+    stamina: 2,
+    expectation: 0,
+    drops: [
+      {name: '金の聖霊', icon: 'gold-sprit'},
+      {name: '白の聖霊', icon: 'platinum-sprit'},
+      {name: '黒の聖霊', icon: 'black-sprit'},
+      {name: '虹の聖霊', icon: 'rainbow-sprit'}
     ]
   }
 ];
@@ -149,7 +196,7 @@ let syncCurrentEnabled = true;
 let defaultState = {
   current: 20,
   objective: 1500,
-  estimateMap: 4,
+  estimateMap: 7,
   estimateRank: 100,
   estimateUseCrystal: 'both',
   estimateNaturalRecovery: true,
