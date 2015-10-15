@@ -4,7 +4,6 @@ var gulp        = require('gulp');
 var $           = require('gulp-load-plugins')({camelize: true});
 var requireDir  = require('require-dir');
 var ect         = require('gulp-ect-simple');
-var deploy      = require('gulp-gh-pages');
 var path        = require('path');
 var webpack     = require('webpack');
 var merge       = require('merge');
@@ -154,7 +153,10 @@ gulp.task('clean', function (callback) {
     throw new Error('config server.root was empty.');
   }
 
-  del(path.join(config.server.root, '**/*'), callback);
+  del(path.join(config.server.root, '**/*'))
+    .then(function () {
+      callback();
+    });
 });
 
 gulp.task('test', function () {
@@ -186,7 +188,7 @@ gulp.task('watch', function () {
 
 gulp.task('deploy', ['build'], function () {
   return gulp.src('./public/**/*')
-    .pipe(deploy({cacheDir: './.ghpages'}));
+    .pipe($.ghPages({cacheDir: './.ghpages'}));
 });
 
 gulp.task('build', function (callback) {
