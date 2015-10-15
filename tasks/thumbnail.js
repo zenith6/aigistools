@@ -109,13 +109,14 @@ gulp.task('thumbnail', function (callback) {
     throw new Error('view.thumbnail is empty.');
   }
 
-  del(path.join(thumbRoot, '**/*'), function () {
-    phantom.create(function (ph) {
-      renderer = ph;
+  del(path.join(thumbRoot, '**/*'))
+    .then(function () {
+      phantom.create(function (ph) {
+        renderer = ph;
 
-      walker = walk.walk(serverRoot);
+        walker = walk.walk(serverRoot);
 
-      renderNextPage();
+        renderNextPage();
+      });
     });
-  });
 });
