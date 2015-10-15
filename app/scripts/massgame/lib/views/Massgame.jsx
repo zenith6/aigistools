@@ -1,13 +1,8 @@
-'use strict';
-
 import React from 'react';
 import MessageEditor from './MessageEditor';
 import MessageView from './MessageView';
 import ExportPane from './ExportPane';
-
-import services from '../../services';
-let messageActions = services.messageActions;
-let messageStore = services.messageStore;
+import {messageActions, messageStore} from '../../services';
 
 export default class Massgame extends React.Component {
   constructor(props) {

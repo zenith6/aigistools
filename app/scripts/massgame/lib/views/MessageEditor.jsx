@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 
 export default class MessageEditor extends React.Component {
@@ -10,8 +8,8 @@ export default class MessageEditor extends React.Component {
       enabled: !!props.data,
     };
 
-    this.changeEmitTimer = null;
-    this.changeEmitDelay = 100;
+    this.emitChangeEventTimer = null;
+    this.emitChangeEventDelay = 100;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -19,9 +17,13 @@ export default class MessageEditor extends React.Component {
     let enabled = !!message;
     this.setState({enabled: enabled});
 
-    if (message) {
-      this.refs.text.getDOMNode().value = message.text;
+    if (message.text !== this.refs.text.value) {
+      this.refs.text.value = message.text;
     }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.enabled !== this.state.enabled;
   }
 
   render() {
@@ -31,19 +33,19 @@ export default class MessageEditor extends React.Component {
 
     return (
       <form
-          className="form form--message-edit"
-          onSubmit={this.handleSubmit.bind(this)}
-        >
+        className="form form--message-edit"
+        onSubmit={this.handleSubmit.bind(this)}
+      >
         <div className="form-group">
           <input
-              type="text"
-              ref="text"
-              className="form-control"
-              defaultValue={text}
-              placeholder="メッセージ"
-              disabled={!enabled}
-              onChange={this.handleChange.bind(this)}
-            />
+            type="text"
+            ref="text"
+            className="form-control"
+            defaultValue={text}
+            placeholder="メッセージ"
+            disabled={!enabled}
+            onChange={this.handleChange.bind(this)}
+          />
         </div>
       </form>
     );
@@ -60,15 +62,15 @@ export default class MessageEditor extends React.Component {
       return;
     }
 
-    if (this.changeEmitTimer) {
-      clearTimeout(this.changeEmitTimer);
+    if (this.emitChangeEventTimer) {
+      clearTimeout(this.emitChangeEventTimer);
     }
 
-    message.text = this.refs.text.getDOMNode().value;
+    message.text = this.refs.text.value;
 
-    this.changeEmitTimer = setTimeout(() => {
+    this.emitChangeEventTimer = setTimeout(() => {
       this.props.onChange(message);
-    }, this.changeEmitDelay);
+    }, this.emitChangeEventDelay);
   }
 }
 

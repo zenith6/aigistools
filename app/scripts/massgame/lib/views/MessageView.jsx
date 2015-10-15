@@ -1,8 +1,5 @@
-'use strict';
-
 import React from 'react';
 import LoadingIndicator from './LoadingIndicator';
-
 import services from '../../services';
 
 export default class MessageView extends React.Component {
@@ -59,7 +56,7 @@ export default class MessageView extends React.Component {
 
   renderMessage(message) {
     let renderer = services.messageRenderer;
-    let canvas = this.refs.canvas.getDOMNode();
+    let canvas = this.refs.canvas;
     renderer.render(canvas, message);
   }
 

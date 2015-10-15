@@ -13,7 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "animate.css": "~3.4.0",
+    "animate.css": "^3.4.0",
     "bootstrap-sass": "^3.3.3",
     "bootstrap-touchspin": "^3.0.1",
     "bootswatch": "^3.3.2",

@@ -1,8 +1,5 @@
-'use strict';
-
 import React from 'react';
-
-import services from '../../services';
+import {messageRenderer} from '../../services';
 
 export default class ExportPane extends React.Component {
   constructor(props) {
@@ -52,8 +49,7 @@ export default class ExportPane extends React.Component {
 
     try {
       let message = this.props.data;
-      let renderer = services.messageRenderer;
-      this.download(message, renderer);
+      this.download(message, messageRenderer);
     } catch (error) {
       window.alert('Failed to download operation. ' + error);
     }
