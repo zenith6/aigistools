@@ -1,5 +1,3 @@
-'use strict';
-
 var gulp        = require('gulp');
 var $           = require('gulp-load-plugins')({camelize: true});
 var requireDir  = require('require-dir');

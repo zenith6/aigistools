@@ -421,7 +421,7 @@ function initialize() {
     })
     .TouchSpin({
       min: 0,
-      max: event.maxObjective,
+      max: 10000,
       step: 1
     });
 
