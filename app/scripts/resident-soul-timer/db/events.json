@@ -61,8 +61,8 @@
         "stamina": 4,
         "expectation": 6,
         "drops": [
-          {"name": "魔神の骨片3", "icon": "resident-soul-3", "set": 1},
-          {"name": "魔神の骨片5", "icon": "resident-soul-1", "set": 3},
+          {"name": "住民の魂3", "icon": "resident-soul-3", "set": 1},
+          {"name": "住民の魂5", "icon": "resident-soul-1", "set": 3},
           {"name": "カシス", "icon": "cassis"},
           {"name": "ハリッサ", "icon": "harissa"}
         ]
@@ -73,8 +73,8 @@
         "stamina": 7,
         "expectation": 16,
         "drops": [
-          {"name": "魔神の骨片5", "icon": "resident-soul-5", "set": 2},
-          {"name": "魔神の骨片3", "icon": "resident-soul-3", "set": 2},
+          {"name": "住民の魂5", "icon": "resident-soul-5", "set": 2},
+          {"name": "住民の魂3", "icon": "resident-soul-3", "set": 2},
           {"name": "ミーシャ", "icon": "misha"},
           {"name": "白銀の聖霊", "icon": "platinum-sprit"}
         ]
@@ -85,10 +85,57 @@
         "stamina": 9,
         "expectation": 15,
         "drops": [
-          {"name": "魔神の骨片5", "icon": "resident-soul-5", "set": 3},
+          {"name": "住民の魂5", "icon": "resident-soul-5", "set": 3},
           {"name": "グレイブ", "icon": "grave"},
           {"name": "白バケツ", "icon": "platinum-bucket"},
           {"name": "魔水晶2", "icon": "demon-crystal-2"}
+        ]
+      },
+      {
+        "name": "魂の集う先",
+        "charisma": 40,
+        "stamina": 5,
+        "expectation": 10,
+        "drops": [
+          {"name": "住民の魂3", "icon": "resident-soul-3", "set": 3},
+          {"name": "住民の魂1", "icon": "resident-soul-1", "set": 1},
+          {"name": "シャロン", "icon": "sharon"},
+          {"name": "白バケツ", "icon": "platinum-bucket"}
+        ]
+      },
+      {
+        "name": "立ち塞がるカボチャ",
+        "charisma": 70,
+        "stamina": 8,
+        "expectation": 16,
+        "drops": [
+          {"name": "住民の魂5", "icon": "resident-soul-5", "set": 2},
+          {"name": "住民の魂3", "icon": "resident-soul-3", "set": 2},
+          {"name": "ヴァレリー", "icon": "valerie"},
+          {"name": "ルビー", "icon": "ruby"}
+        ]
+      },
+      {
+        "name": "悪霊を統べる者",
+        "charisma": 90,
+        "stamina": 12,
+        "expectation": 26,
+        "drops": [
+          {"name": "住民の魂5", "icon": "resident-soul-5", "set": 4},
+          {"name": "住民の魂3", "icon": "resident-soul-3", "set": 2},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ]
+      },
+      {
+        "name": "トリックオアトリート",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {"name": "金聖霊", "icon": "gold-sprit"},
+          {"name": "白聖霊", "icon": "platinum-sprit"},
+          {"name": "黒聖霊", "icon": "black-sprit"},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
         ]
       }
     ],
