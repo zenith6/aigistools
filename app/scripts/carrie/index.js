@@ -1,5 +1,3 @@
-'use strict';
-
 import $ from 'jquery';
 import 'jquery-minicolors';
 import 'ionrangeslider';

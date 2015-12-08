@@ -1,28 +1,21 @@
-var gulp        = require('gulp');
-var $           = require('gulp-load-plugins')({camelize: true});
-var requireDir  = require('require-dir');
-var ect         = require('gulp-ect-simple');
-var path        = require('path');
-var webpack     = require('webpack');
-var merge       = require('merge');
-var runSequence = require('run-sequence');
-var fs          = require('fs');
-var es          = require('event-stream');
-var notifier    = require('node-notifier');
-
-var config = loadConfig();
-var root   = __dirname;
-var webpackCompiler; // webpack compiler for livereload cache
-
-requireDir('./tasks', {recurse: true});
+import gulp from 'gulp';
+import loadPlugins from 'gulp-load-plugins';
+import requireDir from 'require-dir';
+import path from 'path';
+import webpack from 'webpack';
+import merge from 'merge';
+import runSequence from 'run-sequence';
+import fs from 'fs';
+import es from 'event-stream';
+import notifier from 'node-notifier';
 
 function loadConfig() {
-  var config = require('./app/config');
-  var stage = process.env.stage;
+  let config = require('./app/config');
+  let stage = process.env.stage;
 
-  var file = '.env' + (stage ? '.' + stage : '') + '.json';
+  let file = '.env' + (stage ? '.' + stage : '') + '.json';
   if (fs.existsSync(file)) {
-    var env = JSON.parse(fs.readFileSync(file));
+    let env = JSON.parse(fs.readFileSync(file));
     config = merge.recursive(config, env);
     $.util.log('Override config from ' + file);
   }
@@ -30,15 +23,22 @@ function loadConfig() {
   return config;
 }
 
-gulp.task('script', function (callback) {
+let $ = loadPlugins({camelize: true});
+let config = loadConfig();
+let root   = __dirname;
+let webpackCompiler; // webpack compiler for livereload cache
+
+requireDir('./tasks', {recurse: true});
+
+gulp.task('script', (callback) => {
   if (!webpackCompiler) {
-    var webpackConfig = require('./webpack.config');
+    let webpackConfig = require('./webpack.config.babel');
     webpackCompiler = webpack(webpackConfig);
   }
 
-  webpackCompiler.run(function(err, stats) {
+  webpackCompiler.run((err, stats) => {
     if (err || stats.hasErrors()) {
-      var message = err
+      let message = err
         ? err.message
         : stats.compilation.errors[0].error.toString();
       notifier.notify({
@@ -61,7 +61,7 @@ gulp.task('script', function (callback) {
   });
 });
 
-gulp.task('style', function () {
+gulp.task('style', () => {
   return gulp.src(path.join(config.style.path, '*.scss'))
     .pipe($.plumber({
       errorHandler: $.notify.onError('<%= error.message %>')
@@ -75,7 +75,7 @@ gulp.task('style', function () {
     .pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'css')));
 });
 
-gulp.task('style:update-vendor', function () {
+gulp.task('style:update-vendor', () => {
   return gulp.src([
       path.join(root, 'bower_components/select2/select2.css'),
       path.join(root, 'bower_components/select2/select2-bootstrap.css'),
@@ -91,18 +91,18 @@ gulp.task('style:update-vendor', function () {
     .pipe(gulp.dest(path.join(config.style.path, 'vendor')));
 });
 
-gulp.task('asset', function () {
-  var assets = gulp.src([
+gulp.task('asset', () => {
+  let assets = gulp.src([
     path.join(root, 'app/assets/**/*'),
   ])
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset)));
 
-  var select2 = gulp.src([
+  let select2 = gulp.src([
     './bower_components/select2/*.{png,gif}',
   ])
   .pipe(gulp.dest('public/assets/css'));
 
-  var fonts = gulp.src([
+  let fonts = gulp.src([
     path.join(root, 'bower_components/font-awesome/fonts/*'),
   ])
   .pipe(gulp.dest(path.join(config.server.root, config.server.asset, 'fonts')));
@@ -110,8 +110,8 @@ gulp.task('asset', function () {
   return es.merge(assets, select2, fonts);
 });
 
-gulp.task('view', function () {
-  var data = merge(
+gulp.task('view', () => {
+  let data = merge(
     require(config.view.helper),
     {
       config: config,
@@ -123,11 +123,11 @@ gulp.task('view', function () {
       '!' + path.join(config.view.path, '**/_*.ect'),
     ])
     .pipe($.plumber({
-      errorHandler: function (error) {
+      errorHandler: (error) => {
         $.util.log(error.message);
         this.emit('end');
     }}))
-    .pipe(ect({
+    .pipe($.ectSimple({
       options: {
         root: config.view.path,
         ext: '.ect'
@@ -144,24 +144,24 @@ gulp.task('view', function () {
     .pipe(gulp.dest(config.server.root));
 });
 
-gulp.task('clean', function (callback) {
-  var del = require('del');
+gulp.task('clean', (callback) => {
+  let del = require('del');
 
   if (!config.server.root || config.server.root === '') {
     throw new Error('config server.root was empty.');
   }
 
   del(path.join(config.server.root, '**/*'))
-    .then(function () {
+    .then(() => {
       callback();
     });
 });
 
-gulp.task('test', function () {
+gulp.task('test', () => {
   $.util.log('Test? nothing yay!');
 });
 
-gulp.task('server', function() {
+gulp.task('server', () => {
   gulp.src(config.server.root)
     .pipe($.webserver({
       livereload: true,
@@ -170,26 +170,26 @@ gulp.task('server', function() {
     }));
 });
 
-gulp.task('watch', function () {
-  $.watch(path.join(config.view.path, '**/*'), function () {
+gulp.task('watch', () => {
+  $.watch(path.join(config.view.path, '**/*'), () => {
     gulp.start('view');
   });
 
-  $.watch(path.join(config.style.path, '**/*'), function () {
+  $.watch(path.join(config.style.path, '**/*'), () => {
     gulp.start('style');
   });
 
-  $.watch(path.join(config.script.path, '**/*'), function () {
+  $.watch(path.join(config.script.path, '**/*'), () => {
     gulp.start('script');
   });
 });
 
-gulp.task('deploy', ['build'], function () {
+gulp.task('deploy', ['build'], () => {
   return gulp.src('./public/**/*')
     .pipe($.ghPages({cacheDir: './.ghpages'}));
 });
 
-gulp.task('build', function (callback) {
+gulp.task('build', (callback) => {
   runSequence(
     ['test', 'clean'],
     ['style:update-vendor'],

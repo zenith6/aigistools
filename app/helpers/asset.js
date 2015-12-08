@@ -1,7 +1,5 @@
-'use strict';
-
-var urlHelper = require('./url');
-var config = require('../config');
+import urlHelper from './url';
+import config from '../config';
 
 function assetHelper(pathname, options) {
   return urlHelper(config.server.asset + pathname, options);

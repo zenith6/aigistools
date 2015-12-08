@@ -1,5 +1,3 @@
-'use strict';
-
 require('jquery.cookie');
 
 // [begin...end)

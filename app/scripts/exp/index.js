@@ -1,6 +1,4 @@
-'use strict';
-
-import _ from 'lodash';
+import 'babel-polyfill';
 import experiences from './db/experiences.json';
 import presets from './db/presets.json';
 import expUnits from './db/exp_units.json';
@@ -130,12 +128,12 @@ function onChangeBreedingPlan() {
   var rarityId = $rarityId.val();
 
   var breedingPlanId = $breedingPlanId.data('breeding_plan_id');
-  var breedingPlan = _.find(breedingPlans, function (breedingPlan) {
+  var breedingPlan = Array.find(breedingPlans, function (breedingPlan) {
     return breedingPlan.id == breedingPlanId;
   });
 
   var presetId = $presetId.val();
-  var preset = _.find(presets, function (preset) {
+  var preset = Array.find(presets, function (preset) {
     return preset.id == presetId;
   });
 
@@ -236,7 +234,7 @@ function _updateResult() {
 }
 
 function formatPresetItem(item) {
-  var preset = _.find(presets, function (preset) {
+  var preset = Array.find(presets, function (preset) {
     return preset.id == item.id;
   });
 

@@ -9,6 +9,7 @@
     "modules": true,
     "jsx": true,
   },
+  "parser": "babel-eslint",
   "rules": {
     "camelcase": [0],
     "comma-dangle": [0],
@@ -16,6 +17,8 @@
     "new-cap": [1, {"newIsCap": false, "capIsNew": false}],
     "no-alert": [0],
     "no-shadow": [0],
+    "no-undef": [2],
+    "no-unused-vars": [2, {vars: local}],
     "quotes": [2, "single"],
     "strict": [2, "global"],
   },

@@ -1,5 +1,7 @@
 import React from 'react';
-import {messageRenderer} from '../../services';
+import services from '../../services';
+
+let {messageRenderer} = services;
 
 export default class ExportPane extends React.Component {
   constructor(props) {

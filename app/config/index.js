@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   app: require('./app'),
   view: require('./view'),

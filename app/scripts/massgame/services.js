@@ -1,5 +1,3 @@
-'use strict';
-
 import MessageActions from './lib/message/MessageActions';
 import MessageDispatcher from './lib/message/MessageDispatcher';
 import MessageRenderer from './lib/message/MessageRenderer';

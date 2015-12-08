@@ -1,5 +1,3 @@
-'use strict';
-
 export const MESSAGE_RESTORING = 'MESSAGE_RESTORING';
 export const MESSAGE_RESTORED = 'MESSAGE_RESTORED';
 export const MESSAGE_UPDATING = 'MESSAGE_UPDATING';

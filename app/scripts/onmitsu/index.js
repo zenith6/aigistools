@@ -1,5 +1,3 @@
-'use strict';
-
 var icons = require('../../resources/aigisdot/aigisdot.json');
 var iconSprite = require('url-loader?mimetype=image/png!../../resources/aigisdot/aigisdot.png');
 

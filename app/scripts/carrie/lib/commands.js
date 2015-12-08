@@ -1,5 +1,3 @@
-'use strict';
-
 export default {
   r: function () {
     var items = Array.prototype.slice.call(arguments, 0);

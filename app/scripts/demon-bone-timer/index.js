@@ -546,10 +546,7 @@ function update() {
  * @see https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_animations/Detecting_CSS_animation_support
  */
 function isAnimationSupported() {
-  let animationstring = 'animated bounce',
-    keyframeprefix = '',
-    domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
-    pfx  = '',
+  let domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
     elm = document.createElement('div');
 
   if (elm.style.animationName !== undefined) {
@@ -558,9 +555,6 @@ function isAnimationSupported() {
 
   for (let i = 0; i < domPrefixes.length; i++) {
     if (elm.style[domPrefixes[i] + 'AnimationName'] !== undefined) {
-      pfx = domPrefixes[i];
-      animationstring = pfx + 'Animation';
-      keyframeprefix = '-' + pfx.toLowerCase() + '-';
       return true;
     }
   }

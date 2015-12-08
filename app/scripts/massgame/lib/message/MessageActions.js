@@ -1,5 +1,3 @@
-'use strict';
-
 import EventEmitter from 'wolfy87-eventemitter';
 import Message from './Message';
 import * as MessageActionTypes from './MessageActionTypes';

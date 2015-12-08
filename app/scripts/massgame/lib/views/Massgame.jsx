@@ -1,8 +1,11 @@
+import 'babel-polyfill';
 import React from 'react';
 import MessageEditor from './MessageEditor';
 import MessageView from './MessageView';
 import ExportPane from './ExportPane';
-import {messageActions, messageStore} from '../../services';
+import services from '../../services';
+
+let {messageActions, messageStore} = services;
 
 export default class Massgame extends React.Component {
   constructor(props) {

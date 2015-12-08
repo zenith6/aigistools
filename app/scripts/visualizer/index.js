@@ -884,7 +884,7 @@ function toDamageDataTable(result, attackers, condition) {
       switch (record.type) {
         case 'anotation':
           row[anotationOffset] = '!';
-          row[anotationOffset + 1] += record.message + "\n";
+          row[anotationOffset + 1] += record.message + '\n';
           break;
 
         case 'damage':
@@ -920,7 +920,7 @@ function toRecoveryDataTable(result, healers, condition) {
       switch (record.type) {
         case 'anotation':
           row[anotationOffset] = '!';
-          row[anotationOffset + 1] += record.message + "\n";
+          row[anotationOffset + 1] += record.message + '\n';
           break;
 
         case 'recovery':
@@ -992,7 +992,7 @@ function toCostDataTable(result, healers, condition) {
       switch (record.type) {
         case 'anotation':
           row[anotationOffset] = '!';
-          row[anotationOffset + 1] += record.message + "\n";
+          row[anotationOffset + 1] += record.message + '\n';
           break;
 
         case 'cost':

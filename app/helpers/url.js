@@ -1,7 +1,5 @@
-'use strict';
-
-var url = require('url');
-var config = require('../config');
+import url from 'url';
+import config from '../config';
 
 function urlHelper(pathname, options) {
   var address;

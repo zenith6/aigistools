@@ -1,7 +1,3 @@
-'use strict';
-
-import { Promise } from 'es6-promise';
-
 export default class Message {
   constructor(values) {
     this.text = '';

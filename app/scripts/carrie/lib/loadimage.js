@@ -1,5 +1,3 @@
-'use strict';
-
 function loadImage(url, callback) {
   var loader = new Image();
 

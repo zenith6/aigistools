@@ -1,5 +1,3 @@
-'use strict';
-
 export class Component {
   constructor(options) {
     this.options = options;

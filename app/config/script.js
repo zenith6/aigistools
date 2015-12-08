@@ -1,6 +1,4 @@
-'use strict';
-
-var path = require('path');
+import path from 'path';
 
 module.exports = {
   path: path.resolve(__dirname, '../scripts'),

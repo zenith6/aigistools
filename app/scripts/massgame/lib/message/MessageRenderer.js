@@ -1,5 +1,3 @@
-'use strict';
-
 export default class MessageRenderer {
   constructor() {
     this.mask = document.createElement('canvas');
