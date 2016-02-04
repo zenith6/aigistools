@@ -30,6 +30,11 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '至宝のカケラタイマー',
+    id: 'treasure-fragment2-timer',
+    path: 'treasure-fragment2-timer/',
+  },
+  {
     name: '住民の魂タイマー',
     id: 'resident-soul-timer',
     path: 'resident-soul-timer/',
@@ -55,7 +60,7 @@ module.exports = [
     path: 'time-crystal-timer/',
   },
   {
-    name: '至宝のカケラタイマー',
+    name: '至宝のカケラタイマー(旧)',
     id: 'treasure-fragment-timer',
     path: 'treasure-fragment-timer',
   },

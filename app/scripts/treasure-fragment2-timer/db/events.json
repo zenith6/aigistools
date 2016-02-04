@@ -1,0 +1,138 @@
+[
+  {
+    "id": "20160204",
+    "periods": [
+      ["2016/02/04 15:00:00", "2016/02/11 10:00:00"],
+      ["2016/02/11 15:00:00", "2016/02/18 10:00:00"]
+    ],
+    "objectives": {
+      "25": "メトゥスが仲間になる",
+      "50": "スキルレベル2",
+      "100": "初期レベル10",
+      "150": "スキルレベル3",
+      "200": "出撃コスト-1",
+      "250": "スキルレベル4",
+      "300": "出撃コスト-2",
+      "400": "スキルレベル5",
+      "500": "初期レベル20",
+      "600": "スキルレベル6",
+      "700": "出撃コスト-3",
+      "800": "スキルレベル7",
+      "900": "初期レベル30",
+      "1000": "スキルレベル8",
+      "1100": "出撃コスト-4",
+      "1200": "初期レベル40",
+      "1300": "スキルレベル9",
+      "1400": "出撃コスト-5",
+      "1500": "スキルレベル10",
+      "1600": "初期レベル50",
+      "1620": "+ 黒聖霊",
+      "1665": "+ ゴールドアーマー",
+      "1710": "+ 黒聖霊",
+      "1755": "+ プラチナアーマー",
+      "1800": "+ 虹聖霊"
+    },
+    "prizes": [],
+    "maps":[
+      {
+        "name": "思わぬ訪問者",
+        "charisma": 20,
+        "stamina": 1,
+        "expectation": 2,
+        "drops": [
+          {"name": "至宝のカケラ", "icon": "treasure-fragment2-1", "set": 2},
+          {"name": "花束", "icon": "flower"}
+        ]
+      },
+      {
+        "name": "魂呼びの迷宮",
+        "charisma": 30,
+        "stamina": 2,
+        "expectation": 3,
+        "drops": [
+          {"name": "至宝のカケラ", "icon": "treasure-fragment2-1", "set": 3},
+          {"name": "クレイブ", "icon": "grave"},
+          {"name": "魔水晶", "icon": "demon-crystal-1"}
+        ]
+      },
+      {
+        "name": "鎧の者たち",
+        "charisma": 40,
+        "stamina": 4,
+        "expectation": 6,
+        "drops": [
+          {"name": "至宝のカケラ3", "icon": "treasure-fragment2-3", "set": 1},
+          {"name": "至宝のカケラ5", "icon": "treasure-fragment2-1", "set": 3},
+          {"name": "ネーニャ", "icon": "nenya"},
+          {"name": "カズハ", "icon": "kazuha"}
+        ]
+      },
+      {
+        "name": "魔神の影",
+        "charisma": 50,
+        "stamina": 7,
+        "expectation": 16,
+        "drops": [
+          {"name": "至宝のカケラ5", "icon": "treasure-fragment2-5", "set": 2},
+          {"name": "至宝のカケラ3", "icon": "treasure-fragment2-3", "set": 2},
+          {"name": "ヴァレリー", "icon": "valerie"},
+          {"name": "白銀の聖霊", "icon": "platinum-sprit"}
+        ]
+      },
+      {
+        "name": "不死の追跡者",
+        "charisma": 80,
+        "stamina": 9,
+        "expectation": 15,
+        "drops": [
+          {"name": "至宝のカケラ5", "icon": "treasure-fragment2-5", "set": 3},
+          {"name": "チグリ", "icon": "tigris"},
+          {"name": "プラチナアーマー", "icon": "platinum-bucket"},
+          {"name": "魔水晶2", "icon": "demon-crystal-2"}
+        ]
+      }
+    ],
+    "rewards": [
+      {"amount": 45, "unit": "gold-bucket"},
+      {"amount": 90, "unit": "gold-sprit"},
+      {"amount": 135, "unit": "platinum-bucket"},
+      {"amount": 180, "unit": "gold-sprit"},
+      {"amount": 225, "unit": "crystal-fragment"},
+      {"amount": 270, "unit": "platinum-sprit"},
+      {"amount": 315, "unit": "gold-bucket"},
+      {"amount": 360, "unit": "platinum-sprit"},
+      {"amount": 405, "unit": "platinum-bucket"},
+      {"amount": 450, "unit": "black-sprit"},
+      {"amount": 495, "unit": "crystal-fragment"},
+      {"amount": 540, "unit": "black-sprit"},
+      {"amount": 585, "unit": "gold-bucket"},
+      {"amount": 630, "unit": "rainbow-sprit"},
+      {"amount": 675, "unit": "platinum-bucket"},
+      {"amount": 720, "unit": "platinum-sprit"},
+      {"amount": 765, "unit": "crystal-fragment"},
+      {"amount": 810, "unit": "platinum-sprit"},
+      {"amount": 855, "unit": "gold-bucket"},
+      {"amount": 900, "unit": "black-sprit"},
+      {"amount": 945, "unit": "platinum-bucket"},
+      {"amount": 990, "unit": "platinum-sprit"},
+      {"amount": 1035, "unit": "crystal-fragment"},
+      {"amount": 1080, "unit": "platinum-sprit"},
+      {"amount": 1125, "unit": "gold-bucket"},
+      {"amount": 1170, "unit": "black-sprit"},
+      {"amount": 1215, "unit": "platinum-bucket"},
+      {"amount": 1260, "unit": "black-sprit"},
+      {"amount": 1305, "unit": "crystal-fragment"},
+      {"amount": 1350, "unit": "rainbow-sprit"},
+      {"amount": 1395, "unit": "gold-bucket"},
+      {"amount": 1440, "unit": "platinum-sprit"},
+      {"amount": 1485, "unit": "platinum-bucket"},
+      {"amount": 1530, "unit": "platinum-sprit"},
+      {"amount": 1575, "unit": "crystal-fragment"},
+      {"amount": 1620, "unit": "black-sprit"},
+      {"amount": 1665, "unit": "gold-bucket"},
+      {"amount": 1710, "unit": "black-sprit"},
+      {"amount": 1755, "unit": "platinum-bucket"},
+      {"amount": 1800, "unit": "rainbow-sprit"}
+    ]
+  }
+]
