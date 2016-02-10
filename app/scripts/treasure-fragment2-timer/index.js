@@ -25,7 +25,7 @@ let syncCurrentEnabled = true;
 let defaultState = {
   current: 20,
   objective: 1500,
-  estimateMap: 4,
+  estimateMap: 7,
   estimateRank: 100,
   estimateUseCrystal: 'both',
   estimateNaturalRecovery: true,
@@ -260,6 +260,22 @@ function updateEstimate() {
   klass = delta === 0 ? 'diff-eq' : delta > 0 ? 'diff-plus' : 'diff-minus';
   text = (delta >= 0 ? '+' : '') + format(delta);
   $('#estimate_result_collection_diff').attr('class', klass).text(text);
+
+  let experience = Math.floor(map.experience * availableMarathon);
+  text = (experience > 0 ? '+' : '') + format(experience);
+  $('#estimate_experience').text(text);
+
+  let experienceAvg = experience / requiredCrystal;
+  text = (experienceAvg > 0 ? '+' : '') + format(experienceAvg);
+  $('#estimate_avg_experience').text(text);
+
+  let gold = Math.floor(map.gold * availableMarathon);
+  text = (gold > 0 ? '+' : '') + format(gold);
+  $('#estimate_gold').text(text);
+
+  let goldAvg = gold / requiredCrystal;
+  text = (goldAvg > 0 ? '+' : '') + format(goldAvg);
+  $('#estimate_avg_gold').text(text);
 }
 
 function update() {

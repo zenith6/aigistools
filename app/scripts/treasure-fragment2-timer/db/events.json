@@ -42,7 +42,9 @@
         "drops": [
           {"name": "至宝のカケラ", "icon": "treasure-fragment2-1", "set": 2},
           {"name": "花束", "icon": "flower"}
-        ]
+        ],
+        "experience": 140,
+        "gold": 900
       },
       {
         "name": "魂呼びの迷宮",
@@ -53,7 +55,9 @@
           {"name": "至宝のカケラ", "icon": "treasure-fragment2-1", "set": 3},
           {"name": "クレイブ", "icon": "grave"},
           {"name": "魔水晶", "icon": "demon-crystal-1"}
-        ]
+        ],
+        "experience": 180,
+        "gold": 1200
       },
       {
         "name": "鎧の者たち",
@@ -65,7 +69,9 @@
           {"name": "至宝のカケラ5", "icon": "treasure-fragment2-1", "set": 3},
           {"name": "ネーニャ", "icon": "nenya"},
           {"name": "カズハ", "icon": "kazuha"}
-        ]
+        ],
+        "experience": 240,
+        "gold": 1800
       },
       {
         "name": "魔神の影",
@@ -77,7 +83,9 @@
           {"name": "至宝のカケラ3", "icon": "treasure-fragment2-3", "set": 2},
           {"name": "ヴァレリー", "icon": "valerie"},
           {"name": "白銀の聖霊", "icon": "platinum-sprit"}
-        ]
+        ],
+        "experience": 300,
+        "gold": 2100
       },
       {
         "name": "不死の追跡者",
@@ -89,7 +97,64 @@
           {"name": "チグリ", "icon": "tigris"},
           {"name": "プラチナアーマー", "icon": "platinum-bucket"},
           {"name": "魔水晶2", "icon": "demon-crystal-2"}
-        ]
+        ],
+        "experience": 370,
+        "gold": 2700
+      },
+      {
+        "name": "迷宮の罠",
+        "charisma": 40,
+        "stamina": 5,
+        "expectation": 9,
+        "drops": [
+          {"name": "至宝のカケラ3", "icon": "treasure-fragment2-3", "set": 3},
+          {"name": "竜神戦士", "icon": "dragon-warrior"},
+          {"name": "ベルナール", "icon": "bell"},
+          {"name": "白バケツ", "icon": "platinum-bucket"}
+        ],
+        "experience": 260,
+        "gold": 1950
+      },
+      {
+        "name": "悲しみの再会",
+        "charisma": 70,
+        "stamina": 8,
+        "expectation": 16,
+        "drops": [
+          {"name": "至宝のカケラ5", "icon": "treasure-fragment2-5", "set": 2},
+          {"name": "至宝のカケラ3", "icon": "treasure-fragment2-3", "set": 2},
+          {"name": "ガドラスステーキ", "icon": "gadrus"},
+          {"name": "ルビー", "icon": "ruby"}
+        ],
+        "experience": 350,
+        "gold": 2550
+      },
+      {
+        "name": "二人の使者",
+        "charisma": 90,
+        "stamina": 12,
+        "expectation": 26,
+        "drops": [
+          {"name": "至宝のカケラ5", "icon": "treasure-fragment2-5", "set": 4},
+          {"name": "至宝のカケラ3", "icon": "treasure-fragment2-3", "set": 2},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 0,
+        "gold": 0
+      },
+      {
+        "name": "神罰を下す者たち",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {"name": "金聖霊", "icon": "gold-sprit"},
+          {"name": "白聖霊", "icon": "platinum-sprit"},
+          {"name": "黒聖霊", "icon": "black-sprit"},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 0,
+        "gold": 0
       }
     ],
     "rewards": [

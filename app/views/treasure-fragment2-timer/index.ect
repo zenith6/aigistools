@@ -134,10 +134,10 @@
     </div>
 
     <div class="table-responsive">
-      <table class="table table-striped">
+      <table class="table table-striped estimate-table">
         <tbody>
           <tr class="estiamte-required-crystal">
-            <th class="col-xs-4">消費結晶</th>
+            <th class="text-right col-xs-4">消費結晶</th>
             <td class="col-xs-8">
               <span class="estimate-value" id="estimate_required_crystal"></span><span class="estimate-unit">個</span>
               <span class="diff">
@@ -147,31 +147,45 @@
             </td>
           </tr>
           <tr class="estiamte-collection">
-            <th class="col-xs-4">到達収集数</th>
+            <th class="text-right col-xs-4">到達収集数</th>
             <td class="col-xs-8">
               <span class="estimate-value" id="estimate_result_collection"></span><span class="estimate-unit">個</span>
               <span class="diff">(対目標数<span id="estimate_result_collection_diff"></span>)</span>
             </td>
           </tr>
           <tr class="estiamte-required-marathon">
-            <th class="col-xs-4">可能周回数</th>
+            <th class="text-right col-xs-4">周回数</th>
             <td class="col-xs-8">
               <span class="estimate-value" id="estimate_available_marathon"></span><span class="estimate-unit">周</span>
-              <span class="diff">(対必要周回<span id="estimate_available_marathon_diff"></span>)</span>
+              <span class="diff">(対要求周回<span id="estimate_available_marathon_diff"></span>)</span>
             </td>
           </tr>
           <tr class="estiamte-using-charisma">
-            <th class="col-xs-4">消費カリスマ</th>
+            <th class="text-right col-xs-4">消費カリスマ</th>
             <td class="col-xs-8">
               <span class="estimate-value" id="estimate_using_charisma"></span>
-              <span class="diff">(対必要カリスマ<span id="estimate_using_charisma_diff"></span>)</span>
+              <span class="diff">(対要求カリスマ<span id="estimate_using_charisma_diff"></span>)</span>
             </td>
           </tr>
-          <tr class="estiamte-stamina">
-            <th class="col-xs-4">消費スタミナ</th>
+          <tr class="estiamte-using-stamina">
+            <th class="text-right col-xs-4">消費スタミナ</th>
             <td class="col-xs-8">
               <span class="estimate-value" id="estimate_using_stamina"></span>
-              <span class="diff">(対必要スタミナ<span id="estimate_using_stamina_diff"></span>)</span>
+              <span class="diff">(対要求スタミナ<span id="estimate_using_stamina_diff"></span>)</span>
+            </td>
+          </tr>
+          <tr class="estiamte-experience">
+            <th class="text-right col-xs-4">獲得EXP</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_experience"></span>
+              (<span id="estimate_avg_experience"></span>/1パリン)
+            </td>
+          </tr>
+          <tr class="estiamte-gold">
+            <th class="text-right col-xs-4">獲得ゴールド</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_gold"></span><span class="estimate-unit">G</span>
+              (<span id="estimate_avg_gold"></span>/1パリン)
             </td>
           </tr>
         </tbody>
@@ -313,7 +327,7 @@
 　　　　　　　　　　　　　-(ﾆ)=(ﾆ)、
 　　　　　　　　　　　　　川&acute;-ω-｀):.　Zzz…
 　　　　　　　　　　　　ｒ'⌒と､j ミ　ヽ　　　　　　　　　 ＿o８o＿
-　　　　o　　　　　　　ノ　,.ｨ'　 ｀ヽ.　/　　 　　 　 　／ ｏ∞∞ ／|　 
+　　　　o　　　　　　　ノ　,.ｨ'　 ｀ヽ.　/　　 　　 　 　／ ｏ∞∞ ／|　
 　　　　　　　　　 ／　　　　　　 i!./　　　　 　　　∠∠o８o_／　 |
 　　　　 　 　 　 （_,. 　 　 　 　 //　　o 　　　　　|┐￣￣┌|　／
 　 　∞　　　　 く.,_｀^''ｰ-､_,,..ノ/　　 　　  　　　|┐　 　 ┌|／ 　８o

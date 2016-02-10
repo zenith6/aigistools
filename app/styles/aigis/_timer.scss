@@ -255,22 +255,44 @@ button[name=increase] {
 #estimate {
   position: relative;
   display: block;
+}
 
-  & > table {
-    margin-bottom: 0;
+.estimate-table {
+  margin-bottom: 0;
 
-    > tbody > tr {
-      > th {
-        font-size: 12px;
-        color: #888;
-        text-align: right;
-        vertical-align: bottom;
+  > tbody > tr {
+    > th {
+      border: none;
+      font-size: 12px;
+      color: #aaa;
+      text-align: right;
+      vertical-align: bottom;
+    }
+
+    > th:before {
+      display: inline;
+      content: "";
+      font-size: 20px;
+    }
+
+    > td {
+      border: none;
+      font-size: 12px;
+      color: #aaa;
+      vertical-align: bottom;
+    }
+
+    &.estiamte-required-marathon,
+    &.estiamte-using-stamina,
+    &.estiamte-using-charisma,
+    &.estiamte-experience,
+    &.estiamte-gold {
+      > th:before {
+        font-size: 16px;
       }
 
-      > td {
-        font-size: 12px;
-        color: #fff;
-        vertical-align: bottom;
+      > td > .estimate-value {
+        font-size: 16px;
       }
     }
   }
@@ -281,7 +303,7 @@ button[name=increase] {
   }
 
   .diff {
-    color: #ddd;
+    color: #aaa;
     font-size: 12px;
   }
 }
