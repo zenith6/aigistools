@@ -15,7 +15,9 @@
 <nav class="tool-list">
   <ul>
     <% for tool in @config.tools: %>
-      <li class="tool tool-<%= tool.id %>"><a href="<%= @url(tool.path) %>"><%= tool.name %></a></li>
+      <li class="tool tool-<%= tool.id %> <% if tool.deprecated: %>tool-deprecated<% end; %>"><a href="<%= @url(tool.path) %>">
+        <%= tool.name %></a>
+      </li>
     <% end %>
   </ul>
 </nav>

@@ -265,7 +265,7 @@ function updateEstimate() {
   text = (experience > 0 ? '+' : '') + format(experience);
   $('#estimate_experience').text(text);
 
-  let experienceAvg = experience / requiredCrystal;
+  let experienceAvg = requiredCrystal ? experience / requiredCrystal : 0;
   text = (experienceAvg > 0 ? '+' : '') + format(experienceAvg);
   $('#estimate_avg_experience').text(text);
 
@@ -273,7 +273,7 @@ function updateEstimate() {
   text = (gold > 0 ? '+' : '') + format(gold);
   $('#estimate_gold').text(text);
 
-  let goldAvg = gold / requiredCrystal;
+  let goldAvg = requiredCrystal ? gold / requiredCrystal : 0;
   text = (goldAvg > 0 ? '+' : '') + format(goldAvg);
   $('#estimate_avg_gold').text(text);
 }

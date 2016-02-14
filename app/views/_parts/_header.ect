@@ -15,7 +15,9 @@
           </a>
           <ul class="dropdown-menu" role="menu">
             <% for tool in @config.tools: %>
-              <li><a href="<%= @url(tool.path) %>"><%= tool.name %></a></li>
+              <% if !tool.deprecated: %>
+                <li><a href="<%= @url(tool.path) %>"><%= tool.name %></a></li>
+              <% end; %>
             <% end %>
           </ul>
         </li>

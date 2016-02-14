@@ -173,12 +173,15 @@
       }
 
       &.tool {
-        &.obsoleted {
+        &.tool-deprecated {
+          height: 60px;
           filter: grayscale(1);
 
           & > a {
             color: #888;
             text-shadow: none;
+            line-height: 60px;
+            font-size: 20px;
           }
         }
 
@@ -205,6 +208,10 @@
 
         &.tool-massgame:before {
           background-image: url('../thumbnails/massgame/index.png');
+        }
+
+        &.tool-treasure-fragment2-timer:before {
+          background-image: url('../thumbnails/treasure-fragment2-timer/index.png');
         }
 
         &.tool-resident-soul-timer:before {
