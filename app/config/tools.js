@@ -30,9 +30,15 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '英霊の魂タイマー',
+    id: 'soldier-soul-timer',
+    path: 'soldier-soul-timer/',
+  },
+  {
     name: '至宝のカケラタイマー',
     id: 'treasure-fragment2-timer',
     path: 'treasure-fragment2-timer/',
+    deprecated: true,
   },
   {
     name: '住民の魂タイマー',
