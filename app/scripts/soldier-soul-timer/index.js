@@ -11,7 +11,7 @@ let totalPeriod = periods.reduce(function (total, period) {
 }, 0);
 
 event.maxObjective = event.maxObjective === null ? Infinity : event.maxObjective;
-console.log(event);
+
 let prizes = event.prizes;
 let maps = event.maps;
 let rewards = event.rewards;
@@ -21,6 +21,7 @@ let cookieName = 'soldier-soul-timer';
 let defaultChart = 'stamina';
 let expectationInputMode = 'direct'; // 'aggregate' or 'direct'
 let syncCurrentEnabled = true;
+let storage;
 
 let defaultState = {
   current: 20,
@@ -40,6 +41,15 @@ let defaultState = {
   }),
   estimateTutorialHidden: false,
   version: 1,
+};
+
+let defaultStorage = {
+  active: '',
+  slots: {
+    '': 'データ1',
+    '_2': 'データ2',
+    '_3': 'データ3',
+  },
 };
 
 let $current;
@@ -86,11 +96,29 @@ function syncCurrent() {
   $('input[name=current]').val(current).trigger('change');
 }
 
-function loadState() {
+function loadStorage() {
+  let storage;
+
+  try {
+    storage = JSON.parse($.cookie(cookieName + '_storage'));
+  } catch (e) {
+    console.warn(e);
+
+    storage = defaultStorage;
+  }
+
+  return storage;
+}
+
+function saveStorage(storage) {
+  $.cookie(cookieName + '_storage', JSON.stringify(storage), {expires: 30});
+}
+
+function loadState(storage) {
   let state;
 
   try {
-    state = JSON.parse($.cookie(cookieName));
+    state = JSON.parse($.cookie(cookieName + storage.active));
   } catch (e) {
     console.warn(e);
 
@@ -101,7 +129,7 @@ function loadState() {
 }
 
 function saveState(state) {
-  $.cookie(cookieName, JSON.stringify(state), {expires: 30});
+  $.cookie(cookieName + storage.active, JSON.stringify(state), {expires: 30});
 }
 
 function updateRewardList() {
@@ -494,7 +522,8 @@ function initialize() {
     return Math.max(num, map.drops.length);
   }, 0);
 
-  let state = loadState();
+  storage = loadStorage();
+  let state = loadState(storage);
 
   state.maps.forEach(function (mapState, mapId) {
     maps[mapId].expectation = mapState.expectation;
@@ -749,6 +778,7 @@ function initialize() {
   $('#initialize-button')
     .on('click', function () {
       $.removeCookie(cookieName);
+      $.removeCookie(cookieName + '_storage');
       window.location.reload();
     });
 
@@ -767,7 +797,6 @@ function initialize() {
         let $this = $(this);
 
         if (animationSupporeted) {
-          e.preventDefault();
           $this
             .addClass('animated flash')
             .one(animationEndEventName, function () {
@@ -807,6 +836,22 @@ function initialize() {
           $anna.removeClass('animated bounce');
         });
     });
+
+  let $slot = $('[name=slot]')
+    .change(function () {
+      storage.active = $(this).val();
+      saveStorage(storage);
+      window.location.reload();
+    });
+
+  $.map(storage.slots, function (label, value) {
+    let active = value === storage.active;
+    $('<option />')
+      .val(value)
+      .text(label + (active ? ' *' : ''))
+      .attr('selected', active)
+      .appendTo($slot);
+  });
 }
 
 $(function () {

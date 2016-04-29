@@ -296,9 +296,25 @@
   </section>
 
   <section class="help col-xs-12">
-    <p class="help-block">
-      設定は Cookie に自動的に保存します。動かなくなったら <button id="initialize-button" class="btn btn-default btn-sm">設定を初期化</button> して下さい！
-    </p>
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-3">
+          データの保存先
+        </label>
+        <div class="col-sm-9">
+         <select class="form-control" name="slot"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3">
+          動かなくなったとき
+        </label>
+        <div class="col-sm-9">
+           <button id="initialize-button" class="btn btn-default">設定とデータを初期化する</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="col-xs-12">
