@@ -26,7 +26,7 @@ let storage;
 let defaultState = {
   current: 20,
   objective: 1500,
-  estimateMap: 4,
+  estimateMap: 7,
   estimateRank: 100,
   estimateUseCrystal: 'both',
   estimateNaturalRecovery: true,

@@ -2,8 +2,8 @@
   {
     "id": "20160428",
     "periods": [
-      ["2016/04/28 15:00:00", "2016/05/05 10:00:00"],
-      ["2016/05/05 15:00:00", "2016/05/12 10:00:00"]
+      ["2016/04/28 15:00:00", "2016/05/06 10:00:00"],
+      ["2016/05/06 15:00:00", "2016/05/12 10:00:00"]
     ],
     "objectives": {
       "25": "レシアが仲間になる",
@@ -100,6 +100,61 @@
         ],
         "experience": 370,
         "gold": 2700
+      },
+      {
+        "name": "氷結のコキュートス",
+        "charisma": 40,
+        "stamina": 5,
+        "expectation": 9,
+        "drops": [
+          {"name": "英霊の魂3", "icon": "treasure-fragment2-3", "set": 3},
+          {"name": "グラディス", "icon": "gladys"},
+          {"name": "ネーニャ", "icon": "nenya"},
+          {"name": "白バケツ", "icon": "platinum-bucket"}
+        ],
+        "experience": 260,
+        "gold": 1950
+      },
+      {
+        "name": "瞬刻の影月七連矢",
+        "charisma": 70,
+        "stamina": 8,
+        "expectation": 13,
+        "drops": [
+          {"name": "英霊の魂5", "icon": "treasure-fragment2-5", "set": 2},
+          {"name": "英霊の魂3", "icon": "treasure-fragment2-3"},
+          {"name": "ルナール", "icon": "renard"},
+          {"name": "ルビー", "icon": "ruby"}
+        ],
+        "experience": 350,
+        "gold": 2550
+      },
+      {
+        "name": "仮初の必殺剣",
+        "charisma": 90,
+        "stamina": 12,
+        "expectation": 26,
+        "drops": [
+          {"name": "英霊の魂5", "icon": "treasure-fragment2-5", "set": 4},
+          {"name": "英霊の魂3", "icon": "treasure-fragment2-3", "set": 2},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 400,
+        "gold": 3000
+      },
+      {
+        "name": "守護者たちの試練",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {"name": "金聖霊", "icon": "gold-sprit"},
+          {"name": "白聖霊", "icon": "platinum-sprit"},
+          {"name": "黒聖霊", "icon": "black-sprit"},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 200,
+        "gold": 1800
       }
     ],
     "rewards": [
