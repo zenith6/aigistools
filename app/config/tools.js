@@ -30,9 +30,15 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '封印の魂タイマー',
+    id: 'sealing-talisman2-timer',
+    path: 'sealing-talisman2-timer/',
+  },
+  {
     name: '英霊の魂タイマー',
     id: 'soldier-soul-timer',
     path: 'soldier-soul-timer/',
+    deprecated: true,
   },
   {
     name: '至宝のカケラタイマー',
@@ -59,7 +65,7 @@ module.exports = [
     deprecated: true,
   },
   {
-    name: '封印の札タイマー',
+    name: '封印の札タイマー(旧)',
     id: 'sealing-talisman-timer',
     path: 'sealing-talisman-timer/',
     deprecated: true,

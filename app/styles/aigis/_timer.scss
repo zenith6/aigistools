@@ -419,3 +419,81 @@ code {
   background-color: rgba(0, 0, 0, 0.8);
   border: none;
 }
+
+#map tbody .badge {
+  background: transparent;
+  padding: 3px 4px 3px 2px;
+}
+
+#map tbody tr td:nth-child(3), #map tbody tr td:nth-child(4), #map tbody tr td:nth-child(5), #map tbody tr td:nth-child(6) {
+  padding: 8px 2px;
+}
+
+@media screen and (max-width: 767px) {
+  #map .table-responsive {
+    border: none;
+  }
+
+  #map table {
+    display: block;
+    border: none;
+    background-color: transparent;
+  }
+
+  #map tr {
+    display: block;
+    border: 0 solid #1e1e1e;
+    margin: 10px 0 40px;
+    background-color: transparent;
+  }
+
+  #map td {
+    display: block;
+    border: none;
+  }
+
+  #map th {
+    display: block;
+    border: none;
+  }
+
+  #map thead {
+    display: block;
+    border: none;
+  }
+
+  #map thead th:nth-child(-n+3) {
+    display: none;
+  }
+
+  #map tbody {
+    display: block;
+  }
+
+  #map tbody tr th {
+    display: inline-block;
+    padding: 8px 0;
+  }
+
+  #map tbody tr td:nth-child(2) {
+    display: inline-block;
+    color: #888;
+  }
+
+  #map tbody tr td:nth-child(3), #map tbody tr td:nth-child(4), #map tbody tr td:nth-child(5), #map tbody tr td:nth-child(6) {
+    display: inline-block;
+    padding: 2px;
+  }
+
+  #map tbody tr td:nth-child(7) {
+    padding: 0;
+  }
+
+  #map tfoot {
+    display: block;
+  }
+
+  #map [data-chart] {
+    min-height: 2.5em;
+  }
+}

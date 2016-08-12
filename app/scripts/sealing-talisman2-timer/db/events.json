@@ -1,0 +1,149 @@
+[
+  {
+    "id": "20160812",
+    "periods": [
+      ["2016/08/12 15:00:00", "2016/08/18 10:00:00"],
+      ["2016/08/18 15:00:00", "2016/08/25 10:00:00"]
+    ],
+    "objectives": {
+      "25": "ヒバリが仲間になる",
+      "30": "スキルレベル2",
+      "50": "初期レベル10",
+      "100": "スキルレベル3",
+      "150": "出撃コスト-1",
+      "200": "スキルレベル4",
+      "250": "出撃コスト-2",
+      "300": "スキルレベル5",
+      "400": "初期レベル20",
+      "500": "スキルレベル6",
+      "600": "出撃コスト-3",
+      "700": "スキルレベル7",
+      "800": "初期レベル30",
+      "900": "スキルレベル8",
+      "1000": "出撃コスト-4",
+      "1100": "初期レベル40",
+      "1200": "スキルレベル9",
+      "1300": "出撃コスト-5",
+      "1400": "スキルレベル10",
+      "1500": "初期レベル50",
+      "1530": "+ プラチナアーマー",
+      "1575": "+ 結晶のカケラ",
+      "1665": "+ ゴールドアーマー",
+      "1710": "+ 黒聖霊",
+      "1755": "+ プラチナアーマー",
+      "1800": "+ 虹聖霊"
+    },
+    "prizes": [],
+    "maps":[
+      {
+        "name": "解かれし封印",
+        "charisma": 20,
+        "stamina": 1,
+        "expectation": 2,
+        "drops": [
+          {"name": "封印の札", "icon": "sealing-talisman-1", "set": 2},
+          {"name": "花束", "icon": "flower"}
+        ],
+        "experience": 140,
+        "gold": 900
+      },
+      {
+        "name": "襲われた村",
+        "charisma": 30,
+        "stamina": 2,
+        "expectation": 3,
+        "drops": [
+          {"name": "封印の札", "icon": "sealing-talisman-1", "set": 3},
+          {"name": "サノスケ", "icon": "sanosuke"},
+          {"name": "魔水晶", "icon": "demon-crystal-1"}
+        ],
+        "experience": 180,
+        "gold": 1200
+      },
+      {
+        "name": "田んぼに潜む妖怪",
+        "charisma": 40,
+        "stamina": 4,
+        "expectation": 6,
+        "drops": [
+          {"name": "封印の札3", "icon": "sealing-talisman-3", "set": 1},
+          {"name": "封印の札5", "icon": "sealing-talisman-1", "set": 3},
+          {"name": "サイゾウ", "icon": "saizou"},
+          {"name": "フドウ", "icon": "fudou"}
+        ],
+        "experience": 240,
+        "gold": 1800
+      },
+      {
+        "name": "妖怪総大将の本気",
+        "charisma": 50,
+        "stamina": 7,
+        "expectation": 16,
+        "drops": [
+          {"name": "封印の札5", "icon": "sealing-talisman-5", "set": 2},
+          {"name": "封印の札3", "icon": "sealing-talisman-3", "set": 2},
+          {"name": "カズハ", "icon": "kazuha"},
+          {"name": "白銀の聖霊", "icon": "platinum-sprit"}
+        ],
+        "experience": 300,
+        "gold": 2100
+      },
+      {
+        "name": "鬼切りを狙う者",
+        "charisma": 80,
+        "stamina": 9,
+        "expectation": 15,
+        "drops": [
+          {"name": "封印の札5", "icon": "sealing-talisman-5", "set": 3},
+          {"name": "フィリス", "icon": "philis"},
+          {"name": "プラチナアーマー", "icon": "platinum-bucket"},
+          {"name": "魔水晶2", "icon": "demon-crystal-2"}
+        ],
+        "experience": 370,
+        "gold": 2700
+      }
+    ],
+    "rewards": [
+      {"amount": 45, "unit": "gold-bucket"},
+      {"amount": 90, "unit": "gold-sprit"},
+      {"amount": 135, "unit": "platinum-bucket"},
+      {"amount": 180, "unit": "gold-sprit"},
+      {"amount": 225, "unit": "crystal-fragment"},
+      {"amount": 270, "unit": "platinum-sprit"},
+      {"amount": 315, "unit": "gold-bucket"},
+      {"amount": 360, "unit": "platinum-sprit"},
+      {"amount": 405, "unit": "platinum-bucket"},
+      {"amount": 450, "unit": "black-sprit"},
+      {"amount": 495, "unit": "crystal-fragment"},
+      {"amount": 540, "unit": "black-sprit"},
+      {"amount": 585, "unit": "gold-bucket"},
+      {"amount": 630, "unit": "rainbow-sprit"},
+      {"amount": 675, "unit": "platinum-bucket"},
+      {"amount": 720, "unit": "platinum-sprit"},
+      {"amount": 765, "unit": "crystal-fragment"},
+      {"amount": 810, "unit": "platinum-sprit"},
+      {"amount": 855, "unit": "gold-bucket"},
+      {"amount": 900, "unit": "black-sprit"},
+      {"amount": 945, "unit": "platinum-bucket"},
+      {"amount": 990, "unit": "platinum-sprit"},
+      {"amount": 1035, "unit": "crystal-fragment"},
+      {"amount": 1080, "unit": "platinum-sprit"},
+      {"amount": 1125, "unit": "gold-bucket"},
+      {"amount": 1170, "unit": "black-sprit"},
+      {"amount": 1215, "unit": "platinum-bucket"},
+      {"amount": 1260, "unit": "black-sprit"},
+      {"amount": 1305, "unit": "crystal-fragment"},
+      {"amount": 1350, "unit": "rainbow-sprit"},
+      {"amount": 1395, "unit": "gold-bucket"},
+      {"amount": 1440, "unit": "platinum-sprit"},
+      {"amount": 1485, "unit": "platinum-bucket"},
+      {"amount": 1530, "unit": "platinum-sprit"},
+      {"amount": 1575, "unit": "crystal-fragment"},
+      {"amount": 1620, "unit": "black-sprit"},
+      {"amount": 1665, "unit": "gold-bucket"},
+      {"amount": 1710, "unit": "black-sprit"},
+      {"amount": 1755, "unit": "platinum-bucket"},
+      {"amount": 1800, "unit": "rainbow-sprit"}
+    ]
+  }
+]
