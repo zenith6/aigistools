@@ -429,6 +429,10 @@ code {
   padding: 8px 2px;
 }
 
+.select2-results {
+    max-height: 400px;
+}
+
 @media screen and (max-width: 767px) {
   #map .table-responsive {
     border: none;

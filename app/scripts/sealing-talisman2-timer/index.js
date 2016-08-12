@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import events from './db/events.json';
 
 let event = events[0];
@@ -432,9 +433,22 @@ function isAnimationSupported() {
   return false;
 }
 
+function formatObjectiveItem(item) {
+  var objective = event.objectives.find(function (objective) {
+    return objective.value == item.id;
+  });
+
+  return $('<div />')
+    .append($('<i />').addClass('icon icon-' + objective.icon))
+    .append($('<span />').text(' '))
+    .append($('<span />').text(objective.title))
+    .append($('<span />').text(' '))
+    .append($('<span class="label label-default" />').text(objective.value))
+    .html();
+}
+
 function initialize() {
   $current = $('[name=current]:input');
-  $objective = $('[name=objective]:input');
 
   let now = (new Date()).getTime();
   let view = $('#period_dates');
@@ -469,12 +483,20 @@ function initialize() {
       step: 1
     });
 
+
+  $objective = $('[name=objective]:input');
+
   if (objectiveMode === 'achievement') {
-    $.each(event.objectives, function (value, label) {
+    event.objectives.map(function (objective) {
       $('<option />')
-        .attr('value', value)
-        .text(label + ' (' + value + '個)')
+        .attr('value', objective.value)
+        .text(objective.title + ' (' + objective.value + '個)')
         .appendTo($objective);
+    });
+
+    $objective.select2({
+      formatSelection: formatObjectiveItem,
+      formatResult: formatObjectiveItem
     });
   } else {
     $('select[name=objective]').click(function () {
@@ -739,7 +761,7 @@ function initialize() {
   if (objectiveMode === 'exchange') {
     $objective.val(state.objective);
   } else {
-    $objective.val([state.objective]);
+    $objective.select2('val', state.objective);
   }
 
   $('[name=current]:input, [name=objective]:input').change(function () {
