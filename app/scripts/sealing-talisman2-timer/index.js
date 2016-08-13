@@ -1,5 +1,30 @@
 import 'babel-polyfill';
+import i18next from 'i18next';
 import events from './db/events.json';
+import locales from './locales';
+import LngDetector from 'i18next-browser-languagedetector';
+import jqueryI18next from 'jquery-i18next';
+
+let t;
+
+function switchLanguage(lang) {
+  i18next
+    .init({
+      lng: lang,
+      resources: locales,
+    }, (err, _t) => {
+      if (err) {
+        console.error(err);
+      }
+
+      t = _t;
+
+      jqueryI18next.init(i18next, $, {
+      });
+
+      $('body').localize();
+    });
+}
 
 let event = events[0];
 
@@ -42,14 +67,15 @@ let defaultState = {
   }),
   estimateTutorialHidden: false,
   version: 1,
+  language: (window.navigator.language || window.navigator.userLanguage),
 };
 
 let defaultStorage = {
   active: '',
   slots: {
-    '': 'データ1',
-    '_2': 'データ2',
-    '_3': 'データ3',
+    '': 1,
+    '_2': 2,
+    '_3': 3,
   },
 };
 
@@ -201,7 +227,7 @@ function updateExpectationChart() {
     let value = data[i];
     let rate = value / (max - min);
     let hue = 120 * rate + 240;
-    $chart.find('span.barchart-label').text(format(value, scale) + '個');
+    $chart.find('span.barchart-label').text(t('{{amount}}個', {amount: format(value, scale)}));
     $chart.find('span.barchart')
       .css({
         width: (rate * 100) + '%',
@@ -217,7 +243,7 @@ function updateMarathon() {
   maps.forEach(function (map, i) {
     let $chart = $('[data-chart=' + i + ']');
     let marathon = norma ? Math.ceil(norma / map.expectation) : 0;
-    $chart.find('span.marathon').text('残り' + format(marathon) + '周');
+    $chart.find('span.marathon').text(t('残り{{lap}}周', {lap: format(marathon)}));
   });
 }
 
@@ -334,9 +360,9 @@ function update() {
   $('#norma_per_minute')
     .find('.norma-amount-actual').text(amount[0]).parent()
     .find('.norma-amount-fraction').text('.' + amount[1]).parent();
-  $('#remains_days').text(format(days, 0));
-  $('#remains_hours').text(format(hours, 0));
-  $('#remains_minutes').text(format(hours * 60, 0));
+  $('#remains_days').text(t('残り{{days}}日', {days: format(days, 0)}));
+  $('#remains_hours').text(t('残り{{hours}}時間', {hours: format(hours, 0)}));
+  $('#remains_minutes').text(t('残り{{minutes}}分', {minutes: format(hours * 60, 0)}));
 
   let collected = Math.min(current, objective) * 100;
   let obj_progress = parseInt(collected / objective) || 0;
@@ -361,14 +387,16 @@ function update() {
     .removeClass('progress-bar-success progress-bar-info progress-bar-danger progress-bar-warning')
     .addClass(bar_class)
     .children('span')
-    .text(obj_progress + '%達成');
+    .text(t('{{percentage}}%達成', {percentage: obj_progress}));
   $('#period_progress > .progress-bar')
     .width(time_progress + '%')
     .children('span')
-    .text(time_progress + '%経過');
+    .text(t('{{percentage}}%経過', {percentage: time_progress}));
 
   let estimate = current * totalPeriod / elapsed;
-  $('#prediction_collection').text(format(Math.floor(estimate)));
+  $('#prediction_label')
+    .empty()
+    .append(t('このペースなら最終日までに <strong>{{result}}</strong> 個集まるわ。', {result: format(Math.floor(estimate))}));
 
   let per = Math.min(estimate / objective, 1);
   let width = $('#objective_progress').width();
@@ -377,7 +405,6 @@ function update() {
   let margin = width - left < 230 ? -250 : 0;
   $('.pointer-label').css('margin-left', margin + 'px');
 
-  let completionDate = '';
   if (current < objective && estimate >= objective) {
     let start, end;
     periods.forEach(function (period) {
@@ -401,10 +428,11 @@ function update() {
     }, null);
     let m = date.getMonth(), d = date.getDate(), h = date.getHours(), i = date.getMinutes();
     let formatted = (m + 1) + '/' + d + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i);
-    completionDate = formatted + '頃に目標達成できそうよ。';
+    let at = t('<strong>{{date}}</strong>頃に目標達成できそうよ', {date: formatted});
+    $('#prediction_label')
+      .append('<span> </span>')
+      .append($('<span />').html(at));
   }
-
-  $('#prediction_completion_date').text(completionDate);
 }
 
 /**
@@ -441,13 +469,18 @@ function formatObjectiveItem(item) {
   return $('<div />')
     .append($('<i />').addClass('icon icon-' + objective.icon))
     .append($('<span />').text(' '))
-    .append($('<span />').text(objective.title))
+    .append($('<span />').text(t(objective.title)))
     .append($('<span />').text(' '))
     .append($('<span class="label label-default" />').text(objective.value))
     .html();
 }
 
 function initialize() {
+  storage = loadStorage();
+  let state = loadState(storage);
+
+  switchLanguage(state.language);
+
   $current = $('[name=current]:input');
 
   let now = (new Date()).getTime();
@@ -543,9 +576,6 @@ function initialize() {
   let maxDrops = maps.reduce(function (num, map) {
     return Math.max(num, map.drops.length);
   }, 0);
-
-  storage = loadStorage();
-  let state = loadState(storage);
 
   state.maps.forEach(function (mapState, mapId) {
     maps[mapId].expectation = mapState.expectation;
@@ -684,13 +714,13 @@ function initialize() {
       })
       .append(function () {
         let $expectation = $('<span class="input-group input-group-sm" />')
-          .append($('<span class="input-group-addon">1周の期待値</span>'))
+          .append($('<span class="input-group-addon"></span>').text(t('1周の期待値')))
           .append($('<input type="number" name="actual_expectation" min="0" class="form-control" />').val(mapState.expectation));
 
         let $marathon = $('<span class="input-group input-group-sm" />')
-          .append($('<span class="input-group-addon">周回</span>'))
+          .append($('<span class="input-group-addon"></span>').text(t('周回')))
           .append($('<input type="number" name="num_laps" min="0" class="form-control" />').val(mapState.numLaps))
-          .append($('<span class="input-group-addon">ドロップ</span>'))
+          .append($('<span class="input-group-addon"></span>').text(t('ドロップ')))
           .append($('<input type="number" name="num_drops" min="0" class="form-control" />').val(mapState.numDrops))
           .append($('<span class="input-group-btn"><button name="increase" class="btn btn-default"></button></span>'));
 
@@ -874,6 +904,19 @@ function initialize() {
       .attr('selected', active)
       .appendTo($slot);
   });
+
+  var $lang = $('[name=lang]:input')
+    .change(function () {
+      state.language = $(this).val();
+      saveState(state);
+      window.location.reload();
+    });
+
+  $.each(locales, function (lang) {
+    $('<option />').val(lang).text(t(lang)).appendTo($lang);
+  });
+
+  $lang.val(state.language);
 }
 
 $(function () {

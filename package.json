@@ -11,6 +11,7 @@
   "author": "Seiji Nitta <zenith6@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "i18n": "^0.8.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

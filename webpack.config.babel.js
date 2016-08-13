@@ -23,6 +23,8 @@ entry.common = [
   'wolfy87-eventemitter',
   'classnames',
   'babel-polyfill',
+  'i18next',
+  'jquery-i18next',
 ];
 
 let plugins = [
@@ -64,6 +66,7 @@ module.exports = {
       'jquery-minicolors': 'jquery-minicolors/jquery.minicolors.js',
       'jquery-ui': 'jquery-ui/jquery-ui.js',
       'ionrangeslider': 'ionrangeslider/js/ion.rangeslider.js',
+      'jquery-i18next': 'jquery-i18next/jquery-i18next.js',
     },
   },
   plugins: plugins,

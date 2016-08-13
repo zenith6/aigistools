@@ -123,7 +123,7 @@ gulp.task('view', () => {
       '!' + path.join(config.view.path, '**/_*.ect'),
     ])
     .pipe($.plumber({
-      errorHandler: (error) => {
+      errorHandler: function (error) {
         $.util.log(error.message);
         this.emit('end');
     }}))
