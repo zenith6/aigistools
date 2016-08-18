@@ -2,7 +2,6 @@ import 'babel-polyfill';
 import i18next from 'i18next';
 import events from './db/events.json';
 import locales from './locales';
-import LngDetector from 'i18next-browser-languagedetector';
 import jqueryI18next from 'jquery-i18next';
 
 let t;
@@ -245,6 +244,8 @@ function updateMarathon() {
     let marathon = norma ? Math.ceil(norma / map.expectation) : 0;
     $chart.find('span.marathon').text(t('残り{{lap}}周', {lap: format(marathon)}));
   });
+
+  $('#expectation_drop_total').text(format(current));
 }
 
 function updateEstimate() {

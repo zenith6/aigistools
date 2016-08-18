@@ -25,6 +25,7 @@ entry.common = [
   'babel-polyfill',
   'i18next',
   'jquery-i18next',
+  'i18next-browser-languagedetector',
 ];
 
 let plugins = [
