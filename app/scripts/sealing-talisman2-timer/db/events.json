@@ -111,7 +111,7 @@
         "stamina": 5,
         "expectation": 9,
         "drops": [
-          {"name": "英霊の魂3", "icon": "sealing-talisman-3", "set": 3},
+          {"name": "封印の札3", "icon": "sealing-talisman-3", "set": 3},
           {"name": "イロハ", "icon": "iroha"},
           {"name": "グラディス", "icon": "gladys"},
           {"name": "白バケツ", "icon": "platinum-bucket"}
@@ -125,8 +125,8 @@
         "stamina": 8,
         "expectation": 13,
         "drops": [
-          {"name": "英霊の魂5", "icon": "sealing-talisman-5", "set": 2},
-          {"name": "英霊の魂3", "icon": "sealing-talisman-3"},
+          {"name": "封印の札5", "icon": "sealing-talisman-5", "set": 2},
+          {"name": "封印の札3", "icon": "sealing-talisman-3"},
           {"name": "カリオペ", "icon": "calliope"},
           {"name": "ルビー", "icon": "ruby"}
         ],
@@ -139,12 +139,26 @@
         "stamina": 12,
         "expectation": 26,
         "drops": [
-          {"name": "英霊の魂5", "icon": "sealing-talisman-5", "set": 4},
-          {"name": "英霊の魂3", "icon": "sealing-talisman-3", "set": 2},
+          {"name": "封印の札5", "icon": "sealing-talisman-5", "set": 4},
+          {"name": "封印の札3", "icon": "sealing-talisman-3", "set": 2},
           {"name": "虹聖霊", "icon": "rainbow-sprit"}
         ],
         "experience": 400,
         "gold": 3000
+      },
+      {
+        "name": "二匹の妖狐",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {"name": "金聖霊", "icon": "gold-sprit"},
+          {"name": "白聖霊", "icon": "platinum-sprit"},
+          {"name": "黒聖霊", "icon": "black-sprit"},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 200,
+        "gold": 1800
       }
     ],
     "rewards": [
