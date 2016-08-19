@@ -105,7 +105,7 @@ function format(value, scale = 0) {
 }
 
 function syncCurrent() {
-  if (!syncCurrentEnabled) {
+  if (!syncCurrentEnabled || expectationInputMode === 'direct') {
     return;
   }
 
