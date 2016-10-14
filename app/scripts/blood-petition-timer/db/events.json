@@ -44,7 +44,7 @@
         "stamina": 1,
         "expectation": 2,
         "drops": [
-          {"name": "封印の札", "icon": "blood-petition-1", "set": 2},
+          {"name": "血判状", "icon": "blood-petition-1", "set": 2},
           {"name": "花束", "icon": "flower"}
         ],
         "experience": 140,
@@ -56,7 +56,7 @@
         "stamina": 2,
         "expectation": 3,
         "drops": [
-          {"name": "封印の札", "icon": "blood-petition-1", "set": 3},
+          {"name": "血判状", "icon": "blood-petition-1", "set": 3},
           {"name": "クレイブ", "icon": "grave"},
           {"name": "魔水晶", "icon": "demon-crystal-1"}
         ],
@@ -69,8 +69,8 @@
         "stamina": 4,
         "expectation": 6,
         "drops": [
-          {"name": "封印の札3", "icon": "blood-petition-3", "set": 1},
-          {"name": "封印の札5", "icon": "blood-petition-1", "set": 3},
+          {"name": "血判状3", "icon": "blood-petition-3", "set": 1},
+          {"name": "血判状5", "icon": "blood-petition-1", "set": 3},
           {"name": "サイゾウ", "icon": "saizou"},
           {"name": "カズハ", "icon": "kazuha"}
         ],
@@ -83,8 +83,8 @@
         "stamina": 7,
         "expectation": 16,
         "drops": [
-          {"name": "封印の札5", "icon": "blood-petition-5", "set": 2},
-          {"name": "封印の札3", "icon": "blood-petition-3", "set": 2},
+          {"name": "血判状5", "icon": "blood-petition-5", "set": 2},
+          {"name": "血判状3", "icon": "blood-petition-3", "set": 2},
           {"name": "ジョバンニ", "icon": "giovanni"},
           {"name": "白銀の聖霊", "icon": "platinum-sprit"}
         ],
@@ -97,13 +97,68 @@
         "stamina": 9,
         "expectation": 15,
         "drops": [
-          {"name": "封印の札5", "icon": "blood-petition-5", "set": 3},
+          {"name": "血判状5", "icon": "blood-petition-5", "set": 3},
           {"name": "アリサ", "icon": "arisa"},
           {"name": "プラチナアーマー", "icon": "platinum-bucket"},
           {"name": "魔水晶2", "icon": "demon-crystal-2"}
         ],
         "experience": 370,
         "gold": 2700
+      },
+      {
+        "name": "仙猿の暇つぶし",
+        "charisma": 40,
+        "stamina": 5,
+        "expectation": 9,
+        "drops": [
+          {"name": "血判状3", "icon": "blood-petition-3", "set": 3},
+          {"name": "エレイン", "icon": "elain"},
+          {"name": "グラディス", "icon": "gladys"},
+          {"name": "白バケツ", "icon": "platinum-bucket"}
+        ],
+        "experience": 260,
+        "gold": 1950
+      },
+      {
+        "name": "毒の瘴気の戦い",
+        "charisma": 70,
+        "stamina": 8,
+        "expectation": 13,
+        "drops": [
+          {"name": "血判状5", "icon": "blood-petition-5", "set": 2},
+          {"name": "血判状3", "icon": "blood-petition-3"},
+          {"name": "ハリッサ", "icon": "harissa"},
+          {"name": "ルビー", "icon": "ruby"}
+        ],
+        "experience": 350,
+        "gold": 2550
+      },
+      {
+        "name": "仇敵、酒呑童子",
+        "charisma": 90,
+        "stamina": 12,
+        "expectation": 26,
+        "drops": [
+          {"name": "血判状5", "icon": "blood-petition-5", "set": 4},
+          {"name": "血判状3", "icon": "blood-petition-3", "set": 2},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 400,
+        "gold": 3000
+      },
+      {
+        "name": "魔神アガレスの残片",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {"name": "金聖霊", "icon": "gold-sprit"},
+          {"name": "白聖霊", "icon": "platinum-sprit"},
+          {"name": "黒聖霊", "icon": "black-sprit"},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 200,
+        "gold": 1800
       }
     ],
     "rewards": [
