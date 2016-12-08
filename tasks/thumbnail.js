@@ -46,7 +46,7 @@ function capture(address, output, callback) {
               callback();
             });
           });
-        }, 10000);
+        }, 5000);
       });
     });
   });

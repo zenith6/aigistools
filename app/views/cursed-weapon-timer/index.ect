@@ -1,0 +1,344 @@
+<% extend '_layouts/_default' %>
+
+<% @name = '呪いの武器タイマー' %>
+<% @description = '千年戦争アイギス緊急ミッション「武器商人と呪いの武器」用のタイマーです。' %>
+<% @path = 'cursed-weapon-timer/' %>
+
+<% block 'style': %>
+  <link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
+  <link rel="stylesheet" type="text/css" href="<%= @asset('css/cursed-weapon-timer.css') %>">
+<% end %>
+
+<% block 'script': %>
+  <script src="<%= @asset('js/cursed-weapon-timer.js') %>"></script>
+<% end %>
+
+<% block 'copyright': %>
+  <li><a href="http://green.zero.jp/greentea/">クロリスGIF作者様 <strong>建設中の茶柱</strong></a></li>
+  <li><a href="http://ch.nicovideo.jp/bellachankawaii">アンナさんアイコン作者様 <strong>ベライチ</strong></a></li>
+<% end %>
+
+<form class="form" action="#">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <label class="control-label">
+          <i class="unit unit-soldier-soul-1"></i>
+          <span data-i18n="現在の血判状">現在の呪いの武器</span>
+        </label>
+        <input class="form-control input-lg" type="number" name="current" ime-mode="inactive" title="マウスホイールで+/-" max="10000" />
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <label class="control-label" data-i18n="目標">目標</label>
+
+        <div data-objective-mode="achievement">
+          <select name="objective" class="form-control input-lg"></select>
+        </div>
+
+        <div data-objective-mode="exchange">
+          <div class="input-group input-group-lg">
+            <span class="input-group-btn">
+              <button class="btn btn-default" name="reset" type="button" title="リセット">
+                <i class="fa fa-arrow-down"></i>0
+              </button>
+            </span>
+            <input type="number" name="objective" value="300" class="form-control" ime-mode="inactive" />
+            <span class="input-group-btn" id="increse_objective_list">
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label" data-i18n="イベント期間">イベント期間</label>
+    <div id="period_dates" class="progress">
+    </div>
+    <div id="period_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div id="objective_progress" class="progress progress-striped active">
+      <div class="progress-bar" role="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <div class="prediction">
+      <span class="pointer">
+        <span class="pointer-label" id="prediction_label">
+        </span>
+      </span>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <section id="estimate" class="col-xs-12 col-sm-5 col-sm-push-3 estimate">
+    <h2 data-i18n="見積り">見積り</h2>
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4" data-i18n="周回MAP">周回MAP</label>
+        <div class="col-sm-8">
+          <select name="estimate_map" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4" data-i18n="ランク">ランク</label>
+        <div class="col-sm-8">
+          <select name="estimate_rank" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4" data-i18n="結晶回復">結晶回復</label>
+        <div class="col-sm-8">
+          <select name="estimate_use_crystal" class="form-control">
+            <option value="both" data-i18n="カリスマ＆スタミナ">カリスマ＆スタミナ</option>
+            <option value="charisma" data-i18n="カリスマのみ">カリスマのみ</option>
+            <option value="stamina" data-i18n="スタミナのみ">スタミナのみ</option>
+            <option value="none" data-i18n="使用しない">使用しない</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-4">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="estimate_natural_recovery" value="1" />
+              <span data-i18n="自然回復を計算に含める">自然回復を計算に含める</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped estimate-table">
+        <tbody>
+          <tr class="estiamte-required-crystal">
+            <th class="text-right col-xs-4" data-i18n="消費結晶">消費結晶</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_required_crystal"></span><span class="estimate-unit" data-i18n="個">個</span>
+              <span class="diff">
+              (<span data-i18n="カリスマ">カリスマ</span>&times;<span id="estimate_required_crystal_for_charisma"></span>,
+              <span data-i18n="スタミナ">スタミナ</span>&times;<span id="estimate_required_crystal_for_stamina"></span>)
+              </span>
+            </td>
+          </tr>
+          <tr class="estiamte-collection">
+            <th class="text-right col-xs-4" data-i18n="到達収集数">到達収集数</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_result_collection"></span><span class="estimate-unit" data-i18n="個">個</span>
+              <span class="diff">(<span data-i18n="対目標数">対目標数</span><span id="estimate_result_collection_diff"></span>)</span>
+            </td>
+          </tr>
+          <tr class="estiamte-required-marathon">
+            <th class="text-right col-xs-4" data-i18n="周回数">周回数</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_available_marathon"></span><span class="estimate-unit" data-i18n="周">周</span>
+              <span class="diff">(<span data-i18n="対要求周回">対要求周回</span><span id="estimate_available_marathon_diff"></span>)</span>
+            </td>
+          </tr>
+          <tr class="estiamte-using-charisma">
+            <th class="text-right col-xs-4" data-i18n="消費カリスマ">消費カリスマ</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_using_charisma"></span>
+              <span class="diff">(<span data-i18n="対要求">対要求</span><span id="estimate_using_charisma_diff"></span>)</span>
+            </td>
+          </tr>
+          <tr class="estiamte-using-stamina">
+            <th class="text-right col-xs-4" data-i18n="消費スタミナ">消費スタミナ</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_using_stamina"></span>
+              <span class="diff">(<span data-i18n="対要求">対要求</span><span id="estimate_using_stamina_diff"></span>)</span>
+            </td>
+          </tr>
+          <tr class="estiamte-experience">
+            <th class="text-right col-xs-4" data-i18n="獲得EXP">獲得EXP</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_experience"></span>
+              (<span id="estimate_avg_experience"></span>/<span data-i18n="1パリン">1パリン</span>)
+            </td>
+          </tr>
+          <tr class="estiamte-gold">
+            <th class="text-right col-xs-4" data-i18n="獲得ゴールド">獲得ゴールド</th>
+            <td class="col-xs-8">
+              <span class="estimate-value" id="estimate_gold"></span><span class="estimate-unit">G</span>
+              (<span id="estimate_avg_gold"></span>/<span data-i18n="1パリン">1パリン</span>)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="estimate_tutorial" class="tutorial">
+      <div class="tutorial-container">
+        <div class="tutorial-body">
+          <i class="anna"></i>
+          <h3 class="tutorial-title" data-i18n="アンナさんからのアドバイス">アンナさんからのアドバイス</h3>
+          <p>
+            <span data-i18n="見積りをご利用する際は">見積りをご利用する際は</span><br />
+            <a href="#map" data-i18n="マップの期待値">マップの期待値</a><br />
+            <span data-i18n="を入力してください">を入力してください</span>
+          </p>
+          <p>
+            <button type="button" class="btn btn-default"><i class="fa fa-check"></i> <span data-i18n="わかった">わかった</span></button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rewards" class="col-xs-12 col-sm-3 col-sm-pull-5 reward" data-objective-mode="achievement">
+    <h2 data-i18n="追加報酬">追加報酬</h2>
+    <table class="table table-condenced table-hover">
+      <thead>
+        <tr>
+          <th class="text-right" data-i18n="収集数">収集数</th>
+          <th data-i18n="報酬">報酬</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="exchange" class="col-xs-12 col-sm-3 col-sm-pull-5" data-objective-mode="exchange">
+    <h2 data-i18n="交換">交換</h2>
+    <div id="prize_list"></div>
+  </section>
+
+  <section id="norma" class="col-xs-12 col-sm-4">
+    <h2 data-i18n="ノルマ">ノルマ</h2>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_day">
+          <span class="norma-label" data-i18n="1日当たり">1日当たり</span>
+          <span class="norma-remains badge" id="remains_days"></span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit" data-i18n="個">個</span>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_hour">
+          <span class="norma-label" data-i18n="1時間当たり">1時間当たり</span>
+          <span class="norma-remains badge" id="remains_hours"></span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit" data-i18n="個">個</span>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="norma" id="norma_per_minute">
+          <span class="norma-label" data-i18n="30分当たり">30分当たり</span>
+          <span class="norma-remains badge" id="remains_minutes"></span>
+          <span class="norma-amount">
+            <span class="norma-amount-actual">
+            </span><span class="norma-amount-fraction">
+            </span><span class="norma-unit" data-i18n="個">個</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="col-xs-12">
+    <div class="table-responsive">
+      <table class="table table-condenced table-striped table--map">
+        <thead>
+          <tr>
+            <th data-i18n="MAP">MAP</th>
+            <th data-i18n="カリスタ">カリスタ</th>
+            <th class="drops" colspan="3" data-i18n="ドロップ">ドロップ</th>
+            <th class="expectation">
+              <div class="btn-group btn-group-sm" data-toggle="buttons">
+                <label class="btn btn-default">
+                  <input type="radio" name="expectation_input_mode" value="aggregate" autocomplete="off" />
+                  <i class="fa fa-calculator"></i> <span data-i18n="ドロップ÷周回数で期待値を算出">ドロップ÷周回数で期待値を算出</span>
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="expectation_input_mode" value="direct" autocomplete="off" />
+                  <i class="fa fa-pencil"></i> <span data-i18n="期待値を直接入力">期待値を直接入力</span>
+                </label>
+              </div>
+            </th>
+            <th>
+              <select name="expectation" class="form-control input-sm">
+                <option value="drop" data-i18n="謎の期待値">謎の期待値</option>
+                <option value="charisma" data-i18n="カリスマ1当たり">カリスマ1当たり</option>
+                <option value="stamina" data-i18n="スタミナ1当たり">スタミナ1当たり</option>
+              </select>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6"></td>
+            <td>
+              <div class="text-right">
+                <small class="text-muted" data-i18n="ドロップ合計">ドロップ合計</small>
+                <span id="expectation_drop_total"></span>
+              </div>
+              <div class="checkbox">
+                <label><input name="sync" type="checkbox" value="1" />
+                <span data-i18n="ドロップの合計を現在の収集数へ反映させる">ドロップの合計を現在の収集数へ反映させる</span></label>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section class="help col-xs-12">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-3" data-i18n="データの保存先">データの保存先</label>
+        <div class="col-sm-9">
+         <select class="form-control" name="slot"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" data-i18n="言語">言語</label>
+        <div class="col-sm-9">
+          <select class="form-control" name="lang">
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" data-i18n="動かなくなったとき">動かなくなったとき</label>
+        <div class="col-sm-9">
+           <button id="initialize-button" class="btn btn-default" data-i18n="設定とデータを初期化する">設定とデータを初期化する</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="col-xs-12">
+    <pre class="textar-aa">
+　　　　　　　　　_,.　- ‐─ -　､
+　　　　　　　,..:' ..::::::::::::::::::::::::::::::..＼
+　　　　　　./..::::::::::__, -－―‐ - ､　ヽ
+　　　　 __/..::::::＿i／　,　i　　　　､　＼!
+　　　　 _ゞ:::＿i／ i　/　 !　　', ヽ ＼　ヽ､_,
+　　　　{　Y&acute;　 )_ノィ ⌒八　　i⌒ヽ介┬ '
+　　　　 〉::{!.:.:.〈彡ｲr示ﾐ　＼/r示 ! !:〈
+　　　　(__∧___ﾉ|, |弋ソ　　 　弋ﾉ { |ｲ　　いくら出す？
+　　　＜/::i l:::|　l从&quot;&quot; 　　　 　 &quot;''ﾉ |_〉
+　 く＼(￣.'-=ｌ__＼　ヽ、 ｀ &acute;　｡彳 /
+　　 ＼У /⌒ヽヽ冫　)｀Y 〔ヽ＼i (|
+　　／/　( :::::::::::У彡'::くÅﾉ::::}　}ゞ)＼
+　 /　|　　ゝ:::::::てﾞ〉 〉:::::|　|::::/ /:::冫ヽ)
+    </pre>
+  </section>
+</div>

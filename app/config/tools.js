@@ -30,9 +30,15 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '呪いの武器タイマー',
+    id: 'cursed-weapon-timer',
+    path: 'cursed-weapon-timer/',
+  },
+  {
     name: '血判状タイマー',
     id: 'blood-petition-timer',
     path: 'blood-petition-timer/',
+    deprecated: true,
   },
   {
     name: '封印の魂タイマー',
