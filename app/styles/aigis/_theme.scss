@@ -266,3 +266,23 @@
   font-family: 'ＭＳ Ｐゴシック';
   font-size: 16px;
 }
+
+/* iOS */
+@media (max-width: $screen-sm-min) {
+  .form-control,
+  .input-sm,
+  .input-group-sm .form-control,
+  select.input-sm {
+    font-size: 16px;
+    height: 38px;
+  }
+}
+
+.down {
+  transform: rotateZ(-20deg);
+}
+
+.alert-love {
+  background-image: url('../love.png');
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+}

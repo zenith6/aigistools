@@ -473,6 +473,13 @@ function formatObjectiveItem(item) {
     .append($('<span />').text(t(objective.title)))
     .append($('<span />').text(' '))
     .append($('<span class="label label-default" />').text(objective.value))
+    .each(function (i, option) {
+      if (objective.unconfirmed) {
+        $(option)
+          .append($('<span> </span>'))
+          .append($('<span class="label label-danger">未確認</span>'))
+      }
+    })
     .html();
 }
 
@@ -530,7 +537,8 @@ function initialize() {
 
     $objective.select2({
       formatSelection: formatObjectiveItem,
-      formatResult: formatObjectiveItem
+      formatResult: formatObjectiveItem,
+      minimumResultsForSearch: Infinity
     });
   } else {
     $('select[name=objective]').click(function () {
@@ -918,6 +926,33 @@ function initialize() {
   });
 
   $lang.val(state.language);
+
+  switch (state.version) {
+    case 1:
+      let $alert = $('<div class="row"><div class="col-sm-6"><div class="alert alert-danger alert-love">'
+        + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'
+        + '<div class="pull-left down"><i class="anna shake shake-constant"></i></div> <strong>アンナさんからのお詫び</strong><br />'
+        + '<p>12月10日15時以前の目標 <code> 1350</code> の報酬が誤っていました。正しい報酬は <code>技強化の聖霊クリスティア</code> です。</p>'
+        + '<p class="text-center clearfix"><button class="btn btn-default btn-sm" data-dismiss="alert"><i class="fa fa-check"> 悲しいポン。つらいポン。</button></p>'
+        + '</div></div></div>"')
+        .on('click', '[data-dismiss]', function (e) {
+          state.version++;
+          saveState(state);
+
+          if (animationSupporeted) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $alert
+              .addClass('animated zoomOutRight')
+              .one(animationEndEventName, function () {
+                $alert.hide();
+              });
+          }
+        })
+        .prependTo($('#content'));
+      break;
+  }
 }
 
 $(function () {

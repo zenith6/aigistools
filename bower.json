@@ -24,6 +24,7 @@
     "jquery-minicolors": "^2.1.10",
     "jquery-ui": "^1.10.5",
     "select2": "^3.5.3",
-    "select2-bootstrap-css": "^1.4.6"
+    "select2-bootstrap-css": "^1.4.6",
+    "csshake": "^1.5.1"
   }
 }
