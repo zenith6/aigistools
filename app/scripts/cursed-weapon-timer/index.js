@@ -537,8 +537,7 @@ function initialize() {
 
     $objective.select2({
       formatSelection: formatObjectiveItem,
-      formatResult: formatObjectiveItem,
-      minimumResultsForSearch: Infinity
+      formatResult: formatObjectiveItem
     });
   } else {
     $('select[name=objective]').click(function () {
@@ -932,7 +931,7 @@ function initialize() {
       let $alert = $('<div class="row"><div class="col-sm-6"><div class="alert alert-danger alert-love">'
         + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'
         + '<div class="pull-left down"><i class="anna shake shake-constant"></i></div> <strong>アンナさんからのお詫び</strong><br />'
-        + '<p>12月10日15時以前の目標 <code> 1350</code> の報酬が誤っていました。正しい報酬は <code>技強化の聖霊クリスティア</code> です。</p>'
+        + '<p>12月10日18時以前の目標 <code> 1350</code> の報酬が誤っていました。正しい報酬は <code>技強化の聖霊クリスティア</code> です。</p>'
         + '<p class="text-center clearfix"><button class="btn btn-default btn-sm" data-dismiss="alert"><i class="fa fa-check"> 悲しいポン。つらいポン。</button></p>'
         + '</div></div></div>"')
         .on('click', '[data-dismiss]', function (e) {
