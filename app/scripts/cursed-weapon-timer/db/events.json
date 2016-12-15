@@ -35,7 +35,7 @@
       {"value": 1665, "title": "ゴールドアーマー", "icon": "gold-bucket"},
       {"value": 1710, "title": "黒の聖霊", "icon": "black-sprit"},
       {"value": 1755, "title": "プラチナアーマー", "icon": "platinum-bucket"},
-      {"value": 1800, "title": "技強化の大聖霊", "icon": "skill-sprit", "unconfirmed": true}
+      {"value": 1800, "title": "技強化の聖霊", "icon": "rainbow-sprit"}
     ],
     "prizes": [],
     "maps":[
@@ -105,6 +105,61 @@
         ],
         "experience": 370,
         "gold": 2700
+      },
+      {
+        "name": "呪いの太刀",
+        "charisma": 40,
+        "stamina": 5,
+        "expectation": 9,
+        "drops": [
+          {"name": "呪いの武器3", "icon": "cursed-weapon-3", "set": 3},
+          {"name": "サノスケ", "icon": "sanosuke"},
+          {"name": "グラディス", "icon": "gladys"},
+          {"name": "白バケツ", "icon": "platinum-bucket"}
+        ],
+        "experience": 260,
+        "gold": 1950
+      },
+      {
+        "name": "呪いの暗器",
+        "charisma": 70,
+        "stamina": 8,
+        "expectation": 13,
+        "drops": [
+          {"name": "呪いの武器5", "icon": "cursed-weapon-5", "set": 2},
+          {"name": "呪いの武器3", "icon": "cursed-weapon-3"},
+          {"name": "バラッド", "icon": "barrad"},
+          {"name": "ルビー", "icon": "ruby"}
+        ],
+        "experience": 350,
+        "gold": 2550
+      },
+      {
+        "name": "呪いの魔剣",
+        "charisma": 90,
+        "stamina": 12,
+        "expectation": 26,
+        "drops": [
+          {"name": "呪いの武器5", "icon": "cursed-weapon-5", "set": 4},
+          {"name": "呪いの武器3", "icon": "cursed-weapon-3", "set": 2},
+          {"name": "技強化の聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 400,
+        "gold": 3000
+      },
+      {
+        "name": "クリスマスツリー・カーニバル",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {"name": "金聖霊", "icon": "gold-sprit"},
+          {"name": "白聖霊", "icon": "platinum-sprit"},
+          {"name": "黒聖霊", "icon": "black-sprit"},
+          {"name": "虹聖霊", "icon": "rainbow-sprit"}
+        ],
+        "experience": 200,
+        "gold": 1800
       }
     ],
     "rewards": [

@@ -65,7 +65,7 @@ let defaultState = {
     };
   }),
   estimateTutorialHidden: false,
-  version: 1,
+  version: 2,
   language: (window.navigator.language || window.navigator.userLanguage),
 };
 
