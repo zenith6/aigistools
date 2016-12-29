@@ -5,93 +5,97 @@
 <% @path = 'exp/' %>
 
 <% block 'style': %>
-  <link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
-  <link rel="stylesheet" type="text/css" href="<%= @asset('css/exp.css') %>">
+<link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
+<link rel="stylesheet" type="text/css" href="<%= @asset('css/exp.css') %>">
 <% end %>
 
 <% block 'script': %>
-  <script src="<%= @asset('js/exp.js') %>"></script>
+<script src="<%= @asset('js/exp.js') %>"></script>
 <% end %>
 
 <% block 'copyright': %>
 <% end %>
 
-<div id="app" class="app-exp col-sm-12">
-  <h1>ご飯計算機 <small>カッコカリ</small></h1>
+<div id="app" class="app-exp">
+  <h1>ご飯計算機
+    <small>カッコカリ</small>
+  </h1>
 
-  <div class="col-sm-4 breeding">
-    <section class="breeding-item total-required-exp">
-      <h4>必要経験値</h4>
-      <div class="exp">
-        <span data-ph="total-required-exp"></span>
-      </div>
-    </section>
-
-    <section class="breeding-item unit-exp">
-      <h4>食べた時の経験値</h4>
-      <div class="exp">
-        <span data-ph="unit-exp"></span>
-      </div>
-    </section>
-
-    <section class="breeding-item required-exp-unit">
-      <h4>経験値ユニットで飼育</h4>
-      <table class="table table-striped table-condensed">
-        <thead>
-          <tr>
-            <th class="unit">
-              <select name="exp_unit_id" class="form-control input-sm">
-              </select>
-            </th>
-            <th class="exp">過不足EXP</th>
-          </tr>
-        </thead>
-        <tbody data-ph="required-exp-unit">
-        </tbody>
-      </table>
-    </section>
-  </div>
-
-  <div class="col-sm-8 plan-form">
-    <section class="form">
-      <input type="hidden" name="rarity_id" />
-      <div class="form-group">
-        <label for="preset_id" class="control-label col-sm-12">飼育対象</label>
-        <div class="col-sm-12">
-          <select id="preset_id" name="preset_id" class="form-control input-lg">
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-12">飼育区間</label>
-        <div class="col-sm-12">
-          <input type="text" id="breeding_span" name="breeding_span" />
-          <div class="btn-group" data-ph="breeding_plan_id">
+  <div class="row">
+    <div class="col-sm-5 plan-form">
+      <section class="form">
+        <input type="hidden" name="rarity_id" />
+        <div class="form-group">
+          <label for="preset_id" class="control-label">飼育対象</label>
+          <div class="">
+            <select id="preset_id" name="preset_id" class="form-control input-lg">
+            </select>
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="current_level" class="control-label col-sm-12 sr-only">現在のレベル</label>
-        <div class="col-sm-12">
-          <span class="input-group">
-            <span class="input-group-addon">現在のLv</span>
-            <select id="current_level" name="current_level" class="form-control">
-            </select>
-            <span class="input-group-addon">次のLvまで</span>
-            <input id="current_remain_exp" type="text" name="current_remain_exp" class="form-control" />
-          </span>
+        <div class="form-group">
+          <label for="breeding_span" class="control-label">飼育区間</label>
+          <div class="">
+            <input type="text" id="breeding_span" name="breeding_span" />
+            <div class="btn-group" data-ph="breeding_plan_id">
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="target_level" class="control-label col-sm-12 sr-only">目標のレベル</label>
-        <div class="col-sm-12">
-          <span class="input-group">
-            <span class="input-group-addon">目標のLv</span>
-            <select id="target_level" name="target_level" class="form-control">
-            </select>
-          </span>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="current_level" class="control-label col-sm-5">現在のレベル</label>
+            <div class="col-sm-7">
+              <select id="current_level" name="current_level" class="form-control">
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="current_remain_exp" class="control-label col-sm-5">次のレベルまであと</label>
+            <div class="col-sm-7">
+              <input id="current_remain_exp" type="text" name="current_remain_exp" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="target_level" class="control-label col-sm-5">目標のレベル</label>
+            <div class="col-sm-7">
+              <select id="target_level" name="target_level" class="form-control">
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-5">煮込み方法</label>
+            <div class="col-sm-7">
+              <select name="combine_method_id" class="form-control"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-5"></label>
+            <div class="col-sm-7">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="breeding_spirit" value="1">
+                  育成の精霊サリエット
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+
+    <div class="col-sm-7 breeding">
+      <section class="breeding-item">
+        <div class="required-exp">
+          <div class="property">
+            <span class="property-value" data-ph="total_required_exp"></span>
+            <span class="property-unit">必要な経験値</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="breeding-item">
+        <ul class="exp-unit" data-ph="required_exp_units">
+        </ul>
+      </section>
+    </div>
   </div>
 </div>

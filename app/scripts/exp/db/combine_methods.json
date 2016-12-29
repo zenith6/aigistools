@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "ユニット1",
+    "amplification": 1
+  },
+  {
+    "id": 2,
+    "name": "ユニット1+同属精霊1",
+    "amplification": 2
+  },
+  {
+    "id": 3,
+    "name": "ユニット1+同属精霊2",
+    "amplification": 4
+  },
+  {
+    "id": 4,
+    "name": "ユニット1+同属精霊3",
+    "amplification": 8
+  },
+  {
+    "id": 5,
+    "name": "ユニット2+同属精霊1",
+    "amplification": 3
+  },
+  {
+    "id": 6,
+    "name": "ユニット2+同属精霊2",
+    "amplification": 4.5
+  },
+  {
+    "id": 7,
+    "name": "ユニット3+同属精霊1",
+    "amplification": 4.5
+  },
+  {
+    "id": 8,
+    "name": "ユニット1+異属精霊1",
+    "amplification": 1.5
+  },
+  {
+    "id": 9,
+    "name": "ユニット1+異属精霊2",
+    "amplification": 2.25
+  },
+  {
+    "id": 10,
+    "name": "ユニット1+異属精霊3",
+    "amplification": 3.375
+  },
+  {
+    "id": 11,
+    "name": "ユニット2+異属精霊1",
+    "amplification": 3
+  },
+  {
+    "id": 12,
+    "name": "ユニット2+異属精霊2",
+    "amplification": 4.5
+  }
+]

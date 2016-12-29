@@ -26,10 +26,10 @@
     "name": "シルバー",
     "rarityId": 3,
     "minLevel": 1,
-    "maxLevel": 50,
+    "maxLevel": 55,
     "defaultCurrentLevel": 1,
     "defaultCurrentRemainExp": 38,
-    "defaultTargetLevel": 50,
+    "defaultTargetLevel": 55,
     "icon": "silver-sprit"
   },
   {
@@ -48,10 +48,10 @@
     "name": "ゴールド",
     "rarityId": 4,
     "minLevel": 1,
-    "maxLevel": 80,
+    "maxLevel": 99,
     "defaultCurrentLevel": 1,
     "defaultCurrentRemainExp": 42,
-    "defaultTargetLevel": 60,
+    "defaultTargetLevel": 99,
     "icon": "gold-sprit"
   },
   {
@@ -59,10 +59,10 @@
     "name": "プラチナ",
     "rarityId": 5,
     "minLevel": 1,
-    "maxLevel": 90,
+    "maxLevel": 99,
     "defaultCurrentLevel": 1,
     "defaultCurrentRemainExp": 45,
-    "defaultTargetLevel": 70,
+    "defaultTargetLevel": 99,
     "icon": "platinum-sprit"
   },
   {
@@ -73,7 +73,7 @@
     "maxLevel": 99,
     "defaultCurrentLevel": 1,
     "defaultCurrentRemainExp": 48,
-    "defaultTargetLevel": 80,
+    "defaultTargetLevel": 99,
     "icon": "black-sprit"
   },
   {
@@ -81,10 +81,10 @@
     "name": "サファイア",
     "rarityId": 7,
     "minLevel": 1,
-    "maxLevel": 85,
+    "maxLevel": 99,
     "defaultCurrentLevel": 1,
     "defaultCurrentRemainExp": 45,
-    "defaultTargetLevel": 65,
+    "defaultTargetLevel": 99,
     "icon": "time-sprit"
   }
 ]

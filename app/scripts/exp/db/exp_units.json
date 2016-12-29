@@ -1,44 +1,57 @@
 [
   {
     "id": 1,
-    "name": "プラチナアーマー8倍",
-    "exp": 8000,
-    "icon": "platinum-armer"
-  },
-  {
-    "id": 7,
-    "name": "プラチナアーマー4.5倍",
-    "exp": 4500,
-    "icon": "platinum-armer"
+    "name": "プラチナアーマー",
+    "exp": 1000,
+    "icon": "platinum-bucket",
+    "standalone": false
   },
   {
     "id": 2,
-    "name": "プラチナアーマー3.375倍",
-    "exp": 3375,
-    "icon": "platinum-armer"
-  },
-  {
-    "id": 3,
-    "name": "団長8倍",
-    "exp": 40000,
-    "icon": "black-armer"
+    "name": "ブラックアーマー",
+    "exp": 8000,
+    "icon": "black-armor",
+    "standalone": false
   },
   {
     "id": 4,
-    "name": "ハッピー",
-    "exp": 150000,
-    "icon": "happy"
+    "name": "リーベ",
+    "exp": 19000,
+    "icon": "liebe",
+    "standalone": false
   },
   {
     "id": 5,
-    "name": "ヨジロウ4人 (風神Lv27)",
-    "exp": 920,
-    "icon": "yojiro"
+    "name": "アレグリア",
+    "exp": 18000,
+    "icon": "alegria",
+    "standalone": true
   },
   {
     "id": 6,
-    "name": "ハシム4人 (拠点後Lv20)",
-    "exp": 780,
-    "icon": "hashim"
+    "name": "フロイデ",
+    "exp": 19000,
+    "icon": "freude",
+    "standalone": true
+  },
+  {
+    "id": 7,
+    "name": "ファラハ",
+    "exp": 20000,
+    "icon": "falah",
+    "standalone": true
+  },
+  {
+    "id": 3,
+    "name": "ハッピー",
+    "exp": 150000,
+    "icon": "happy",
+    "standalone": true
+  },
+  {
+    "id": 8,
+    "name": "千狐",
+    "exp": 10005,
+    "icon": "senko"
   }
 ]
