@@ -68,7 +68,7 @@
   {
     "id": 6,
     "name": "ブラック",
-    "rarityId": 6,
+    "rarityId": 7,
     "minLevel": 1,
     "maxLevel": 99,
     "defaultCurrentLevel": 1,
@@ -79,7 +79,7 @@
   {
     "id": 7,
     "name": "サファイア",
-    "rarityId": 7,
+    "rarityId": 6,
     "minLevel": 1,
     "maxLevel": 99,
     "defaultCurrentLevel": 1,
