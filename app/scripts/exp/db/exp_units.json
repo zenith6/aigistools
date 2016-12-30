@@ -4,54 +4,71 @@
     "name": "プラチナアーマー",
     "exp": 1000,
     "icon": "platinum-bucket",
-    "standalone": false
+    "rarityId": 5,
+    "standalone": false,
+    "restricted": false
   },
   {
     "id": 2,
     "name": "ブラックアーマー",
-    "exp": 8000,
+    "exp": 5000,
     "icon": "black-armor",
-    "standalone": false
-  },
-  {
-    "id": 4,
-    "name": "リーベ",
-    "exp": 19000,
-    "icon": "liebe",
-    "standalone": false
+    "rarityId": 7,
+    "standalone": false,
+    "restricted": false
   },
   {
     "id": 5,
     "name": "アレグリア",
     "exp": 18000,
     "icon": "alegria",
-    "standalone": true
+    "rarityId": 4,
+    "standalone": true,
+    "restricted": true
   },
   {
     "id": 6,
     "name": "フロイデ",
     "exp": 19000,
     "icon": "freude",
-    "standalone": true
+    "rarityId": 5,
+    "standalone": true,
+    "restricted": true
+  },
+  {
+    "id": 4,
+    "name": "リーベ",
+    "exp": 19000,
+    "icon": "liebe",
+    "rarityId": 6,
+    "standalone": true,
+    "restricted": true
   },
   {
     "id": 7,
     "name": "ファラハ",
     "exp": 20000,
     "icon": "falah",
-    "standalone": true
+    "rarityId": 7,
+    "standalone": true,
+    "restricted": true
   },
   {
     "id": 3,
     "name": "ハッピー",
     "exp": 150000,
     "icon": "happy",
-    "standalone": true
+    "rarityId": 7,
+    "standalone": true,
+    "restricted": false
   },
   {
     "id": 8,
     "name": "千狐",
     "exp": 10005,
-    "icon": "senko"
+    "rarityId": 7,
+    "icon": "senko",
+    "standalone": false,
+    "restricted": false
   }
 ]

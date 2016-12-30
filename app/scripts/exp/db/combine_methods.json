@@ -2,61 +2,105 @@
   {
     "id": 1,
     "name": "ユニット1",
-    "amplification": 1
+    "amplification": 1,
+    "units": 1,
+    "spirits": 0,
+    "same": true
   },
   {
     "id": 2,
     "name": "ユニット1+同属精霊1",
-    "amplification": 2
+    "amplification": 2,
+    "units": 1,
+    "spirits": 1,
+    "same": true
   },
   {
     "id": 3,
     "name": "ユニット1+同属精霊2",
-    "amplification": 4
+    "amplification": 4,
+    "units": 1,
+    "spirits": 2,
+    "same": true
   },
   {
     "id": 4,
     "name": "ユニット1+同属精霊3",
-    "amplification": 8
+    "amplification": 8,
+    "units": 1,
+    "spirits": 3,
+    "same": true
   },
   {
     "id": 5,
     "name": "ユニット2+同属精霊1",
-    "amplification": 3
+    "amplification": 6,
+    "units": 2,
+    "spirits": 1,
+    "same": true
   },
   {
     "id": 6,
     "name": "ユニット2+同属精霊2",
-    "amplification": 4.5
+    "amplification": 8,
+    "units": 2,
+    "spirits": 2,
+    "same": true
   },
   {
     "id": 7,
     "name": "ユニット3+同属精霊1",
-    "amplification": 4.5
+    "amplification": 6,
+    "units": 3,
+    "spirits": 1,
+    "same": true
   },
   {
     "id": 8,
     "name": "ユニット1+異属精霊1",
-    "amplification": 1.5
+    "amplification": 1.5,
+    "units": 1,
+    "spirits": 1,
+    "same": false
   },
   {
     "id": 9,
     "name": "ユニット1+異属精霊2",
-    "amplification": 2.25
+    "amplification": 2.25,
+    "units": 1,
+    "spirits": 2,
+    "same": false
   },
   {
     "id": 10,
     "name": "ユニット1+異属精霊3",
-    "amplification": 3.375
+    "amplification": 3.375,
+    "units": 1,
+    "spirits": 3,
+    "same": false
   },
   {
     "id": 11,
     "name": "ユニット2+異属精霊1",
-    "amplification": 3
+    "amplification": 3,
+    "units": 2,
+    "spirits": 1,
+    "same": false
   },
   {
     "id": 12,
     "name": "ユニット2+異属精霊2",
-    "amplification": 4.5
+    "amplification": 4.5,
+    "units": 2,
+    "spirits": 2,
+    "same": false
+  },
+  {
+    "id": 13,
+    "name": "ユニット3+異属精霊1",
+    "amplification": 4.5,
+    "units": 3,
+    "spirits": 1,
+    "same": false
   }
 ]

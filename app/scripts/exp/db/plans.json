@@ -18,6 +18,18 @@
     "targetLevel": 60
   },
   {
+    "id": 9,
+    "name": "1→65",
+    "currentLevel": 1,
+    "targetLevel": 65
+  },
+  {
+    "id": 8,
+    "name": "1→70",
+    "currentLevel": 1,
+    "targetLevel": 70
+  },
+  {
     "id": 4,
     "name": "1→80",
     "currentLevel": 1,
@@ -27,7 +39,7 @@
     "id": 7,
     "name": "1→85",
     "currentLevel": 1,
-    "targetLevel": 80
+    "targetLevel": 85
   },
   {
     "id": 5,

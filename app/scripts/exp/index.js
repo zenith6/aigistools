@@ -23,7 +23,16 @@ let $requiredExpUnits;
 let $breedingSpirit;
 let breedingSpanChangeEventPrevented = false;
 let updateResultTimer;
-let updateResultDelay = 50;
+let updateResultDelay = 100;
+let rarityIcons = {
+  1: 'iron-sprit',
+  2: 'bronze-sprit',
+  3: 'silver-sprit',
+  4: 'gold-sprit',
+  5: 'platinum-sprit',
+  6: 'gladys',
+  7: 'black-sprit',
+};
 
 let rarityNextExperiences = experiences
   .sort(function (a, b) {
@@ -206,8 +215,10 @@ function _updateResult() {
   $requiredExpUnits.empty();
 
   expUnits.map(function (unit) {
+    let klass = unit.restricted && unit.rarityId != rarityId ? 'exp-unit-item-disabled' : '';
     let $item = $('<li class="exp-unit-item" />')
-      .appendTo($requiredExpUnits);
+      .appendTo($requiredExpUnits)
+      .addClass(klass);
 
     let $name = $('<div class="exp-unit-name"></div>')
       .text(unit.name)
@@ -216,16 +227,21 @@ function _updateResult() {
     let amplification = unit.standalone ? 1 : combineMethod.amplification;
     amplification = amplification * (hasBreedingSpirit ? 1.1 : 1);
     let unitExp = Math.floor(unit.exp * amplification);
-    let total = Math.ceil(requiredExp / unitExp);
-    let remainder = total * unitExp - requiredExp;
+    let combines = Math.ceil(requiredExp / unitExp);
+    let total = combines * combineMethod.units;
+    let remainder = combines * unitExp - requiredExp;
 
     let $count = $('<span class="exp-unit-count"></span>')
       .text('x' + total.toLocaleString())
       .appendTo($item);
 
     if (remainder > 0) {
+      let percentage = Math.min(remainder / unitExp, 1);
+      let hue = 220 * (1 - percentage);
+      let width = 100 * percentage;
       $('<span class="exp-unit-remainder"></span>')
-        .text('余り ' + remainder.toLocaleString() + ' EXP')
+        .append($('<span class="exp-unit-remainder-label" />').text('余剰 ' + remainder.toLocaleString() + ' EXP'))
+        .append($('<span class="exp-unit-remainder-chart" />').css({'background-color': `hsl(${hue}, 61%, 35%)`, 'width': `${width}%`}))
         .appendTo($item);
     }
 
@@ -235,6 +251,15 @@ function _updateResult() {
     for (let i = 0; i < total; i++) {
       $('<span class="icon" />')
         .addClass('icon-' + unit.icon)
+        .appendTo($units);
+    }
+
+    let spirits = unit.standalone ? 0 : combines * combineMethod.spirits;
+    let icon = 'icon-' + (combineMethod.same ? rarityIcons[rarityId] : rarityId == 1 ? 'bronze-sprit' : 'iron-sprit');
+
+    for (let i = 0; i < spirits; i++) {
+      $('<span class="icon icon-spirit " />')
+        .addClass(icon)
         .appendTo($units);
     }
   });
