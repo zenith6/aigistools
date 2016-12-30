@@ -27,20 +27,9 @@
     clear: both;
   }
 
-  .form-control + .input-group-addon,
-  .form-control + .input-group-addon + .form-control {
-    border-left: none;
-  }
-
   .input-group-addon {
     background-color: #373737;
     color: #bbb;
-  }
-
-  .input-group-btn .bootstrap-touchspin-down {
-    border-radius: 0;
-    border-right: none;
-    border-left: none;
   }
 
   select[name=current_level] {
@@ -68,18 +57,25 @@
 
   .property-value {
     display: block;
-    font-size: 64px;
+    font-size: 70px;
     color: #fff;
     text-shadow: 0 1px 0 #000;
     text-align: right;
-    line-height: 64px;
+    line-height: 70px;
   }
 
   .property-unit {
     display: block;
     font-size: 12px;
     text-align: right;
-    color: #428bca;
+    color: #888;
+  }
+
+  .property-prefix {
+    display: block;
+    text-align: left;
+    color: #888;
+    font-size: 12px;
   }
 
   .diff {

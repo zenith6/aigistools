@@ -21,6 +21,7 @@ let $totalRequiredExp;
 let $planId;
 let $requiredExpUnits;
 let $breedingSpirit;
+let $requiredExpLevel;
 let breedingSpanChangeEventPrevented = false;
 let updateResultTimer;
 let updateResultDelay = 100;
@@ -205,6 +206,7 @@ function _updateResult() {
   let requiredExp = totalRequiredExp(rarityId, currentLevel, currentRemainExp, targetLevel);
 
   $totalRequiredExp.text(requiredExp.toLocaleString());
+  $requiredExpLevel.text(`Lv${currentLevel} → Lv${targetLevel}`);
 
   let combineMethodId = $combineMethodId.val();
   let combineMethod = combineMethods.reduce(function (found, cur) {
@@ -299,6 +301,7 @@ function initialize($view) {
 
   $totalRequiredExp = $view.find('[data-ph="total_required_exp"]');
   $requiredExpUnits = $view.find('[data-ph="required_exp_units"]');
+  $requiredExpLevel = $view.find('[data-ph="required_exp_level"]');
 
 
   $rarityId = $view
