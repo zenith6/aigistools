@@ -1,3 +1,5 @@
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
 .app-exp {
   margin-bottom: 30px;
 
@@ -142,7 +144,6 @@
     position: relative;
     display: inline-block;
     background-color: #202020;
-    border-radius: 4px;
     margin: 0 0 0 8px;
   }
 
@@ -185,6 +186,31 @@
     &:hover > .icon-spirit {
       opacity: 0.8;
     }
+  }
+
+  .milestone {
+    display: block;
+    margin: 20px 0 0 0;
+  }
+
+  .milestone-header {
+    display: flex;
+    margin: 0 0 5px 0;
+    color: #bbb;
+    font-size: 11px;
+  }
+
+  .milestone-list {
+    display: block;
+  }
+
+  .milestone-list-item {
+    display: inline-block;
+    margin: 0 10px 5px 0;
+    padding: 1px 4px;
+    background-color: #000;
+    border-bottom: 1px solid #670e0e;
+    color: #fff;
   }
 }
 

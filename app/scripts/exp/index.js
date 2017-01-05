@@ -1,9 +1,9 @@
-import 'babel-polyfill';
-import experiences from './db/experiences.json';
-import presets from './db/presets.json';
-import expUnits from './db/exp_units.json';
-import plans from './db/plans.json';
-import combineMethods from './db/combine_methods.json';
+import "babel-polyfill";
+import experiences from "./db/experiences.json";
+import presets from "./db/presets.json";
+import expUnits from "./db/exp_units.json";
+import plans from "./db/plans.json";
+import combineMethods from "./db/combine_methods.json";
 
 let defaults = {
   presetId: 3,
@@ -43,6 +43,13 @@ let rarityNextExperiences = experiences
     let exps = all[cur.rarity] || (all[cur.rarity] = []);
     exps.push(cur.next);
     return all;
+  }, {});
+
+let experienceMap = experiences
+  .reduce(function (map, exp) {
+    let rarity = map[exp.rarity] || (map[exp.rarity] = {});
+    rarity[exp.level] = exp;
+    return map;
   }, {});
 
 function getNextLevelUpExp(rarityId, level) {
@@ -189,6 +196,35 @@ function onChangeBreedingSpan() {
   });
 }
 
+function getMilestones(unitExp, rarityId, targetLevel, currentLevel, currentRemainExp) {
+  let milestones = [];
+  let exps = experienceMap[rarityId];
+  let exp = exps[currentLevel];
+  let current = exp.total + (exp.next - currentRemainExp);
+  let required = totalRequiredExp(rarityId, currentLevel, currentRemainExp, targetLevel);
+  let level = targetLevel;
+  let times = 0;
+
+  while ((required -= unitExp) > current) {
+    for (let i = level; i > 0; i--) {
+      let exp = exps[i];
+
+      if (exp.total < required) {
+        level = exp.level;
+        times++;
+        milestones.unshift({
+          times: times,
+          level: level,
+          remainExp: exp.next - (required - exp.total)
+        });
+        break;
+      }
+    }
+  }
+
+  return milestones;
+}
+
 function updateResult() {
   if (updateResultTimer) {
     clearTimeout(updateResultTimer);
@@ -263,6 +299,26 @@ function _updateResult() {
       $('<span class="icon icon-spirit " />')
         .addClass(icon)
         .appendTo($units);
+    }
+
+    let milestones = getMilestones(unitExp, rarityId, targetLevel, currentLevel, currentRemainExp);
+
+    if (milestones.length > 0) {
+      let $milestone = $('<div class="milestone">')
+        .appendTo($item);
+
+      $('<span class="milestone-header"></span>')
+        .text(`Lv ${targetLevel} に必要な合成回数と開始地点`)
+        .appendTo($milestone);
+
+      let $list = $('<span class="milestone-list"></span>')
+        .appendTo($milestone);
+
+      milestones.map(function (milestone) {
+        $('<span class="milestone-list-item"></span>')
+          .text(`${milestone.times}回 → Lv ${milestone.level} ＋ ${milestone.remainExp}`)
+          .appendTo($list);
+      });
     }
   });
 
