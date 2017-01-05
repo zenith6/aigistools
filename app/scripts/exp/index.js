@@ -197,11 +197,12 @@ function onChangeBreedingSpan() {
 }
 
 function getMilestones(unitExp, rarityId, targetLevel, currentLevel, currentRemainExp) {
+  console.log(unitExp);
   let milestones = [];
   let exps = experienceMap[rarityId];
   let exp = exps[currentLevel];
   let current = exp.total + (exp.next - currentRemainExp);
-  let required = totalRequiredExp(rarityId, currentLevel, currentRemainExp, targetLevel);
+  let required = experienceMap[rarityId][targetLevel].total;
   let level = targetLevel;
   let times = 0;
 
