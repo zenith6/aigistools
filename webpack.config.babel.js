@@ -29,10 +29,10 @@ entry.common = [
 ];
 
 let plugins = [
-  new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
-  new webpack.ResolverPlugin(
-    new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
-  ),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'common',
+    filename:'common.js',
+  }),
   new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
@@ -51,13 +51,11 @@ module.exports = {
     publicPath: config.server.base,
   },
   resolve: {
-    root: __dirname,
     extensions: [
-      '',
       '.jsx',
       '.js',
     ],
-    modulesDirectories: [
+    modules: [
       'node_modules',
       'bower_components',
     ],
@@ -72,11 +70,11 @@ module.exports = {
   },
   plugins: plugins,
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: [
             'es2015',
@@ -86,7 +84,7 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json',
+        loader: 'json-loader',
       }
     ]
   },

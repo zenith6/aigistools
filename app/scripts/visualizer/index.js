@@ -7,7 +7,7 @@ require('jquery-ui');
 require('bootstrap-touchspin');
 require('select2');
 
-require('imports?this=>window!./lib/klasses');
+require('imports-loader?this=>window!./lib/klasses');
 
 function bootstrap() {
   $('#loading').show();

@@ -1,9 +1,10 @@
-import "babel-polyfill";
-import experiences from "./db/experiences.json";
-import presets from "./db/presets.json";
-import expUnits from "./db/exp_units.json";
-import plans from "./db/plans.json";
-import combineMethods from "./db/combine_methods.json";
+import 'babel-polyfill';
+import $ from 'jquery';
+import experiences from './db/experiences.json';
+import presets from './db/presets.json';
+import expUnits from './db/exp_units.json';
+import plans from './db/plans.json';
+import combineMethods from './db/combine_methods.json';
 
 let defaults = {
   presetId: 3,
