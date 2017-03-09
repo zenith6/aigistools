@@ -1,0 +1,153 @@
+[
+  {
+    "id": "20170309",
+    "periods": [
+      ["2017/03/09 15:00:00", "2017/03/16 10:00:00"],
+      ["2017/03/16 15:00:00", "2017/03/23 10:00:00"]
+    ],
+    "objectives": [
+      {"value": 10, "title": "ハクノカミが仲間になる", "icon": "hakunokami"},
+      {"value": 30, "title": "スキルレベル2", "icon": "dragon-bead-1"},
+      {"value": 50, "title": "初期レベル10", "icon": "dragon-bead-1"},
+      {"value": 100, "title": "スキルレベル3", "icon": "dragon-bead-1"},
+      {"value": 150, "title": "出撃コスト-1", "icon": "dragon-bead-1"},
+      {"value": 200, "title": "スキルレベル4", "icon": "dragon-bead-1"},
+      {"value": 250, "title": "出撃コスト-2", "icon": "dragon-bead-1"},
+      {"value": 300, "title": "スキルレベル5", "icon": "dragon-bead-1"},
+      {"value": 400, "title": "初期レベル20", "icon": "dragon-bead-1"},
+      {"value": 500, "title": "スキルレベル6", "icon": "dragon-bead-1"},
+      {"value": 600, "title": "出撃コスト-3", "icon": "dragon-bead-1"},
+      {"value": 675, "title": "絆のニナ", "icon": "bonds-nina"},
+      {"value": 700, "title": "スキルレベル7", "icon": "dragon-bead-1"},
+      {"value": 800, "title": "初期レベル30", "icon": "dragon-bead-1"},
+      {"value": 855, "title": "絆のセリア", "icon": "bonds-celia"},
+      {"value": 900, "title": "スキルレベル8", "icon": "dragon-bead-1"},
+      {"value": 1000, "title": "出撃コスト-4", "icon": "dragon-bead-1"},
+      {"value": 1100, "title": "初期レベル40", "icon": "dragon-bead-1"},
+      {"value": 1125, "title": "絆のフローリカ", "icon": "bonds-frorica"},
+      {"value": 1200, "title": "スキルレベル9", "icon": "dragon-bead-1"},
+      {"value": 1300, "title": "出撃コスト-5", "icon": "dragon-bead-1"},
+      {"value": 1350, "title": "技強化の聖霊", "icon": "rainbow-sprit"},
+      {"value": 1400, "title": "スキルレベル10", "icon": "dragon-bead-1"},
+      {"value": 1500, "title": "初期レベル50", "icon": "dragon-bead-1"},
+      {"value": 1530, "title": "プラチナアーマー", "icon": "platinum-bucket"},
+      {"value": 1575, "title": "結晶のカケラ", "icon": "crystal-fragment"},
+      {"value": 1665, "title": "ゴールドアーマー", "icon": "gold-bucket"},
+      {"value": 1710, "title": "黒の聖霊", "icon": "black-sprit"},
+      {"value": 1755, "title": "プラチナアーマー", "icon": "platinum-bucket"},
+      {"value": 1800, "title": "技強化の聖霊", "icon": "rainbow-sprit"}
+    ],
+    "prizes": [],
+    "maps":[
+      {
+        "name": "悠久を生きし龍",
+        "charisma": 20,
+        "stamina": 1,
+        "expectation": 2,
+        "drops": [
+          {"name": "龍玉の欠片", "icon": "dragon-bead-1", "set": 2},
+          {"name": "花束", "icon": "flower"}
+        ],
+        "experience": 140,
+        "gold": 900
+      },
+      {
+        "name": "古代龍の眠る島",
+        "charisma": 30,
+        "stamina": 2,
+        "expectation": 3,
+        "drops": [
+          {"name": "龍玉の欠片", "icon": "dragon-bead-1", "set": 3},
+          {"name": "ヴェロッテ", "icon": "verotte"},
+          {"name": "魔水晶", "icon": "demon-crystal-1"}
+        ],
+        "experience": 180,
+        "gold": 1200
+      },
+      {
+        "name": "封印のほこら",
+        "charisma": 40,
+        "stamina": 4,
+        "expectation": 6,
+        "drops": [
+          {"name": "龍玉の欠片3", "icon": "dragon-bead-3", "set": 1},
+          {"name": "龍玉の欠片5", "icon": "dragon-bead-1", "set": 3},
+          {"name": "ニエル", "icon": "niel"},
+          {"name": "マーヤ", "icon": "maya"}
+        ],
+        "experience": 240,
+        "gold": 1800
+      },
+      {
+        "name": "雨下の激戦",
+        "charisma": 50,
+        "stamina": 7,
+        "expectation": 16,
+        "drops": [
+          {"name": "龍玉の欠片5", "icon": "dragon-bead-5", "set": 2},
+          {"name": "龍玉の欠片3", "icon": "dragon-bead-3", "set": 2},
+          {"name": "ネーニャ", "icon": "nenya"},
+          {"name": "白銀の聖霊", "icon": "platinum-sprit"}
+        ],
+        "experience": 300,
+        "gold": 2100
+      },
+      {
+        "name": "樹霊の暴走",
+        "charisma": 80,
+        "stamina": 9,
+        "expectation": 15,
+        "drops": [
+          {"name": "龍玉の欠片5", "icon": "dragon-bead-5", "set": 3},
+          {"name": "ロザリー", "icon": "rosalie"},
+          {"name": "ローレン", "icon": "loren"},
+          {"name": "魔水晶2", "icon": "demon-crystal-2"}
+        ],
+        "experience": 370,
+        "gold": 2700
+      }
+    ],
+    "rewards": [
+      {"amount": 45, "unit": "gold-bucket"},
+      {"amount": 90, "unit": "gold-sprit"},
+      {"amount": 135, "unit": "platinum-bucket"},
+      {"amount": 180, "unit": "gold-sprit"},
+      {"amount": 225, "unit": "crystal-fragment"},
+      {"amount": 270, "unit": "platinum-sprit"},
+      {"amount": 315, "unit": "gold-bucket"},
+      {"amount": 360, "unit": "platinum-sprit"},
+      {"amount": 405, "unit": "platinum-bucket"},
+      {"amount": 450, "unit": "black-sprit"},
+      {"amount": 495, "unit": "crystal-fragment"},
+      {"amount": 540, "unit": "black-sprit"},
+      {"amount": 585, "unit": "gold-bucket"},
+      {"amount": 630, "unit": "rainbow-sprit"},
+      {"amount": 675, "unit": "bonds-nina"},
+      {"amount": 720, "unit": "platinum-sprit"},
+      {"amount": 765, "unit": "crystal-fragment"},
+      {"amount": 810, "unit": "platinum-sprit"},
+      {"amount": 855, "unit": "bonds-celia"},
+      {"amount": 900, "unit": "black-sprit"},
+      {"amount": 945, "unit": "platinum-bucket"},
+      {"amount": 990, "unit": "platinum-sprit"},
+      {"amount": 1035, "unit": "crystal-fragment"},
+      {"amount": 1080, "unit": "platinum-sprit"},
+      {"amount": 1125, "unit": "bonds-frorica"},
+      {"amount": 1170, "unit": "black-sprit"},
+      {"amount": 1215, "unit": "platinum-bucket"},
+      {"amount": 1260, "unit": "black-sprit"},
+      {"amount": 1305, "unit": "crystal-fragment"},
+      {"amount": 1350, "unit": "rainbow-sprit"},
+      {"amount": 1395, "unit": ""},
+      {"amount": 1440, "unit": "platinum-sprit"},
+      {"amount": 1485, "unit": "platinum-bucket"},
+      {"amount": 1530, "unit": "platinum-sprit"},
+      {"amount": 1575, "unit": "crystal-fragment"},
+      {"amount": 1620, "unit": "black-sprit"},
+      {"amount": 1665, "unit": "gold-bucket"},
+      {"amount": 1710, "unit": "black-sprit"},
+      {"amount": 1755, "unit": "platinum-bucket"},
+      {"amount": 1800, "unit": "skill-sprit"}
+    ]
+  }
+]

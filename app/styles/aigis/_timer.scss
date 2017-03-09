@@ -330,7 +330,6 @@ button[name=increase] {
   margin: 20px 0;
 }
 
-
 .tutorial {
   position: absolute;
   left: 0;
@@ -423,14 +422,19 @@ code {
 #map tbody .badge {
   background: transparent;
   padding: 3px 4px 3px 2px;
+  position: absolute;
+  right: 0;
+  top: 6px;
+  text-shadow: 2px 2px 1px black, -1px -1px 1px black;
 }
 
 #map tbody tr td:nth-child(3), #map tbody tr td:nth-child(4), #map tbody tr td:nth-child(5), #map tbody tr td:nth-child(6) {
   padding: 8px 2px;
+  position: relative;
 }
 
 .select2-results {
-    max-height: 400px;
+  max-height: 400px;
 }
 
 @media screen and (max-width: 767px) {
@@ -500,4 +504,19 @@ code {
   #map [data-chart] {
     min-height: 2.5em;
   }
+}
+
+@media screen and (min-width: 1200px) {
+  .timer {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
+.textar-aa {
+  margin: 40em 1em 1em 2em;
+  line-height: 1;
+  color: #000;
+  background-color: rgb(236, 236, 234);
+  border: none;
 }

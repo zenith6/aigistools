@@ -30,9 +30,15 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '龍玉の欠片タイマー',
+    id: 'dragon-bead-timer',
+    path: 'dragon-bead-timer/',
+  },
+  {
     name: '呪いの武器タイマー',
     id: 'cursed-weapon-timer',
     path: 'cursed-weapon-timer/',
+    deprecated: true,
   },
   {
     name: '血判状タイマー',
