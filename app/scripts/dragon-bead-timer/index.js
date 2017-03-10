@@ -1099,13 +1099,33 @@ function initialize() {
 
     updateStat();
 
-    let $anchor = $(this);
     let $target = $('#map');
     $('html, body')
       .stop()
       .animate({
         scrollTop: $target.offset().top - ($(window).height() - $target.height()) / 2
-      }, 1000);
+      }, 400);
+  });
+
+  $('#switch_aggregate_input_mode').click(function (e) {
+    e.preventDefault();
+
+    $('[name=expectation_input_mode]')
+      .closest('.btn')
+      .removeClass('active');
+
+    $('[name=expectation_input_mode][value="aggregate"]:input')
+      .prop('checked', true)
+      .trigger('change')
+      .closest('.btn')
+      .addClass('active');
+
+    let $target = $('#map');
+    $('html, body')
+      .stop()
+      .animate({
+        scrollTop: $target.offset().top - ($(window).height() - $target.height()) / 2
+      }, 400);
   });
 
 
