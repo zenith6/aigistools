@@ -40,6 +40,7 @@
     "prizes": [],
     "maps":[
       {
+        "id": 2017030901,
         "name": "悠久を生きし龍",
         "charisma": 20,
         "stamina": 1,
@@ -49,9 +50,11 @@
           {"name": "花束", "icon": "flower"}
         ],
         "experience": 140,
-        "gold": 900
+        "gold": 900,
+        "max_drop": 2
       },
       {
+        "id": 2017030902,
         "name": "古代龍の眠る島",
         "charisma": 30,
         "stamina": 2,
@@ -62,9 +65,11 @@
           {"name": "魔水晶", "icon": "demon-crystal-1"}
         ],
         "experience": 180,
-        "gold": 1200
+        "gold": 1200,
+        "max_drop": 3
       },
       {
+        "id": 2017030903,
         "name": "封印のほこら",
         "charisma": 40,
         "stamina": 4,
@@ -76,9 +81,11 @@
           {"name": "マーヤ", "icon": "maya"}
         ],
         "experience": 240,
-        "gold": 1800
+        "gold": 1800,
+        "max_drop": 6
       },
       {
+        "id": 2017030904,
         "name": "雨下の激戦",
         "charisma": 50,
         "stamina": 7,
@@ -90,9 +97,11 @@
           {"name": "白銀の聖霊", "icon": "platinum-sprit"}
         ],
         "experience": 300,
-        "gold": 2100
+        "gold": 2100,
+        "max_drop": 16
       },
       {
+        "id": 2017030905,
         "name": "樹霊の暴走",
         "charisma": 80,
         "stamina": 9,
@@ -104,7 +113,8 @@
           {"name": "魔水晶2", "icon": "demon-crystal-2"}
         ],
         "experience": 370,
-        "gold": 2700
+        "gold": 2700,
+        "max_drop": 15
       }
     ],
     "rewards": [

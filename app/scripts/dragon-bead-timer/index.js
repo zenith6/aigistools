@@ -1,29 +1,22 @@
-import 'babel-polyfill';
-import i18next from 'i18next';
-import events from './db/events.json';
-import locales from './locales';
-import jqueryI18next from 'jquery-i18next';
+import "babel-polyfill";
+import i18next from "i18next";
+import moment from "moment-timezone";
+import events from "./db/events.json";
+import locales from "./locales";
+import jqueryI18next from "jquery-i18next";
+import Reporter from "./lib/Reporter";
+import StatLoader from "./lib/StatLoader";
+import ReportLoader from "./lib/ReportLoader";
+import config from "../../config/index.js";
 
+let reporter;
+let statLoader;
+let reportLoader;
+let stat;
+let state;
 let t;
 
-function switchLanguage(lang) {
-  i18next
-    .init({
-      lng: lang,
-      resources: locales,
-    }, (err, _t) => {
-      if (err) {
-        console.error(err);
-      }
-
-      t = _t;
-
-      jqueryI18next.init(i18next, $, {
-      });
-
-      $('body').localize();
-    });
-}
+moment.locale('ja');
 
 let event = events[0];
 
@@ -44,9 +37,11 @@ let objectiveMode = 'achievement'; // 'achievement' or 'exchange'
 let rewardEnabled = true;
 let cookieName = 'cursed-weapon-timer';
 let defaultChart = 'drop';
-let expectationInputMode = 'direct'; // 'aggregate' or 'direct'
+let expectationInputMode = 'aggregate'; // 'aggregate' or 'direct'
 let syncCurrentEnabled = true;
 let storage;
+let $current;
+let $objective;
 
 let defaultState = {
   current: 20,
@@ -59,14 +54,16 @@ let defaultState = {
   syncCurrentEnabled: syncCurrentEnabled,
   maps: maps.map((map) => {
     return {
-      numLaps: 0,
-      numDrops: 0,
+      numLaps: 1,
+      numDrops: map.max_drop,
       expectation: map.expectation
     };
   }),
   estimateTutorialHidden: false,
   version: 2,
   language: (window.navigator.language || window.navigator.userLanguage),
+  report: false,
+  credentials: null,
 };
 
 let defaultStorage = {
@@ -78,8 +75,23 @@ let defaultStorage = {
   },
 };
 
-let $current;
-let $objective;
+function switchLanguage(lang) {
+  i18next
+    .init({
+      lng: lang,
+      resources: locales,
+    }, (err, _t) => {
+      if (err) {
+        console.error(err);
+      }
+
+      t = _t;
+
+      jqueryI18next.init(i18next, $, {});
+
+      $('body').localize();
+    });
+}
 
 function calculateCharismaCapacity(rank) {
   return 27 + (rank <= 100 ? rank * 3 : 300 + rank - 100);
@@ -211,22 +223,30 @@ function updatePrizeList() {
 
 function updateExpectationChart() {
   let mode = $('[name=expectation]:input').val();
+  let statMode = mode == 'stat';
   let min = Infinity, max = 0;
-  let dividor = mode === 'drop' ? null : mode;
+  let divider = mode === 'drop' ? null : mode;
   let data = maps.map(function (map) {
-    let value = map.expectation / ((dividor && map[dividor]) || 1);
+    let expectation = statMode ? stat[map.id].drop_average : map.expectation;
+    let value = expectation / ((divider && map[divider]) || 1);
     min = 0; // Math.min(min, value);
     max = Math.max(max, value);
     return value;
   });
 
-  let scale = dividor ? 3 : 2;
+  let scale = divider ? 3 : 2;
   maps.forEach(function (map, i) {
     let $chart = $('[data-chart=' + i + ']');
     let value = data[i];
     let rate = value / (max - min);
     let hue = 120 * rate + 240;
-    $chart.find('span.barchart-label').text(t('{{amount}}個', {amount: format(value, scale)}));
+
+    if (statMode) {
+      $chart.find('span.barchart-label').html(t('{{amount}}個 <small>({{samples}}件)</small>', {amount: format(value, scale), samples: format(stat[map.id].samples, 0)}));
+    } else {
+      $chart.find('span.barchart-label').text(t('{{amount}}個', {amount: format(value, scale)}));
+    }
+
     $chart.find('span.barchart')
       .css({
         width: (rate * 100) + '%',
@@ -236,12 +256,14 @@ function updateExpectationChart() {
 }
 
 function updateMarathon() {
+  let statMode = $('[name=expectation]:input').val() == 'stat';
   let objective = parseInt($objective.val());
   let current = parseInt($current.val());
   let norma = Math.max(objective - current, 0);
   maps.forEach(function (map, i) {
     let $chart = $('[data-chart=' + i + ']');
-    let marathon = norma ? Math.ceil(norma / map.expectation) : 0;
+    let expectation = statMode ? stat[map.id].drop_average : map.expectation;
+    let marathon = norma ? Math.ceil(norma / expectation) : 0;
     $chart.find('span.marathon').text(t('残り{{lap}}周', {lap: format(marathon)}));
   });
 
@@ -443,7 +465,7 @@ function isAnimationSupported() {
   let animationstring = 'animated bounce',
     keyframeprefix = '',
     domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
-    pfx  = '',
+    pfx = '',
     elm = document.createElement('div');
 
   if (elm.style.animationName !== undefined) {
@@ -483,9 +505,126 @@ function formatObjectiveItem(item) {
     .html();
 }
 
+function _report() {
+  let data = {};
+
+  data.map = $('#map tr[data-map]')
+    .map(function () {
+      let $tr = $(this);
+      let map = maps[parseInt($tr.attr('data-map'))];
+      let lap = Math.max(parseInt($tr.find('input[name=num_laps]').val()) || 0, 0);
+      let quantity = Math.max(parseInt($tr.find('input[name=num_drops]').val()) || 0, 0);
+      return {
+        id: map.id,
+        lap: lap,
+        quantity: quantity,
+      };
+    })
+    .toArray();
+
+  return reporter.send(data)
+    .then((account) => {
+      state.credentials = account.api_token;
+      saveState(state);
+    })
+    .catch((e) => {
+      console.error('Failed to reporting.');
+    })
+    .then(() => {
+      if ($('[name=expectation]:input').val() == 'stat') {
+        updateStat();
+      }
+
+      updateRecentReport();
+    });
+}
+
+let reportDelayTimer = null;
+
+function report() {
+  if (!state.report) {
+    return;
+  }
+
+  if ($('[name=expectation]:input').val() == 'stat') {
+    $('[data-chart]').css('opacity', 0.4);
+  }
+
+  $('#recent_report').css('opacity', 0.4);
+
+  if (reportDelayTimer) {
+    clearTimeout(reportDelayTimer);
+  }
+
+  reportDelayTimer = setTimeout(_report, 1000);
+}
+
+function deleteReport() {
+  $('#recent_report').css('opacity', 0.4);
+
+  reporter.clear()
+    .then(() => {
+      updateStat();
+      updateRecentReport();
+    })
+    .catch(() => {
+      console.error('Failed to delete reports.');
+    });
+}
+
+function updateStat() {
+  $('[data-chart]').css('opacity', 0.4);
+
+  statLoader.fetch()
+    .then((data) => {
+      stat = data.maps.reduce((stat, data) => {
+        stat[data.id] = data;
+
+        return stat;
+      }, {});
+
+      updateExpectationChart();
+      updateMarathon();
+    })
+    .catch(() => {
+      console.error('Failed to load statistics.');
+    })
+    .then(() => {
+      $('[data-chart]').css('opacity', 1);
+    });
+}
+
+function updateRecentReport() {
+  $('#recent_report').css('opacity', 0.4);
+
+  reportLoader.fetch()
+    .then((data) => {
+      let $container = $('#recent_report_list')
+        .empty();
+
+      data.data.forEach((report) => {
+        $('<tr />')
+          .append($('<td />').text(report.player_uuid))
+          .append($('<td />').text(report.map))
+          .append($('<td class="text-right" />').text(report.lap))
+          .append($('<td class="text-right" />').text(report.drop))
+          .append($('<td />').text(moment(report.updated_at).tz('Asia/Tokyo').format('LLLL')))
+          .appendTo($container);
+      });
+
+      $('#report_total').text(t('全{{total}}件', {total: data.total}));
+    })
+    .catch(() => {
+      console.error('Failed to load recent report.');
+    })
+    .then(() => {
+      $('#recent_report').css('opacity', 1);
+    });
+}
+
 function initialize() {
   storage = loadStorage();
-  let state = loadState(storage);
+  state = loadState(storage);
 
   switchLanguage(state.language);
 
@@ -576,7 +715,7 @@ function initialize() {
   prizes.forEach(function (prize) {
     $('<div class="prize-list" />')
       .append($('<h4 class="prize-list-header" />').text(prize.name)
-      .append($('<span class="prize-value" />').text('@' + prize.value)))
+        .append($('<span class="prize-value" />').text('@' + prize.value)))
       .append($('<div class="prize-list-body" />').attr('data-prize', prize.unit))
       .appendTo($prizeList);
   });
@@ -632,13 +771,24 @@ function initialize() {
   };
 
   let $map = $('#map')
-    .on('keyup', 'input[type=number]', function () {
+    .on('keyup', 'input[name=num_laps], input[name=actual_expectation]', function () {
+      updateExpectation();
+    })
+    .on('keyup', 'input[name=num_drops]', function () {
       updateExpectation();
       syncCurrent();
     })
-    .on('change', 'input[type=number]', function () {
+    .on('change', 'input[name=actual_expectation]', function () {
+      updateExpectation();
+    })
+    .on('change', 'input[name=num_laps]', function () {
+      updateExpectation();
+      report();
+    })
+    .on('change', 'input[name=num_drops]', function () {
       updateExpectation();
       syncCurrent();
+      report();
     })
     .on('click', 'input[type=number]', function () {
       this.select();
@@ -664,18 +814,18 @@ function initialize() {
 
       $map
         .find('input[name=num_laps], input[name=num_drops]')
-          .parent()
-            .toggle(expectationInputMode === 'aggregate')
-          .end()
+        .parent()
+        .toggle(expectationInputMode === 'aggregate')
+        .end()
         .end()
         .find('input[name=actual_expectation]')
-          .parent()
-            .toggle(expectationInputMode === 'direct')
-          .end()
+        .parent()
+        .toggle(expectationInputMode === 'direct')
         .end()
-        .find('input[name=sync]')
-          .closest('tfoot')
-            .toggle(expectationInputMode === 'aggregate');
+        .end()
+        .find('input[name=sync]');
+
+      $('[data-report]').toggle(expectationInputMode === 'aggregate');
 
       updateExpectation();
     })
@@ -686,7 +836,7 @@ function initialize() {
       syncCurrent();
     });
 
-  let $tbody = $map.find('tbody');
+  let $tbody = $('#map_list');
 
   maps.forEach(function (map, idx) {
     let mapState = state.maps[idx];
@@ -853,7 +1003,7 @@ function initialize() {
 
   $('#estimate_tutorial')
     .on('click', 'a', function (e) {
-     $('#map .expectation').each(function () {
+      $('#map .expectation').each(function () {
         let $this = $(this);
 
         if (animationSupporeted) {
@@ -926,31 +1076,60 @@ function initialize() {
 
   $lang.val(state.language);
 
+  $('[name=report]:input')
+    .prop('checked', state.report)
+    .change(function () {
+      state.report = this.checked;
+      saveState(state);
+
+      if (state.report) {
+        report();
+      }
+    });
+
+  $('#refresh_stat_button').click(function (e) {
+    e.preventDefault();
+    updateStat();
+  });
+
+  $('#show_stat').click(function (e) {
+    e.preventDefault();
+
+    $('[name=expectation]:input').val('stat');
+
+    updateStat();
+
+    let $anchor = $(this);
+    let $target = $('#map');
+    $('html, body')
+      .stop()
+      .animate({
+        scrollTop: $target.offset().top - ($(window).height() - $target.height()) / 2
+      }, 1000);
+  });
+
+
+  $('#refresh_recent_report_button').click(function (e) {
+    e.preventDefault();
+    updateRecentReport();
+  });
+
+
+  $('#delete_report_button').click(function (e) {
+    e.preventDefault();
+
+    deleteReport();
+  });
+
+
+  reporter = new Reporter(config.api, state.credentials);
+  statLoader = new StatLoader(config.api);
+  reportLoader = new ReportLoader(config.api);
+
+  updateStat();
+  updateRecentReport();
+
   switch (state.version) {
-    case 1:
-      let $alert = $('<div class="row"><div class="col-sm-6"><div class="alert alert-danger alert-love">'
-        + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'
-        + '<div class="pull-left down"><i class="anna shake shake-constant"></i></div> <strong>アンナさんからのお詫び</strong><br />'
-        + '<p>12月10日18時以前の目標 <code> 1350</code> の報酬が誤っていました。正しい報酬は <code>技強化の聖霊クリスティア</code> です。</p>'
-        + '<p class="text-center clearfix"><button class="btn btn-default btn-sm" data-dismiss="alert"><i class="fa fa-check"> 悲しいポン。つらいポン。</button></p>'
-        + '</div></div></div>"')
-        .on('click', '[data-dismiss]', function (e) {
-          state.version++;
-          saveState(state);
-
-          if (animationSupporeted) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            $alert
-              .addClass('animated zoomOutRight')
-              .one(animationEndEventName, function () {
-                $alert.hide();
-              });
-          }
-        })
-        .prependTo($('#content'));
-      break;
   }
 }
 

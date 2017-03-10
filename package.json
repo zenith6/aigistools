@@ -18,6 +18,8 @@
     "i18next-browser-languagedetector": "^1.0.1",
     "jquery": "^3.1.1",
     "jquery-i18next": "^1.2.0",
+    "moment": "^2.17.1",
+    "moment-timezone": "^0.5.11",
     "wolfy87-eventemitter": "^4.2.11"
   },
   "devDependencies": {

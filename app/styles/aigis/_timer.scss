@@ -189,10 +189,19 @@ button[name=increase] {
   color: #ee5f5b;
 }
 
+#recent_report {
+  transition: opacity 500ms;
+}
+
+#recent_report .table td:first-child {
+  font-family: monospace;
+}
+
 [data-chart] {
   background-color: #111 !important;
   position: relative;
   text-align: right;
+  transition: opacity 500ms;
 
   .barchart-label {
     float: left;

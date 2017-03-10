@@ -5,4 +5,5 @@ module.exports = {
   script: require('./script'),
   server: require('./server'),
   tools: require('./tools'),
+  api: require('./api'),
 };
