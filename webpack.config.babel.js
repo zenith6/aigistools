@@ -26,6 +26,9 @@ entry.common = [
   'i18next',
   'jquery-i18next',
   'i18next-browser-languagedetector',
+  'moment',
+  'moment-timezone',
+  'url',
 ];
 
 let plugins = [

@@ -223,31 +223,51 @@ function updatePrizeList() {
 
 function updateExpectationChart() {
   let mode = $('[name=expectation]:input').val();
-  let statMode = mode == 'stat';
   let min = Infinity, max = 0;
   let divider = mode === 'drop' ? null : mode;
+
   let data = maps.map(function (map) {
-    let expectation = statMode ? stat[map.id].drop_average : map.expectation;
-    let value = expectation / ((divider && map[divider]) || 1);
+    let own = map.expectation / ((divider && map[divider]) || 1);
+    let theirs = stat && map.id in stat ? stat[map.id].drop_average / ((divider && map[divider]) || 1) : 0;
     min = 0; // Math.min(min, value);
-    max = Math.max(max, value);
-    return value;
+    max = Math.max(max, own, theirs);
+
+    return {
+      own: own,
+      theirs: theirs,
+    };
   });
 
   let scale = divider ? 3 : 2;
   maps.forEach(function (map, i) {
     let $chart = $('[data-chart=' + i + ']');
-    let value = data[i];
+
+    let value = data[i].theirs;
     let rate = value / (max - min);
     let hue = 120 * rate + 240;
 
-    if (statMode) {
-      $chart.find('span.barchart-label').html(t('{{amount}}個 <small>({{samples}}件)</small>', {amount: format(value, scale), samples: format(stat[map.id].samples, 0)}));
-    } else {
-      $chart.find('span.barchart-label').text(t('{{amount}}個', {amount: format(value, scale)}));
-    }
+    $chart.find('.barchart-theirs > .barchart-label')
+      .html(t('{{amount}}個 <small class="barchart-label-sub">(標本{{samples}}件)</small>', {
+        amount: format(value, scale),
+        samples: format(stat && map.id in stat ? stat[map.id].samples : '?', 0),
+      }));
 
-    $chart.find('span.barchart')
+    $chart.find('.barchart-theirs > .barchart-bar')
+      .css({
+        width: (rate * 100) + '%',
+        backgroundColor: 'hsla(' + hue + ', 80%, 50%, 0.5)'
+      });
+
+    value = data[i].own;
+    rate = value / (max - min);
+    hue = 120 * rate + 240;
+
+    $chart.find('.barchart-own > .barchart-label')
+      .html(t('{{amount}}個', {
+        amount: format(value, scale),
+      }));
+
+    $chart.find('.barchart-own > .barchart-bar')
       .css({
         width: (rate * 100) + '%',
         backgroundColor: 'hsla(' + hue + ', 80%, 50%, 0.5)'
@@ -256,15 +276,18 @@ function updateExpectationChart() {
 }
 
 function updateMarathon() {
-  let statMode = $('[name=expectation]:input').val() == 'stat';
   let objective = parseInt($objective.val());
   let current = parseInt($current.val());
   let norma = Math.max(objective - current, 0);
   maps.forEach(function (map, i) {
     let $chart = $('[data-chart=' + i + ']');
-    let expectation = statMode ? stat[map.id].drop_average : map.expectation;
+    let expectation = stat && map.id in stat ? stat[map.id].drop_average : 0;
     let marathon = norma ? Math.ceil(norma / expectation) : 0;
-    $chart.find('span.marathon').text(t('残り{{lap}}周', {lap: format(marathon)}));
+    $chart.find('.barchart-theirs > .marathon').text(t('残り{{lap}}周', {lap: format(marathon)}));
+
+    expectation = map.expectation;
+    marathon = norma ? Math.ceil(norma / expectation) : 0;
+    $chart.find('.barchart-own > .marathon').text(t('残り{{lap}}周', {lap: format(marathon)}));
   });
 
   $('#expectation_drop_total').text(format(current));
@@ -582,17 +605,18 @@ function updateStat() {
 
         return stat;
       }, {});
-
-      updateExpectationChart();
-      updateMarathon();
     })
     .catch(() => {
       console.error('Failed to load statistics.');
     })
     .then(() => {
+      updateExpectationChart();
+      updateMarathon();
+
       $('[data-chart]').css('opacity', 1);
     });
 }
+
 
 function updateRecentReport() {
   $('#recent_report').css('opacity', 0.4);
@@ -608,6 +632,7 @@ function updateRecentReport() {
           .append($('<td />').text(report.map))
           .append($('<td class="text-right" />').text(report.lap))
           .append($('<td class="text-right" />').text(report.drop))
+          .append($('<td class="text-right" />').text(format(report.drop / report.lap, 3)))
           .append($('<td />').text(moment(report.updated_at).tz('Asia/Tokyo').format('LLLL')))
           .appendTo($container);
       });
@@ -841,11 +866,11 @@ function initialize() {
   maps.forEach(function (map, idx) {
     let mapState = state.maps[idx];
 
-    let $chart = $('<td />')
+    let $chart = $('<td class="barchart-container" />')
       .attr('data-chart', idx)
-      .append($('<span class="barchart" />'))
-      .append($('<span class="barchart-label" />'))
-      .append($('<span class="marathon" />'));
+      .append($('<span class="barchart barchart-own"><span class="barchart-bar" /><span class="barchart-label" /><span class="marathon" />'))
+      .append($('<span class="barchart barchart-theirs"><span class="barchart-bar" /><span class="barchart-label" /><span class="marathon" />'))
+      .append();
 
     $('<tr />')
       .attr('data-map', idx)
@@ -1092,12 +1117,8 @@ function initialize() {
     updateStat();
   });
 
-  $('#show_stat').click(function (e) {
+  $('a[href="#map"]').click(function (e) {
     e.preventDefault();
-
-    $('[name=expectation]:input').val('stat');
-
-    updateStat();
 
     let $target = $('#map');
     $('html, body')
@@ -1119,13 +1140,6 @@ function initialize() {
       .trigger('change')
       .closest('.btn')
       .addClass('active');
-
-    let $target = $('#map');
-    $('html, body')
-      .stop()
-      .animate({
-        scrollTop: $target.offset().top - ($(window).height() - $target.height()) / 2
-      }, 400);
   });
 
 

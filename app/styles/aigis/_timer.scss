@@ -217,12 +217,63 @@ button[name=increase] {
     left: 0;
     transition: all 600ms ease;
   }
+
+  .marathon {
+    position: relative;
+    float: right;
+    text-shadow: 1px 1px 1px black;
+  }
 }
 
-.marathon {
-  position: relative;
-  float: right;
-  text-shadow: 1px 1px 1px black;
+.barchart-container {
+  padding: 0 !important;
+
+  .barchart {
+    position: relative;
+    display: block;
+    height: 50%;
+    padding: 4px;
+
+    .barchart-bar {
+      transition: all 600ms ease;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    .barchart-label {
+      float: left;
+      position: relative;
+      text-shadow: 1px 1px 1px black;
+    }
+
+    .marathon {
+      float: right;
+      position: relative;
+      text-shadow: 1px 1px 1px black;
+    }
+
+    .barchart-label-sub {
+      font-size: 10px;
+    }
+
+    & + .barchart {
+      border-top: 1px solid #000;
+    }
+
+    &.barchart-theirs {
+      opacity: 0.75;
+    }
+  }
+
+  .barchart:after {
+    clear: both;
+    display: table;
+    content: "";
+  }
 }
 
 .prize-value {

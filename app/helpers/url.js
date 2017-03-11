@@ -5,7 +5,7 @@ function urlHelper(pathname, options) {
   var address;
   options = options || {};
 
-  if (options.host || options.absolute || options.secure) {
+  if (options.host || options.absolute || options.secure || options.query) {
     address = url.format({
       protocol: options.secure ? 'https' : options.protocol || config.server.protocol,
       hostname: config.server.host,
