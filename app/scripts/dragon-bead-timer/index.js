@@ -8,6 +8,7 @@ import Reporter from "./lib/Reporter";
 import StatLoader from "./lib/StatLoader";
 import ReportLoader from "./lib/ReportLoader";
 import config from "../../config/index.js";
+import organizations from "./db/organizations.json";
 
 let reporter;
 let statLoader;
@@ -42,6 +43,8 @@ let syncCurrentEnabled = true;
 let storage;
 let $current;
 let $objective;
+let $dropRate;
+let $statDropRateFilter;
 
 let defaultState = {
   current: 20,
@@ -64,6 +67,8 @@ let defaultState = {
   language: (window.navigator.language || window.navigator.userLanguage),
   report: false,
   credentials: null,
+  dropRate: 1,
+  statDropRateFilter: null,
 };
 
 let defaultStorage = {
@@ -537,10 +542,12 @@ function _report() {
       let map = maps[parseInt($tr.attr('data-map'))];
       let lap = Math.max(parseInt($tr.find('input[name=num_laps]').val()) || 0, 0);
       let quantity = Math.max(parseInt($tr.find('input[name=num_drops]').val()) || 0, 0);
+
       return {
         id: map.id,
         lap: lap,
         quantity: quantity,
+        rate: state.dropRate,
       };
     })
     .toArray();
@@ -554,10 +561,7 @@ function _report() {
       console.error('Failed to reporting.');
     })
     .then(() => {
-      if ($('[name=expectation]:input').val() == 'stat') {
-        updateStat();
-      }
-
+      updateStat();
       updateRecentReport();
     });
 }
@@ -569,10 +573,7 @@ function report() {
     return;
   }
 
-  if ($('[name=expectation]:input').val() == 'stat') {
-    $('[data-chart]').css('opacity', 0.4);
-  }
-
+  $('[data-chart]').css('opacity', 0.4);
   $('#recent_report').css('opacity', 0.4);
 
   if (reportDelayTimer) {
@@ -598,7 +599,11 @@ function deleteReport() {
 function updateStat() {
   $('[data-chart]').css('opacity', 0.4);
 
-  statLoader.fetch()
+  let filter = {
+    drop_rate: state.statDropRateFilter,
+  };
+
+  statLoader.fetch(filter)
     .then((data) => {
       stat = data.maps.reduce((stat, data) => {
         stat[data.id] = data;
@@ -606,9 +611,9 @@ function updateStat() {
         return stat;
       }, {});
     })
-    .catch(() => {
-      console.error('Failed to load statistics.');
-    })
+    //.catch(() => {
+    //  console.error('Failed to load statistics.');
+    //})
     .then(() => {
       updateExpectationChart();
       updateMarathon();
@@ -630,9 +635,10 @@ function updateRecentReport() {
         $('<tr />')
           .append($('<td />').text(report.player_uuid))
           .append($('<td />').text(report.map))
-          .append($('<td class="text-right" />').text(report.lap))
-          .append($('<td class="text-right" />').text(report.drop))
+          .append($('<td class="text-right" />').text(format(report.lap)))
+          .append($('<td class="text-right" />').text(format(report.drop)))
           .append($('<td class="text-right" />').text(format(report.drop / report.lap, 3)))
+          .append($('<td class="text-right" />').text(format(report.rate * 100) + '%'))
           .append($('<td />').text(moment(report.updated_at).tz('Asia/Tokyo').format('LLLL')))
           .appendTo($container);
       });
@@ -1154,6 +1160,49 @@ function initialize() {
 
     deleteReport();
   });
+
+
+  $dropRate = $('[name=drop_rate]')
+    .on('change', function () {
+      state.dropRate = $(this).val();
+      saveState(state);
+      report();
+    });
+
+  organizations.forEach((organization) => {
+    $('<option />')
+      .val(organization.rate)
+      .text(organization.name)
+      .appendTo($dropRate);
+  });
+
+  if (state.dropRate !== null) {
+    $dropRate.val(state.dropRate);
+  }
+
+
+  $statDropRateFilter = $('[name=stat_drop_rate_filter]')
+    .on('change', function () {
+      state.statDropRateFilter = $(this).val();
+      saveState(state);
+      updateStat();
+    });
+
+  $('<option />')
+    .val('')
+    .text('すべて')
+    .appendTo($statDropRateFilter);
+
+  organizations.forEach((organization) => {
+    $('<option />')
+      .val(organization.rate)
+      .text(organization.name)
+      .appendTo($statDropRateFilter);
+  });
+
+  if (state.statDropRateFilter !== null) {
+    $dropRate.val(state.statDropRateFilter);
+  }
 
 
   reporter = new Reporter(config.api, state.credentials);

@@ -7,12 +7,15 @@ export default class StatLoader {
     return `${this.api.url}/${path}`;
   }
 
-  fetch() {
+  fetch(filter) {
     return new Promise((resolve, reject) => {
       return $
         .ajax(this.endpoint('stat/drops'), {
           type: 'get',
           dataType: 'json',
+          data: {
+            filter: filter,
+          },
           crossDomain: true,
         })
         .then((response) => {

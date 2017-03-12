@@ -301,10 +301,24 @@
                       <span data-i18n="匿名で集計情報を送信する">ドロップ情報を匿名で報告する</span> <span class="label label-info" data-i18n="試験中">試験運用中</span>
                     </label>
                   </div>
+                  <div class="form-inline">
+                    <div class="input-group input-group-sm">
+                      <select name="drop_rate" class="form-control"></select>
+                      <span class="input-group-addon">で報告</span>
+                    </div>
+                  </div>
                 </div>
               </td>
               <td>
-                <button id="refresh_stat_button" class="btn btn-default btn-sm pull-right"><i class="fa fa-refresh"></i> 更新</button>
+                <div class="pull-right">
+                  <div class="form-inline">
+                    <div class="form-group form-group-sm">
+                      <label class="control-label"><i class="fa fa-filter"></i></label>
+                      <select name="stat_drop_rate_filter" class="form-control"></select>
+                    </div>
+                    <button id="refresh_stat_button" class="btn btn-default btn-sm pull-right"><i class="fa fa-refresh"></i> 更新</button>
+                  </div>
+                </div>
               </td>
             </tr>
           </tfoot>
@@ -330,6 +344,7 @@
               <td>周回</td>
               <td>ドロップ数</td>
               <td>1週当たり</td>
+              <td>編成ドロップ率</td>
               <td>
                 日時
                 <button id="refresh_recent_report_button" class="btn btn-default btn-sm pull-right"><i class="fa fa-refresh"></i> 更新</button>
