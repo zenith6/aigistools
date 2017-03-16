@@ -102,6 +102,15 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="control-label col-sm-4" data-i18n>参照データ</label>
+          <div class="col-sm-8">
+            <select name="source" class="form-control">
+              <option value="local" data-i18n>個人集計</option>
+              <option value="global" data-i18n>全体集計</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
           <div class="col-sm-8 col-sm-offset-4">
             <div class="checkbox">
               <label>
@@ -298,25 +307,27 @@
                   <div class="checkbox">
                     <label>
                       <input name="report" type="checkbox" value="1" />
-                      <span data-i18n="匿名で集計情報を送信する">ドロップ情報を匿名で報告する</span> <span class="label label-info" data-i18n="試験中">試験運用中</span>
+                      <span data-i18n>ドロップ情報を匿名で報告する</span> <span class="label label-info" data-i18n="試験運用中">試験運用中</span>
                     </label>
                   </div>
                   <div class="form-inline">
                     <div class="input-group input-group-sm">
                       <select name="drop_rate" class="form-control"></select>
-                      <span class="input-group-addon">で報告</span>
+                      <span class="input-group-addon" data-i18n>で報告</span>
                     </div>
                   </div>
                 </div>
               </td>
               <td>
                 <div class="pull-right">
-                  <div class="form-inline">
-                    <div class="form-group form-group-sm">
-                      <label class="control-label"><i class="fa fa-filter"></i></label>
-                      <select name="stat_drop_rate_filter" class="form-control"></select>
+                  <div class="input-group input-group-sm">
+                    <div class="input-group-addon">
+                      <i class="fa fa-filter"></i>
                     </div>
-                    <button id="refresh_stat_button" class="btn btn-default btn-sm pull-right"><i class="fa fa-refresh"></i> 更新</button>
+                    <select name="stat_drop_rate_filter" class="form-control"></select>
+                    <div class="input-group-btn">
+                      <button id="refresh_stat_button" class="btn btn-default btn-sm pull-right"><i class="fa fa-refresh"></i> <span data-i18n="更新">更新</span></button>
+                    </div>
                   </div>
                 </div>
               </td>
@@ -339,15 +350,15 @@
         <table class="table table-condensed table-striped table-bordered">
           <thead>
             <tr>
-              <td>Blueman ID</td>
-              <td>マップ</td>
-              <td>周回</td>
-              <td>ドロップ数</td>
-              <td>1週当たり</td>
-              <td>編成ドロップ率</td>
+              <td data-i18n>Blueman ID</td>
+              <td data-i18n>マップ</td>
+              <td data-i18n>周回</td>
+              <td data-i18n>ドロップ数</td>
+              <td data-i18n>1週当たり</td>
+              <td data-i18n>編成ドロップ率</td>
               <td>
-                日時
-                <button id="refresh_recent_report_button" class="btn btn-default btn-sm pull-right"><i class="fa fa-refresh"></i> 更新</button>
+                <span data-i18n>更新日時</span>
+                <button id="refresh_recent_report_button" class="btn btn-default btn-sm pull-right"><i class="fa fa-refresh"></i> <span data-i18n="更新">更新</span></button>
               </td>
             </tr>
           </thead>
@@ -357,7 +368,7 @@
             <tr>
               <td colspan="7">
                 <span id="report_total"></span>
-                <button id="delete_report_button" class="btn btn-danger btn-sm pull-right"><i class="fa fa-remove"></i> 自分の報告を削除</button>
+                <button id="delete_report_button" class="btn btn-danger btn-sm pull-right"><i class="fa fa-remove"></i> <span data-i18n="自分の報告を削除">自分の報告を削除</span></button>
               </td>
             </tr>
           </tfoot>

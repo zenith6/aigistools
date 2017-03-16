@@ -69,6 +69,7 @@ let defaultState = {
   credentials: null,
   dropRate: 1,
   statDropRateFilter: null,
+  source: 'local',
 };
 
 let defaultStorage = {
@@ -303,7 +304,8 @@ function updateEstimate() {
   let objective = parseInt($objective.val());
   let map = maps[parseInt($('[name=estimate_map]:input').val())];
   let left = Math.max(objective - current, 0);
-  let requiredMarathon = Math.ceil(left / map.expectation);
+  let expectation = state.source == 'local' ? map.expectation : (stat && map.id in stat ? stat[map.id].drop_average : 0);
+  let requiredMarathon = Math.ceil(left / expectation);
   $('#estimate_required_marathon').text(format(requiredMarathon));
 
   let now = (new Date()).getTime();
@@ -359,7 +361,7 @@ function updateEstimate() {
   text = (delta >= 0 ? '+' : '') + format(delta);
   $('#estimate_using_stamina_diff').attr('class', klass).text(text);
 
-  let result = current + Math.floor(map.expectation * availableMarathon);
+  let result = current + Math.floor(expectation * availableMarathon);
   $('#estimate_result_collection').text(format(result));
 
   delta = result - objective;
@@ -617,6 +619,7 @@ function updateStat() {
     .then(() => {
       updateExpectationChart();
       updateMarathon();
+      updateEstimate();
 
       $('[data-chart]').css('opacity', 1);
     });
@@ -1172,7 +1175,7 @@ function initialize() {
   organizations.forEach((organization) => {
     $('<option />')
       .val(organization.rate)
-      .text(organization.name)
+      .text(t(organization.name))
       .appendTo($dropRate);
   });
 
@@ -1190,13 +1193,13 @@ function initialize() {
 
   $('<option />')
     .val('')
-    .text('すべて')
+    .text(t('すべて'))
     .appendTo($statDropRateFilter);
 
   organizations.forEach((organization) => {
     $('<option />')
       .val(organization.rate)
-      .text(organization.name)
+      .text(t(organization.name))
       .appendTo($statDropRateFilter);
   });
 
@@ -1205,12 +1208,22 @@ function initialize() {
   }
 
 
+  $('[name=source]:input')
+    .on('change', function () {
+      state.source = $(this).val();
+      saveState(state);
+      updateEstimate();
+    })
+    .val(state.source);
+
+
   reporter = new Reporter(config.api, state.credentials);
   statLoader = new StatLoader(config.api);
   reportLoader = new ReportLoader(config.api);
 
   updateStat();
   updateRecentReport();
+  updateEstimate();
 
   switch (state.version) {
   }
