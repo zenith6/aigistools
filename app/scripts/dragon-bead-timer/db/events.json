@@ -115,6 +115,118 @@
         "experience": 370,
         "gold": 2700,
         "max_drop": 15
+      },
+      {
+        "id": 2017030906,
+        "name": "河童の雨乞い",
+        "charisma": 40,
+        "stamina": 5,
+        "expectation": 9,
+        "drops": [
+          {
+            "name": "龍玉の欠片3",
+            "icon": "dragon-bead-3",
+            "set": 3
+          },
+          {
+            "name": "イロハ",
+            "icon": "iroha"
+          },
+          {
+            "name": "グラディス",
+            "icon": "gladys"
+          },
+          {
+            "name": "白バケツ",
+            "icon": "platinum-bucket"
+          }
+        ],
+        "experience": 260,
+        "gold": 1950,
+        "max_drop": 9
+      },
+      {
+        "id": 2017030907,
+        "name": "大海原を泳ぐ巨龍",
+        "charisma": 70,
+        "stamina": 8,
+        "expectation": 13,
+        "drops": [
+          {
+            "name": "龍玉の欠片5",
+            "icon": "dragon-bead-5",
+            "set": 2
+          },
+          {
+            "name": "龍玉の欠片3",
+            "icon": "dragon-bead-3"
+          },
+          {
+            "name": "ハリッサ",
+            "icon": "harissa"
+          },
+          {
+            "name": "ルビー",
+            "icon": "ruby"
+          }
+        ],
+        "experience": 350,
+        "gold": 2550,
+        "max_drop": 13
+      },
+      {
+        "id": 2017030908,
+        "name": "古代龍の目覚め",
+        "charisma": 90,
+        "stamina": 12,
+        "expectation": 26,
+        "drops": [
+          {
+            "name": "龍玉の欠片5",
+            "icon": "dragon-bead-5",
+            "set": 4
+          },
+          {
+            "name": "龍玉の欠片3",
+            "icon": "dragon-bead-3",
+            "set": 2
+          },
+          {
+            "name": "技強化の聖霊",
+            "icon": "rainbow-sprit"
+          }
+        ],
+        "experience": 400,
+        "gold": 3000,
+        "max_drop": 26
+      },
+      {
+        "id": 2017030909,
+        "name": "新たなるキョンシー",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {
+            "name": "金聖霊",
+            "icon": "gold-sprit"
+          },
+          {
+            "name": "白聖霊",
+            "icon": "platinum-sprit"
+          },
+          {
+            "name": "黒聖霊",
+            "icon": "black-sprit"
+          },
+          {
+            "name": "虹聖霊",
+            "icon": "rainbow-sprit"
+          }
+        ],
+        "experience": 200,
+        "gold": 1800,
+        "max_drop": 0
       }
     ],
     "rewards": [

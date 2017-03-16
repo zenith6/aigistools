@@ -1201,7 +1201,7 @@ function initialize() {
   });
 
   if (state.statDropRateFilter !== null) {
-    $dropRate.val(state.statDropRateFilter);
+    $statDropRateFilter.val(state.statDropRateFilter);
   }
 
 
