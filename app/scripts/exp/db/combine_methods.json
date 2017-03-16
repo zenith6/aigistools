@@ -102,5 +102,21 @@
     "units": 3,
     "spirits": 1,
     "same": false
+  },
+  {
+    "id": 14,
+    "name": "ユニット1+同属1+異属2",
+    "amplification": 4.5,
+    "units": 1,
+    "spirits": 3,
+    "same": false
+  },
+  {
+    "id": 15,
+    "name": "ユニット1+同属2+異属1",
+    "amplification": 6,
+    "units": 1,
+    "spirits": 3,
+    "same": false
   }
 ]

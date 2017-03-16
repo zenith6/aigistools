@@ -253,7 +253,14 @@ function _updateResult() {
 
   $requiredExpUnits.empty();
 
-  expUnits.map(function (unit) {
+  expUnits
+    .sort(function (a, b) {
+      let aw = a.weight * (a.restricted && a.rarityId != rarityId ? 10000 : 1);
+      let bw = b.weight * (b.restricted && b.rarityId != rarityId ? 10000 : 1);
+
+      return aw - bw;
+    })
+    .map(function (unit) {
     let klass = unit.restricted && unit.rarityId != rarityId ? 'exp-unit-item-disabled' : '';
     let $item = $('<li class="exp-unit-item" />')
       .appendTo($requiredExpUnits)

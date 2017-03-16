@@ -234,3 +234,10 @@
     transform: scaleX(1);
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .app-exp {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
