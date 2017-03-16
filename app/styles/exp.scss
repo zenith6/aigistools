@@ -205,12 +205,27 @@
   }
 
   .milestone-list-item {
+    position: relative;
     display: inline-block;
     margin: 0 10px 5px 0;
-    padding: 1px 4px;
-    background-color: #000;
-    border-bottom: 1px solid #670e0e;
+    padding: 0;
+    background-color: #202020;
     color: #fff;
+  }
+
+  .milestone-times {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: #364856;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .milestone-base {
+    display: inline-block;
+    padding: 2px 5px;
+    margin-left: 5px;
+    font-size: 14px;
   }
 }
 

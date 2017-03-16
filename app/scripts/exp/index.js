@@ -324,7 +324,8 @@ function _updateResult() {
 
       milestones.map(function (milestone) {
         $('<span class="milestone-list-item"></span>')
-          .text(`${milestone.times}回 → Lv ${milestone.level} ＋ ${milestone.remainExp}`)
+          .append($('<span class="milestone-times" />').text(`${milestone.times}回`))
+          .append($('<span class="milestone-base" />').text(`Lv ${milestone.level} ＋ ${milestone.remainExp}`))
           .appendTo($list);
       });
     }
