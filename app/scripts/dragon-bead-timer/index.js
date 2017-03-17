@@ -231,31 +231,50 @@ function updateExpectationChart() {
   let mode = $('[name=expectation]:input').val();
   let min = Infinity, max = 0;
   let divider = mode === 'drop' ? null : mode;
+  let data;
 
-  let data = maps.map(function (map) {
-    let own = map.expectation / ((divider && map[divider]) || 1);
-    let theirs = stat && map.id in stat ? stat[map.id].drop_average / ((divider && map[divider]) || 1) : 0;
-    min = 0; // Math.min(min, value);
-    max = Math.max(max, own, theirs);
+  if (mode == 'lap') {
+    data = maps.map(function (map, i) {
+      let own = i in state.maps ? state.maps[i].numLaps : 0;
+      let theirs = stat && map.id in stat ? stat[map.id].lap_sum : 0;
+      min = 0;
+      max = Math.max(max, own, theirs);
 
-    return {
-      own: own,
-      theirs: theirs,
-    };
-  });
+      return {
+        own: own,
+        theirs: theirs,
+      };
+    });
+  } else {
+    data = maps.map(function (map) {
+      let own = map.expectation / ((divider && map[divider]) || 1);
+      let theirs = stat && map.id in stat ? stat[map.id].drop_average / ((divider && map[divider]) || 1) : 0;
+      min = 0; // Math.min(min, value);
+      max = Math.max(max, own, theirs);
 
-  let scale = divider ? 3 : 2;
+      return {
+        own: own,
+        theirs: theirs,
+      };
+    });
+  }
+
+  let scale = mode === 'lap' ? 0 : 3;
   maps.forEach(function (map, i) {
     let $chart = $('[data-chart=' + i + ']');
 
     let value = data[i].theirs;
     let rate = value / (max - min);
     let hue = 120 * rate + 240;
+    let label = mode === 'lap'
+      ? '{{laps}}週 <small class="barchart-label-sub">(標本{{samples}}件)</small>'
+      : '{{amount}}個 <small class="barchart-label-sub">(標本{{samples}}件, {{laps}}周)</small>';
 
     $chart.find('.barchart-theirs > .barchart-label')
-      .html(t('{{amount}}個 <small class="barchart-label-sub">(標本{{samples}}件)</small>', {
+      .html(t(label, {
         amount: format(value, scale),
-        samples: format(stat && map.id in stat ? stat[map.id].samples : '?', 0),
+        samples: stat && map.id in stat ? format(stat[map.id].samples, 0) : '?',
+        laps: stat && map.id in stat ? format(stat[map.id].lap_sum, 0) : '?',
       }));
 
     $chart.find('.barchart-theirs > .barchart-bar')
@@ -267,9 +286,12 @@ function updateExpectationChart() {
     value = data[i].own;
     rate = value / (max - min);
     hue = 120 * rate + 240;
+    label = mode === 'lap'
+      ? '{{amount}}週'
+      : '{{amount}}個';
 
     $chart.find('.barchart-own > .barchart-label')
-      .html(t('{{amount}}個', {
+      .html(t(label, {
         amount: format(value, scale),
       }));
 

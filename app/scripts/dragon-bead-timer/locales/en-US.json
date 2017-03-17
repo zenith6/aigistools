@@ -79,7 +79,9 @@
     "で報告": "Report",
     "更新日時": "Updated at",
     "すべて": "All",
-    "{{amount}}個 <small class=\"barchart-label-sub\">(標本{{samples}}件)</small>": "{{amount}} <small class=\"barchart-label-sub\">({{samples}} samples)</small>",
+    "{{amount}}個 <small class=\"barchart-label-sub\">(標本{{samples}}件, {{laps}}周)</small>": "{{amount}} <small class=\"barchart-label-sub\">({{samples}} samples, {{laps}} laps)</small>",
+    "{{laps}}週 <small class=\"barchart-label-sub\">(標本{{samples}}件)</small>": "{{laps}} <small class=\"barchart-label-sub\">({{samples}} samples)</small>",
+    "{{amount}}週": "{{amount}} laps",
 
     "ハクノカミが仲間になる": "Available Hakunokami",
     "スキルレベル2": "Skill level 2",
