@@ -658,6 +658,7 @@ function updateRecentReport() {
 
       data.data.forEach((report) => {
         $('<tr />')
+          .toggleClass('invalid', !report.verified)
           .append($('<td />').text(report.player_uuid))
           .append($('<td />').text(report.map))
           .append($('<td class="text-right" />').text(format(report.lap)))

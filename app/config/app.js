@@ -5,5 +5,5 @@ module.exports = {
   name: '千年戦争アイギスツール',
   author: 'Seiji Nitta',
   thumbnail: path.resolve(__dirname, '../assets/thumbnails'),
-  version: '201703121351',
+  version: '201703191618',
 };

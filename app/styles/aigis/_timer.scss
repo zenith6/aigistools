@@ -497,6 +497,10 @@ code {
   max-height: 400px;
 }
 
+.recent-reports tr.invalid {
+  color: #5f5f5f !important;
+}
+
 @media screen and (max-width: 767px) {
   #map .table-responsive {
     border: none;
