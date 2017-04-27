@@ -61,14 +61,11 @@ export default class Reporter {
     });
   }
 
-  deleteRecord() {
+  deleteRecord(data) {
     return new Promise((resolve, reject) => {
       return $
-        .ajax(this.endpoint(`missions/${data.mission_id}/drops`), {
+        .ajax(this.endpoint(`missions/${data.mission_id}/drops_clear`), {
           type: 'post',
-          data: {
-            '_method': 'delete',
-          },
           headers: {
             'Authorization': `Bearer ${this.account.api_token}`,
           },
