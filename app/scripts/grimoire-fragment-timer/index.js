@@ -36,7 +36,7 @@ let maps = event.maps;
 let rewards = event.rewards;
 let objectiveMode = 'achievement'; // 'achievement' or 'exchange'
 let rewardEnabled = true;
-let cookieName = 'cursed-weapon-timer';
+let cookieName = 'grimoire-fragment-timer';
 let defaultChart = 'drop';
 let expectationInputMode = 'aggregate'; // 'aggregate' or 'direct'
 let syncCurrentEnabled = true;
@@ -45,6 +45,7 @@ let $current;
 let $objective;
 let $dropRate;
 let $statDropRateFilter;
+let $containsInitialBonus;
 
 let defaultState = {
   current: 20,
@@ -70,6 +71,7 @@ let defaultState = {
   dropRate: 1,
   statDropRateFilter: null,
   source: 'local',
+  contains_initial_bonus: true,
 };
 
 let defaultStorage = {
@@ -574,6 +576,7 @@ function _report() {
         lap: lap,
         quantity: quantity,
         rate: state.dropRate,
+        contains_initial_bonus: state.contains_initial_bonus ? 1 : 0,
       };
     })
     .toArray();
@@ -681,6 +684,7 @@ function updateRecentReport() {
           .append($('<td class="text-right" />').text(format(report.drop)))
           .append($('<td class="text-right" />').text(format(report.drop / report.lap, 3)))
           .append($('<td class="text-right" />').text(format(report.rate * 100) + '%'))
+          .append($('<td class="text-right" />').text(report.contains_initial_bonus ? t('込み') : t('除外')))
           .append($('<td />').text(moment(report.updated_at).tz('Asia/Tokyo').format('LLLL')))
           .appendTo($container);
       });
@@ -1254,6 +1258,15 @@ function initialize() {
       updateEstimate();
     })
     .val(state.source);
+
+
+  $containsInitialBonus = $('[name=contains_initial_bonus]:input')
+    .change(function () {
+      state.contains_initial_bonus = $(this).prop('checked');
+      saveState(state);
+      report();
+    })
+    .prop('checked', state.contains_initial_bonus);
 
 
   reporter = new Reporter(config.api, state.credentials);
