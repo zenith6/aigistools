@@ -47,7 +47,7 @@
         "stamina": 1,
         "expectation": 3,
         "drops": [
-          {"name": "グリモワールの書片3", "icon": "grimoire-fragment-3", "set": 2},
+          {"name": "グリモワールの書片3", "icon": "grimoire-fragment-3", "set": 1},
           {"name": "花束", "icon": "flower"}
         ],
         "experience": 140,
@@ -61,7 +61,7 @@
         "stamina": 2,
         "expectation": 3,
         "drops": [
-          {"name": "グリモワールの書片3", "icon": "grimoire-fragment-3", "set": 3},
+          {"name": "グリモワールの書片3", "icon": "grimoire-fragment-3", "set": 1},
           {"name": "ラセル", "icon": "lassell"},
           {"name": "魔水晶", "icon": "demon-crystal-1"}
         ],
@@ -76,7 +76,7 @@
         "stamina": 4,
         "expectation": 6,
         "drops": [
-          {"name": "グリモワールの書片3", "icon": "grimoire-fragment-3", "set": 1},
+          {"name": "グリモワールの書片3", "icon": "grimoire-fragment-3", "set": 2},
           {"name": "セシリー", "icon": "cecily"},
           {"name": "パレス", "icon": "palace"},
           {"name": "クリストファー", "icon": "christ"}
@@ -103,7 +103,7 @@
       },
       {
         "id": 2017042705,
-        "name": "樹霊の暴走",
+        "name": "暴食のボア",
         "charisma": 80,
         "stamina": 9,
         "expectation": 15,
