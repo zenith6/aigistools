@@ -50,7 +50,7 @@
           {"name": "グリモワールの書片3", "icon": "grimoire-fragment-3", "set": 1},
           {"name": "花束", "icon": "flower"}
         ],
-        "experience": 140,
+        "experience": 150,
         "gold": 900,
         "max_drop": 3
       },
@@ -65,7 +65,7 @@
           {"name": "ラセル", "icon": "lassell"},
           {"name": "魔水晶", "icon": "demon-crystal-1"}
         ],
-        "experience": 180,
+        "experience": 200,
         "gold": 1200,
         "max_drop": 3
       },
@@ -81,7 +81,7 @@
           {"name": "パレス", "icon": "palace"},
           {"name": "クリストファー", "icon": "christ"}
         ],
-        "experience": 240,
+        "experience": 280,
         "gold": 1800,
         "max_drop": 6
       },
@@ -97,7 +97,7 @@
           {"name": "エレイン", "icon": "elain"},
           {"name": "白銀の聖霊", "icon": "platinum-sprit"}
         ],
-        "experience": 300,
+        "experience": 360,
         "gold": 2100,
         "max_drop": 13
       },
@@ -113,9 +113,125 @@
           {"name": "プラチナアーマー", "icon": "platinum-bucket"},
           {"name": "魔水晶2", "icon": "demon-crystal-2"}
         ],
-        "experience": 370,
+        "experience": 450,
         "gold": 2700,
         "max_drop": 15
+      },
+      {
+        "id": 2017042706,
+        "name": "滑走する機甲兵",
+        "charisma": 40,
+        "stamina": 5,
+        "expectation": 9,
+        "drops": [
+          {
+            "name": "グリモワールの書片3",
+            "icon": "grimoire-fragment-3",
+            "set": 3
+          },
+          {
+            "name": "サイゾウ",
+            "icon": "saizou"
+          },
+          {
+            "name": "グラディス",
+            "icon": "gladys"
+          },
+          {
+            "name": "白バケツ",
+            "icon": "platinum-bucket"
+          }
+        ],
+        "experience": 300,
+        "gold": 1950,
+        "max_drop": 9
+      },
+      {
+        "id": 2017042707,
+        "name": "召喚の儀",
+        "charisma": 70,
+        "stamina": 8,
+        "expectation": 13,
+        "drops": [
+          {
+            "name": "グリモワールの書片5",
+            "icon": "grimoire-fragment-5",
+            "set": 2
+          },
+          {
+            "name": "グリモワールの書片3",
+            "icon": "grimoire-fragment-3"
+          },
+          {
+            "name": "メローネ",
+            "icon": "merone"
+          },
+          {
+            "name": "ルビー",
+            "icon": "ruby"
+          }
+        ],
+        "experience": 400,
+        "gold": 2550,
+        "max_drop": 13
+      },
+      {
+        "id": 2017042708,
+        "name": "黒鎧の魔神",
+        "charisma": 90,
+        "stamina": 12,
+        "expectation": 26,
+        "drops": [
+          {
+            "name": "グリモワールの書片5",
+            "icon": "grimoire-fragment-5",
+            "set": 4
+          },
+          {
+            "name": "グリモワールの書片3",
+            "icon": "grimoire-fragment-3",
+            "set": 2
+          },
+          {
+            "name": "グフタフ",
+            "icon": "gustav"
+          },
+          {
+            "name": "技強化の聖霊",
+            "icon": "rainbow-sprit"
+          }
+        ],
+        "experience": 620,
+        "gold": 3000,
+        "max_drop": 26
+      },
+      {
+        "id": 2017042709,
+        "name": "聖銀竜の騎士",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {
+            "name": "金聖霊",
+            "icon": "gold-sprit"
+          },
+          {
+            "name": "白聖霊",
+            "icon": "platinum-sprit"
+          },
+          {
+            "name": "黒聖霊",
+            "icon": "black-sprit"
+          },
+          {
+            "name": "虹聖霊",
+            "icon": "rainbow-sprit"
+          }
+        ],
+        "experience": 250,
+        "gold": 1800,
+        "max_drop": 0
       }
     ],
     "rewards": [
