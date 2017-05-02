@@ -180,17 +180,12 @@
         "name": "黒鎧の魔神",
         "charisma": 90,
         "stamina": 12,
-        "expectation": 26,
+        "expectation": 25,
         "drops": [
           {
             "name": "グリモワールの書片5",
             "icon": "grimoire-fragment-5",
-            "set": 4
-          },
-          {
-            "name": "グリモワールの書片3",
-            "icon": "grimoire-fragment-3",
-            "set": 2
+            "set": 5
           },
           {
             "name": "グフタフ",
@@ -203,7 +198,7 @@
         ],
         "experience": 620,
         "gold": 3000,
-        "max_drop": 26
+        "max_drop": 25
       },
       {
         "id": 2017042709,
