@@ -30,9 +30,15 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '定風珠の欠片タイマー',
+    id: 'teifushu-fragment-timer',
+    path: 'teifushu-fragment-timer/',
+  },
+  {
     name: 'グリモワールの書片タイマー',
     id: 'grimoire-fragment-timer',
     path: 'grimoire-fragment-timer/',
+    deprecated: true,
   },
   {
     name: '龍玉の欠片タイマー',
