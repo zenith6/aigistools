@@ -116,6 +116,118 @@
         "experience": 450,
         "gold": 3000,
         "max_drop": 15
+      },
+      {
+        "id": 2017061506,
+        "name": "操られし英霊",
+        "charisma": 40,
+        "stamina": 5,
+        "expectation": 9,
+        "drops": [
+          {
+            "name": "定風珠の欠片3",
+            "icon": "teifushu-fragment-3",
+            "set": 3
+          },
+          {
+            "name": "フィリス",
+            "icon": "philis"
+          },
+          {
+            "name": "グラディス",
+            "icon": "gladys"
+          },
+          {
+            "name": "白バケツ",
+            "icon": "platinum-bucket"
+          }
+        ],
+        "experience": 300,
+        "gold": 1800,
+        "max_drop": 9
+      },
+      {
+        "id": 2017061507,
+        "name": "風を操る者",
+        "charisma": 70,
+        "stamina": 8,
+        "expectation": 13,
+        "drops": [
+          {
+            "name": "定風珠の欠片5",
+            "icon": "teifushu-fragment-5",
+            "set": 2
+          },
+          {
+            "name": "定風珠の欠片3",
+            "icon": "teifushu-fragment-3",
+            "set": 1
+          },
+          {
+            "name": "フドウ",
+            "icon": "fudou"
+          },
+          {
+            "name": "ルビー",
+            "icon": "ruby"
+          }
+        ],
+        "experience": 400,
+        "gold": 2250,
+        "max_drop": 13
+      },
+      {
+        "id": 2017061508,
+        "name": "風雲急を告げる風",
+        "charisma": 90,
+        "stamina": 12,
+        "expectation": 25,
+        "drops": [
+          {
+            "name": "定風珠の欠片5",
+            "icon": "teifushu-fragment-5",
+            "set": 5
+          },
+          {
+            "name": "カズハ",
+            "icon": "kazuha"
+          },
+          {
+            "name": "技強化の聖霊",
+            "icon": "rainbow-sprit"
+          }
+        ],
+        "experience": 620,
+        "gold": 3000,
+        "max_drop": 25
+      },
+      {
+        "id": 2017061509,
+        "name": "雪山の白兎",
+        "charisma": 100,
+        "stamina": 2,
+        "expectation": 0,
+        "drops": [
+          {
+            "name": "金聖霊",
+            "icon": "gold-sprit"
+          },
+          {
+            "name": "白聖霊",
+            "icon": "platinum-sprit"
+          },
+          {
+            "name": "黒聖霊",
+            "icon": "black-sprit"
+          },
+          {
+            "name": "虹聖霊",
+            "icon": "rainbow-sprit"
+          }
+        ],
+        "experience": 250,
+        "gold": 1800,
+        "max_drop": 0
       }
     ],
     "rewards": [
