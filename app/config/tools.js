@@ -30,9 +30,15 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '勝利メダルタイマー',
+    id: 'victory-medal-timer',
+    path: 'victory-medal-timer/'
+  },
+  {
     name: '定風珠の欠片タイマー',
     id: 'teifushu-fragment-timer',
     path: 'teifushu-fragment-timer/',
+    deprecated: true
   },
   {
     name: 'グリモワールの書片タイマー',
