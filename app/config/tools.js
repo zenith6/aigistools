@@ -30,6 +30,11 @@ module.exports = [
     path: 'massgame/',
   },
   {
+    name: '傾国の妖狐と誘惑されし王子',
+    id: 'red-lycoris-timer',
+    path: 'red-lycoris-timer/'
+  },
+  {
     name: '勝利メダルタイマー',
     id: 'victory-medal-timer',
     path: 'victory-medal-timer/'
