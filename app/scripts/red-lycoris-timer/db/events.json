@@ -68,7 +68,7 @@
         "drops": [
           {"name": "赤い彼岸花3", "icon": "red-lycoris-3", "set": 2},
           {"name": "忍者カゲロウ", "icon": "kagerou"},
-          {"name": "見習い拳士マオ", "icon": ""},
+          {"name": "見習い拳士マオ", "icon": "mao"},
           {"name": "魔術師パレス", "icon": "palace"}
         ],
         "experience": 280,
@@ -134,7 +134,8 @@
         ],
         "experience": 300,
         "gold": 1950,
-        "max_drop": 9
+        "max_drop": 9,
+        "unused": true
       },
       {
         "id": 2017110907,
@@ -164,7 +165,8 @@
         ],
         "experience": 400,
         "gold": 2550,
-        "max_drop": 13
+        "max_drop": 13,
+        "unused": true
       },
       {
         "id": 2017110908,
@@ -189,7 +191,8 @@
         ],
         "experience": 620,
         "gold": 3000,
-        "max_drop": 25
+        "max_drop": 25,
+        "unused": true
       },
       {
         "id": 2017110909,
@@ -217,7 +220,8 @@
         ],
         "experience": 250,
         "gold": 1800,
-        "max_drop": 0
+        "max_drop": 0,
+        "unused": true
       }
     ],
     "rewards": [

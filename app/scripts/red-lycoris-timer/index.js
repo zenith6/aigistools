@@ -58,9 +58,9 @@ let defaultState = {
   syncCurrentEnabled: syncCurrentEnabled,
   maps: maps.map((map) => {
     return {
-      numLaps: 1,
-      numDrops: map.max_drop,
-      expectation: map.expectation
+      numLaps: map.unused ? 0 : 1,
+      numDrops: map.unused ? 0 : map.max_drop,
+      expectation: map.unused ? 0 : map.expectation
     };
   }),
   estimateTutorialHidden: false,
