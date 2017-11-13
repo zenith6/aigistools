@@ -32,3 +32,9 @@ npm start
 ## 作者
 
 Seiji Nitta <zenith6@gmail.com>
+
+
+## Contributors
+
+* Nobu BADAI [GitHub](https://github.com/nobody3594)
+* Peayton Chen [GitHub](https://github.com/aowakennomai)
