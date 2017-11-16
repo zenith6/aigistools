@@ -4,7 +4,7 @@
     "mission_id": 6,
     "periods": [
       ["2017/11/09 15:00:00", "2017/11/16 10:00:00"],
-      ["2017/11/16 15:00:00", "2017/11/23 10:00:00"]
+      ["2017/11/16 15:00:00", "2017/11/22 10:00:00"]
     ],
     "objectives": [
       {"value": 10, "title": "堕姫が仲間になる", "icon": "ochihime"},
@@ -109,7 +109,7 @@
       },
       {
         "id": 2017110906,
-        "name": "(未定)",
+        "name": "風舞う山道",
         "charisma": 40,
         "stamina": 5,
         "expectation": 9,
@@ -120,8 +120,8 @@
             "set": 3
           },
           {
-            "name": "???",
-            "icon": ""
+            "name": "足軽頭サノスケ",
+            "icon": "sanosuke"
           },
           {
             "name": "聖霊女王",
@@ -134,12 +134,11 @@
         ],
         "experience": 300,
         "gold": 1950,
-        "max_drop": 9,
-        "unused": true
+        "max_drop": 9
       },
       {
         "id": 2017110907,
-        "name": "(未定)",
+        "name": "雨を統べる邪仙",
         "charisma": 70,
         "stamina": 8,
         "expectation": 13,
@@ -155,8 +154,8 @@
             "set": 1
           },
           {
-            "name": "???",
-            "icon": ""
+            "name": "弓武者カズハ",
+            "icon": "kazuha"
           },
           {
             "name": "ルビー",
@@ -165,12 +164,11 @@
         ],
         "experience": 400,
         "gold": 2550,
-        "max_drop": 13,
-        "unused": true
+        "max_drop": 13
       },
       {
         "id": 2017110908,
-        "name": "(未定)",
+        "name": "逃避行の果て",
         "charisma": 90,
         "stamina": 12,
         "expectation": 25,
@@ -181,8 +179,8 @@
             "set": 5
           },
           {
-            "name": "???",
-            "icon": ""
+            "name": "傭兵クレイブ",
+            "icon": "grave"
           },
           {
             "name": "技強化の聖霊",
@@ -191,12 +189,11 @@
         ],
         "experience": 620,
         "gold": 3000,
-        "max_drop": 25,
-        "unused": true
+        "max_drop": 25
       },
       {
         "id": 2017110909,
-        "name": "(未定)",
+        "name": "黄泉の門",
         "charisma": 100,
         "stamina": 2,
         "expectation": 0,
@@ -220,8 +217,7 @@
         ],
         "experience": 250,
         "gold": 1800,
-        "max_drop": 0,
-        "unused": true
+        "max_drop": 0
       }
     ],
     "rewards": [
