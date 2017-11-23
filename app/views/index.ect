@@ -24,3 +24,13 @@
   <br />
   <span style="display: block; text-align: right;">zenith 2017年11月23日</span>
 </p>
+
+<nav class="tool-list">
+  <ul>
+    <% for tool in @config.tools: %>
+    <li class="tool tool-<%= tool.id %> <% if tool.deprecated: %>tool-deprecated<% end; %>"><a href="#">
+      <%= tool.name %></a>
+    </li>
+    <% end %>
+  </ul>
+</nav>
