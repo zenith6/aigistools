@@ -12,16 +12,15 @@
   <li><a href="#">メメンテナンスちゃんを始めキャラクターの画像はほぼ全てぴんくちゃんねるのアイギススレに投稿された物を使用しています。</a></li>
 <% end %>
 
-<nav class="tool-list">
-  <ul>
-    <% for tool in @config.tools: %>
-      <li class="tool tool-<%= tool.id %> <% if tool.deprecated: %>tool-deprecated<% end; %>"><a href="<%= @url(tool.path) %>">
-        <%= tool.name %></a>
-      </li>
-    <% end %>
-  </ul>
-</nav>
-
-<div class="maintenance">
-  <img src="<%= @asset('maintenance.png') %>">
-</div>
+<h2>【重要】画像の無断使用のお詫びと今後の対応につきまして 2017年11月23日</h2>
+<p>
+  弊サイト「千年戦争アイギスツール」に掲載・利用されている画像について、権利者の利用承諾を得ていない画像が含まれていました。<br />
+  関係者各位の皆様には大変ご不快な思いをさせ、またご迷惑をお掛けし、誠に申し訳ございませんでした。<br />
+  <br />
+  つきましては、該当画像を含むツールは全て非公開と致します。<br />
+  権利者様への謝罪、及び利用承諾が改めて得られるまで再公開は行いません。<br />
+  謝罪のご連絡が届かない方、またはご連絡先を非公開にされている権利者の方は、大変お手数ですが以下のメールアドレスへご連絡をお願い申し上げます。<br />
+  ご連絡先: <a class="email" href="mailto:zenith6@gmail.com">zenith6@gmail.com</a><br />
+  <br />
+  <span style="display: block; text-align: right;">zenith 2017年11月23日</span>
+</p>

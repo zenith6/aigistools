@@ -1,0 +1,18 @@
+<% extend '_layouts/_default' %>
+
+<% @name = undefined %>
+<% @description = '' %>
+<% @path = '' %>
+
+<% block 'style': %>
+  <link rel="stylesheet" href="<%= @asset('css/dark.css') %>" />
+<% end %>
+
+<% block 'copyright': %>
+<% end %>
+
+<h2>404 Not found</h2>
+<p>
+  リクエストされたページは非公開になっているか、または存在しません。<br />
+  <a href="<%= @url('/aigistools/') %>">トップへ戻る</a>
+</p>
